@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HEAT 서울 동네 검색 지도</title>
+__LEAFLET_CSS__
+<style>
+:root{
+  --bg:#F4F5F7; --panel:#FFFFFF; --ink:#1C2430; --muted:#6B7480; --faint:#9AA1AB; --line:#E3E6EA; --soft:#EEF0F3;
+  --h1:#F3EFE9; --h2:#F8D9BE; --h3:#F4B78C; --h4:#EC8E5C; --h5:#DA6136; --h6:#B33D22; --h7:#7A2513;
+  --c1:#2E68B0; --c2:#9EBEE2; --c3:#ECECE8; --c4:#F2A47E; --c5:#D4462A; --na:#DADDE1;
+  --t1:#E6E9ED; --t2:#B7C2CE; --t3:#6E8296;
+  --dong:#1F8A70; --sta:#2F5FB3; --gwon:#D9622B; --water:#5E9ED6; --warn:#B4541A; --warnbg:#FCEFE4;
+  --sel:#1C2430;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#14171C; --panel:#1B1F25; --ink:#E8EBEF; --muted:#9AA3AE; --faint:#6E7781; --line:#2C323A; --soft:#232830;
+  --h1:#2A2622; --h2:#4A3226; --h3:#71422B; --h4:#9A5330; --h5:#C46536; --h6:#E2834F; --h7:#F6B183;
+  --c1:#6FA3E0; --c2:#3B5878; --c3:#2E3238; --c4:#8C4E34; --c5:#EE7D55; --na:#2C3138;
+  --t1:#262B32; --t2:#3D4A58; --t3:#7F95AA;
+  --dong:#4CC2A0; --sta:#7FA6EA; --gwon:#F08A55; --water:#4F8CC4; --warn:#F0A877; --warnbg:#3A2A20; --sel:#E8EBEF;
+}}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);
+  font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;font-size:14px;line-height:1.5}
+button,input,select{font:inherit;color:inherit}
+.app{display:grid;grid-template-columns:minmax(0,1fr) 9px var(--pw,400px);height:100vh}
+#map{height:100%;background:var(--bg)}
+.gutter{cursor:col-resize;background:var(--bg);border-left:1px solid var(--line);border-right:1px solid var(--line);position:relative;touch-action:none}
+.gutter::after{content:'';position:absolute;left:3px;top:50%;width:1px;height:32px;margin-top:-16px;border-left:1px solid var(--faint);border-right:1px solid var(--faint)}
+.gutter:hover,.gutter.on{background:var(--soft)}
+body.dragging{cursor:col-resize;user-select:none}
+body.dragging #map{pointer-events:none}
+aside{background:var(--panel);overflow-y:auto;padding:22px 22px 40px}
+
+/* 머리 */
+.brand{display:flex;align-items:baseline;gap:10px;margin:0 0 18px}
+.brand b{font-size:22px;font-weight:800;letter-spacing:.06em}
+.brand span{color:var(--muted);font-size:13px}
+
+/* 버튼 묶음 */
+.seg{display:flex;background:var(--soft);border-radius:8px;padding:3px;gap:3px}
+.seg button{flex:1;border:0;background:transparent;border-radius:6px;padding:7px 0;color:var(--muted);font-weight:600;cursor:pointer}
+.seg button.on{background:var(--panel);color:var(--ink);box-shadow:0 1px 2px rgba(20,30,40,.12)}
+.seg button:focus-visible,.chip:focus-visible{outline:2px solid var(--sta);outline-offset:1px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.wins{margin:10px 0 0;display:none}
+body.chg .wins{display:flex}
+.wrow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:0 0 12px}
+.wrow div{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:6px 8px}
+.wrow div.on{border-color:var(--ink)}
+.wrow b{display:block;font-size:14px;color:var(--ink);font-variant-numeric:tabular-nums}
+.chip{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:4px 11px;font-size:13px;color:var(--muted);cursor:pointer}
+.chip.on{border-color:var(--ink);color:var(--ink);font-weight:600}
+
+/* 검색량 조작부 */
+.sctl{display:none;margin:16px 0 0}
+body.smode .sctl{display:block}
+.month{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 4px}
+.month b{font-size:26px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.month span{color:var(--muted);font-size:12px}
+input[type=range]{width:100%;accent-color:var(--h5);margin:2px 0 12px}
+.row2{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.row2 .seg{flex:0 0 auto;width:180px}
+.demo{background:var(--warnbg);color:var(--warn);border-radius:8px;padding:8px 10px;font-size:12.5px;margin:14px 0 0;display:none}
+
+/* 동 찾기, 레이어 */
+.find{margin:16px 0 0;position:relative}
+.find input{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.find input:focus{outline:2px solid var(--sta);outline-offset:-1px}
+.layers{display:flex;gap:14px;margin:10px 0 0;font-size:13px;color:var(--muted)}
+.layers label{display:flex;gap:5px;align-items:center;cursor:pointer}
+
+/* 상세 */
+#panel{margin:22px 0 0;padding:20px 0 0;border-top:1px solid var(--line)}
+.empty{color:var(--muted)}
+.dname{display:flex;align-items:baseline;gap:8px;margin:0 0 14px}
+.dname h2{font-size:24px;margin:0;font-weight:800;letter-spacing:-.01em}
+.dname span{color:var(--muted)}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 12px}
+.kpi{background:var(--soft);border-radius:10px;padding:10px 12px}
+.kpi small{display:block;color:var(--muted);font-size:12px}
+.kpi b{font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}
+.kpi b.up{color:var(--c5)} .kpi b.down{color:var(--c1)}
+.note{color:var(--faint);font-size:12px;margin:2px 0 0}
+details{margin:14px 0 0;border-top:1px solid var(--line);padding:10px 0 0}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';color:var(--muted);font-weight:400;font-size:18px}
+details[open] > summary::after{content:'−'}
+summary em{font-style:normal;color:var(--muted);font-weight:400;font-size:13px;margin-left:auto;margin-right:10px}
+.ch{margin:10px 0 0}
+.chh{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;margin:0 0 2px}
+.chh b{font-weight:600}
+.chh span{color:var(--muted);font-variant-numeric:tabular-nums}
+.chart{display:block;max-width:100%}
+.ax{display:flex;justify-content:flex-end;margin:4px 0 0;font-size:12px;color:var(--muted)}
+.ax label{display:flex;gap:5px;align-items:center;cursor:pointer}
+
+/* 이름표 */
+.slot{margin:14px 0 0}
+.slot h3{font-size:13px;color:var(--muted);font-weight:600;margin:0 0 6px}
+.nm{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;margin:0 0 7px}
+.nm .n{font-weight:600}
+.nm .w{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px}
+.nm .bar{grid-column:1 / -1;height:4px;background:var(--soft);border-radius:2px;overflow:hidden}
+.nm .bar i{display:block;height:100%}
+.nm.off .n,.nm.off .w{color:var(--faint);text-decoration:line-through}
+.flag{display:inline-block;font-size:11px;font-weight:600;color:var(--warn);background:var(--warnbg);border-radius:4px;padding:0 5px;margin-left:6px;vertical-align:1px;cursor:help}
+.none{color:var(--faint);font-size:13px;margin:0}
+.why{font-size:12.5px;color:var(--muted);margin:8px 0 0}
+.why p{margin:0 0 8px}
+.why b{color:var(--ink);font-weight:600}
+.help{font-size:12.5px;color:var(--muted)}
+.help p{margin:6px 0 0}
+
+/* 지도 위 */
+.legend{background:var(--panel);border-radius:10px;padding:10px 12px;box-shadow:0 1px 4px rgba(20,30,40,.18);font-size:12px;color:var(--muted);min-width:200px}
+.legend b{display:block;color:var(--ink);font-size:12.5px;margin:0 0 6px}
+.legend .bar{display:flex;height:10px;border-radius:3px;overflow:hidden}
+.legend .bar i{flex:1}
+.legend .ends{display:flex;justify-content:space-between;margin:3px 0 0;font-variant-numeric:tabular-nums}
+.legend .keys{display:flex;flex-direction:column;gap:3px}
+.legend .keys span{display:flex;gap:6px;align-items:center;min-width:180px}
+.legend .keys i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.gulabel{color:var(--ink);font-size:12px;font-weight:700;white-space:nowrap;transform:translate(-50%,-50%);text-shadow:0 0 3px var(--panel),0 0 3px var(--panel),0 0 2px var(--panel);pointer-events:none}
+.slabel,.llabel,.rlabel{white-space:nowrap;pointer-events:none;text-shadow:0 0 3px var(--panel),0 0 3px var(--panel),0 0 2px var(--panel)}
+.slabel{font-size:10.5px;color:var(--sta);font-weight:600;transform:translate(6px,-50%)}
+.slabel.big{font-size:11.5px;font-weight:700}
+.llabel{font-size:11px;font-weight:700;color:var(--ink);transform:translate(-50%,-50%)}
+.llabel i{font-style:normal;margin-right:3px}
+.llabel.green{color:#2F7A4E}
+.rlabel{font-size:13px;font-style:italic;font-weight:700;color:var(--water);letter-spacing:.3em}
+.dlabel{background:none;border:none;box-shadow:none;color:var(--ink);font-size:11px;font-weight:600;text-shadow:0 0 3px var(--panel),0 0 3px var(--panel)}
+.leaflet-container{font:inherit}
+.leaflet-interactive:focus{outline:none}
+.leaflet-popup-content{margin:12px 14px}
+.pop{font-size:13px;line-height:1.55;min-width:170px}
+.pop b{display:block;font-size:15px}
+.pop .g{color:var(--muted);font-size:12px;margin:0 0 6px}
+.pop .r{display:flex;justify-content:space-between;gap:12px}
+.pop .r span:first-child{color:var(--muted)}
+.ctip{position:fixed;z-index:2000;pointer-events:none;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 9px;font-size:12px;line-height:1.55;box-shadow:0 2px 8px rgba(20,30,40,.14);display:none;font-variant-numeric:tabular-nums}
+.ctip i{display:inline-block;width:10px;height:3px;vertical-align:3px;margin-right:5px}
+
+@media (max-width:760px){
+  .app{grid-template-columns:1fr;grid-template-rows:58vh auto;height:auto}
+  #map{height:58vh}
+  .gutter{display:none}
+  aside{padding:18px 16px 32px}
+}
+@media (prefers-reduced-motion: reduce){ *{scroll-behavior:auto!important} }
+</style>
+</head>
+<body>
+<div class="app">
+  <div id="map" aria-label="서울 행정동 지도"></div>
+  <div class="gutter" id="gutter" title="끌어서 너비 조절, 두 번 누르면 넓게"></div>
+  <aside>
+    <div class="brand"><b>HEAT</b><span>서울 동네 검색 지도</span></div>
+    <div class="seg" role="tablist"><button id="m_search">검색량</button><button id="m_tags" class="on">이름표</button></div>
+    <div class="demo" id="demo"></div>
+    <div class="sctl">
+      <div class="month"><b id="s_mlab"></b><span id="s_range"></span></div>
+      <input type="range" id="s_mon" min="0" max="0" value="0" aria-label="기준 달">
+      <div class="row2">
+        <div class="seg" id="s_met"><button data-v="level" class="on">검색량</button><button data-v="yoy">변화</button></div>
+        <div class="chips" id="s_tier"><button class="chip on" data-v="전체">전체</button><button class="chip" data-v="동네">동네</button><button class="chip" data-v="역">역</button><button class="chip" data-v="권역">상권</button></div>
+      </div>
+      <div class="chips wins" id="s_win"><button class="chip" data-v="1m">지난달</button><button class="chip" data-v="3m">3개월</button><button class="chip" data-v="3m_sa">3개월 계절 보정</button><button class="chip on" data-v="12m">1년</button></div>
+    </div>
+    <div class="find"><input id="q" list="dl" placeholder="동 이름 검색" aria-label="동 이름 검색"><datalist id="dl"></datalist></div>
+    <div class="layers">
+      <label><input type="checkbox" id="tg" checked>상권</label>
+      <label><input type="checkbox" id="ts" checked>역</label>
+      <label><input type="checkbox" id="tl" checked>랜드마크</label>
+    </div>
+    <div id="panel"><p class="empty">지도에서 동을 눌러 보세요.</p>
+      <details class="help"><summary>이 지도 보는 법</summary>
+        <p><b>이름표</b>: 동마다 검색에 쓰는 이름을 붙였어요. 동네 이름, 가까운 역, 상권 이름 세 가지예요. 색이 진할수록 붙은 종류가 많아요.</p>
+        <p><b>검색량</b>: 그 이름들로 네이버에서 맛집·카페·데이트 등을 찾은 양이에요. 문래 지역의 2022년 평균을 100으로 놓은 값이에요.</p>
+        <p><b>변화</b>: 서울 전체 흐름을 뺀 증감이에요. 지난달, 3개월 전, 3개월 전(계절 보정), 1년 전과 비교할 수 있어요. 계절 보정은 2022~2024년의 달별 패턴을 빼고 비교해요.</p>
+      </details>
+    </div>
+  </aside>
+</div>
+__LEAFLET_JS__
+<script id="data" type="application/json">__DATA__</script>
+<script>
+window.addEventListener('error', e => { const p = document.getElementById('panel'); if (p) p.innerHTML = '<p class="empty">지도를 그리지 못했어요: ' + (e.message || e) + '</p>'; });
+const D = JSON.parse(document.getElementById('data').textContent);
+if (!Array.isArray(D.links)) { const C = D.links.cols; D.links = D.links.rows.map(r => { const o = {}; C.forEach((c, i) => o[c] = r[i]); return o; }); }
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pct = v => (v === '' || v == null) ? '' : Math.round(v * 100) + '%';
+const fmtv = v => v == null ? '–' : (Math.abs(v) >= 100 ? v.toFixed(0) : Math.abs(v) >= 10 ? v.toFixed(1) : v.toFixed(2));
+const fmtp = v => v == null ? '–' : (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v * 100).toFixed(0) + '%';
+const staName = n => n.endsWith('역') ? n : n + '역';
+const ym = m => m ? `${m.slice(0, 4)}년 ${+m.slice(5, 7)}월` : '';
+
+const byDong = {};
+D.links.forEach(l => { (byDong[l.dong_code8] ||= []).push(l); });
+const slotsOf = c => new Set((byDong[c] || []).filter(l => l.usable == 1).map(l => l.tier)).size;
+const props = D.dongs.features.map(f => f.properties);
+
+// ---------- 검색량 계산 ----------
+const S = D.search || null;
+let MODE = 'tags';
+const SM = {tier: '전체', met: 'level', win: '12m', i: S ? S.months.length - 1 : 0};
+const WIN = {'1m': '지난달보다', '3m': '3개월 전보다', '3m_sa': '3개월 전보다 (계절 보정)', '12m': '1년 전보다'};
+const WS = {'1m': '지난달', '3m': '3개월', '3m_sa': '3개월 보정', '12m': '1년'};
+const DBW = {'1m': [-0.15, -0.05, 0.05, 0.15], '3m': [-0.2, -0.07, 0.07, 0.2], '3m_sa': [-0.2, -0.07, 0.07, 0.2], '12m': [-0.3, -0.1, 0.1, 0.3]};
+const ma3 = (a, i) => (i < 2 || a[i] == null || a[i-1] == null || a[i-2] == null) ? null : (a[i] + a[i-1] + a[i-2]) / 3;
+const yoy = (a, i) => { const x = ma3(a, i), y = ma3(a, i - 12); return (x == null || y == null || y <= 0) ? null : x / y - 1; };
+const TOT = {};
+if (S) ['전체','동네','역','권역'].forEach(t => { TOT[t] = S.months.map((_, i) => Object.values(S.dong).reduce((s, d) => s + ((d[t] && d[t][i]) || 0), 0)); });
+const shareOf = (a, t) => a.map((x, i) => (x == null || !TOT[t][i]) ? null : x / TOT[t][i]);
+// 서울 대비 비중과 계절 계수(2022~2024년, 12개월 이동평균 대비 달별 평균)는 한 번만 계산해 둔다
+const SHC = new Map(), SFC = new Map();
+const shareC = (key, a, t) => { if (!SHC.has(key)) SHC.set(key, shareOf(a, t)); return SHC.get(key); };
+function sfOf(key, sh){
+  if (SFC.has(key)) return SFC.get(key);
+  const n = sh.length, acc = Array(12).fill(0), cnt = Array(12).fill(0);
+  for (let i = 5; i + 6 < n; i++) {
+    if (S.months[i] >= '2025-01' || sh[i] == null) continue;
+    let s = 0, ok = true; for (let j = i - 5; j <= i + 6; j++) { if (sh[j] == null) { ok = false; break; } s += sh[j]; }
+    if (!ok || s <= 0) continue; const k = +S.months[i].slice(5, 7) - 1; acc[k] += sh[i] / (s / 12); cnt[k]++;
+  }
+  let f = acc.map((a, k) => cnt[k] ? a / cnt[k] : null);
+  if (f.some(x => x == null)) f = Array(12).fill(1); else { const mu = f.reduce((a, b) => a + b) / 12; f = f.map(x => x / mu); }
+  SFC.set(key, f); return f;
+}
+function chgOf(sh, key, win, i){
+  if (win === '1m') return (sh[i] == null || !sh[i - 1]) ? null : sh[i] / sh[i - 1] - 1;
+  const lag = win === '12m' ? 12 : 3;
+  let s = sh;
+  if (win === '3m_sa') { const f = sfOf(key, sh); s = sh.map((v, j) => v == null ? null : v / f[+S.months[j].slice(5, 7) - 1]); }
+  const x = ma3(s, i), y = ma3(s, i - lag); return (x == null || y == null || y <= 0) ? null : x / y - 1;
+}
+const sval = (code, tier, met, i, win) => { const a = S && S.dong[code] && S.dong[code][tier]; if (!a) return null;
+  return met === 'level' ? a[i] : chgOf(shareC(code + tier, a, tier), code + tier, win || SM.win, i); };
+const gchg = (kg, g, i, win) => chgOf(shareC('g' + kg, g, '전체'), 'g' + kg, win || SM.win, i);
+let QB = [];
+const HC = ['--h1','--h2','--h3','--h4','--h5','--h6','--h7'], CC = ['--c1','--c2','--c3','--c4','--c5'], DB = [-0.3, -0.1, 0.1, 0.3];
+function breaks(){
+  const v = props.map(p => sval(p.dong_code8, SM.tier, 'level', SM.i)).filter(x => x != null && x > 0).sort((a, b) => a - b);
+  QB = [1,2,3,4,5,6].map(k => v[Math.floor(v.length * k / 7)] ?? 0);
+}
+function scolor(v){
+  if (v == null) return css('--na');
+  if (SM.met === 'level') { let k = 0; while (k < 6 && v >= QB[k]) k++; return css(HC[k]); }
+  const db = DBW[SM.win]; let k = 0; while (k < 4 && v >= db[k]) k++; return css(CC[k]);
+}
+const TFILL = n => n >= 3 ? css('--t3') : n === 2 ? css('--t2') : css('--t1');
+const dongFill = code => MODE === 'search' ? scolor(sval(code, SM.tier, SM.met, SM.i)) : TFILL(slotsOf(code));
+
+// ---------- 지도 ----------
+const map = L.map('map', {zoomControl: true}).setView([37.5565, 126.99], 11);
+map.attributionControl.setPrefix(false);
+map.attributionControl.addAttribution('한강 © OpenStreetMap, 경계 vuski/admdongkor');
+map.createPane('water'); map.getPane('water').style.zIndex = 450; map.getPane('water').style.pointerEvents = 'none';
+let selected = null;
+const dongLayer = L.geoJSON(D.dongs, {
+  style: f => ({color: css('--panel'), weight: 0.8, fillColor: dongFill(f.properties.dong_code8), fillOpacity: 0.85}),
+  onEachFeature: (f, layer) => {
+    layer.on('click', e => select(f.properties.dong_code8, false, e.latlng));
+    layer.bindTooltip(`${f.properties.dong_name} <span style="color:${css('--muted')}">${f.properties.gu}</span>`, {sticky: true, direction: 'top'});
+  }
+}).addTo(map);
+const layerOf = {}; dongLayer.eachLayer(l => layerOf[l.feature.properties.dong_code8] = l);
+L.geoJSON(D.river, {pane: 'water', interactive: false, style: () => ({color: css('--water'), weight: 3, opacity: .9, lineCap: 'round'})}).addTo(map);
+L.geoJSON(D.gus, {interactive: false, style: () => ({color: css('--ink'), weight: 1.4, opacity: .5, fill: false})}).addTo(map);
+L.layerGroup(D.gu_labels.map(g => L.marker([g.lat, g.lon], {interactive: false, keyboard: false, icon: L.divIcon({className: 'gulabel', html: g.gu, iconSize: null})}))).addTo(map);
+const gwonLayer = L.geoJSON(D.gwon, {interactive: false, style: () => ({color: css('--gwon'), weight: 1.3, fill: false, dashArray: '3 3'})}).addTo(map);
+const gwonOf = {}; gwonLayer.eachLayer(l => gwonOf[l.feature.properties.gwon] = l);
+const staOf = {}; D.stations.forEach(s => staOf[s.name] = s);
+const hiLayer = L.layerGroup().addTo(map);
+
+const nLines = s => String(s.lines || '').split(',').filter(x => x.trim()).length;
+const staDot = L.layerGroup(), staBig = L.layerGroup(), staMid = L.layerGroup(), staAll = L.layerGroup();
+D.stations.forEach(s => {
+  const n = nLines(s);
+  L.circleMarker([s.lat, s.lon], {interactive: false, radius: n >= 2 ? 3.4 : 2.5, color: css('--sta'), weight: 1.5, fillColor: css('--panel'), fillOpacity: 1}).addTo(staDot);
+  const mk = L.marker([s.lat, s.lon], {interactive: false, keyboard: false, icon: L.divIcon({className: 'slabel' + (n >= 2 ? ' big' : ''), html: esc(staName(s.name)), iconSize: null})});
+  (n >= 3 ? staBig : n === 2 ? staMid : staAll).addLayer(mk);
+});
+const LMK = {'산': ['▲', 'green'], '공원': ['●', 'green']};
+const mkLm = p => { const k = LMK[p.kind] || ['■', ''];
+  return L.marker([p.lat, p.lon], {interactive: false, keyboard: false, icon: L.divIcon({className: 'llabel ' + k[1], html: `<i>${k[0]}</i>${esc(p.name)}`, iconSize: null})}); };
+const lm1 = L.layerGroup((D.landmarks || []).filter(p => p.p === 1).map(mkLm));
+const lm2 = L.layerGroup((D.landmarks || []).filter(p => p.p !== 1).map(mkLm));
+L.layerGroup([[37.5290, 126.9010], [37.5170, 127.0130], [37.5450, 127.1150]].map(p =>
+  L.marker(p, {interactive: false, keyboard: false, icon: L.divIcon({className: 'rlabel', html: '한강', iconSize: null})}))).addTo(map);
+function updateLabels(){
+  const z = map.getZoom(), st = ts.checked, lm = tl.checked;
+  const show = (lyr, on) => on ? (map.hasLayer(lyr) || lyr.addTo(map)) : map.removeLayer(lyr);
+  show(staDot, st && z >= 12); show(staBig, st && z >= 12); show(staMid, st && z >= 13); show(staAll, st && z >= 14);
+  show(lm1, lm && z >= 12); show(lm2, lm && z >= 13);
+}
+const tg = document.getElementById('tg'), ts = document.getElementById('ts'), tl = document.getElementById('tl');
+tg.onchange = () => tg.checked ? gwonLayer.addTo(map) : map.removeLayer(gwonLayer);
+ts.onchange = updateLabels; tl.onchange = updateLabels; map.on('zoomend', updateLabels);
+
+// ---------- 범례 ----------
+const legend = L.control({position: 'bottomleft'});
+legend.onAdd = () => { const d = L.DomUtil.create('div', 'legend'); d.id = 'legend'; L.DomEvent.disableClickPropagation(d); return d; };
+legend.addTo(map);
+function drawLegend(){
+  const el = document.getElementById('legend');
+  if (MODE === 'tags') {
+    const cnt = k => props.filter(p => slotsOf(p.dong_code8) === k).length;
+    el.innerHTML = `<b>붙은 이름 종류 (동 수)</b><div class="keys">
+      <span><i style="background:var(--t3)"></i>동네, 역, 상권 모두 <b style="display:inline;margin:0 0 0 auto;color:var(--ink)">${cnt(3)}</b></span>
+      <span><i style="background:var(--t2)"></i>두 가지 <b style="display:inline;margin:0 0 0 auto;color:var(--ink)">${cnt(2)}</b></span>
+      <span><i style="background:var(--t1)"></i>한 가지 <b style="display:inline;margin:0 0 0 auto;color:var(--ink)">${cnt(1)}</b></span></div>`;
+  } else if (SM.met === 'level') {
+    el.innerHTML = `<b>검색 지수${SM.tier === '전체' ? '' : ', ' + (SM.tier === '권역' ? '상권' : SM.tier)}</b><div class="bar">${HC.map(c => `<i style="background:var(${c})"></i>`).join('')}</div>
+      <div class="ends"><span>낮음</span><span>${fmtv(QB[3])}</span><span>${fmtv(QB[5])}+</span></div>`;
+  } else {
+    const db = DBW[SM.win];
+    el.innerHTML = `<b>${WIN[SM.win]}${SM.tier === '전체' ? '' : ', ' + (SM.tier === '권역' ? '상권' : SM.tier)}</b><div class="bar">${CC.map(c => `<i style="background:var(${c})"></i>`).join('')}</div>
+      <div class="ends"><span>${fmtp(db[0])}</span><span>비슷</span><span>${fmtp(db[3])}</span></div>`;
+  }
+}
+
+// ---------- 조작 ----------
+function restyle(){
+  if (MODE === 'search') { breaks(); document.getElementById('s_mlab').textContent = ym(S.months[SM.i]); }
+  dongLayer.setStyle(f => ({fillColor: dongFill(f.properties.dong_code8)}));
+  drawLegend(); map.closePopup();
+  if (selected) select(selected, false, null, true);
+}
+function setMode(m){
+  if (m === 'search' && !S) return;
+  MODE = m; document.body.classList.toggle('smode', m === 'search');
+  m_tags.classList.toggle('on', m === 'tags'); m_search.classList.toggle('on', m === 'search');
+  restyle();
+}
+const m_tags = document.getElementById('m_tags'), m_search = document.getElementById('m_search');
+m_tags.onclick = () => setMode('tags'); m_search.onclick = () => setMode('search');
+if (S) {
+  const r = document.getElementById('s_mon'); r.max = S.months.length - 1; r.value = SM.i;
+  r.oninput = e => { SM.i = +e.target.value; restyle(); };
+  document.getElementById('s_range').textContent = `${ym(S.months[0])} ~ ${ym(S.months[S.months.length - 1])}`;
+  document.querySelectorAll('#s_met button').forEach(b => b.onclick = () => {
+    SM.met = b.dataset.v; document.body.classList.toggle('chg', SM.met === 'yoy'); document.querySelectorAll('#s_met button').forEach(x => x.classList.toggle('on', x === b)); restyle(); });
+  document.querySelectorAll('#s_win .chip').forEach(b => b.onclick = () => {
+    SM.win = b.dataset.v; document.querySelectorAll('#s_win .chip').forEach(x => x.classList.toggle('on', x === b)); restyle(); });
+  document.querySelectorAll('#s_tier .chip').forEach(b => b.onclick = () => {
+    SM.tier = b.dataset.v; document.querySelectorAll('#s_tier .chip').forEach(x => x.classList.toggle('on', x === b)); restyle(); });
+  if (S.demo) { const dm = document.getElementById('demo'); dm.style.display = 'block'; dm.textContent = S.demo; }
+} else { m_search.disabled = true; m_search.title = '검색량 자료가 없어요'; }
+if (S) setMode('search');
+
+const dl = document.getElementById('dl');
+props.slice().sort((a, b) => a.dong_name.localeCompare(b.dong_name, 'ko')).forEach(p => {
+  const o = document.createElement('option'); o.value = `${p.dong_name} (${p.gu})`; dl.appendChild(o); });
+document.getElementById('q').addEventListener('change', e => {
+  const v = e.target.value.trim();
+  const p = props.find(p => `${p.dong_name} (${p.gu})` === v) || props.find(p => p.dong_name === v.replace(/\s*\(.*\)$/, ''));
+  if (p) select(p.dong_code8, true);
+});
+
+// ---------- 그래프 ----------
+const CH = {}; let chN = 0, AX0 = false;
+function niceStep(v){ if (!(v > 0)) return 1; const p = Math.pow(10, Math.floor(Math.log10(v))), f = v / p;
+  return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p; }
+function lineChart(series, opt){
+  const months = S.months, n = months.length, W = opt.w, H = opt.h, ml = 40, mr = 8, mt = 8, mb = 20;
+  const pw = W - ml - mr, ph = H - mt - mb;
+  const vals = series.flatMap(s => s.data.filter(x => x != null));
+  if (!vals.length) return '<p class="none">자료 없음</p>';
+  let vmin = Math.min(...vals), vmax = Math.max(...vals);
+  if (AX0) vmin = 0; if (vmax === vmin) vmax = vmin + 1;
+  const step = niceStep((vmax - vmin) / (opt.small ? 3 : 4));
+  const lo = Math.floor(vmin / step) * step, hi = Math.ceil(vmax / step) * step, ticks = [];
+  for (let v = lo; v <= hi + step * 1e-6; v += step) ticks.push(+v.toFixed(10));
+  const X = i => ml + i / (n - 1) * pw, Y = v => mt + ph - (v - lo) / (hi - lo) * ph;
+  let g = '';
+  ticks.forEach(v => { g += `<line x1="${ml}" x2="${W - mr}" y1="${Y(v).toFixed(1)}" y2="${Y(v).toFixed(1)}" stroke="${css('--line')}"/>`
+    + `<text x="${ml - 6}" y="${(Y(v) + 3.5).toFixed(1)}" text-anchor="end" font-size="10.5" fill="${css('--muted')}">${fmtv(v)}</text>`; });
+  months.forEach((m, i) => { if (m.endsWith('-01')) g += `<text x="${X(i).toFixed(1)}" y="${H - 5}" font-size="10.5" fill="${css('--muted')}">${m.slice(0, 4)}</text>`
+    + `<line x1="${X(i).toFixed(1)}" x2="${X(i).toFixed(1)}" y1="${mt + ph}" y2="${mt + ph + 4}" stroke="${css('--faint')}"/>`; });
+  g += `<line x1="${X(SM.i).toFixed(1)}" x2="${X(SM.i).toFixed(1)}" y1="${mt}" y2="${mt + ph}" stroke="${css('--ink')}" stroke-dasharray="3 3" opacity=".45"/>`;
+  series.forEach(s => { let d = '', pen = false;
+    s.data.forEach((v, i) => { if (v == null) { pen = false; return; } d += (pen ? 'L' : 'M') + X(i).toFixed(1) + ',' + Y(v).toFixed(1); pen = true; });
+    g += `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${s.width}" stroke-opacity="${s.op || 1}" stroke-linejoin="round" stroke-linecap="round"/>`; });
+  const last = series[series.length - 1].data[SM.i];
+  if (last != null) g += `<circle cx="${X(SM.i).toFixed(1)}" cy="${Y(last).toFixed(1)}" r="3.5" fill="${series[0].color}" stroke="${css('--panel')}" stroke-width="1.5"/>`;
+  const id = 'c' + (++chN); CH[id] = {series, ml, pw, n};
+  return `<svg class="chart" data-cid="${id}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${g}`
+    + `<line class="hv" x1="0" x2="0" y1="${mt}" y2="${mt + ph}" stroke="${css('--muted')}" style="display:none"/>`
+    + `<rect x="${ml}" y="${mt}" width="${pw}" height="${ph}" fill="transparent"/></svg>`;
+}
+const tip = document.createElement('div'); tip.className = 'ctip'; document.body.appendChild(tip);
+document.addEventListener('mousemove', e => {
+  const sv = e.target.closest && e.target.closest('svg[data-cid]');
+  document.querySelectorAll('svg[data-cid] .hv').forEach(l => { if (!sv || !sv.contains(l)) l.style.display = 'none'; });
+  if (!sv) { tip.style.display = 'none'; return; }
+  const c = CH[sv.dataset.cid]; if (!c) return;
+  const r = sv.getBoundingClientRect(), sx = r.width / sv.viewBox.baseVal.width;
+  const i = Math.max(0, Math.min(c.n - 1, Math.round(((e.clientX - r.left) / sx - c.ml) / c.pw * (c.n - 1))));
+  const hv = sv.querySelector('.hv'), hx = c.ml + i / (c.n - 1) * c.pw; hv.setAttribute('x1', hx); hv.setAttribute('x2', hx); hv.style.display = '';
+  tip.innerHTML = `<b>${ym(S.months[i])}</b>` + c.series.map(s => `<br><i style="background:${s.color};opacity:${s.op || 1}"></i>${esc(s.name)} ${fmtv(s.data[i])}`).join('');
+  tip.style.display = 'block';
+  tip.style.left = Math.min(e.clientX + 14, window.innerWidth - tip.offsetWidth - 8) + 'px'; tip.style.top = (e.clientY + 14) + 'px';
+});
+document.addEventListener('change', e => { if (e.target && e.target.id === 'ax0') { AX0 = e.target.checked; if (selected) select(selected, false, null, true); } });
+const TC = {'전체': '--ink', '동네': '--dong', '역': '--sta', '권역': '--gwon'};
+const pair = (a, color) => [{name: '월별', color, width: 1.2, op: .45, data: a}, {name: '3개월 평균', color, width: 2.4, data: a.map((_, i) => ma3(a, i))}];
+
+// ---------- 상세 패널 ----------
+function searchHTML(code, L_){
+  const d = S.dong[code] || {}, W = Math.max(260, document.getElementById('panel').clientWidth);
+  const lv = sval(code, SM.tier, 'level', SM.i), ch = sval(code, SM.tier, 'yoy', SM.i);
+  const tierLab = SM.tier === '전체' ? '' : `, ${SM.tier === '권역' ? '상권' : SM.tier}`;
+  let h = `<div class="kpis"><div class="kpi"><small>검색 지수${tierLab}</small><b>${fmtv(lv)}</b></div>
+    <div class="kpi"><small>${WIN[SM.win]}</small><b class="${ch > 0.05 ? 'up' : ch < -0.05 ? 'down' : ''}">${fmtp(ch)}</b></div></div>
+    <div class="wrow">${Object.keys(WS).map(w => `<div class="${w === SM.win ? 'on' : ''}">${WS[w]}<b>${fmtp(sval(code, SM.tier, 'yoy', SM.i, w))}</b></div>`).join('')}</div>`;
+  h += d[SM.tier] ? `<div class="ch">${lineChart(pair(d[SM.tier], css(TC[SM.tier])), {w: W, h: 230})}</div>
+    <div class="ax"><label><input type="checkbox" id="ax0" ${AX0 ? 'checked' : ''}>세로축 0부터</label></div>` : '<p class="none">이 동은 검색량 자료가 없어요.</p>';
+  const tiers = ['전체','동네','역','권역'].filter(t => t !== SM.tier && d[t]);
+  if (tiers.length) h += `<details><summary>종류별 추이<em>${tiers.length}개</em></summary>` + tiers.map(t =>
+    `<div class="ch"><div class="chh"><b>${t === '권역' ? '상권' : t}</b><span>${fmtv(d[t][SM.i])}&nbsp;&nbsp;${WS[SM.win]} ${fmtp(sval(code, t, 'yoy', SM.i))}</span></div>${lineChart(pair(d[t], css(TC[t])), {w: W, h: 150, small: true})}</div>`).join('') + '</details>';
+  const names = ['동네','역','권역'].flatMap(t => L_.filter(l => l.tier == t && l.usable == 1).sort((a, b) => b.weight - a.weight).map(l => ({t, l})));
+  if (names.length) h += `<details><summary>이름별 추이<em>${names.length}개</em></summary>` + names.map(({t, l}) => {
+    const g = S.groups[l.keyword_group_id], ex = S.excluded[l.keyword_group_id], nm = t === '역' ? staName(l.name) : l.name;
+    if (ex || !g) return `<div class="ch"><div class="chh"><b>${esc(nm)}</b><span>쓰지 않음: ${esc(ex || '자료 없음')}</span></div></div>`;
+    return `<div class="ch"><div class="chh"><b>${esc(nm)} <span>${pct(l.weight)}</span></b><span>${fmtv(g[SM.i])}&nbsp;&nbsp;${WS[SM.win]} ${fmtp(gchg(l.keyword_group_id, g, SM.i))}</span></div>${lineChart(pair(g, css(TC[t])), {w: W, h: 130, small: true})}</div>`;
+  }).join('') + '</details>';
+  return h;
+}
+const cleanFlag = f => String(f || '').split(';').map(s => s.trim()).filter(s => s && !s.startsWith('권역 검색어 확인')).join(', ');
+function tagsHTML(L_){
+  const sec = (t, title) => {
+    const rows = L_.filter(l => l.tier == t).sort((a, b) => b.usable - a.usable || b.weight - a.weight);
+    const body = rows.length ? rows.map(l => {
+      const fl = cleanFlag((D.flags[l.name_id] || {}).flags), nm = t === '역' ? staName(l.name) : l.name;
+      return `<div class="nm ${l.usable == 1 ? '' : 'off'}"><span class="n">${esc(nm)}${fl ? `<span class="flag" title="${esc(fl)}">확인</span>` : ''}</span>
+        <span class="w">${l.usable == 1 ? pct(l.weight) : '안 씀'}</span><span class="bar"><i style="width:${(l.usable == 1 ? l.weight : 0) * 100}%;background:var(${TC[t]})"></i></span></div>`; }).join('')
+      : `<p class="none">없음</p>`;
+    return `<div class="slot"><h3>${title}</h3>${body}</div>`;
+  };
+  const why = L_.map(l => { const g = D.groups[l.keyword_group_id] || {}, fl = cleanFlag((D.flags[l.name_id] || {}).flags), nm = l.tier === '역' ? staName(l.name) : l.name;
+    return `<p><b>${esc(nm)}</b> ${esc(l.method)} ${pct(l.share)}${l.usable == 1 ? '' : ' (같은 이름이 다른 곳에 있어 안 씀)'}${fl ? '<br>주의: ' + esc(fl) : ''}<br>검색어: ${esc(g.keywords)}</p>`; }).join('');
+  return sec('동네', '동네 이름') + sec('역', '가까운 역') + sec('권역', '상권 이름')
+    + `<details><summary>근거와 검색어</summary><div class="why">${why}</div></details>`;
+}
+function select(code, fly, at, quiet){
+  selected = code;
+  const lay = layerOf[code], p = lay.feature.properties, L_ = byDong[code] || [];
+  hiLayer.clearLayers();
+  L.geoJSON(lay.feature, {interactive: false, style: {color: css('--sel'), weight: 3, fill: false}}).addTo(hiLayer);
+  if (fly) map.fitBounds(lay.getBounds(), {maxZoom: 14, padding: [30, 30]});
+  L_.filter(l => l.tier == '역' && l.usable == 1).forEach(l => { const s = staOf[l.name]; if (!s) return;
+    L.circleMarker([s.lat, s.lon], {interactive: false, radius: 4 + 9 * l.weight, color: css('--sta'), weight: 2, fillColor: css('--sta'), fillOpacity: .3}).addTo(hiLayer); });
+  L_.filter(l => l.tier == '권역' && l.usable == 1).forEach(l => { const g = gwonOf[l.name];
+    if (g) L.geoJSON(g.feature, {interactive: false, style: {color: css('--gwon'), weight: 2.5, fillColor: css('--gwon'), fillOpacity: .15}}).addTo(hiLayer); });
+  const body = MODE === 'search' ? searchHTML(code, L_) + `<details><summary>이 동의 이름표</summary>${tagsHTML(L_)}</details>` : tagsHTML(L_);
+  document.getElementById('panel').innerHTML = `<div class="dname"><h2>${esc(p.dong_name)}</h2><span>${esc(p.gu)}</span></div>${body}`;
+  if (quiet) return;
+  const top = t => { const r = L_.filter(l => l.tier == t && l.usable == 1).sort((a, b) => b.weight - a.weight);
+    return r.length ? esc(t === '역' ? staName(r[0].name) : r[0].name) + (r.length > 1 ? ` 외 ${r.length - 1}` : '') : '–'; };
+  const rows = MODE === 'search'
+    ? `<div class="r"><span>검색 지수</span><span>${fmtv(sval(code, SM.tier, 'level', SM.i))}</span></div><div class="r"><span>${WIN[SM.win]}</span><span>${fmtp(sval(code, SM.tier, 'yoy', SM.i))}</span></div>`
+    : `<div class="r"><span>동네</span><span>${top('동네')}</span></div><div class="r"><span>역</span><span>${top('역')}</span></div><div class="r"><span>상권</span><span>${top('권역')}</span></div>`;
+  lay.closeTooltip();
+  L.popup({maxWidth: 260, autoPanPadding: [20, 20]}).setLatLng(at || lay.getCenter())
+    .setContent(`<div class="pop"><b>${esc(p.dong_name)}</b><div class="g">${esc(p.gu)}</div>${rows}</div>`).openOn(map);
+  if (window.innerWidth <= 760) document.getElementById('panel').scrollIntoView({behavior: 'smooth', block: 'start'});
+  else document.querySelector('aside').scrollTop = 0;
+}
+
+// ---------- 패널 너비 ----------
+(function(){
+  const gt = document.getElementById('gutter'), root = document.documentElement;
+  const setW = w => { w = Math.max(320, Math.min(window.innerWidth - 320, w)); root.style.setProperty('--pw', w + 'px'); };
+  try { const s = +localStorage.getItem('heat_pw'); if (s) setW(s); } catch (e) {}
+  let raf = 0, cur = null;
+  const done = () => { map.invalidateSize(); if (selected) select(selected, false, null, true);
+    try { localStorage.setItem('heat_pw', parseInt(getComputedStyle(root).getPropertyValue('--pw')) || 400); } catch (e) {} };
+  gt.addEventListener('pointerdown', e => { cur = e.pointerId; gt.setPointerCapture(cur); gt.classList.add('on'); document.body.classList.add('dragging'); });
+  gt.addEventListener('pointermove', e => { if (cur == null) return; setW(window.innerWidth - e.clientX - 4);
+    if (!raf) raf = requestAnimationFrame(() => { raf = 0; map.invalidateSize(); }); });
+  const up = () => { if (cur == null) return; cur = null; gt.classList.remove('on'); document.body.classList.remove('dragging'); done(); };
+  gt.addEventListener('pointerup', up); gt.addEventListener('pointercancel', up);
+  gt.addEventListener('dblclick', () => { const now = parseInt(getComputedStyle(root).getPropertyValue('--pw')) || 400;
+    setW(now < window.innerWidth * 0.45 ? Math.round(window.innerWidth * 0.55) : 400); done(); });
+})();
+updateLabels(); drawLegend();
+</script>
+</body>
+</html>

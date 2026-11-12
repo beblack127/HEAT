@@ -1,0 +1,48 @@
+{
+ "stores_active_2023_2025": 216780,
+ "stores_active_2023_01": 156796,
+ "coord_epsg5174": 200016,
+ "coord_epsg5179": 14521,
+ "coord_unusable": 1,
+ "stores_with_coords_in_seoul": 214504,
+ "stores_2023_01_in_seoul": 154905,
+ "stores_with_legal_dong": 154816,
+ "n_dong": 427,
+ "n_names": {
+  "동네": 347,
+  "역": 315,
+  "권역": 57
+ },
+ "n_keyword_groups": 566,
+ "n_ambiguous_groups": 4,
+ "coverage": {
+  "동네": 423,
+  "역": 417,
+  "권역": 75
+ },
+ "slots_dist": {
+  "1": 14,
+  "2": 338,
+  "3": 75
+ },
+ "n_links": {
+  "동네": 582,
+  "역": 1923,
+  "권역": 101
+ },
+ "flagged_names": 152,
+ "links_unusable": 6,
+ "n_admin_name_tags": 45,
+ "ambiguous_roots": {
+  "송정": "성동구 송정동, 성동구 용답동",
+  "신림": "관악구 난향동",
+  "신사": "은평구 신사1동, 은평구 신사2동",
+  "잠실": "송파구 잠실7동"
+ },
+ "dong_no_store": 0,
+ "station_sensitivity": {
+  "500": 380,
+  "1000": 417,
+  "1500": 425
+ }
+}

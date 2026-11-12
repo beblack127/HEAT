@@ -1,0 +1,24 @@
+# 비밀 정보 — 절대 커밋하지 않는다
+.env
+.env.*
+*.rtf
+*secret*
+*계정*
+
+# 큰 원본·중간 파일 (팀 폴더에서 받아 로컬에 둔다)
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/search_api/
+data/interim/*
+!data/interim/.gitkeep
+
+# 빌드·캐시
+build/
+results/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+.DS_Store
+.vscode/
