@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HEAT 서울 동네 검색 지도</title>
+<title>HEAT 서울 동네 지도</title>
 __LEAFLET_CSS__
 <style>
 :root{
@@ -63,6 +63,14 @@ body.smode .sctl{display:block}
 input[type=range]{width:100%;accent-color:var(--h5);margin:2px 0 12px}
 .row2{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .row2 .seg{flex:0 0 auto;width:180px}
+.fctl{display:none;margin:16px 0 0}
+body.fmode .fctl{display:block}
+.fopt{display:flex;gap:6px;align-items:center;margin:10px 0 0;font-size:13px;color:var(--muted);cursor:pointer;width:max-content}
+.warnbox{background:var(--warnbg);color:var(--warn);border-radius:8px;padding:8px 10px;font-size:12.5px;margin:0 0 12px}
+.kpi small em{font-style:normal;color:var(--faint)}
+.kpi .sub{display:block;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.key{display:inline-flex;gap:5px;align-items:center;margin-left:10px}
+.key i{display:inline-block;width:12px;height:3px;border-radius:2px}
 .demo{background:var(--warnbg);color:var(--warn);border-radius:8px;padding:8px 10px;font-size:12.5px;margin:14px 0 0;display:none}
 
 /* 동 찾기, 레이어 */
@@ -158,8 +166,8 @@ summary em{font-style:normal;color:var(--muted);font-weight:400;font-size:13px;m
   <div id="map" aria-label="서울 행정동 지도"></div>
   <div class="gutter" id="gutter" title="끌어서 너비 조절, 두 번 누르면 넓게"></div>
   <aside>
-    <div class="brand"><b>HEAT</b><span>서울 동네 검색 지도</span></div>
-    <div class="seg" role="tablist"><button id="m_search">검색량</button><button id="m_tags" class="on">이름표</button></div>
+    <div class="brand"><b>HEAT</b><span>서울 동네 지도</span></div>
+    <div class="seg" role="tablist"><button id="m_search">검색량</button><button id="m_fnb">개폐업</button><button id="m_tags" class="on">이름표</button></div>
     <div class="demo" id="demo"></div>
     <div class="sctl">
       <div class="month"><b id="s_mlab"></b><span id="s_range"></span></div>
@@ -169,6 +177,13 @@ summary em{font-style:normal;color:var(--muted);font-weight:400;font-size:13px;m
         <div class="chips" id="s_tier"><button class="chip on" data-v="전체">전체</button><button class="chip" data-v="동네">동네</button><button class="chip" data-v="역">역</button><button class="chip" data-v="권역">상권</button></div>
       </div>
       <div class="chips wins" id="s_win"><button class="chip" data-v="1m">지난달</button><button class="chip" data-v="3m">3개월</button><button class="chip" data-v="3m_sa">3개월 계절 보정</button><button class="chip on" data-v="12m">1년</button></div>
+    </div>
+    <div class="fctl">
+      <div class="month"><b id="f_mlab"></b><span id="f_range"></span></div>
+      <input type="range" id="f_mon" min="0" max="0" value="0" aria-label="기준 달">
+      <div class="seg" id="f_met"><button data-v="open" class="on">개업</button><button data-v="close">폐업</button><button data-v="net">순증률</button><button data-v="grow">점포 증감</button></div>
+      <div class="chips" id="f_win" style="margin:10px 0 0"><button class="chip" data-v="1">1개월</button><button class="chip" data-v="3">3개월</button><button class="chip on" data-v="12">12개월</button></div>
+      <label class="fopt"><input type="checkbox" id="f_bulk">일괄 폐업 포함</label>
     </div>
     <div class="find"><input id="q" list="dl" placeholder="동 이름 검색" aria-label="동 이름 검색"><datalist id="dl"></datalist></div>
     <div class="layers">
@@ -181,6 +196,8 @@ summary em{font-style:normal;color:var(--muted);font-weight:400;font-size:13px;m
         <p><b>이름표</b>: 동마다 검색에 쓰는 이름을 붙였어요. 동네 이름, 가까운 역, 상권 이름 세 가지예요. 색이 진할수록 붙은 종류가 많아요.</p>
         <p><b>검색량</b>: 그 이름들로 네이버에서 맛집·카페·데이트 등을 찾은 양이에요. 문래 지역의 2022년 평균을 100으로 놓은 값이에요.</p>
         <p><b>변화</b>: 서울 전체 흐름을 뺀 증감이에요. 지난달, 3개월 전, 3개월 전(계절 보정), 1년 전과 비교할 수 있어요. 계절 보정은 2022~2024년의 달별 패턴을 빼고 비교해요.</p>
+        <p><b>개폐업</b>: 서울시 인허가 자료의 일반·휴게음식점(편의점 등 제외)을 동별로 센 값이에요. 개업·폐업은 최근 1·3·12개월 합이고, 순증률은 (개업 − 폐업) ÷ 기간 시작 때 영업 점포, 점포 증감은 영업 점포 수의 변화율이에요.</p>
+        <p><b>일괄 폐업</b>: 같은 날 한 동에서 한꺼번에 처리된 폐업이에요. 행정 정리가 많아 기본으로 빼고 셉니다. 2026년 10월은 일부만 집계돼 넣지 않았어요.</p>
       </details>
     </div>
   </aside>
@@ -252,8 +269,45 @@ function scolor(v){
   if (SM.met === 'level') { let k = 0; while (k < 6 && v >= QB[k]) k++; return css(HC[k]); }
   const db = DBW[SM.win]; let k = 0; while (k < 4 && v >= db[k]) k++; return css(CC[k]);
 }
+// ---------- 개폐업 계산 ----------
+const F = D.fnb || null;
+const FM = {met: 'open', win: 12, bulk: false, i: F ? F.months.length - 1 : 0};
+const FLAB = {open: '개업', close: '폐업', net: '순증률', grow: '점포 증감'};
+const FDB = {1: [-0.01, -0.003, 0.003, 0.01], 3: [-0.02, -0.006, 0.006, 0.02], 12: [-0.05, -0.015, 0.015, 0.05]};
+const FMIN = 30;   // 기간 시작 때 영업 점포가 이보다 적으면 비율을 칠하지 않는다 (작은 동은 비율이 크게 튐)
+const isRate = met => met === 'net' || met === 'grow';
+const fmtn = v => v == null ? '–' : Math.round(v).toLocaleString('ko-KR');
+const fmt1 = v => v == null ? '–' : (Math.abs(v) >= 100 ? Math.round(v).toLocaleString('ko-KR') : v.toFixed(1));
+const fmtp1 = v => v == null ? '–' : (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v * 100).toFixed(1) + '%';
+const fshow = (met, v) => isRate(met) ? fmtp1(v) : fmtn(v);
+const wsum = (a, i, n) => { if (!a || i - n + 1 < 0) return null; let s = 0;
+  for (let j = i - n + 1; j <= i; j++) { if (a[j] == null) return null; s += a[j]; } return s; };
+const closesOf = d => FM.bulk ? d.Ck : d.Cd;
+function fstat(d, i, n, met){
+  if (!d) return null;
+  if (met === 'open') return wsum(d.O, i, n);
+  if (met === 'close') return wsum(closesOf(d), i, n);
+  const s0 = i - n >= 0 ? d.S[i - n] : null; if (!s0) return null;
+  if (met === 'grow') return d.S[i] == null ? null : d.S[i] / s0 - 1;
+  const o = wsum(d.O, i, n), c = wsum(closesOf(d), i, n); return (o == null || c == null) ? null : (o - c) / s0;
+}
+const small = (d, i, n) => !d || i - n < 0 || d.S[i - n] == null || d.S[i - n] < FMIN;
+const fval = (code, met, i, n) => { const d = F && F.dong[code]; if (!d || (isRate(met) && small(d, i, n))) return null; return fstat(d, i, n, met); };
+let FQB = [];
+function fbreaks(){
+  if (isRate(FM.met)) return;
+  const v = props.map(p => fval(p.dong_code8, FM.met, FM.i, FM.win)).filter(x => x != null && x > 0).sort((a, b) => a - b);
+  FQB = [1,2,3,4,5,6].map(k => v[Math.floor(v.length * k / 7)] ?? 0);
+}
+function fcolor(v){
+  if (v == null) return css('--na');
+  if (!isRate(FM.met)) { let k = 0; while (k < 6 && v >= FQB[k]) k++; return css(HC[k]); }
+  const db = FDB[FM.win]; let k = 0; while (k < 4 && v >= db[k]) k++; return css(CC[k]);
+}
+
 const TFILL = n => n >= 3 ? css('--t3') : n === 2 ? css('--t2') : css('--t1');
-const dongFill = code => MODE === 'search' ? scolor(sval(code, SM.tier, SM.met, SM.i)) : TFILL(slotsOf(code));
+const dongFill = code => MODE === 'search' ? scolor(sval(code, SM.tier, SM.met, SM.i))
+  : MODE === 'fnb' ? fcolor(fval(code, FM.met, FM.i, FM.win)) : TFILL(slotsOf(code));
 
 // ---------- 지도 ----------
 const map = L.map('map', {zoomControl: true}).setView([37.5565, 126.99], 11);
@@ -314,6 +368,17 @@ function drawLegend(){
       <span><i style="background:var(--t3)"></i>동네, 역, 상권 모두 <b style="display:inline;margin:0 0 0 auto;color:var(--ink)">${cnt(3)}</b></span>
       <span><i style="background:var(--t2)"></i>두 가지 <b style="display:inline;margin:0 0 0 auto;color:var(--ink)">${cnt(2)}</b></span>
       <span><i style="background:var(--t1)"></i>한 가지 <b style="display:inline;margin:0 0 0 auto;color:var(--ink)">${cnt(1)}</b></span></div>`;
+  } else if (MODE === 'fnb') {
+    const per = `최근 ${FM.win}개월`, bulk = FM.met !== 'open' && FM.met !== 'grow' ? (FM.bulk ? ', 일괄 폐업 포함' : ', 일괄 폐업 제외') : '';
+    if (!isRate(FM.met)) {
+      el.innerHTML = `<b>${FLAB[FM.met]} 수, ${per}${bulk}</b><div class="bar">${HC.map(c => `<i style="background:var(${c})"></i>`).join('')}</div>
+        <div class="ends"><span>적음</span><span>${fmtn(FQB[3])}</span><span>${fmtn(FQB[5])}+</span></div>`;
+    } else {
+      const db = FDB[FM.win], sv = fstat(F.seoul, FM.i, FM.win, FM.met);
+      el.innerHTML = `<b>${FLAB[FM.met]}, ${per}${bulk}</b><div class="bar">${CC.map(c => `<i style="background:var(${c})"></i>`).join('')}</div>
+        <div class="ends"><span>${fmtp1(db[0])}</span><span>0</span><span>${fmtp1(db[3])}</span></div>
+        <div style="margin:5px 0 0">서울 전체 ${fmtp1(sv)} · 점포 ${FMIN}개 미만 동은 회색</div>`;
+    }
   } else if (SM.met === 'level') {
     el.innerHTML = `<b>검색 지수${SM.tier === '전체' ? '' : ', ' + (SM.tier === '권역' ? '상권' : SM.tier)}</b><div class="bar">${HC.map(c => `<i style="background:var(${c})"></i>`).join('')}</div>
       <div class="ends"><span>낮음</span><span>${fmtv(QB[3])}</span><span>${fmtv(QB[5])}+</span></div>`;
@@ -327,18 +392,29 @@ function drawLegend(){
 // ---------- 조작 ----------
 function restyle(){
   if (MODE === 'search') { breaks(); document.getElementById('s_mlab').textContent = ym(S.months[SM.i]); }
+  if (MODE === 'fnb') { fbreaks(); document.getElementById('f_mlab').textContent = ym(F.months[FM.i]); }
   dongLayer.setStyle(f => ({fillColor: dongFill(f.properties.dong_code8)}));
   drawLegend(); map.closePopup();
   if (selected) select(selected, false, null, true);
 }
 function setMode(m){
-  if (m === 'search' && !S) return;
-  MODE = m; document.body.classList.toggle('smode', m === 'search');
-  m_tags.classList.toggle('on', m === 'tags'); m_search.classList.toggle('on', m === 'search');
+  if ((m === 'search' && !S) || (m === 'fnb' && !F)) return;
+  MODE = m; document.body.classList.toggle('smode', m === 'search'); document.body.classList.toggle('fmode', m === 'fnb');
+  m_tags.classList.toggle('on', m === 'tags'); m_search.classList.toggle('on', m === 'search'); m_fnb.classList.toggle('on', m === 'fnb');
   restyle();
 }
-const m_tags = document.getElementById('m_tags'), m_search = document.getElementById('m_search');
-m_tags.onclick = () => setMode('tags'); m_search.onclick = () => setMode('search');
+const m_tags = document.getElementById('m_tags'), m_search = document.getElementById('m_search'), m_fnb = document.getElementById('m_fnb');
+m_tags.onclick = () => setMode('tags'); m_search.onclick = () => setMode('search'); m_fnb.onclick = () => setMode('fnb');
+if (F) {
+  const r = document.getElementById('f_mon'); r.max = F.months.length - 1; r.value = FM.i;
+  r.oninput = e => { FM.i = +e.target.value; restyle(); };
+  document.getElementById('f_range').textContent = `${ym(F.months[0])} ~ ${ym(F.months[F.months.length - 1])}`;
+  document.querySelectorAll('#f_met button').forEach(b => b.onclick = () => {
+    FM.met = b.dataset.v; document.querySelectorAll('#f_met button').forEach(x => x.classList.toggle('on', x === b)); restyle(); });
+  document.querySelectorAll('#f_win .chip').forEach(b => b.onclick = () => {
+    FM.win = +b.dataset.v; document.querySelectorAll('#f_win .chip').forEach(x => x.classList.toggle('on', x === b)); restyle(); });
+  document.getElementById('f_bulk').onchange = e => { FM.bulk = e.target.checked; restyle(); };
+} else { m_fnb.disabled = true; m_fnb.title = '개폐업 자료가 없어요'; }
 if (S) {
   const r = document.getElementById('s_mon'); r.max = S.months.length - 1; r.value = SM.i;
   r.oninput = e => { SM.i = +e.target.value; restyle(); };
@@ -367,7 +443,7 @@ const CH = {}; let chN = 0, AX0 = false;
 function niceStep(v){ if (!(v > 0)) return 1; const p = Math.pow(10, Math.floor(Math.log10(v))), f = v / p;
   return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p; }
 function lineChart(series, opt){
-  const months = S.months, n = months.length, W = opt.w, H = opt.h, ml = 40, mr = 8, mt = 8, mb = 20;
+  const months = opt.months || S.months, cur = opt.i ?? SM.i, tf = opt.tf || fmtv, n = months.length, W = opt.w, H = opt.h, ml = 40, mr = 8, mt = 8, mb = 20;
   const pw = W - ml - mr, ph = H - mt - mb;
   const vals = series.flatMap(s => s.data.filter(x => x != null));
   if (!vals.length) return '<p class="none">자료 없음</p>';
@@ -379,16 +455,18 @@ function lineChart(series, opt){
   const X = i => ml + i / (n - 1) * pw, Y = v => mt + ph - (v - lo) / (hi - lo) * ph;
   let g = '';
   ticks.forEach(v => { g += `<line x1="${ml}" x2="${W - mr}" y1="${Y(v).toFixed(1)}" y2="${Y(v).toFixed(1)}" stroke="${css('--line')}"/>`
-    + `<text x="${ml - 6}" y="${(Y(v) + 3.5).toFixed(1)}" text-anchor="end" font-size="10.5" fill="${css('--muted')}">${fmtv(v)}</text>`; });
+    + `<text x="${ml - 6}" y="${(Y(v) + 3.5).toFixed(1)}" text-anchor="end" font-size="10.5" fill="${css('--muted')}">${tf(v)}</text>`; });
   months.forEach((m, i) => { if (m.endsWith('-01')) g += `<text x="${X(i).toFixed(1)}" y="${H - 5}" font-size="10.5" fill="${css('--muted')}">${m.slice(0, 4)}</text>`
     + `<line x1="${X(i).toFixed(1)}" x2="${X(i).toFixed(1)}" y1="${mt + ph}" y2="${mt + ph + 4}" stroke="${css('--faint')}"/>`; });
-  g += `<line x1="${X(SM.i).toFixed(1)}" x2="${X(SM.i).toFixed(1)}" y1="${mt}" y2="${mt + ph}" stroke="${css('--ink')}" stroke-dasharray="3 3" opacity=".45"/>`;
+  g += `<line x1="${X(cur).toFixed(1)}" x2="${X(cur).toFixed(1)}" y1="${mt}" y2="${mt + ph}" stroke="${css('--ink')}" stroke-dasharray="3 3" opacity=".45"/>`;
   series.forEach(s => { let d = '', pen = false;
     s.data.forEach((v, i) => { if (v == null) { pen = false; return; } d += (pen ? 'L' : 'M') + X(i).toFixed(1) + ',' + Y(v).toFixed(1); pen = true; });
     g += `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${s.width}" stroke-opacity="${s.op || 1}" stroke-linejoin="round" stroke-linecap="round"/>`; });
-  const last = series[series.length - 1].data[SM.i];
-  if (last != null) g += `<circle cx="${X(SM.i).toFixed(1)}" cy="${Y(last).toFixed(1)}" r="3.5" fill="${series[0].color}" stroke="${css('--panel')}" stroke-width="1.5"/>`;
-  const id = 'c' + (++chN); CH[id] = {series, ml, pw, n};
+  series.filter(s => s.dot).forEach(s => { const v = s.data[cur];
+    if (v != null) g += `<circle cx="${X(cur).toFixed(1)}" cy="${Y(v).toFixed(1)}" r="3.5" fill="${s.color}" stroke="${css('--panel')}" stroke-width="1.5"/>`; });
+  const last = series[series.length - 1].data[cur];
+  if (last != null && !series.some(s => s.dot)) g += `<circle cx="${X(cur).toFixed(1)}" cy="${Y(last).toFixed(1)}" r="3.5" fill="${series[0].color}" stroke="${css('--panel')}" stroke-width="1.5"/>`;
+  const id = 'c' + (++chN); CH[id] = {series, ml, pw, n, months};
   return `<svg class="chart" data-cid="${id}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${g}`
     + `<line class="hv" x1="0" x2="0" y1="${mt}" y2="${mt + ph}" stroke="${css('--muted')}" style="display:none"/>`
     + `<rect x="${ml}" y="${mt}" width="${pw}" height="${ph}" fill="transparent"/></svg>`;
@@ -402,7 +480,7 @@ document.addEventListener('mousemove', e => {
   const r = sv.getBoundingClientRect(), sx = r.width / sv.viewBox.baseVal.width;
   const i = Math.max(0, Math.min(c.n - 1, Math.round(((e.clientX - r.left) / sx - c.ml) / c.pw * (c.n - 1))));
   const hv = sv.querySelector('.hv'), hx = c.ml + i / (c.n - 1) * c.pw; hv.setAttribute('x1', hx); hv.setAttribute('x2', hx); hv.style.display = '';
-  tip.innerHTML = `<b>${ym(S.months[i])}</b>` + c.series.map(s => `<br><i style="background:${s.color};opacity:${s.op || 1}"></i>${esc(s.name)} ${fmtv(s.data[i])}`).join('');
+  tip.innerHTML = `<b>${ym(c.months[i])}</b>` + c.series.map(s => `<br><i style="background:${s.color};opacity:${s.op || 1}"></i>${esc(s.name)} ${(s.fmt || fmtv)(s.data[i])}`).join('');
   tip.style.display = 'block';
   tip.style.left = Math.min(e.clientX + 14, window.innerWidth - tip.offsetWidth - 8) + 'px'; tip.style.top = (e.clientY + 14) + 'px';
 });
@@ -431,6 +509,42 @@ function searchHTML(code, L_){
   }).join('') + '</details>';
   return h;
 }
+function fnbHTML(code){
+  const d = F.dong[code], W = Math.max(260, document.getElementById('panel').clientWidth);
+  if (!d) return '<p class="none">이 동은 개폐업 자료가 없어요.</p>';
+  const i = FM.i, n = FM.win, per = `최근 ${n}개월`, sm = small(d, i, n);
+  const st = met => fstat(d, i, n, met), seo = met => fstat(F.seoul, i, n, met);
+  const cls = v => v > 0.003 ? 'up' : v < -0.003 ? 'down' : '';
+  const bulkN = (wsum(d.Ck, i, n) ?? 0) - (wsum(d.Cd, i, n) ?? 0);
+  let h = F.rereg[code] ? `<div class="warnbox">${esc(F.rereg[code])}</div>` : '';
+  h += `<div class="kpis">
+    <div class="kpi"><small>개업 <em>${per}</em></small><b>${fmtn(st('open'))}</b></div>
+    <div class="kpi"><small>폐업 <em>${per}${FM.bulk ? ', 일괄 포함' : ''}</em></small><b>${fmtn(st('close'))}</b></div>
+    <div class="kpi"><small>순증률 <em>${per}</em></small><b class="${cls(st('net'))}">${fmtp1(st('net'))}</b><span class="sub">서울 ${fmtp1(seo('net'))}</span></div>
+    <div class="kpi"><small>영업 점포</small><b>${fmtn(d.S[i])}</b><span class="sub">${n}개월 전보다 ${fmtp1(st('grow'))} · 서울 ${fmtp1(seo('grow'))}</span></div></div>`;
+  h += `<div class="wrow" style="grid-template-columns:repeat(3,1fr)">${[1, 3, 12].map(w => `<div class="${w === n ? 'on' : ''}">${FLAB[FM.met]} ${w}개월<b>${fshow(FM.met, fstat(d, i, w, FM.met))}</b></div>`).join('')}</div>`;
+  if (sm) h += `<p class="note">기간 시작 때 영업 점포가 ${FMIN}개 미만이라 비율이 크게 흔들려요.</p>`;
+  if (bulkN > 0) h += `<p class="note">${per} 일괄 폐업 ${fmtn(bulkN)}곳${FM.bulk ? ' 포함' : '은 폐업 수에서 뺐어요'}.</p>`;
+  const cO = css('--c5'), cC = css('--c1'), C_ = closesOf(d);
+  const ser = [
+    {name: '개업', color: cO, width: 1.1, op: .35, data: d.O, fmt: fmtn},
+    {name: '폐업', color: cC, width: 1.1, op: .35, data: C_, fmt: fmtn},
+    {name: '개업 3개월 평균', color: cO, width: 2.4, data: d.O.map((_, j) => ma3(d.O, j)), fmt: fmt1, dot: true},
+    {name: '폐업 3개월 평균', color: cC, width: 2.4, data: C_.map((_, j) => ma3(C_, j)), fmt: fmt1, dot: true}];
+  h += `<div class="ch"><div class="chh"><b>월별 개업·폐업</b><span><span class="key"><i style="background:${cO}"></i>개업</span><span class="key"><i style="background:${cC}"></i>폐업</span></span></div>
+    ${lineChart(ser, {w: W, h: 230, months: F.months, i, tf: v => Number.isInteger(v) ? fmtn(v) : fmt1(v)})}</div>
+    <div class="ax"><label><input type="checkbox" id="ax0" ${AX0 ? 'checked' : ''}>세로축 0부터</label></div>`;
+  h += `<div class="ch"><div class="chh"><b>영업 점포 수</b><span>${fmtn(d.S[i])}곳</span></div>
+    ${lineChart([{name: '영업 점포', color: css('--ink'), width: 2, data: d.S, fmt: fmtn}], {w: W, h: 150, small: true, months: F.months, i, tf: fmtn})}</div>`;
+  if (d.S[i]) {
+    const j = i - 12, rows = F.cats.map((c, k) => ({c, now: d.K[k][i] / d.S[i], prev: j >= 0 && d.S[j] ? d.K[k][j] / d.S[j] : null}))
+      .filter(r => r.now > 0).sort((a, b) => b.now - a.now);
+    h += `<details><summary>업종 구성<em>${ym(F.months[i])} 기준</em></summary><div class="slot">` + rows.map(r =>
+      `<div class="nm"><span class="n">${esc(r.c)}</span><span class="w">${(r.now * 100).toFixed(1)}%${r.prev == null ? '' : `&nbsp;&nbsp;1년 전보다 ${Math.abs(r.now - r.prev) < 0.0005 ? '' : r.now > r.prev ? '+' : '−'}${Math.abs((r.now - r.prev) * 100).toFixed(1)}%p`}</span>
+       <span class="bar"><i style="width:${(r.now / rows[0].now * 100).toFixed(1)}%;background:var(--h5)"></i></span></div>`).join('') + '</div></details>';
+  }
+  return h;
+}
 const cleanFlag = f => String(f || '').split(';').map(s => s.trim()).filter(s => s && !s.startsWith('권역 검색어 확인')).join(', ');
 function tagsHTML(L_){
   const sec = (t, title) => {
@@ -457,14 +571,18 @@ function select(code, fly, at, quiet){
     L.circleMarker([s.lat, s.lon], {interactive: false, radius: 4 + 9 * l.weight, color: css('--sta'), weight: 2, fillColor: css('--sta'), fillOpacity: .3}).addTo(hiLayer); });
   L_.filter(l => l.tier == '권역' && l.usable == 1).forEach(l => { const g = gwonOf[l.name];
     if (g) L.geoJSON(g.feature, {interactive: false, style: {color: css('--gwon'), weight: 2.5, fillColor: css('--gwon'), fillOpacity: .15}}).addTo(hiLayer); });
-  const body = MODE === 'search' ? searchHTML(code, L_) + `<details><summary>이 동의 이름표</summary>${tagsHTML(L_)}</details>` : tagsHTML(L_);
+  const body = MODE === 'search' ? searchHTML(code, L_) + `<details><summary>이 동의 이름표</summary>${tagsHTML(L_)}</details>`
+    : MODE === 'fnb' ? fnbHTML(code) + `<details><summary>이 동의 이름표</summary>${tagsHTML(L_)}</details>` : tagsHTML(L_);
   document.getElementById('panel').innerHTML = `<div class="dname"><h2>${esc(p.dong_name)}</h2><span>${esc(p.gu)}</span></div>${body}`;
   if (quiet) return;
   const top = t => { const r = L_.filter(l => l.tier == t && l.usable == 1).sort((a, b) => b.weight - a.weight);
     return r.length ? esc(t === '역' ? staName(r[0].name) : r[0].name) + (r.length > 1 ? ` 외 ${r.length - 1}` : '') : '–'; };
+  const fd = F && F.dong[code];
   const rows = MODE === 'search'
     ? `<div class="r"><span>검색 지수</span><span>${fmtv(sval(code, SM.tier, 'level', SM.i))}</span></div><div class="r"><span>${WIN[SM.win]}</span><span>${fmtp(sval(code, SM.tier, 'yoy', SM.i))}</span></div>`
-    : `<div class="r"><span>동네</span><span>${top('동네')}</span></div><div class="r"><span>역</span><span>${top('역')}</span></div><div class="r"><span>상권</span><span>${top('권역')}</span></div>`;
+    : MODE === 'fnb'
+    ? `<div class="r"><span>개업 (${FM.win}개월)</span><span>${fmtn(fstat(fd, FM.i, FM.win, 'open'))}</span></div><div class="r"><span>폐업</span><span>${fmtn(fstat(fd, FM.i, FM.win, 'close'))}</span></div><div class="r"><span>순증률</span><span>${fmtp1(fstat(fd, FM.i, FM.win, 'net'))}</span></div><div class="r"><span>영업 점포</span><span>${fd ? fmtn(fd.S[FM.i]) : '–'}</span></div>`
+    :`<div class="r"><span>동네</span><span>${top('동네')}</span></div><div class="r"><span>역</span><span>${top('역')}</span></div><div class="r"><span>상권</span><span>${top('권역')}</span></div>`;
   lay.closeTooltip();
   L.popup({maxWidth: 260, autoPanPadding: [20, 20]}).setLatLng(at || lay.getCenter())
     .setContent(`<div class="pop"><b>${esc(p.dong_name)}</b><div class="g">${esc(p.gu)}</div>${rows}</div>`).openOn(map);
