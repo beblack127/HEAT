@@ -1,5 +1,5 @@
-﻿,arimax|all,arimax|all+py,arimax|all_noLP,arimax|all_noLP+py,arimax|none+py,arimax|search,arimax|search+py,arimax|search_idx,arima|none,naive|none,sarimax|all,sarimax|all_noLP,sarimax|search,sarimax|search_idx,sarima|none,snaive|none
-2024-10-27,35.94,35.98,35.9,35.79,33.36,32.84,33.23,32.88,33.11,39.05,35.12,35.01,31.02,32.82,31.09,12.78
-2025-01-26,15.18,14.76,15.0,14.5,14.15,14.33,14.07,14.64,14.46,19.12,21.98,21.7,14.32,14.32,13.89,15.5
-2025-04-27,15.27,14.72,15.2,14.69,11.71,13.22,13.12,11.74,11.98,19.74,21.18,20.69,17.42,26.28,13.68,8.49
-2025-07-27,11.02,13.2,11.01,13.31,12.6,10.87,13.1,11.18,9.74,10.4,54.87,54.82,61.23,60.87,60.73,49.8
+﻿,arima_c|none,arima_fourier|none,arimax|all,arimax|all+py,arimax|all_noLP,arimax|all_noLP+py,arimax|fnb,arimax|none+py,arimax|search,arimax|search+py,arimax|search_fnb,arimax|search_idx,arimax|search_subway,arimax|search_subway_fnb,arimax|subway,arimax|subway_fnb,arima|none,comb_arima|none,comb_fourier|none,naive|none,sarima_c|none,sarimax|all,sarimax|all_noLP,sarimax|fnb,sarimax|search,sarimax|search_fnb,sarimax|search_idx,sarimax|search_subway,sarimax|search_subway_fnb,sarimax|subway,sarimax|subway_fnb,sarima|none,snaive_c|none,snaive|none,stl_ets|none,theta|none
+2024-10-27,15.83,15.71,35.94,35.98,35.9,35.79,31.64,33.36,32.84,33.23,31.75,32.88,33.04,31.86,33.52,32.27,33.11,12.43,12.79,39.05,17.54,35.12,35.01,29.09,31.02,29.37,32.82,32.33,30.76,32.31,30.18,31.09,12.78,12.78,13.0,17.72
+2025-01-26,15.77,13.24,15.18,14.76,15.0,14.5,14.79,14.15,14.33,14.07,14.71,14.64,14.28,14.64,14.44,14.67,14.46,13.85,12.59,19.12,15.26,21.98,21.7,15.87,14.32,16.09,14.32,14.41,16.53,13.9,16.27,13.89,15.5,15.5,13.86,17.31
+2025-04-27,11.11,10.41,15.27,14.72,15.2,14.69,12.73,11.71,13.22,13.12,13.9,11.74,13.43,14.17,12.1,12.87,11.98,7.52,7.33,19.74,11.64,21.18,20.69,14.97,17.42,18.89,26.28,19.21,20.27,15.02,16.51,13.68,8.49,8.49,10.1,17.05
+2025-07-27,9.67,11.41,11.02,13.2,11.01,13.31,9.9,12.6,10.87,13.1,11.09,11.18,10.99,11.21,9.93,10.14,9.74,12.89,14.31,10.4,20.2,54.87,54.82,57.73,61.23,58.7,60.87,62.15,59.45,61.53,58.36,60.73,18.8,49.8,23.12,9.48

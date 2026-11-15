@@ -111,13 +111,13 @@ const notes = (s, t) => s.addNotes(t);
 {
   const s = base("REFLECTION ON FEEDBACK (2/2)");
   head(s, "Is mobility a valid measure of 'hot'?", 40, 165, 1100);
-  fitImg(s, "S2_validity.png", 30, 245, 1150, 560);
+  fitImg(s, "S2_validity.png", 20, 235, 1170, 670);
   body(s, [
     { label: "Beyond inputs", text: [{ t: `Card sales (not a model input) rank-correlate ` }, { t: `${N.sales_level}`, b: true, u: true }, { t: ` with mobility; ${N.sales_top}% of top-10% dongs match` }] },
     { label: "Overlap", text: [{ t: "Living population (same telecom source) removed from inputs; every input lagged ≥ 13 weeks" }] },
     { label: "Short history", text: [{ t: `Monthly → weekly target: ${N.n_weeks} weeks instead of 46 months` }] },
     { label: "Added value", text: [{ t: "Maps & search show where it is busy " }, { t: "now", b: true }, { t: "; HEAT forecasts " }, { t: "13 weeks ahead", b: true }, { t: " and flags rising dongs, validated by card sales" }] }],
-    1215, 245, 670, 680, 27, 14);
+    1215, 230, 670, 690, 27, 14);
   bottom(s, "Mobility agrees strongly on where it is hot, weakly on where it is rising");
   notes(s, "Feedback 2. Level: strong agreement with card sales, F&B stores and subway exits. Change: weak but positive. This is also why emerging-place forecasting is hard.");
 }
@@ -125,7 +125,7 @@ const notes = (s, t) => s.addNotes(t);
 // 5. 동네 예시 -------------------------------------------------------------------
 {
   const s = base("ONE NEIGHBORHOOD: GARAK 1-DONG");
-  fitImg(s, "S5_example.png", 30, 165, 1230, 730);
+  fitImg(s, "S5_example.png", 20, 165, 1250, 750);
   head(s, "Definition", 1290, 175, 600);
   body(s, [`Emerging on 2025-04-27: Seoul share +${N.ex_growth}% vs. last year (rank ${N.ex_rank} of ${N.ex_n})`, `Card F&B sales share +${N.ex_sales}% → commercial, not residential`], 1290, 245, 600, 230, 26, 8);
   head(s, "3-month forecast", 1290, 470, 600);
@@ -146,19 +146,19 @@ const notes = (s, t) => s.addNotes(t);
     { label: "Unit", text: "427 dongs (name-tag map), split dongs merged" },
     { label: "Target", text: "daily arrivals → week mean (≥ 4 valid days)" },
     { label: "Level shift", text: [{ t: "Aug–Oct 2024 ×1.52 in mobility only → rescaled", b: true }] },
-    { label: "Leakage", text: "every input checked to end before the forecast date" }], 40, 245, 580, 640, 27, 14);
+    { label: "Leakage", text: "every input checked to end before the forecast date" }], 40, 245, 580, 640, 31, 22);
   body(s, [
     { label: "Search", text: "Seoul share, month −4" },
     { label: "Subway", text: "exits, 4-week mean, week −13" },
     { label: "F&B", text: "net opening rate (3 months), month −4" },
     { label: "Calendar", text: "holidays; same week last year" },
-    { label: "Scaling", text: "standardized on training data only" }], 670, 245, 580, 640, 27, 14);
+    { label: "Scaling", text: "standardized on training data only" }], 670, 245, 580, 640, 31, 22);
   body(s, [
     { label: "Baselines", text: "last week; same week last year" },
     { label: "Classical", text: "ARIMA / SARIMA(X), per-dong AIC orders" },
     { label: "Seasonal", text: "ARIMA + Fourier, STL + ETS, Theta" },
     { label: "Combination", text: "last year + model, fixed 1:1" },
-    { label: "Design", text: "4 forecast dates × 13 weeks × 416 dongs" }], 1300, 245, 580, 640, 27, 14);
+    { label: "Design", text: "4 forecast dates × 13 weeks × 416 dongs" }], 1300, 245, 580, 640, 31, 22);
   bottom(s, "Weekly, leakage-checked pipeline from raw files to 13-week forecasts");
 }
 
@@ -200,16 +200,16 @@ const notes = (s, t) => s.addNotes(t);
   body(s, [
     { label: "More dates", text: "monthly forecast dates, 2024-07 ~ 2025-07" },
     { label: "Longer range", text: "26–34 weeks ahead, to reach 2027 H1" },
-    { label: "One-shot test", text: [{ t: "freeze & commit, then test once on 2026", b: true }] }], 40, 245, 580, 640, 27, 16);
+    { label: "One-shot test", text: [{ t: "freeze & commit, then test once on 2026", b: true }] }], 40, 245, 580, 640, 32, 26);
   body(s, [
     { label: "Pooled model", text: "LightGBM + Ridge across dongs, inputs as changes" },
     { label: "Events", text: "concert & festival calendars to separate spikes" },
     { label: "Data check", text: "spring-2025 level shift; source inquiry" },
-    { label: "Inputs", text: "add one at a time, keep only what helps" }], 670, 245, 580, 640, 27, 16);
+    { label: "Inputs", text: "change how inputs enter; keep only what helps" }], 670, 245, 580, 640, 32, 26);
   body(s, [
     { label: "Forecast", text: [{ t: "2027 H1 hotspots and emerging dongs", b: true, u: true }] },
     { label: "System", text: "HEAT map with weekly forecasts" },
-    { label: "Success", text: "beat last year & persistence on the 2026 test" }], 1300, 245, 580, 640, 27, 16);
+    { label: "Success", text: "beat last year & persistence on the 2026 test" }], 1300, 245, 580, 640, 32, 26);
   bottom(s, "Refit through Dec 2026 and forecast Seoul's 2027 H1 hotspots");
 }
 
@@ -239,9 +239,9 @@ const notes = (s, t) => s.addNotes(t);
   s.addTable(rows.map((r, i) => r.map((c, j) => ({ text: String(c), options: { bold: i === 0 || (i === rows.length - 1), color: i === rows.length - 1 ? C.red : C.ink,
       fill: { color: i === 0 ? "E3E9F3" : "FFFFFF" }, align: j === 0 ? "left" : "center" } }))),
     { x: px(60), y: px(190), w: px(1800), colW: [px(620), px(200), px(200), px(200), px(200), px(190), px(190)], fontFace: F, fontSize: PT(30), border: { type: "solid", color: "C9CED6", pt: 0.75 }, rowH: px(62) });
-  bottom(s, "Rows below the line use the cleaned history; all errors are against raw actuals");
+  bottom(s, "'cleaned' = trained on rescaled Aug–Oct 2024; all errors vs. raw actuals");
 }
-{
+if (N.ratio["heat_system.png"]) {
   const s = base("APPENDIX: HEAT SYSTEM");
   fitImg(s, "heat_system.png", 60, 170, 1800, 740);
   bottom(s, "Hotness index, emerging dongs and 13-week forecasts for all 427 dongs");

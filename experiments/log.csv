@@ -46,3 +46,8 @@ time,step,git,spec_version,plan,seed,note,extra
 2026-11-16 04:50:43,gt/01_features,4e540bc,,gt_midterm,42,miss_stations=2,
 2026-11-16 05:30:40,gt/02c_more_models,d316692,,gt_midterm,42,units=426; rows=132899; errors=1; factor_max=1.520; sec=3261,
 2026-11-16 05:30:59,gt/03c_more_eval,d316692,,gt_midterm,42,best4=결합: 작년 같은 주 (보정) + ARIMA (보정) 11.68,
+2026-11-16 05:54:49,gt/02b_extra_models,4386815,,gt_midterm,42,"['fnb', 'search_fnb', 'subway_fnb', 'search_subway_fnb']; rows=175136; fallback=0; sec=1439",
+2026-11-16 05:55:04,gt/03b_extra_eval,4386815,,gt_midterm,42,best4=결합|arimax|fnb 16.08,
+2026-11-16 05:55:42,gt/03_evaluate,4386815,,gt_midterm,42,"common={'2024-10-27': 416, '2025-01-26': 416, '2025-04-27': 416, '2025-07-27': 416}",
+2026-11-16 05:55:46,gt/04_hotspots,4386815,,gt_midterm,42,origins=4,
+2026-11-16 05:57:06,gt/06_report,4386815,,gt_midterm,42,rep=comb_arima|none,
