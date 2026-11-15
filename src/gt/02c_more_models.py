@@ -54,11 +54,11 @@ def fit_best(z, exog=None):
     return best
 
 
-def run_unit(u, g):
+def run_unit(u, g, origins=None):
     g = g.set_index("week_end")
     ly, lyc = np.log1p(g.y), np.log1p(g.yc)
     out, logs = [], []
-    for o in pd.to_datetime(C.ORIGINS):
+    for o in pd.to_datetime(origins or C.ORIGINS):
         tr = lyc[lyc.index <= o].dropna()
         idx_all = g.index
         fut = idx_all[idx_all > o][:C.H]

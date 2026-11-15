@@ -44,3 +44,5 @@ time,step,git,spec_version,plan,seed,note,extra
 2026-11-16 04:41:24,gt/10_validity_sales,e8d7279,,gt_midterm,42,level=0.84; change=0.10,
 2026-11-16 04:47:29,gt/01_features,70e7257,,gt_midterm,42,miss_stations=2,
 2026-11-16 04:50:43,gt/01_features,4e540bc,,gt_midterm,42,miss_stations=2,
+2026-11-16 05:30:40,gt/02c_more_models,d316692,,gt_midterm,42,units=426; rows=132899; errors=1; factor_max=1.520; sec=3261,
+2026-11-16 05:30:59,gt/03c_more_eval,d316692,,gt_midterm,42,best4=결합: 작년 같은 주 (보정) + ARIMA (보정) 11.68,

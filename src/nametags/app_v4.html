@@ -645,15 +645,16 @@ function hotHTML(code){
   h += `<div class="ch"><div class="chh"><b>주별 생활이동과 13주 예측</b><span><span class="key"><i style="background:${css('--sta')}"></i>실제</span><span class="key"><i style="background:${css('--c5')}"></i>생활이동만</span><span class="key"><i style="background:#7B4FB8"></i>+우리 자료</span></span></div>
     ${lineChart(ser.map(x => ({...x, data: x.data.slice(a0)})), {w: W, h: 240, months: months.slice(a0), i: i - a0, tf: fmtK, tick: (m, j) => m.slice(5, 7) === '01' && +m.slice(8, 10) <= 7 ? m.slice(0, 4) : (m.slice(5, 7) === '07' && +m.slice(8, 10) <= 7 ? '7월' : null), fx: wkFx, shade: [n - 1 - a0, n + 12 - a0]})}</div>
     <div class="ax"><label><input type="checkbox" id="ax0" ${AX0 ? 'checked' : ''}>세로축 0부터</label></div>
-    <p class="note">2024년 8~10월은 서울 전체 값이 평소의 약 1.5배로 나와 자료 이상으로 보고 있어요.</p>`;
+    <p class="note">2024년 8~10월은 생활이동 서울 전체 값이 평소의 약 ${HT.anomaly ? HT.anomaly.factor : 1.5}배로 나왔지만 카드 매출은 그대로라 자료 이상으로 봤어요. 예측 모델은 이 구간을 그만큼 나눠 보정한 값으로 학습해요. 그래프는 원래 값이에요.</p>`;
   const E = HT.exp;
   if (E && E.y[u]) {
     const P2 = E.y2 && E.y2[u], wt = E.wape;
     h += `<details open><summary>생활이동만 vs 우리 자료 넣기 (실험 4개 시점)</summary>
-      <p class="note">생활이동만 = 이 동의 지난 생활이동 값만 보고 예측(${esc(E.model)}). 우리 자료 넣기 = 같은 모델에 검색 비중·음식점 점포 증감·지하철 하차·공휴일을 더한 것(${esc(E.model2 || '')}). 숫자는 13주 오차(WAPE)로, 낮을수록 잘 맞춘 거예요.</p>
+      <p class="note">생활이동만 = 이 동의 지난 생활이동 값만 쓰는 대표 모델(${esc(E.model)}). 우리 자료 넣기 = ARIMA에 검색·지하철·개폐업을 넣어 본 조합 중 가장 좋았던 것(${esc(E.model2 || '')}). 숫자는 13주 오차(WAPE)로, 낮을수록 잘 맞춘 거예요.</p>
       ${wt ? `<table class="wt"><tr><th>서울 전체</th>${E.origins.map(o => `<th>${o.slice(2, 7).replace('-', '.')}</th>`).join('')}</tr>
         <tr><td>생활이동만</td>${E.origins.map(o => `<td class="${wt.main[o] <= wt.cmp[o] ? 'b' : ''}">${(+wt.main[o]).toFixed(1)}%</td>`).join('')}</tr>
         <tr><td>+ 우리 자료</td>${E.origins.map(o => `<td class="${wt.cmp[o] < wt.main[o] ? 'b' : ''}">${(+wt.cmp[o]).toFixed(1)}%</td>`).join('')}</tr>
+        <tr><td>ARIMA (보정 전)</td>${E.origins.map(o => `<td>${wt.arima ? (+wt.arima[o]).toFixed(1) + '%' : '–'}</td>`).join('')}</tr>
         <tr><td>작년 같은 주</td>${E.origins.map(o => `<td>${(+wt.snaive[o]).toFixed(1)}%</td>`).join('')}</tr></table>` : ''}` + E.origins.map(o => {
       const oi = HT.weeks.indexOf(o), p = E.y[u][o]; if (oi < 0 || !p) return '';
       const a = Math.max(0, oi - 20), b = Math.min(n - 1, oi + 13), ms = HT.weeks.slice(a, b + 1), act = d.y.slice(a, b + 1);
@@ -733,7 +734,7 @@ function select(code, fly, at, quiet){
     if (g) L.geoJSON(g.feature, {interactive: false, style: {color: css('--gwon'), weight: 2.5, fillColor: css('--gwon'), fillOpacity: .15}}).addTo(hiLayer); });
   const body = MODE === 'search' ? searchHTML(code, L_) + `<details><summary>이 동의 이름표</summary>${tagsHTML(L_)}</details>`
     : MODE === 'fnb' ? fnbHTML(code) + `<details><summary>이 동의 이름표</summary>${tagsHTML(L_)}</details>`
-    : MODE === 'hot' ? hotHTML(code) + `<details><summary>이 동의 이름표</summary>${tagsHTML(L_)}</details>` : tagsHTML(L_);
+    : MODE === 'hot' ? hotHTML(code) + `<details class="tagsd"><summary>이 동의 이름표</summary>${tagsHTML(L_)}</details>` : tagsHTML(L_);
   document.getElementById('panel').innerHTML = `<div class="dname"><h2>${esc(p.dong_name)}</h2><span>${esc(p.gu)}</span></div>${body}`;
   if (quiet) return;
   const top = t => { const r = L_.filter(l => l.tier == t && l.usable == 1).sort((a, b) => b.weight - a.weight);

@@ -17,6 +17,7 @@ ap.add_argument("--rereg", default="", help="재등록으로 보이는 동 목�
 ap.add_argument("--fnb-start", default="2022-01", help="지도 시작 달. 검색량과 같게 2022-01")
 ap.add_argument("--fnb-end", default="2026-09", help="마지막 완전한 달. 그 뒤 부분 월은 뺀다")
 ap.add_argument("--hot", default="", help="핫플지수 탭 자료 (src/gt/07_map_data.py 결과 JSON)")
+ap.add_argument("--hot-only", action="store_true", help="핫플지수 화면만 보이게 한다 (검색량·개폐업·이름표 탭과 이름표 상세 숨김)")
 a = ap.parse_args()
 
 def r3(x):
@@ -64,5 +65,8 @@ if a.hot:
     m["hot"] = json.load(open(a.hot, encoding="utf-8"))
 data = json.dumps(m, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 t = open(a.template, encoding="utf-8").read()
-open(a.out, "w", encoding="utf-8").write(t.replace("__DATA__", data))
+t = t.replace("__DATA__", data)
+if a.hot_only:
+    t = t.replace("</head>", "<style>.seg[role=tablist]{display:none}#panel details.tagsd{display:none}</style></head>", 1)
+open(a.out, "w", encoding="utf-8").write(t)
 print("written", a.out, round(len(data.encode()) / 1e6, 2), "MB data")
