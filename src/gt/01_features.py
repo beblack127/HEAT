@@ -35,7 +35,8 @@ g_ = F.groupby("unit")
 base3 = g_["영업점포"].shift(3).replace(0, np.nan)
 F["fnb_open3"] = g_["개업"].transform(lambda v: v.rolling(3, min_periods=3).sum()) / base3
 F["fnb_close3"] = g_["폐업_일괄제외"].transform(lambda v: v.rolling(3, min_periods=3).sum()) / base3
-grid = grid.merge(F[["unit", "month", "fnb_stock_chg12", "fnb_open3", "fnb_close3"]].rename(columns={"month": "month_ref"}), on=["unit", "month_ref"], how="left")
+F["fnb_net3"] = F.fnb_open3 - F.fnb_close3   # 순개업률 (3개월): 개업률 - 폐업률
+grid = grid.merge(F[["unit", "month", "fnb_stock_chg12", "fnb_open3", "fnb_close3", "fnb_net3"]].rename(columns={"month": "month_ref"}), on=["unit", "month_ref"], how="left")
 
 # ---------- 지하철 (주): 동 하차 4주 평균, 13주 전 ----------
 sub = pd.read_parquet(C.RAW_SUB / "subway_daily.parquet")
