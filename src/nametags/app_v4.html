@@ -65,6 +65,17 @@ input[type=range]{width:100%;accent-color:var(--h5);margin:2px 0 12px}
 .row2 .seg{flex:0 0 auto;width:180px}
 .fctl{display:none;margin:16px 0 0}
 .hctl{display:none;margin:16px 0 0}
+.top10{margin:12px 0 0}
+.top10 .tt{display:flex;gap:6px;margin:0 0 6px}
+.top10 .tt button{flex:1;font:inherit;font-size:12.5px;padding:5px 0;border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:6px;cursor:pointer}
+.top10 .tt button.on{color:var(--ink);border-color:var(--ink);font-weight:600}
+.top10 ol{list-style:none;margin:0;padding:0}
+.top10 li{display:grid;grid-template-columns:22px 1fr auto;gap:6px;align-items:baseline;padding:4px 4px;border-radius:5px;cursor:pointer;font-size:13px}
+.top10 li:hover,.top10 li:focus{background:var(--soft);outline:none}
+.top10 li .r{color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
+.top10 li .g{color:var(--muted);font-size:11.5px;margin-left:4px}
+.top10 li .v{font-variant-numeric:tabular-nums;font-weight:600}
+.top10 li .v.up{color:var(--c5)}
 body.hmode .hctl{display:block}
 .badge{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:1px 8px;margin:4px 4px 0 0}
 .badge.hot{background:var(--h6);color:#fff}.badge.em{background:var(--ink);color:var(--panel)}.badge.no{background:var(--soft);color:var(--muted);font-weight:600}
@@ -188,6 +199,7 @@ summary em{font-style:normal;color:var(--muted);font-weight:400;font-size:13px;m
       <input type="range" id="h_wk" min="0" max="0" value="0" aria-label="기준 주">
       <div class="seg" id="h_met"><button data-v="level" class="on">핫플지수</button><button data-v="grow">떠오름</button><button data-v="fc">13주 예측</button></div>
       <p class="sub2" id="h_note"></p>
+      <div class="top10"><div class="tt" id="h_tt"><button data-v="hot" class="on">가장 핫한 곳 10</button><button data-v="em">가장 떠오르는 곳 10</button></div><ol id="h_top"></ol></div>
     </div>
     <div class="fctl">
       <div class="month"><b id="f_mlab"></b><span id="f_range"></span></div>
@@ -356,6 +368,18 @@ function fstate(){
   HFS = rankState(lvl, gr, hstate(n - 1).lvl); return HFS;
 }
 const hst = () => HM.met === 'fc' ? fstate() : hstate(HM.i);
+let HTOP = 'hot';
+const U2C = {}; if (HT) Object.keys(HT.d2u).forEach(c => { const u = HT.d2u[c]; (U2C[u] = U2C[u] || []).push(c); });
+function drawTop(){
+  const st = hst(), el = document.getElementById('h_top'); if (!el) return;
+  document.querySelectorAll('#h_tt button').forEach(b => b.classList.toggle('on', b.dataset.v === HTOP));
+  const us = HTOP === 'hot' ? HU.filter(u => st.lvl[u] != null).sort((a, b) => st.lvl[b] - st.lvl[a]).slice(0, 10)
+    : HU.filter(u => st.grank[u]).sort((a, b) => st.grank[a] - st.grank[b]).slice(0, 10);
+  el.innerHTML = us.map((u, k) => { const cs = U2C[u] || [u], ps = cs.map(c => props.find(p => p.dong_code8 === c)).filter(Boolean); if (!ps.length) return '';
+    const v = HTOP === 'hot' ? `하루 ${fmtn(st.lvl[u])}명` : fmtp1(st.gr[u]);
+    return `<li tabindex="0" data-c="${cs[0]}"><span class="r">${k + 1}</span><span>${esc(ps.map(p => p.dong_name).join('·'))}<span class="g">${esc(ps[0].gu)}</span></span><span class="v ${HTOP === 'em' ? 'up' : ''}">${v}</span></li>`; }).join('');
+  el.querySelectorAll('li').forEach(li => { const go = () => select(li.dataset.c, true); li.onclick = go; li.onkeydown = e => { if (e.key === 'Enter') go(); }; });
+}
 const HBIN = [25, 50, 70, 80, 90, 95];
 function hcolor(code){
   const u = unitOf(code), st = hst();
@@ -462,7 +486,7 @@ function restyle(){
   if (MODE === 'fnb') { fbreaks(); document.getElementById('f_mlab').textContent = ym(F.months[FM.i]); }
   if (MODE === 'hot') { const fc = HM.met === 'fc'; document.getElementById('h_mlab').textContent = fc ? `${wk(HT.fc.weeks[0])} ~ ${wk(HT.fc.weeks[12])}` : wkLab(HT.weeks[HM.i]);
     document.getElementById('h_wk').disabled = fc;
-    document.getElementById('h_note').textContent = fc ? `마지막 주(${wk(HT.weeks[HT.weeks.length - 1])}) 이후 13주를 ${HT.fc.model}로 예측했어요.` : '최근 13주 평균 기준이에요. 슬라이더로 기준 주를 바꿀 수 있어요.'; }
+    document.getElementById('h_note').textContent = fc ? `마지막 주(${wk(HT.weeks[HT.weeks.length - 1])}) 이후 13주를 ${HT.fc.model}로 예측했어요.` : '최근 13주 평균 기준이에요. 슬라이더로 기준 주를 바꿀 수 있어요.'; drawTop(); }
   dongLayer.setStyle(f => ({fillColor: dongFill(f.properties.dong_code8), color: hEdge(f.properties.dong_code8) ? css('--ink') : css('--panel'), weight: hEdge(f.properties.dong_code8) ? 2.4 : 0.8}));
   if (MODE === 'hot') dongLayer.eachLayer(l => { if (hEdge(l.feature.properties.dong_code8)) l.bringToFront(); });
   drawLegend(); map.closePopup();
@@ -481,7 +505,9 @@ if (HT) {
   r.oninput = e => { HM.i = +e.target.value; restyle(); };
   document.getElementById('h_range').textContent = `${wk(HT.weeks[12])} ~ ${wk(HT.weeks[HT.weeks.length - 1])}`;
   document.querySelectorAll('#h_met button').forEach(b => b.onclick = () => {
-    HM.met = b.dataset.v; document.querySelectorAll('#h_met button').forEach(x => x.classList.toggle('on', x === b)); restyle(); });
+    HM.met = b.dataset.v; if (HM.met !== 'fc') HTOP = HM.met === 'grow' ? 'em' : 'hot';
+    document.querySelectorAll('#h_met button').forEach(x => x.classList.toggle('on', x === b)); restyle(); });
+  document.querySelectorAll('#h_tt button').forEach(b => b.onclick = () => { HTOP = b.dataset.v; drawTop(); });
 } else { m_hot.disabled = true; m_hot.title = '생활이동 자료가 없어요'; }
 if (F) {
   const r = document.getElementById('f_mon'); r.max = F.months.length - 1; r.value = FM.i;
