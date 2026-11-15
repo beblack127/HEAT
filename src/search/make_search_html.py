@@ -16,6 +16,7 @@ ap.add_argument("--fnb-cats", default="", help="업종 이름 목록 (fnb_catego
 ap.add_argument("--rereg", default="", help="재등록으로 보이는 동 목록 (07_hotspots_fnb_excluded_reregistration.csv)")
 ap.add_argument("--fnb-start", default="2022-01", help="지도 시작 달. 검색량과 같게 2022-01")
 ap.add_argument("--fnb-end", default="2026-09", help="마지막 완전한 달. 그 뒤 부분 월은 뺀다")
+ap.add_argument("--hot", default="", help="핫플지수 탭 자료 (src/gt/07_map_data.py 결과 JSON)")
 a = ap.parse_args()
 
 def r3(x):
@@ -59,6 +60,8 @@ if a.fnb:
             rereg[r.dong_code8] = (f"같은 날 대량 개업({r.같은날10곳이상개업}곳)과 일괄 폐업({r.일괄폐업}곳)이 함께 있어 행정 재등록으로 보여요. "
                                    "순증률보다 점포 증감을 보세요.")
     m["fnb"] = {"months": fmonths, "cats": cats, "dong": fdong, "seoul": series(fm[fm.level == "seoul"], False), "rereg": rereg}
+if a.hot:
+    m["hot"] = json.load(open(a.hot, encoding="utf-8"))
 data = json.dumps(m, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 t = open(a.template, encoding="utf-8").read()
 open(a.out, "w", encoding="utf-8").write(t.replace("__DATA__", data))

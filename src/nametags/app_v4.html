@@ -64,6 +64,11 @@ input[type=range]{width:100%;accent-color:var(--h5);margin:2px 0 12px}
 .row2{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .row2 .seg{flex:0 0 auto;width:180px}
 .fctl{display:none;margin:16px 0 0}
+.hctl{display:none;margin:16px 0 0}
+body.hmode .hctl{display:block}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:1px 8px;margin:4px 4px 0 0}
+.badge.hot{background:var(--h6);color:#fff}.badge.em{background:var(--ink);color:var(--panel)}.badge.no{background:var(--soft);color:var(--muted);font-weight:600}
+.sub2{font-size:12px;color:var(--muted);margin:2px 0 10px}
 body.fmode .fctl{display:block}
 .fopt{display:flex;gap:6px;align-items:center;margin:10px 0 0;font-size:13px;color:var(--muted);cursor:pointer;width:max-content}
 .warnbox{background:var(--warnbg);color:var(--warn);border-radius:8px;padding:8px 10px;font-size:12.5px;margin:0 0 12px}
@@ -167,7 +172,7 @@ summary em{font-style:normal;color:var(--muted);font-weight:400;font-size:13px;m
   <div class="gutter" id="gutter" title="끌어서 너비 조절, 두 번 누르면 넓게"></div>
   <aside>
     <div class="brand"><b>HEAT</b><span>서울 동네 지도</span></div>
-    <div class="seg" role="tablist"><button id="m_search">검색량</button><button id="m_fnb">개폐업</button><button id="m_tags" class="on">이름표</button></div>
+    <div class="seg" role="tablist"><button id="m_hot">핫플지수</button><button id="m_search">검색량</button><button id="m_fnb">개폐업</button><button id="m_tags" class="on">이름표</button></div>
     <div class="demo" id="demo"></div>
     <div class="sctl">
       <div class="month"><b id="s_mlab"></b><span id="s_range"></span></div>
@@ -177,6 +182,12 @@ summary em{font-style:normal;color:var(--muted);font-weight:400;font-size:13px;m
         <div class="chips" id="s_tier"><button class="chip on" data-v="전체">전체</button><button class="chip" data-v="동네">동네</button><button class="chip" data-v="역">역</button><button class="chip" data-v="권역">상권</button></div>
       </div>
       <div class="chips wins" id="s_win"><button class="chip" data-v="1m">지난달</button><button class="chip" data-v="3m">3개월</button><button class="chip" data-v="3m_sa">3개월 계절 보정</button><button class="chip on" data-v="12m">1년</button></div>
+    </div>
+    <div class="hctl">
+      <div class="month"><b id="h_mlab"></b><span id="h_range"></span></div>
+      <input type="range" id="h_wk" min="0" max="0" value="0" aria-label="기준 주">
+      <div class="seg" id="h_met"><button data-v="level" class="on">핫플지수</button><button data-v="grow">떠오름</button><button data-v="fc">13주 예측</button></div>
+      <p class="sub2" id="h_note"></p>
     </div>
     <div class="fctl">
       <div class="month"><b id="f_mlab"></b><span id="f_range"></span></div>
@@ -196,6 +207,8 @@ summary em{font-style:normal;color:var(--muted);font-weight:400;font-size:13px;m
         <p><b>이름표</b>: 동마다 검색에 쓰는 이름을 붙였어요. 동네 이름, 가까운 역, 상권 이름 세 가지예요. 색이 진할수록 붙은 종류가 많아요.</p>
         <p><b>검색량</b>: 그 이름들로 네이버에서 맛집·카페·데이트 등을 찾은 양이에요. 문래 지역의 2022년 평균을 100으로 놓은 값이에요.</p>
         <p><b>변화</b>: 서울 전체 흐름을 뺀 증감이에요. 지난달, 3개월 전, 3개월 전(계절 보정), 1년 전과 비교할 수 있어요. 계절 보정은 2022~2024년의 달별 패턴을 빼고 비교해요.</p>
+        <p><b>핫플지수</b>: 생활이동(20~39세, 쇼핑·관광·기타 목적으로 그 동에 도착한 하루 평균 이동)의 최근 13주 평균을 서울 427동 안 순위로 바꾼 값이에요(0~100). 90 이상(상위 10%)이 현재 핫스팟이에요.</p>
+        <p><b>떠오름</b>: 최근 13주 평균의 서울 대비 비중이 1년 전 같은 13주보다 늘어난 정도예요. 규모 하위 25% 동을 빼고 상위 10%가 떠오르는 곳(검은 테두리)이에요. <b>13주 예측</b>은 마지막 주 이후 13주를 예측한 값으로 같은 판정을 해요.</p>
         <p><b>개폐업</b>: 서울시 인허가 자료의 일반·휴게음식점(편의점 등 제외)을 동별로 센 값이에요. 개업·폐업은 최근 1·3·12개월 합이고, 순증률은 (개업 − 폐업) ÷ 기간 시작 때 영업 점포, 점포 증감은 영업 점포 수의 변화율이에요.</p>
         <p><b>일괄 폐업</b>: 같은 날 한 동에서 한꺼번에 처리된 폐업이에요. 행정 정리가 많아 기본으로 빼고 셉니다. 2026년 10월은 일부만 집계돼 넣지 않았어요.</p>
       </details>
@@ -305,8 +318,56 @@ function fcolor(v){
   const db = FDB[FM.win]; let k = 0; while (k < 4 && v >= db[k]) k++; return css(CC[k]);
 }
 
+// ---------- 핫플지수 (생활이동) ----------
+const HT = D.hot || null;
+const HM = {met: 'level', i: HT ? HT.weeks.length - 1 : 0};
+const HU = HT ? Object.keys(HT.unit) : [];
+const unitOf = c => HT ? (HT.d2u[c] || c) : c;
+const wk = s => s ? `${s.slice(0, 4)}.${s.slice(5, 7)}.${s.slice(8, 10)}` : '';
+const wkLab = s => s ? `${+s.slice(5, 7)}월 ${+s.slice(8, 10)}일까지 13주` : '';
+const amean = (a, i0, i1) => { if (!a || i0 < 0) return null; let s = 0, n = 0;
+  for (let j = i0; j <= i1; j++) { const v = a[j]; if (v != null) { s += v; n++; } } return n >= Math.ceil((i1 - i0 + 1) * 0.7) ? s / n : null; };
+function rankState(lvl, gr, keepLvl){
+  const lv = HU.filter(u => lvl[u] != null).sort((a, b) => lvl[a] - lvl[b]), pct = {};
+  lv.forEach((u, k) => pct[u] = lv.length > 1 ? k / (lv.length - 1) * 100 : 50);
+  const hot = new Set(lv.slice(lv.length - Math.round(lv.length * 0.1)));
+  const base = keepLvl || lvl, bl = HU.filter(u => base[u] != null).map(u => base[u]).sort((a, b) => a - b);
+  const thr = bl.length ? bl[Math.floor(bl.length * 0.25)] : 0;
+  const el = HU.filter(u => gr[u] != null && base[u] != null && base[u] >= thr).sort((a, b) => gr[b] - gr[a]);
+  const em = new Set(el.slice(0, Math.round(el.length * 0.1)));
+  const grank = {}; el.forEach((u, k) => grank[u] = k + 1);
+  return {lvl, gr, pct, hot, em, grank, nEl: el.length, thr};
+}
+const HSC = new Map(); let HFS = null;
+function hstate(i){
+  if (HSC.has(i)) return HSC.get(i);
+  const lvl = {}, gr = {};
+  HU.forEach(u => { const d = HT.unit[u]; lvl[u] = amean(d.y, i - 12, i);
+    const a = amean(d.s, i - 12, i), b = amean(d.s, i - 64, i - 52); gr[u] = (a != null && b) ? a / b - 1 : null; });
+  const r = rankState(lvl, gr); HSC.set(i, r); return r;
+}
+function fstate(){
+  if (HFS) return HFS;
+  const P = HT.fc.y, n = HT.weeks.length, tot = Array(13).fill(0);
+  HU.forEach(u => { const a = P[u]; if (a) a.forEach((v, k) => tot[k] += v); });
+  const lvl = {}, gr = {};
+  HU.forEach(u => { const a = P[u]; if (!a) return; lvl[u] = a.reduce((x, y) => x + y, 0) / 13;
+    const sp = a.reduce((x, v, k) => x + v / tot[k], 0) / 13, b = amean(HT.unit[u].s, n - 52, n - 40); gr[u] = b ? sp / b - 1 : null; });
+  HFS = rankState(lvl, gr, hstate(n - 1).lvl); return HFS;
+}
+const hst = () => HM.met === 'fc' ? fstate() : hstate(HM.i);
+const HBIN = [25, 50, 70, 80, 90, 95];
+function hcolor(code){
+  const u = unitOf(code), st = hst();
+  if (HM.met === 'level') { const p = st.pct[u]; if (p == null) return css('--na'); let k = 0; while (k < 6 && p >= HBIN[k]) k++; return css(HC[k]); }
+  const g = st.gr[u]; if (g == null || st.lvl[u] == null) return css('--na');
+  if (st.thr != null && (HM.met === 'fc' ? hstate(HT.weeks.length - 1).lvl[u] : st.lvl[u]) < st.thr) return css('--na');
+  const db = [-0.3, -0.1, 0.1, 0.3]; let k = 0; while (k < 4 && g >= db[k]) k++; return css(CC[k]);
+}
+const hEdge = code => MODE === 'hot' && HM.met !== 'level' && hst().em.has(unitOf(code));
+
 const TFILL = n => n >= 3 ? css('--t3') : n === 2 ? css('--t2') : css('--t1');
-const dongFill = code => MODE === 'search' ? scolor(sval(code, SM.tier, SM.met, SM.i))
+const dongFill = code => MODE === 'hot' ? hcolor(code) : MODE === 'search' ? scolor(sval(code, SM.tier, SM.met, SM.i))
   : MODE === 'fnb' ? fcolor(fval(code, FM.met, FM.i, FM.win)) : TFILL(slotsOf(code));
 
 // ---------- 지도 ----------
@@ -368,6 +429,12 @@ function drawLegend(){
       <span><i style="background:var(--t3)"></i>동네, 역, 상권 모두 <b style="display:inline;margin:0 0 0 auto;color:var(--ink)">${cnt(3)}</b></span>
       <span><i style="background:var(--t2)"></i>두 가지 <b style="display:inline;margin:0 0 0 auto;color:var(--ink)">${cnt(2)}</b></span>
       <span><i style="background:var(--t1)"></i>한 가지 <b style="display:inline;margin:0 0 0 auto;color:var(--ink)">${cnt(1)}</b></span></div>`;
+  } else if (MODE === 'hot') {
+    const st = hst(), when = HM.met === 'fc' ? `${wk(HT.fc.weeks[0])} ~ ${wk(HT.fc.weeks[12])} 예측` : wkLab(HT.weeks[HM.i]);
+    if (HM.met === 'level') el.innerHTML = `<b>핫플지수, ${when}</b><div class="bar">${HC.map(c => `<i style="background:var(${c})"></i>`).join('')}</div>
+        <div class="ends"><span>0</span><span>50</span><span>90+ 현재 핫스팟</span></div><div style="margin:5px 0 0">현재 핫스팟 ${st.hot.size}곳 · 서울 427동 안 순위</div>`;
+    else el.innerHTML = `<b>${HM.met === 'fc' ? '떠오름 예측' : '떠오름'}, ${when}</b><div class="bar">${CC.map(c => `<i style="background:var(${c})"></i>`).join('')}</div>
+        <div class="ends"><span>−30%</span><span>1년 전과 비슷</span><span>+30%</span></div><div style="margin:5px 0 0">검은 테두리 = 떠오르는 곳 ${st.em.size}곳 · 규모 하위 25%는 회색</div>`;
   } else if (MODE === 'fnb') {
     const per = `최근 ${FM.win}개월`, bulk = FM.met !== 'open' && FM.met !== 'grow' ? (FM.bulk ? ', 일괄 폐업 포함' : ', 일괄 폐업 제외') : '';
     if (!isRate(FM.met)) {
@@ -393,18 +460,29 @@ function drawLegend(){
 function restyle(){
   if (MODE === 'search') { breaks(); document.getElementById('s_mlab').textContent = ym(S.months[SM.i]); }
   if (MODE === 'fnb') { fbreaks(); document.getElementById('f_mlab').textContent = ym(F.months[FM.i]); }
-  dongLayer.setStyle(f => ({fillColor: dongFill(f.properties.dong_code8)}));
+  if (MODE === 'hot') { const fc = HM.met === 'fc'; document.getElementById('h_mlab').textContent = fc ? `${wk(HT.fc.weeks[0])} ~ ${wk(HT.fc.weeks[12])}` : wkLab(HT.weeks[HM.i]);
+    document.getElementById('h_wk').disabled = fc;
+    document.getElementById('h_note').textContent = fc ? `마지막 주(${wk(HT.weeks[HT.weeks.length - 1])}) 이후 13주를 ${HT.fc.model}로 예측했어요.` : '최근 13주 평균 기준이에요. 슬라이더로 기준 주를 바꿀 수 있어요.'; }
+  dongLayer.setStyle(f => ({fillColor: dongFill(f.properties.dong_code8), color: hEdge(f.properties.dong_code8) ? css('--ink') : css('--panel'), weight: hEdge(f.properties.dong_code8) ? 2.4 : 0.8}));
+  if (MODE === 'hot') dongLayer.eachLayer(l => { if (hEdge(l.feature.properties.dong_code8)) l.bringToFront(); });
   drawLegend(); map.closePopup();
   if (selected) select(selected, false, null, true);
 }
 function setMode(m){
-  if ((m === 'search' && !S) || (m === 'fnb' && !F)) return;
-  MODE = m; document.body.classList.toggle('smode', m === 'search'); document.body.classList.toggle('fmode', m === 'fnb');
-  m_tags.classList.toggle('on', m === 'tags'); m_search.classList.toggle('on', m === 'search'); m_fnb.classList.toggle('on', m === 'fnb');
+  if ((m === 'search' && !S) || (m === 'fnb' && !F) || (m === 'hot' && !HT)) return;
+  MODE = m; document.body.classList.toggle('smode', m === 'search'); document.body.classList.toggle('fmode', m === 'fnb'); document.body.classList.toggle('hmode', m === 'hot');
+  m_tags.classList.toggle('on', m === 'tags'); m_search.classList.toggle('on', m === 'search'); m_fnb.classList.toggle('on', m === 'fnb'); m_hot.classList.toggle('on', m === 'hot');
   restyle();
 }
-const m_tags = document.getElementById('m_tags'), m_search = document.getElementById('m_search'), m_fnb = document.getElementById('m_fnb');
-m_tags.onclick = () => setMode('tags'); m_search.onclick = () => setMode('search'); m_fnb.onclick = () => setMode('fnb');
+const m_tags = document.getElementById('m_tags'), m_search = document.getElementById('m_search'), m_fnb = document.getElementById('m_fnb'), m_hot = document.getElementById('m_hot');
+m_tags.onclick = () => setMode('tags'); m_search.onclick = () => setMode('search'); m_fnb.onclick = () => setMode('fnb'); m_hot.onclick = () => setMode('hot');
+if (HT) {
+  const r = document.getElementById('h_wk'); r.min = 12; r.max = HT.weeks.length - 1; r.value = HM.i;
+  r.oninput = e => { HM.i = +e.target.value; restyle(); };
+  document.getElementById('h_range').textContent = `${wk(HT.weeks[12])} ~ ${wk(HT.weeks[HT.weeks.length - 1])}`;
+  document.querySelectorAll('#h_met button').forEach(b => b.onclick = () => {
+    HM.met = b.dataset.v; document.querySelectorAll('#h_met button').forEach(x => x.classList.toggle('on', x === b)); restyle(); });
+} else { m_hot.disabled = true; m_hot.title = '생활이동 자료가 없어요'; }
 if (F) {
   const r = document.getElementById('f_mon'); r.max = F.months.length - 1; r.value = FM.i;
   r.oninput = e => { FM.i = +e.target.value; restyle(); };
@@ -427,7 +505,7 @@ if (S) {
     SM.tier = b.dataset.v; document.querySelectorAll('#s_tier .chip').forEach(x => x.classList.toggle('on', x === b)); restyle(); });
   if (S.demo) { const dm = document.getElementById('demo'); dm.style.display = 'block'; dm.textContent = S.demo; }
 } else { m_search.disabled = true; m_search.title = '검색량 자료가 없어요'; }
-if (S) setMode('search');
+if (HT) setMode('hot'); else if (S) setMode('search');
 
 const dl = document.getElementById('dl');
 props.slice().sort((a, b) => a.dong_name.localeCompare(b.dong_name, 'ko')).forEach(p => {
@@ -456,7 +534,8 @@ function lineChart(series, opt){
   let g = '';
   ticks.forEach(v => { g += `<line x1="${ml}" x2="${W - mr}" y1="${Y(v).toFixed(1)}" y2="${Y(v).toFixed(1)}" stroke="${css('--line')}"/>`
     + `<text x="${ml - 6}" y="${(Y(v) + 3.5).toFixed(1)}" text-anchor="end" font-size="10.5" fill="${css('--muted')}">${tf(v)}</text>`; });
-  months.forEach((m, i) => { if (m.endsWith('-01')) g += `<text x="${X(i).toFixed(1)}" y="${H - 5}" font-size="10.5" fill="${css('--muted')}">${m.slice(0, 4)}</text>`
+  if (opt.shade) g += `<rect x="${X(opt.shade[0]).toFixed(1)}" y="${mt}" width="${(X(opt.shade[1]) - X(opt.shade[0])).toFixed(1)}" height="${ph}" fill="${css('--sta')}" opacity=".07"/>`;
+  months.forEach((m, i) => { const lb = opt.tick ? opt.tick(m, i, months) : (m.endsWith('-01') ? m.slice(0, 4) : null); if (lb) g += `<text x="${X(i).toFixed(1)}" y="${H - 5}" font-size="10.5" fill="${css('--muted')}">${lb}</text>`
     + `<line x1="${X(i).toFixed(1)}" x2="${X(i).toFixed(1)}" y1="${mt + ph}" y2="${mt + ph + 4}" stroke="${css('--faint')}"/>`; });
   g += `<line x1="${X(cur).toFixed(1)}" x2="${X(cur).toFixed(1)}" y1="${mt}" y2="${mt + ph}" stroke="${css('--ink')}" stroke-dasharray="3 3" opacity=".45"/>`;
   series.forEach(s => { let d = '', pen = false;
@@ -466,7 +545,7 @@ function lineChart(series, opt){
     if (v != null) g += `<circle cx="${X(cur).toFixed(1)}" cy="${Y(v).toFixed(1)}" r="3.5" fill="${s.color}" stroke="${css('--panel')}" stroke-width="1.5"/>`; });
   const last = series[series.length - 1].data[cur];
   if (last != null && !series.some(s => s.dot)) g += `<circle cx="${X(cur).toFixed(1)}" cy="${Y(last).toFixed(1)}" r="3.5" fill="${series[0].color}" stroke="${css('--panel')}" stroke-width="1.5"/>`;
-  const id = 'c' + (++chN); CH[id] = {series, ml, pw, n, months};
+  const id = 'c' + (++chN); CH[id] = {series, ml, pw, n, months, fx: opt.fx || ym};
   return `<svg class="chart" data-cid="${id}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${g}`
     + `<line class="hv" x1="0" x2="0" y1="${mt}" y2="${mt + ph}" stroke="${css('--muted')}" style="display:none"/>`
     + `<rect x="${ml}" y="${mt}" width="${pw}" height="${ph}" fill="transparent"/></svg>`;
@@ -480,7 +559,7 @@ document.addEventListener('mousemove', e => {
   const r = sv.getBoundingClientRect(), sx = r.width / sv.viewBox.baseVal.width;
   const i = Math.max(0, Math.min(c.n - 1, Math.round(((e.clientX - r.left) / sx - c.ml) / c.pw * (c.n - 1))));
   const hv = sv.querySelector('.hv'), hx = c.ml + i / (c.n - 1) * c.pw; hv.setAttribute('x1', hx); hv.setAttribute('x2', hx); hv.style.display = '';
-  tip.innerHTML = `<b>${ym(c.months[i])}</b>` + c.series.map(s => `<br><i style="background:${s.color};opacity:${s.op || 1}"></i>${esc(s.name)} ${(s.fmt || fmtv)(s.data[i])}`).join('');
+  tip.innerHTML = `<b>${c.fx(c.months[i])}</b>` + c.series.map(s => `<br><i style="background:${s.color};opacity:${s.op || 1}"></i>${esc(s.name)} ${(s.fmt || fmtv)(s.data[i])}`).join('');
   tip.style.display = 'block';
   tip.style.left = Math.min(e.clientX + 14, window.innerWidth - tip.offsetWidth - 8) + 'px'; tip.style.top = (e.clientY + 14) + 'px';
 });
@@ -507,6 +586,44 @@ function searchHTML(code, L_){
     if (ex || !g) return `<div class="ch"><div class="chh"><b>${esc(nm)}</b><span>쓰지 않음: ${esc(ex || '자료 없음')}</span></div></div>`;
     return `<div class="ch"><div class="chh"><b>${esc(nm)} <span>${pct(l.weight)}</span></b><span>${fmtv(g[SM.i])}&nbsp;&nbsp;${WS[SM.win]} ${fmtp(gchg(l.keyword_group_id, g, SM.i))}</span></div>${lineChart(pair(g, css(TC[t])), {w: W, h: 130, small: true})}</div>`;
   }).join('') + '</details>';
+  return h;
+}
+const yearTick = (m, i, ms) => (i > 0 && m.slice(5, 7) === '01' && ms[i - 1].slice(5, 7) === '12') ? m.slice(0, 4) : null;
+const wkFx = s => `${wk(s)} 주`;
+function hotHTML(code){
+  const u = unitOf(code), d = HT.unit[u], W = Math.max(260, document.getElementById('panel').clientWidth);
+  if (!d) return '<p class="none">이 동은 생활이동 자료가 없어요.</p>';
+  const n = HT.weeks.length, i = HM.i, st = hstate(i), fs = fstate();
+  const badge = (on, cls, txt) => `<span class="badge ${on ? cls : 'no'}">${txt}</span>`;
+  let h = HT.merged[code] ? `<div class="warnbox">${esc(HT.merged[code])}</div>` : '';
+  h += `<div class="kpis">
+    <div class="kpi"><small>핫플지수 <em>${wkLab(HT.weeks[i])}</em></small><b>${st.pct[u] == null ? '–' : Math.round(st.pct[u])}</b><span class="sub">13주 평균 하루 ${fmtn(st.lvl[u])}명</span></div>
+    <div class="kpi"><small>1년 전보다 <em>서울 대비 비중</em></small><b class="${st.gr[u] > 0.05 ? 'up' : st.gr[u] < -0.05 ? 'down' : ''}">${fmtp1(st.gr[u])}</b><span class="sub">${st.grank[u] ? `떠오름 순위 ${st.grank[u]} / ${st.nEl}` : '규모가 작아 순위에서 제외'}</span></div></div>
+    <div>${badge(st.hot.has(u), 'hot', '현재 핫스팟')}${badge(st.em.has(u), 'em', '떠오르는 곳')}</div>
+    <div class="kpis" style="margin-top:12px"><div class="kpi"><small>다음 13주 예측 <em>${wk(HT.fc.weeks[0])}~</em></small><b>${fmtn(fs.lvl[u])}</b><span class="sub">하루 평균 · ${esc(HT.fc.model)}</span></div>
+    <div class="kpi"><small>예측 떠오름</small><b class="${fs.gr[u] > 0.05 ? 'up' : fs.gr[u] < -0.05 ? 'down' : ''}">${fmtp1(fs.gr[u])}</b><span class="sub">${badge(fs.hot.has(u), 'hot', '예측 핫스팟')}${badge(fs.em.has(u), 'em', '예측 떠오름')}</span></div></div>`;
+  const months = HT.weeks.concat(HT.fc.weeks), pad = a => a.concat(Array(13).fill(null));
+  const ma = d.y.map((_, j) => amean(d.y, j - 12, j)), ly = months.map((_, j) => j >= 52 ? (d.y[j - 52] ?? null) : null);
+  const fcl = Array(n - 1).fill(null).concat([d.y[n - 1]], HT.fc.y[u] || Array(13).fill(null));
+  const ser = [{name: '주별 실제', color: css('--sta'), width: 1, op: .45, data: pad(d.y), fmt: fmtn},
+    {name: '13주 평균', color: css('--sta'), width: 2.4, data: pad(ma), fmt: fmtn, dot: true},
+    {name: '작년 같은 주', color: '#2F8F5B', width: 1.2, op: .8, data: ly, fmt: fmtn},
+    {name: '13주 예측', color: css('--c5'), width: 2.4, data: fcl, fmt: fmtn}];
+  h += `<div class="ch"><div class="chh"><b>주별 생활이동과 13주 예측</b><span><span class="key"><i style="background:${css('--sta')}"></i>실제</span><span class="key"><i style="background:#2F8F5B"></i>작년</span><span class="key"><i style="background:${css('--c5')}"></i>예측</span></span></div>
+    ${lineChart(ser, {w: W, h: 240, months, i, tf: fmtn, tick: yearTick, fx: wkFx, shade: [n - 1, n + 12]})}</div>
+    <div class="ax"><label><input type="checkbox" id="ax0" ${AX0 ? 'checked' : ''}>세로축 0부터</label></div>`;
+  const E = HT.exp;
+  if (E && E.y[u]) {
+    h += `<details><summary>실험 예측 4개 시점<em>${esc(E.model)}</em></summary>` + E.origins.map(o => {
+      const oi = HT.weeks.indexOf(o), p = E.y[u][o]; if (oi < 0 || !p) return '';
+      const a = Math.max(0, oi - 20), b = Math.min(n - 1, oi + 13), ms = HT.weeks.slice(a, b + 1), act = d.y.slice(a, b + 1);
+      const pr = ms.map((_, j) => j + a > oi && j + a <= oi + 13 ? p[j + a - oi - 1] : (j + a === oi ? d.y[oi] : null));
+      const sn = ms.map((_, j) => j + a > oi && j + a - 52 >= 0 ? d.y[j + a - 52] : null);
+      let ea = 0, eb = 0, sy = 0; for (let k = 1; k <= 13 && oi + k < n; k++) { const y = d.y[oi + k]; if (y == null) continue; ea += Math.abs(y - p[k - 1]); eb += Math.abs(y - d.y[oi + k - 52]); sy += y; }
+      return `<div class="ch"><div class="chh"><b>${wk(o)} 시점</b><span>13주 오차 ${sy ? (ea / sy * 100).toFixed(1) : '–'}% · 작년 같은 주 ${sy ? (eb / sy * 100).toFixed(1) : '–'}%</span></div>${lineChart([
+        {name: '실제', color: css('--sta'), width: 1.6, data: act, fmt: fmtn}, {name: '작년 같은 주', color: '#2F8F5B', width: 1.1, op: .8, data: sn, fmt: fmtn},
+        {name: '예측', color: css('--c5'), width: 2.2, data: pr, fmt: fmtn}], {w: W, h: 130, small: true, months: ms, i: oi - a, tf: fmtn, tick: (m, j, mm) => j % 8 === 0 ? `${+m.slice(5, 7)}월` : null, fx: wkFx, shade: [oi - a, ms.length - 1]})}</div>`; }).join('') + '</details>';
+  }
   return h;
 }
 function fnbHTML(code){
@@ -572,13 +689,17 @@ function select(code, fly, at, quiet){
   L_.filter(l => l.tier == '권역' && l.usable == 1).forEach(l => { const g = gwonOf[l.name];
     if (g) L.geoJSON(g.feature, {interactive: false, style: {color: css('--gwon'), weight: 2.5, fillColor: css('--gwon'), fillOpacity: .15}}).addTo(hiLayer); });
   const body = MODE === 'search' ? searchHTML(code, L_) + `<details><summary>이 동의 이름표</summary>${tagsHTML(L_)}</details>`
-    : MODE === 'fnb' ? fnbHTML(code) + `<details><summary>이 동의 이름표</summary>${tagsHTML(L_)}</details>` : tagsHTML(L_);
+    : MODE === 'fnb' ? fnbHTML(code) + `<details><summary>이 동의 이름표</summary>${tagsHTML(L_)}</details>`
+    : MODE === 'hot' ? hotHTML(code) + `<details><summary>이 동의 이름표</summary>${tagsHTML(L_)}</details>` : tagsHTML(L_);
   document.getElementById('panel').innerHTML = `<div class="dname"><h2>${esc(p.dong_name)}</h2><span>${esc(p.gu)}</span></div>${body}`;
   if (quiet) return;
   const top = t => { const r = L_.filter(l => l.tier == t && l.usable == 1).sort((a, b) => b.weight - a.weight);
     return r.length ? esc(t === '역' ? staName(r[0].name) : r[0].name) + (r.length > 1 ? ` 외 ${r.length - 1}` : '') : '–'; };
   const fd = F && F.dong[code];
-  const rows = MODE === 'search'
+  const hs = HT && MODE === 'hot' ? (HM.met === 'fc' ? fstate() : hstate(HM.i)) : null, hu = unitOf(code);
+  const rows = MODE === 'hot'
+    ? `<div class="r"><span>${HM.met === 'fc' ? '예측 13주 평균' : '핫플지수'}</span><span>${HM.met === 'fc' ? fmtn(hs.lvl[hu]) : (hs.pct[hu] == null ? '–' : Math.round(hs.pct[hu]))}</span></div><div class="r"><span>1년 전보다</span><span>${fmtp1(hs.gr[hu])}</span></div><div class="r"><span>판정</span><span>${[hs.hot.has(hu) ? '핫스팟' : '', hs.em.has(hu) ? '떠오름' : ''].filter(Boolean).join(' · ') || '–'}</span></div>`
+    : MODE === 'search'
     ? `<div class="r"><span>검색 지수</span><span>${fmtv(sval(code, SM.tier, 'level', SM.i))}</span></div><div class="r"><span>${WIN[SM.win]}</span><span>${fmtp(sval(code, SM.tier, 'yoy', SM.i))}</span></div>`
     : MODE === 'fnb'
     ? `<div class="r"><span>개업 (${FM.win}개월)</span><span>${fmtn(fstat(fd, FM.i, FM.win, 'open'))}</span></div><div class="r"><span>폐업</span><span>${fmtn(fstat(fd, FM.i, FM.win, 'close'))}</span></div><div class="r"><span>순증률</span><span>${fmtp1(fstat(fd, FM.i, FM.win, 'net'))}</span></div><div class="r"><span>영업 점포</span><span>${fd ? fmtn(fd.S[FM.i]) : '–'}</span></div>`

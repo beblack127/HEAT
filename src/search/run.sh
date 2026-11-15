@@ -14,6 +14,7 @@ if [ -f "$FI/fnb_monthly.parquet" ]; then
   FNB=(--fnb "$FI/fnb_monthly.parquet" --fnb-cats "$FI/fnb_categories.json")
   RR=$ROOT/reports/forecast/07_hotspots_fnb_excluded_reregistration.csv; [ -f "$RR" ] && FNB+=(--rereg "$RR")
 fi
+HOT=$ROOT/data/processed/gt/hot_map.json; [ -f "$HOT" ] && FNB+=(--hot "$HOT")   # 핫플지수 탭 (src/gt/07_map_data.py)
 python3 "$S/make_search_html.py" --mapdata "$P/nametags/_mapdata_small.json" --template "$W/template_v4.html" \
   --dong "$W/행정동_검색지수_월별.csv" --groups "$W/검색량_묶음별_월별.csv" --quality "$W/검색어묶음_품질.csv" \
   --landmarks "$ROOT/data/external/geo/landmarks.json" --anchor 문래 "${FNB[@]}" --out "$W/행정동_검색량_개폐업_지도.html"

@@ -15,3 +15,8 @@ time,step,git,spec_version,plan,seed,note,extra
 2026-11-12 14:02:19,08_report_figures,49f6965,2.2,v3,42,리포트 그림 8개,
 2026-11-12 14:02:57,08_report_figures,49f6965,2.2,v3,42,리포트 그림 8개,
 2026-11-12 14:03:08,08_report_figures,49f6965,2.2,v3,42,리포트 그림 8개,
+2026-11-16 00:06:33,gt/00_target,5d8fe17,,gt_midterm,42,units=426; weeks=22,
+2026-11-16 00:07:23,gt/01_features,5d8fe17,,gt_midterm,42,miss_stations=3,
+2026-11-16 00:07:36,gt/01_features,5d8fe17,,gt_midterm,42,miss_stations=2,
+2026-11-16 00:14:05,gt/00_target,5d8fe17,,gt_midterm,42,units=426; weeks=118,
+2026-11-16 00:14:11,gt/01_features,5d8fe17,,gt_midterm,42,miss_stations=2,
