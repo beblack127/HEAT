@@ -41,3 +41,4 @@ time,step,git,spec_version,plan,seed,note,extra
 2026-11-16 04:18:00,gt/02b_extra_models,6e5ef6e,,gt_midterm,42,rows=87048; fallback=0; sec=1104,
 2026-11-16 04:18:49,gt/03b_extra_eval,6e5ef6e,,gt_midterm,42,best4=결합|arima|none 16.09,
 2026-11-16 04:36:08,gt/02c_more_models,62a85c4,,gt_midterm,42,units=2; rows=624; errors=0; factor_max=1.764; sec=17,
+2026-11-16 04:41:24,gt/10_validity_sales,e8d7279,,gt_midterm,42,level=0.84; change=0.10,
