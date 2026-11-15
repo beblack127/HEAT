@@ -225,7 +225,7 @@ summary em{font-style:normal;color:var(--muted);font-weight:400;font-size:13px;m
         <p><b>검색량</b>: 그 이름들로 네이버에서 맛집·카페·데이트 등을 찾은 양이에요. 문래 지역의 2022년 평균을 100으로 놓은 값이에요.</p>
         <p><b>변화</b>: 서울 전체 흐름을 뺀 증감이에요. 지난달, 3개월 전, 3개월 전(계절 보정), 1년 전과 비교할 수 있어요. 계절 보정은 2022~2024년의 달별 패턴을 빼고 비교해요.</p>
         <p><b>핫플지수</b>: 생활이동(20~39세, 쇼핑·관광·기타 목적으로 그 동에 도착한 하루 평균 이동)의 최근 13주 평균을 서울 427동 안 순위로 바꾼 값이에요(0~100). 90 이상(상위 10%)이 현재 핫스팟이에요.</p>
-        <p><b>떠오름</b>: 최근 13주 평균의 서울 대비 비중이 1년 전 같은 13주보다 늘어난 정도예요. 규모 하위 25% 동을 빼고 상위 10%가 떠오르는 곳(검은 테두리)이에요. <b>13주 예측</b>은 마지막 주 이후 13주를 예측한 값으로 같은 판정을 해요.</p>
+        <p><b>떠오름</b>: 최근 13주 평균의 서울 대비 비중이 1년 전 같은 13주보다 늘어난 정도예요. 규모가 작은 동(2023년 동별 평균 하위 25% 경계, 하루 약 2,050명 미만)을 빼고 상위 10%가 떠오르는 곳(검은 테두리)이에요. 실험 그래프의 초록 점선 '작년 같은 주'는 모든 모델이 넘어야 하는 기준선이에요. <b>13주 예측</b>은 마지막 주 이후 13주를 예측한 값으로 같은 판정을 해요.</p>
         <p><b>개폐업</b>: 서울시 인허가 자료의 일반·휴게음식점(편의점 등 제외)을 동별로 센 값이에요. 개업·폐업은 최근 1·3·12개월 합이고, 순증률은 (개업 − 폐업) ÷ 기간 시작 때 영업 점포, 점포 증감은 영업 점포 수의 변화율이에요.</p>
         <p><b>일괄 폐업</b>: 같은 날 한 동에서 한꺼번에 처리된 폐업이에요. 행정 정리가 많아 기본으로 빼고 셉니다. 2026년 10월은 일부만 집계돼 넣지 않았어요.</p>
       </details>
@@ -348,8 +348,8 @@ function rankState(lvl, gr, keepLvl){
   const lv = HU.filter(u => lvl[u] != null).sort((a, b) => lvl[a] - lvl[b]), pct = {};
   lv.forEach((u, k) => pct[u] = lv.length > 1 ? k / (lv.length - 1) * 100 : 50);
   const hot = new Set(lv.slice(lv.length - Math.round(lv.length * 0.1)));
-  const base = keepLvl || lvl, bl = HU.filter(u => base[u] != null).map(u => base[u]).sort((a, b) => a - b);
-  const thr = bl.length ? bl[Math.floor(bl.length * 0.25)] : 0;
+  const base = keepLvl || lvl;
+  const thr = HT.minlvl ?? 0;   // 규모 하한: 기준 연도 동별 평균의 하위 25% 경계 (고정)
   const el = HU.filter(u => gr[u] != null && base[u] != null && base[u] >= thr).sort((a, b) => gr[b] - gr[a]);
   const em = new Set(el.slice(0, Math.round(el.length * 0.1)));
   const grank = {}; el.forEach((u, k) => grank[u] = k + 1);
@@ -463,7 +463,7 @@ function drawLegend(){
     if (HM.met === 'level') el.innerHTML = `<b>핫플지수, ${when}</b><div class="bar">${HC.map(c => `<i style="background:var(${c})"></i>`).join('')}</div>
         <div class="ends"><span>0</span><span>50</span><span>90+ 현재 핫스팟</span></div><div style="margin:5px 0 0">현재 핫스팟 ${st.hot.size}곳 · 서울 427동 안 순위</div>`;
     else el.innerHTML = `<b>${HM.met === 'fc' ? '떠오름 예측' : '떠오름'}, ${when}</b><div class="bar">${CC.map(c => `<i style="background:var(${c})"></i>`).join('')}</div>
-        <div class="ends"><span>−30%</span><span>1년 전과 비슷</span><span>+30%</span></div><div style="margin:5px 0 0">검은 테두리 = 떠오르는 곳 ${st.em.size}곳 · 규모 하위 25%는 회색</div>`;
+        <div class="ends"><span>−30%</span><span>1년 전과 비슷</span><span>+30%</span></div><div style="margin:5px 0 0">검은 테두리 = 떠오르는 곳 ${st.em.size}곳 · 하루 ${fmtn(HT.minlvl)}명 미만은 회색</div>`;
   } else if (MODE === 'fnb') {
     const per = `최근 ${FM.win}개월`, bulk = FM.met !== 'open' && FM.met !== 'grow' ? (FM.bulk ? ', 일괄 폐업 포함' : ', 일괄 폐업 제외') : '';
     if (!isRate(FM.met)) {
@@ -639,14 +639,13 @@ function hotHTML(code){
   const fcl = Array(n - 1).fill(null).concat([d.y[n - 1]], HT.fc.y[u] || Array(13).fill(null));
   const ser = [{name: '주별 실제', color: css('--sta'), width: 1, op: .45, data: pad(d.y), fmt: fmtn},
     {name: '13주 평균', color: css('--sta'), width: 2.4, data: pad(ma), fmt: fmtn, dot: true},
-    {name: '작년 같은 주', color: '#2F8F5B', width: 1.2, op: .8, data: ly, fmt: fmtn},
     {name: '예측: 생활이동만', color: css('--c5'), width: 2.4, data: fcl, fmt: fmtn}];
   if (HT.fc.y2 && HT.fc.y2[u]) ser.push({name: '예측: + 우리 자료', color: '#7B4FB8', width: 2.2, data: Array(n - 1).fill(null).concat([d.y[n - 1]], HT.fc.y2[u]), fmt: fmtn});
   const a0 = Math.max(0, Math.min(i - 26, n - 1 - 78));   // 최근 1년 반 + 예측 13주만 그린다
-  h += `<div class="ch"><div class="chh"><b>주별 생활이동과 13주 예측</b><span><span class="key"><i style="background:${css('--sta')}"></i>실제</span><span class="key"><i style="background:#2F8F5B"></i>작년</span><span class="key"><i style="background:${css('--c5')}"></i>생활이동만</span><span class="key"><i style="background:#7B4FB8"></i>+우리 자료</span></span></div>
+  h += `<div class="ch"><div class="chh"><b>주별 생활이동과 13주 예측</b><span><span class="key"><i style="background:${css('--sta')}"></i>실제</span><span class="key"><i style="background:${css('--c5')}"></i>생활이동만</span><span class="key"><i style="background:#7B4FB8"></i>+우리 자료</span></span></div>
     ${lineChart(ser.map(x => ({...x, data: x.data.slice(a0)})), {w: W, h: 240, months: months.slice(a0), i: i - a0, tf: fmtK, tick: (m, j) => m.slice(5, 7) === '01' && +m.slice(8, 10) <= 7 ? m.slice(0, 4) : (m.slice(5, 7) === '07' && +m.slice(8, 10) <= 7 ? '7월' : null), fx: wkFx, shade: [n - 1 - a0, n + 12 - a0]})}</div>
     <div class="ax"><label><input type="checkbox" id="ax0" ${AX0 ? 'checked' : ''}>세로축 0부터</label></div>
-    <p class="note">2024년 8~10월은 서울 전체 값이 평소의 약 1.5배로 나와 자료 이상으로 보고 있어요. 작년 같은 주 선이 2025년 이 시기에 튀는 것도 그 때문이에요.</p>`;
+    <p class="note">2024년 8~10월은 서울 전체 값이 평소의 약 1.5배로 나와 자료 이상으로 보고 있어요.</p>`;
   const E = HT.exp;
   if (E && E.y[u]) {
     const P2 = E.y2 && E.y2[u], wt = E.wape;

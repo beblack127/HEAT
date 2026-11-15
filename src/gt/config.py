@@ -41,7 +41,8 @@ LAG_MONTHLY_X = 4
 
 # 핫스팟
 HOT_TOP = 0.10
-EMERGING_MIN_SIZE_PCT = 0.25
+EMERGING_MIN_SIZE_PCT = 0.25   # 규모 하한 = 기준 연도 동별 평균의 하위 25% 경계 (고정값)
+EMERGING_MIN_BASE_YEAR = 2023  # 이 해의 동별 주 평균 분포로 하한을 한 번만 정한다
 TOPK = (10, 20, 30)
 CASE_DONGS = ["화곡1동", "이촌2동"]
 DRAFT_419 = {"snaive": 8.52, "sarimax_pastmob": 18.93, "sarimax_pastmob_search": 16.28}   # 중간발표 초안 (2025-04-27)

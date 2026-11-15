@@ -54,7 +54,9 @@ fc2 = {u: [r3(v) for v in g.sort_values("h").y_hat] for u, g in F2.groupby("unit
 
 d2u = units_of_dongs()
 merged = {d: "신설동·용두동은 생활이동 자료에서 나뉘기 전(용신동) 코드로만 있어 둘을 합쳐 같은 값을 보여요." for d in MERGE}
-out = {"weeks": [str(pd.Timestamp(w).date()) for w in weeks], "unit": unit, "d2u": d2u, "merged": merged,
+base = T[T.week_end.dt.year == C.EMERGING_MIN_BASE_YEAR].groupby("unit").y.mean()
+minlvl = float(base.quantile(C.EMERGING_MIN_SIZE_PCT))
+out = {"minlvl": round(minlvl, 1), "minlvl_year": C.EMERGING_MIN_BASE_YEAR, "weeks": [str(pd.Timestamp(w).date()) for w in weeks], "unit": unit, "d2u": d2u, "merged": merged,
        "fc": {"origin": str(last.date()), "model": label, "weeks": fc_weeks, "y": fc, "model2": label2, "y2": fc2},
        "exp": {"origins": C.ORIGINS, "model": label, "y": exp, "model2": label2, "y2": exp2,
                "wape": {"main": wtab[best], "cmp": wtab["|".join(CMP)], "snaive": wtab["snaive|none"]}}}

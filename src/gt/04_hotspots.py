@@ -44,11 +44,17 @@ def state(o, kind, key=None, ycol=yw, scol=sh):
     return lvl, s_pred / base - 1
 
 
+def min_level(ycol="y"):
+    """규모 하한: 기준 연도 동별 평균의 하위 25% 경계. 시점과 관계없이 고정"""
+    b = T[T.week_end.dt.year == C.EMERGING_MIN_BASE_YEAR].groupby("unit")[ycol].mean()
+    return float(b.quantile(C.EMERGING_MIN_SIZE_PCT))
+THR = min_level()
+print(f"규모 하한 ({C.EMERGING_MIN_BASE_YEAR}년 동별 평균 하위 {int(C.EMERGING_MIN_SIZE_PCT * 100)}%): 하루 {THR:,.0f}")
 rows_list, topk, sens = [], [], []
 for o in C.ORIGINS:
     o = pd.Timestamp(o)
     lvl_now, gr_now = state(o, "now")
-    keep = lvl_now[lvl_now >= lvl_now.quantile(C.EMERGING_MIN_SIZE_PCT)].index
+    keep = lvl_now[lvl_now >= THR].index
     hot_a, em_a, g_a = lists(*state(o, "actual"), keep)
     lvl_a, _ = state(o, "actual")
     hot_n, em_n, g_n = lists(lvl_now, gr_now, keep)
@@ -86,10 +92,12 @@ for o in C.ORIGINS:
         sens.append((o.date(), f"상위 {int(top * 100)}%", len(s), len(s & base) / min(len(s), len(base))))
     _, g0 = state(o, "actual"); s0 = set(g0.dropna().sort_values(ascending=False).index[:len(base)])
     sens.append((o.date(), "규모 제외 없음", len(s0), jac(s0, base)))
+    kq = lvl_now[lvl_now >= lvl_now.quantile(C.EMERGING_MIN_SIZE_PCT)].index   # 이전 방식: 시점마다 하위 25%
+    _, eq, _ = lists(*state(o, "actual"), kq); sens.append((o.date(), "규모 하한을 시점마다 다시 계산", len(eq), jac(set(eq), base)))
     for lab, yc, sc in (("목적 4+5", "y_p45", "share_p45"), ("전 연령", "y_allage", "share_allage")):
         Y2 = T.pivot(index="week_end", columns="unit", values=yc); S2 = T.pivot(index="week_end", columns="unit", values=sc)
         l2, g2 = state(o, "actual", ycol=Y2, scol=S2)
-        ln2, _ = state(o, "now", ycol=Y2, scol=S2); k2 = ln2[ln2 >= ln2.quantile(C.EMERGING_MIN_SIZE_PCT)].index
+        ln2, _ = state(o, "now", ycol=Y2, scol=S2); k2 = ln2[ln2 >= min_level(yc)].index
         _, e2, _ = lists(l2, g2, k2); sens.append((o.date(), lab, len(e2), jac(set(e2), base)))
 
 L = pd.DataFrame(rows_list, columns=["origin", "window", "list", "rank", "unit", "gu", "dong", "level_13w", "growth_vs_last_year"])
@@ -98,6 +106,7 @@ K = pd.DataFrame(topk, columns=["origin", "target", "method", "K", "k", "hit_rat
 K.round(4).to_csv(C.TABLES / "topk.csv", index=False, encoding="utf-8-sig")
 S = pd.DataFrame(sens, columns=["origin", "variant", "n", "overlap_with_base"])
 S.round(3).to_csv(C.TABLES / "sensitivity.csv", index=False, encoding="utf-8-sig")
+pd.Series({"min_level": THR, "base_year": C.EMERGING_MIN_BASE_YEAR, "pct": C.EMERGING_MIN_SIZE_PCT}).to_csv(C.TABLES / "emerging_min_level.csv", header=["value"], encoding="utf-8-sig")
 log_run("04_hotspots", f"origins={len(C.ORIGINS)}")
 print(K[(K.K == 20)].groupby(["target", "method"]).hit_rate.mean().round(3).sort_values(ascending=False).head(20))
 print(S.groupby("variant").overlap_with_base.mean().round(3))
