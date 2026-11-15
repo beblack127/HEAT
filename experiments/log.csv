@@ -1,0 +1,17 @@
+time,step,git,spec_version,plan,seed,note,extra
+2026-11-12 11:42:34,00_targets,49f6965,2.2,v3,42,대상 테이블 생성,stores=622857; bulk=11306
+2026-11-12 11:46:22,01_checks,49f6965,2.2,v3,42,개폐업 기본 점검,croston_dongs=102; busy_dongs=84; bulk_stores=11306
+2026-11-12 11:46:47,01_checks,49f6965,2.2,v3,42,개폐업 기본 점검,croston_dongs=102; busy_dongs=84; bulk_stores=11306
+2026-11-12 11:50:46,02_baselines,49f6965,2.2,v3,42,"Naive, SeasonalNaive",rows=128232; final=False
+2026-11-12 12:06:01,06_evaluate,49f6965,2.2,v3,42,"MASE, PoissonDev, top-K, DM-HLN",rows=432; final=False
+2026-11-12 12:13:29,04_sarimax,49f6965,2.2,v3,42,SARIMAX (AutoARIMA 차수 + 외생 시차 h),rows=25568; final=False
+2026-11-12 12:18:41,05_global,49f6965,2.2,v3,42,"LightGBM, Ridge (base, base+cross)",rows=380160; final=False
+2026-11-12 12:25:02,03_local,49f6965,2.2,v3,42,"ETS, Theta, SARIMA, Croston, TSB",rows=177120; final=False; targets=all
+2026-11-12 12:38:18,06_evaluate,49f6965,2.2,v3,42,"MASE, PoissonDev, top-K, DM-HLN",rows=2176; final=False
+2026-11-12 12:40:30,04_sarimax,49f6965,2.2,v3,42,SARIMAX (AutoARIMA 차수 + 외생 시차 h),rows=25567; final=False
+2026-11-12 12:40:39,06_evaluate,49f6965,2.2,v3,42,"MASE, PoissonDev, top-K, DM-HLN",rows=2176; final=False
+2026-11-12 13:58:54,07_hotspots,49f6965,2.2,v3,42,핫스팟·떠오르는 곳 리스트 (기술 통계),search_end=2026-10; fnb_end=2026-09
+2026-11-12 13:59:02,07_hotspots,49f6965,2.2,v3,42,핫스팟·떠오르는 곳 리스트 (기술 통계),search_end=2026-10; fnb_end=2026-09
+2026-11-12 14:02:19,08_report_figures,49f6965,2.2,v3,42,리포트 그림 8개,
+2026-11-12 14:02:57,08_report_figures,49f6965,2.2,v3,42,리포트 그림 8개,
+2026-11-12 14:03:08,08_report_figures,49f6965,2.2,v3,42,리포트 그림 8개,
