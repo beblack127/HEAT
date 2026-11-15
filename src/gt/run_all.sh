@@ -4,7 +4,7 @@
 # 원자료에서 다시 만들려면: fetch_mobility.sh, fetch_living_pop.sh, seoul_dl.py + reduce_subway.py
 set -e
 cd "$(dirname "$0")"
-for s in 00_target 01_features 02_models 03_evaluate 04_hotspots 05_figures 06_report 07_map_data; do
+for s in 00_target 01_features 02_models 03_evaluate 04_hotspots 05_figures 08_validity 06_report 07_map_data; do
   echo "== $s"; python3 "$s.py"
 done
 cd ../.. && bash src/search/run.sh

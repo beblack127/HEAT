@@ -18,6 +18,8 @@ m_best, x_best = best.split("|")
 LAB = {"naive": "Naive", "arima": "ARIMA", "sarima": "SARIMA", "arimax": "ARIMAX", "sarimax": "SARIMAX"}
 XL = {"none": "", "search": " + 검색", "all_noLP": " + 전체(생활인구 제외)", "all": " + 전체", "search_idx": " + 검색(원지수)"}
 label = LAB[m_best] + XL.get(x_best.replace("+py", ""), "") + (" + 작년 같은 주" if "+py" in x_best else "")
+# 비교용: 같은 차수에 우리 자료(검색·음식점·지하철·공휴일)를 넣은 모델. 생활인구는 같은 통신 자료라 뺐다
+CMP = ("arimax", "all_noLP"); label2 = "ARIMAX + 우리 자료"
 
 weeks = sorted(T.week_end.unique()); last = pd.Timestamp(weeks[-1])
 r3 = lambda v: None if v is None or not np.isfinite(v) else float(f"{v:.4g}")
@@ -32,21 +34,30 @@ exp = {}
 for (u, o), g in Pb.groupby(["unit", "origin"]):
     exp.setdefault(u, {})[str(pd.Timestamp(o).date())] = [r3(v) for v in g.sort_values("h").y_hat]
 
+Pc = P[(P.model == CMP[0]) & (P.xset == CMP[1])]
+exp2 = {}
+for (u, o), g in Pc.groupby(["unit", "origin"]):
+    exp2.setdefault(u, {})[str(pd.Timestamp(o).date())] = [r3(v) for v in g.sort_values("h").y_hat]
+wtab = {k: {str(pd.Timestamp(o).date()): round(float(v), 1) for o, v in W[W.key == k].set_index("origin").wape.items()} for k in (best, "|".join(CMP), "snaive|none")}
+
 # 실시간 예측: 02_models.run_unit 재사용
 spec = importlib.util.spec_from_file_location("m02", str(C.ROOT / "src/gt/02_models.py")); m02 = importlib.util.module_from_spec(spec)
 sys.argv = [sys.argv[0]]; spec.loader.exec_module(m02)
-variants = [] if x_best == "none" else [(m_best, x_best)]
+variants = ([] if x_best == "none" else [(m_best, x_best)]) + [CMP]
 res = Parallel(n_jobs=-1)(delayed(m02.run_unit)(u, m02.D[m02.D.unit == u], [str(last.date())], variants) for u in m02.D.unit.unique())
 F = pd.concat([df for o, _ in res for df in o], ignore_index=True)
-F = F[(F.model == (m_best if x_best != "none" else m_best)) & (F.xset == x_best)]
+F2 = F[(F.model == CMP[0]) & (F.xset == CMP[1])]
+F = F[(F.model == m_best) & (F.xset == x_best)]
 fc_weeks = [str(pd.Timestamp(w).date()) for w in sorted(F.week_end.dropna().unique())]
 fc = {u: [r3(v) for v in g.sort_values("h").y_hat] for u, g in F.groupby("unit")}
+fc2 = {u: [r3(v) for v in g.sort_values("h").y_hat] for u, g in F2.groupby("unit")}
 
 d2u = units_of_dongs()
 merged = {d: "신설동·용두동은 생활이동 자료에서 나뉘기 전(용신동) 코드로만 있어 둘을 합쳐 같은 값을 보여요." for d in MERGE}
 out = {"weeks": [str(pd.Timestamp(w).date()) for w in weeks], "unit": unit, "d2u": d2u, "merged": merged,
-       "fc": {"origin": str(last.date()), "model": label, "weeks": fc_weeks, "y": fc},
-       "exp": {"origins": C.ORIGINS, "model": label, "y": exp}}
+       "fc": {"origin": str(last.date()), "model": label, "weeks": fc_weeks, "y": fc, "model2": label2, "y2": fc2},
+       "exp": {"origins": C.ORIGINS, "model": label, "y": exp, "model2": label2, "y2": exp2,
+               "wape": {"main": wtab[best], "cmp": wtab["|".join(CMP)], "snaive": wtab["snaive|none"]}}}
 dst = C.ROOT / "data/processed/gt"; dst.mkdir(parents=True, exist_ok=True)
 json.dump(out, open(dst / "hot_map.json", "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
 print("대표 모델:", label, "| 실시간 예측", fc_weeks[0], "~", fc_weeks[-1], "| 동", len(fc), "| 크기", round((dst / "hot_map.json").stat().st_size / 1e6, 2), "MB")

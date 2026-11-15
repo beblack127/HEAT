@@ -28,3 +28,6 @@ time,step,git,spec_version,plan,seed,note,extra
 2026-11-16 01:01:49,gt/04_hotspots,355ac17,,gt_midterm,42,origins=4,
 2026-11-16 01:03:46,gt/06_report,355ac17,,gt_midterm,42,rep=arima|none,
 2026-11-16 01:04:03,gt/06_report,355ac17,,gt_midterm,42,rep=arima|none,
+2026-11-16 01:55:11,gt/08_validity,306af4d,,gt_midterm,42,지하철 하차=0.73; 검색 비중=0.46; 음식점 수=0.83; 생활인구 20~39세=0.90,
+2026-11-16 02:02:23,gt/06_report,306af4d,,gt_midterm,42,rep=arima|none,
+2026-11-16 02:02:41,gt/06_report,306af4d,,gt_midterm,42,rep=arima|none,
