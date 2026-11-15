@@ -38,3 +38,5 @@ time,step,git,spec_version,plan,seed,note,extra
 2026-11-16 03:31:26,gt/06_report,f637963,,gt_midterm,42,rep=arima|none,
 2026-11-16 03:31:37,gt/06_report,f637963,,gt_midterm,42,rep=arima|none,
 2026-11-16 03:31:41,gt/06_report,f637963,,gt_midterm,42,rep=arima|none,
+2026-11-16 04:18:00,gt/02b_extra_models,6e5ef6e,,gt_midterm,42,rows=87048; fallback=0; sec=1104,
+2026-11-16 04:18:49,gt/03b_extra_eval,6e5ef6e,,gt_midterm,42,best4=결합|arima|none 16.09,
