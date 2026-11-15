@@ -34,6 +34,8 @@ X_SETS = {
     "search": ["search_share"],
     "all_noLP": ["search_share", "fnb_stock_chg12", "subway_exit_4w", "holiday_days"],
     "all": ["search_share", "fnb_stock_chg12", "subway_exit_4w", "holiday_days", "living_pop"],
+    "subway": ["subway_exit_4w"],                       # 추가 실험 (2026-11-16): 지하철만
+    "search_subway": ["search_share", "subway_exit_4w"],  # 추가 실험: 검색 + 지하철 (생활인구 제외)
 }
 PRIOR_YEAR_X = "y_lag52"
 LAG_WEEKLY_X = 13
