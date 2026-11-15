@@ -27,10 +27,15 @@ grid["search_index"] = np.log1p(grid.search_index_raw)
 
 # ---------- 음식점 (월): 영업 점포 12개월 변화율 ----------
 F = pd.read_csv(C.FNB_CSV, encoding="utf-8-sig", dtype={"code": str})
-F = F[F.level == "dong"].assign(unit=lambda d: d.code.map(to_unit)).groupby(["unit", "month"], as_index=False)["영업점포"].sum()
+F = F[F.level == "dong"].assign(unit=lambda d: d.code.map(to_unit)).groupby(["unit", "month"], as_index=False)[["영업점포", "개업", "폐업_일괄제외"]].sum()
 F = F.sort_values(["unit", "month"])
 F["fnb_stock_chg12"] = F.groupby("unit")["영업점포"].transform(lambda v: v / v.shift(12) - 1)
-grid = grid.merge(F[["unit", "month", "fnb_stock_chg12"]].rename(columns={"month": "month_ref"}), on=["unit", "month_ref"], how="left")
+# 개업률·폐업률: 최근 3개월 개업(폐업, 일괄 폐업 제외) 합 / 3개월 전 영업 점포. 분모 0이면 NaN
+g_ = F.groupby("unit")
+base3 = g_["영업점포"].shift(3).replace(0, np.nan)
+F["fnb_open3"] = g_["개업"].transform(lambda v: v.rolling(3, min_periods=3).sum()) / base3
+F["fnb_close3"] = g_["폐업_일괄제외"].transform(lambda v: v.rolling(3, min_periods=3).sum()) / base3
+grid = grid.merge(F[["unit", "month", "fnb_stock_chg12", "fnb_open3", "fnb_close3"]].rename(columns={"month": "month_ref"}), on=["unit", "month_ref"], how="left")
 
 # ---------- 지하철 (주): 동 하차 4주 평균, 13주 전 ----------
 sub = pd.read_parquet(C.RAW_SUB / "subway_daily.parquet")

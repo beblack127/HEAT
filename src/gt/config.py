@@ -36,6 +36,8 @@ X_SETS = {
     "all": ["search_share", "fnb_stock_chg12", "subway_exit_4w", "holiday_days", "living_pop"],
     "subway": ["subway_exit_4w"],                       # 추가 실험 (2026-11-16): 지하철만
     "search_subway": ["search_share", "subway_exit_4w"],  # 추가 실험: 검색 + 지하철 (생활인구 제외)
+    "fnb": ["fnb_stock_chg12", "fnb_open3", "fnb_close3"],   # 추가 실험: 음식점 개업률·폐업률·점포 증감 (4개월 전 달)
+    "search_subway_fnb": ["search_share", "subway_exit_4w", "fnb_stock_chg12", "fnb_open3", "fnb_close3"],
 }
 PRIOR_YEAR_X = "y_lag52"
 LAG_WEEKLY_X = 13
