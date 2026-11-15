@@ -324,7 +324,7 @@ const HM = {met: 'level', i: HT ? HT.weeks.length - 1 : 0};
 const HU = HT ? Object.keys(HT.unit) : [];
 const unitOf = c => HT ? (HT.d2u[c] || c) : c;
 const wk = s => s ? `${s.slice(0, 4)}.${s.slice(5, 7)}.${s.slice(8, 10)}` : '';
-const wkLab = s => s ? `${+s.slice(5, 7)}월 ${+s.slice(8, 10)}일까지 13주` : '';
+const wkLab = s => s ? `${+s.slice(5, 7)}.${+s.slice(8, 10)}까지 13주` : '';
 const amean = (a, i0, i1) => { if (!a || i0 < 0) return null; let s = 0, n = 0;
   for (let j = i0; j <= i1; j++) { const v = a[j]; if (v != null) { s += v; n++; } } return n >= Math.ceil((i1 - i0 + 1) * 0.7) ? s / n : null; };
 function rankState(lvl, gr, keepLvl){
@@ -590,6 +590,7 @@ function searchHTML(code, L_){
 }
 const yearTick = (m, i, ms) => (i > 0 && m.slice(5, 7) === '01' && ms[i - 1].slice(5, 7) === '12') ? m.slice(0, 4) : null;
 const wkFx = s => `${wk(s)} 주`;
+const fmtK = v => Math.abs(v) >= 10000 ? (v / 10000).toFixed(Math.abs(v) >= 100000 ? 0 : 1) + '만' : fmtn(v);
 function hotHTML(code){
   const u = unitOf(code), d = HT.unit[u], W = Math.max(260, document.getElementById('panel').clientWidth);
   if (!d) return '<p class="none">이 동은 생활이동 자료가 없어요.</p>';
@@ -609,9 +610,11 @@ function hotHTML(code){
     {name: '13주 평균', color: css('--sta'), width: 2.4, data: pad(ma), fmt: fmtn, dot: true},
     {name: '작년 같은 주', color: '#2F8F5B', width: 1.2, op: .8, data: ly, fmt: fmtn},
     {name: '13주 예측', color: css('--c5'), width: 2.4, data: fcl, fmt: fmtn}];
+  const a0 = Math.max(0, Math.min(i - 26, n - 1 - 78));   // 최근 1년 반 + 예측 13주만 그린다
   h += `<div class="ch"><div class="chh"><b>주별 생활이동과 13주 예측</b><span><span class="key"><i style="background:${css('--sta')}"></i>실제</span><span class="key"><i style="background:#2F8F5B"></i>작년</span><span class="key"><i style="background:${css('--c5')}"></i>예측</span></span></div>
-    ${lineChart(ser, {w: W, h: 240, months, i, tf: fmtn, tick: yearTick, fx: wkFx, shade: [n - 1, n + 12]})}</div>
-    <div class="ax"><label><input type="checkbox" id="ax0" ${AX0 ? 'checked' : ''}>세로축 0부터</label></div>`;
+    ${lineChart(ser.map(x => ({...x, data: x.data.slice(a0)})), {w: W, h: 240, months: months.slice(a0), i: i - a0, tf: fmtK, tick: (m, j) => m.slice(5, 7) === '01' && +m.slice(8, 10) <= 7 ? m.slice(0, 4) : (m.slice(5, 7) === '07' && +m.slice(8, 10) <= 7 ? '7월' : null), fx: wkFx, shade: [n - 1 - a0, n + 12 - a0]})}</div>
+    <div class="ax"><label><input type="checkbox" id="ax0" ${AX0 ? 'checked' : ''}>세로축 0부터</label></div>
+    <p class="note">2024년 8~10월은 서울 전체 값이 평소의 약 1.5배로 나와 자료 이상으로 보고 있어요. 작년 같은 주 선이 2025년 이 시기에 튀는 것도 그 때문이에요.</p>`;
   const E = HT.exp;
   if (E && E.y[u]) {
     h += `<details><summary>실험 예측 4개 시점<em>${esc(E.model)}</em></summary>` + E.origins.map(o => {
@@ -622,7 +625,7 @@ function hotHTML(code){
       let ea = 0, eb = 0, sy = 0; for (let k = 1; k <= 13 && oi + k < n; k++) { const y = d.y[oi + k]; if (y == null) continue; ea += Math.abs(y - p[k - 1]); eb += Math.abs(y - d.y[oi + k - 52]); sy += y; }
       return `<div class="ch"><div class="chh"><b>${wk(o)} 시점</b><span>13주 오차 ${sy ? (ea / sy * 100).toFixed(1) : '–'}% · 작년 같은 주 ${sy ? (eb / sy * 100).toFixed(1) : '–'}%</span></div>${lineChart([
         {name: '실제', color: css('--sta'), width: 1.6, data: act, fmt: fmtn}, {name: '작년 같은 주', color: '#2F8F5B', width: 1.1, op: .8, data: sn, fmt: fmtn},
-        {name: '예측', color: css('--c5'), width: 2.2, data: pr, fmt: fmtn}], {w: W, h: 130, small: true, months: ms, i: oi - a, tf: fmtn, tick: (m, j, mm) => j % 8 === 0 ? `${+m.slice(5, 7)}월` : null, fx: wkFx, shade: [oi - a, ms.length - 1]})}</div>`; }).join('') + '</details>';
+        {name: '예측', color: css('--c5'), width: 2.2, data: pr, fmt: fmtn}], {w: W, h: 130, small: true, months: ms, i: oi - a, tf: fmtK, tick: (m, j, mm) => j % 8 === 0 ? `${+m.slice(5, 7)}월` : null, fx: wkFx, shade: [oi - a, ms.length - 1]})}</div>`; }).join('') + '</details>';
   }
   return h;
 }

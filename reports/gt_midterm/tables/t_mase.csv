@@ -1,0 +1,17 @@
+﻿key,mase_median,mase_mean
+arimax|all,0.828,1.009
+arimax|all+py,0.827,1.007
+arimax|all_noLP,0.832,1.005
+arimax|all_noLP+py,0.827,1.004
+arimax|none+py,0.78,0.922
+arimax|search,0.793,0.963
+arimax|search+py,0.819,0.971
+arimax|search_idx,0.767,0.934
+arima|none,0.755,0.914
+naive|none,1.017,1.166
+sarimax|all,1.174,1.56
+sarimax|all_noLP,1.16,1.556
+sarimax|search,1.034,1.445
+sarimax|search_idx,1.092,1.499
+sarima|none,0.926,1.342
+snaive|none,0.866,1.203

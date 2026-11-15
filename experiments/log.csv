@@ -23,3 +23,8 @@ time,step,git,spec_version,plan,seed,note,extra
 2026-11-16 00:19:54,gt/00_target,30b844f,,gt_midterm,42,units=426; weeks=199,
 2026-11-16 00:20:02,gt/01_features,30b844f,,gt_midterm,42,miss_stations=2,
 2026-11-16 00:57:26,gt/02_models,ee55e85,,gt_midterm,42,units=426; rows=350324; fallback=0; sec=2232,
+2026-11-16 00:59:32,gt/03_evaluate,355ac17,,gt_midterm,42,"common={'2024-10-27': 416, '2025-01-26': 416, '2025-04-27': 416, '2025-07-27': 416}",
+2026-11-16 01:00:25,gt/04_hotspots,355ac17,,gt_midterm,42,origins=4,
+2026-11-16 01:01:49,gt/04_hotspots,355ac17,,gt_midterm,42,origins=4,
+2026-11-16 01:03:46,gt/06_report,355ac17,,gt_midterm,42,rep=arima|none,
+2026-11-16 01:04:03,gt/06_report,355ac17,,gt_midterm,42,rep=arima|none,

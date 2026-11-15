@@ -65,9 +65,9 @@ for o in C.ORIGINS:
     pers_em = list(gr_now[gr_now.index.isin(keep)].dropna().sort_values(ascending=False).index)
     pers_hot = list(lvl_now.dropna().sort_values(ascending=False).index)
     for K in Ks:
-        h, k = hits(pers_em, true_em, K); topk.append((o.date(), "emerging", "persistence", K, k, h))
-        h, k = hits(pers_hot, true_hot, K); topk.append((o.date(), "hot", "persistence", K, k, h))
-        topk.append((o.date(), "emerging", "random", K, k, k / N_em)); topk.append((o.date(), "hot", "random", K, k, k / N_hot))
+        h, ke = hits(pers_em, true_em, K); topk.append((o.date(), "emerging", "persistence", K, ke, h))
+        h, kh = hits(pers_hot, true_hot, K); topk.append((o.date(), "hot", "persistence", K, kh, h))
+        topk.append((o.date(), "emerging", "random", K, ke, ke / N_em)); topk.append((o.date(), "hot", "random", K, kh, kh / N_hot))
     for key in sorted(P[P.origin == o].key.unique()):
         if key.startswith("snaive"):
             for K in Ks: topk.append((o.date(), "emerging", key, K, np.nan, np.nan))

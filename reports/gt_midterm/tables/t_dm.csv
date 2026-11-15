@@ -1,0 +1,16 @@
+﻿model,dm_stat_vs_snaive,p,n
+arimax|all,-0.1468,0.8839,52
+arimax|all+py,-0.1296,0.8974,52
+arimax|all_noLP,-0.1528,0.8791,52
+arimax|all_noLP+py,-0.1383,0.8906,52
+arimax|none+py,-0.2611,0.795,52
+arimax|search,-0.2687,0.7893,52
+arimax|search+py,-0.2349,0.8152,52
+arimax|search_idx,-0.2825,0.7787,52
+arima|none,-0.294,0.7699,52
+naive|none,0.0572,0.9546,52
+sarimax|all,2.9771,0.0044,52
+sarimax|all_noLP,2.8947,0.0056,52
+sarimax|search,1.9664,0.0547,52
+sarimax|search_idx,2.5375,0.0143,52
+sarima|none,1.578,0.1208,52

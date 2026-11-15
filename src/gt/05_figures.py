@@ -57,8 +57,22 @@ def fig_case(name, zoom):
     f.tight_layout(); save(f, f"F{2 if zoom else 1}_case_{name}.png")
 
 
-for nm in C.CASE_DONGS:
+# 사례 동 고르기 (규칙): 대표 모델(snaive 제외 평균 WAPE 최저)의 2025-04-27 동별 WAPE로
+#  잘 맞춘 곳 = 규모(직전 13주 평균) 중앙값 이상 동 중 WAPE 최저, 보통 = 전체 중앙값, 못 맞춘 곳 = 상위 10% 경계
+REP = W.groupby("key").wape.mean().drop(labels=["snaive|none"], errors="ignore").idxmin()
+ur = U[(U.origin == MAIN_O) & (U.key == REP)].set_index("unit").wape.dropna()
+lvl = T[(T.week_end <= MAIN_O) & (T.week_end > MAIN_O - pd.Timedelta(weeks=C.H))].groupby("unit").y.mean()
+big = ur[ur.index.isin(lvl[lvl >= lvl.median()].index)]
+pick = {"잘 맞춘 곳": big.idxmin(),
+        "보통인 곳": (ur - ur.median()).abs().idxmin(),
+        "못 맞춘 곳": (ur - ur.quantile(.9)).abs().idxmin()}
+CASES = []
+for role, u in pick.items():
+    nm = NM.get(u, ("", u))[1]; rk = int(ur.rank().loc[u]); CASES.append((role, u, nm, ur.loc[u], rk, len(ur)))
+    BYNAME[nm] = u
     fig_case(nm, False); fig_case(nm, True)
+pd.DataFrame(CASES, columns=["role", "unit", "dong", "wape_rep", "rank_low_is_good", "n"]).assign(rep_model=REP).to_csv(C.TABLES / "case_dongs.csv", index=False, encoding="utf-8-sig")
+print("사례:", CASES)
 
 # F3 히트맵
 f, ax = plt.subplots(figsize=(7.5, 4.2))
