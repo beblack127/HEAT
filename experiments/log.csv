@@ -20,3 +20,5 @@ time,step,git,spec_version,plan,seed,note,extra
 2026-11-16 00:07:36,gt/01_features,5d8fe17,,gt_midterm,42,miss_stations=2,
 2026-11-16 00:14:05,gt/00_target,5d8fe17,,gt_midterm,42,units=426; weeks=118,
 2026-11-16 00:14:11,gt/01_features,5d8fe17,,gt_midterm,42,miss_stations=2,
+2026-11-16 00:19:54,gt/00_target,30b844f,,gt_midterm,42,units=426; weeks=199,
+2026-11-16 00:20:02,gt/01_features,30b844f,,gt_midterm,42,miss_stations=2,
