@@ -260,6 +260,8 @@
 
 ### 4.1 중간발표까지
 
+**실행 명세**: [`docs/experiments/midterm_experiments.md`](docs/experiments/midterm_experiments.md). Claude Code는 이 문서를 보고 코드 작성·실험·리포트(`reports/gt_midterm/00_결과_리포트.md`)까지 진행한다. 예측은 주 단위, 그림은 13주 예측 구간 중심.
+
 | # | 실험 | 내용 | 답하는 질문 |
 |---|---|---|---|
 | M1 | 결과표 확장 | Naive, 작년 같은 주, ARIMA, SARIMA(주기 52 계절 차분 포함), ARIMAX, SARIMAX × 입력 4종(없음 / 검색만 / 전체 − 생활인구 / 전체). WAPE와 MASE | 계절과 입력이 각각 얼마나 도움이 되나 |
@@ -367,6 +369,7 @@ python src/forecast/08_report_figures.py
 | 문서 | 내용 |
 |---|---|
 | `docs/presentations/HEAT_midterm_draft_2026-11-15.pptx` | 중간발표 첫 초안 (6장: 질문, 타깃 정의, 실험 설정, 첫 결과, 이촌2동 실패 사례, 다음 실험) |
+| `docs/experiments/midterm_experiments.md` | 중간발표 실험 M1~M6 실행 명세 (Claude Code용) |
 | `docs/MODEL_DATA_DESIGN_2026.md` | 생활이동 정답 모델 설계 초안 (월 단위로 쓰였음. 주 단위로 바뀐 부분은 이 README §2~4가 우선) |
 | `docs/forecast_plan.md` | 검색량·개폐업 예측 계획 v3 (§1.5의 실험) |
 | `docs/feature_spec.md` | F&B 지표 수식 |

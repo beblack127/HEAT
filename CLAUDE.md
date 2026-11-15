@@ -10,6 +10,7 @@
 ## 먼저 읽을 파일
 
 0. `README.md` §2~4 — **팀 정답 모델(생활이동, 주 단위) 방향. 다른 문서와 다르면 이것이 우선**
+   - 중간발표 실험을 할 때는 `docs/experiments/midterm_experiments.md`를 그대로 따른다
 1. `docs/forecast_plan.md` — 검색량·개폐업 자체 예측 계획 v3 (보조 실험)
 2. `docs/feature_spec.md` — F&B 지표 수식과 시점 규칙. 코드는 이 명세를 따른다
 3. `config/category_mapping.csv` — 업태구분명 → 분석 범주, 포함/제외
