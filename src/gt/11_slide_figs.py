@@ -29,7 +29,7 @@ f, ax = plt.subplots(figsize=(14, 6))
 ax.axvspan(pd.Timestamp("2024-08-01"), pd.Timestamp("2024-10-31"), color="#FECCBE", alpha=.7, lw=0)
 ax.plot(s.index, s / base, color=NAVY, lw=2, label="Mobility (weekly, Seoul total)")
 ax.plot(qd, q.food_cnt, color=RED, lw=2.4, marker="o", ms=7, label="Card sales, F&B (quarterly)")
-ax.annotate("Aug–Oct 2024: mobility ×1.52,\ncard sales unchanged → data error", xy=(pd.Timestamp("2024-10-20"), 1.5), xytext=(pd.Timestamp("2024-11-20"), 1.62),
+ax.annotate("Aug–Oct 2024: mobility ×1.52,\ncard sales flat → likely a data issue", xy=(pd.Timestamp("2024-10-20"), 1.5), xytext=(pd.Timestamp("2024-11-20"), 1.62),
             fontsize=19, color=RED, fontweight="bold", va="center", arrowprops=dict(arrowstyle="->", color=RED, lw=1.4))
 ax.set_ylabel("Index (2024 H1 = 1)"); ax.set_ylim(0.75, 1.75)
 ax.legend(frameon=False, loc="upper left")
