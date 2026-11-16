@@ -51,3 +51,5 @@ time,step,git,spec_version,plan,seed,note,extra
 2026-11-16 05:55:42,gt/03_evaluate,4386815,,gt_midterm,42,"common={'2024-10-27': 416, '2025-01-26': 416, '2025-04-27': 416, '2025-07-27': 416}",
 2026-11-16 05:55:46,gt/04_hotspots,4386815,,gt_midterm,42,origins=4,
 2026-11-16 05:57:06,gt/06_report,4386815,,gt_midterm,42,rep=comb_arima|none,
+2026-11-16 11:34:09,gt/02e_clean_inputs,01b8a6d,,gt_midterm,42,units=2; rows=728; sec=16,
+2026-11-16 11:34:48,gt/02e_clean_inputs,01b8a6d,,gt_midterm,42,units=2; rows=2184; sec=23,
