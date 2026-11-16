@@ -75,11 +75,16 @@ const notes = (s, t) => s.addNotes(t);
 {
   const s = base("TEAM ROLES");
   const names = ["Jaemin Lim", "Kyungho Kim", "Jaehyun Kim", "Junhyeok Choi"];
+  const roles = [
+    ["Statistical modeling", "ARIMA · SARIMA(X) first draft; search and lagged-mobility inputs; 13-week forecast setup"],
+    ["Search data & dong labels", "427-dong labels (areas, stations, districts); Naver search collection; Seoul-share index and exclusion rules"],
+    ["Ground truth & experiments", "Mobility target and cleaning; seasonality, model and input experiments; evaluation; HEAT system"],
+    ["F&B & external data", "License data cleaning; openings, closures, net opening rate; subway exits; time alignment of inputs"]];
   names.forEach((n, i) => {
     const x = 60 + i * 455;
     s.addShape(pres.shapes.RECTANGLE, { x: px(x), y: px(200), w: px(425), h: px(660), fill: { color: "FFFFFF" }, line: { color: "C9CED6", width: 1 } });
     s.addText(n, { x: px(x + 25), y: px(225), w: px(375), h: px(70), fontFace: F, fontSize: PT(42), bold: true, color: C.navy, margin: 0, isTextBox: true });
-    body(s, [{ label: "Role", text: "(to be filled)" }, { label: "Contribution", text: "(to be filled)" }], x + 25, 320, 375, 520, 30, 18);
+    body(s, [{ label: "Role", text: [{ t: roles[i][0], b: true }] }, { label: "Contribution", text: roles[i][1] }], x + 25, 320, 375, 520, 36, 34);
   });
   bottom(s, "Four members, one pipeline: data → ground truth → forecasting → HEAT system");
 }
