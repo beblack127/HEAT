@@ -61,17 +61,20 @@ t7 = pd.read_csv(TB / "t7_more_models.csv", index_col=0)
 col4, col2 = "4시점 평균", "2시점 평균(이상 구간 제외)"
 rows = [("Naive\n(last week)", "Naive", "raw"), ("Same week\nlast year", "작년 같은 주", "raw"), ("ARIMA", "ARIMA", "raw"), ("SARIMA\n(52 weeks)", "SARIMA", "raw"),
         ("Same week\nlast year", "작년 같은 주 (보정)", "clean"), ("ARIMA", "ARIMA (보정)", "clean"), ("ARIMA\n+ Fourier", "ARIMA + 푸리에 (보정)", "clean"),
-        ("Combination", "결합: 작년 같은 주 (보정) + ARIMA + 푸리에 (보정)", "clean")]
-f, ax = plt.subplots(figsize=(13, 7.6))
-x = np.arange(len(rows)); vals = [t7.loc[r[1], col4] for r in rows]
-cols = [LIGHT if r[2] == "raw" else NAVY for r in rows]; cols[-1] = RED
+        ("Our model\n(combined)", "결합: 작년 같은 주 (보정) + ARIMA + 푸리에 (보정)", "clean")]
+t9 = pd.read_csv(TB / "t9_clean_inputs.csv", index_col=[0, 1, 2])
+f, ax = plt.subplots(figsize=(14.5, 7.6))
+vals = [t7.loc[r[1], col4] for r in rows] + [t9.loc[(1, "ARIMA+푸리에 (보정)", "검색"), "4시점"]]
+rows = rows + [("Our model\n+ search", "", "clean")]
+x = np.arange(len(rows))
+cols = [LIGHT if r[2] == "raw" else NAVY for r in rows]; cols[-2] = RED; cols[-1] = "#C98A78"
 ax.bar(x, vals, color=cols, width=.62)
 for xi, v in zip(x, vals): ax.text(xi, v + .4, f"{v:.1f}%", ha="center", fontsize=19, fontweight="bold")
 ax.axhline(t7.loc["작년 같은 주", col4], color=GREY, ls="--", lw=1.2)
 ax.axvline(3.5, color="#555555", lw=1, ls=":")
 ax.text(1.5, 33.5, "Raw data", ha="center", fontsize=20, color=GREY, fontweight="bold")
-ax.text(5.5, 33.5, "After cleaning Aug–Oct 2024", ha="center", fontsize=20, color=NAVY, fontweight="bold")
-ax.set_xticks(x, [r[0] for r in rows], rotation=0, fontsize=16)
+ax.text(6, 33.5, "After cleaning Aug–Oct 2024", ha="center", fontsize=20, color=NAVY, fontweight="bold")
+ax.set_xticks(x, [r[0] for r in rows], rotation=0, fontsize=15)
 ax.set_ylabel("13-week WAPE (%), 4 origins"); ax.set_ylim(0, 36)
 save(f, "S3_results.png")
 
@@ -122,7 +125,7 @@ save(f, "S5_example.png")
 # ---- S6 사다리: 팀원 설정에서 한 가지씩 고치기 ----
 try:
     LD = pd.read_csv(TB / "t8_ladder.csv")
-    labs = ["Teammate\nsetup", "52-week\nseason", "Orders\nby AIC", "Search as\nSeoul share", "Cleaned\ndata", "+ same week\nlast year"]
+    labs = ["First-draft\nsetup", "52-week\nseason", "Orders\nby AIC", "Search as\nSeoul share", "Cleaned\ndata", "+ same week\nlast year"]
     f, axs = plt.subplots(1, 2, figsize=(17, 6.6), sharey=True)
     for ax, (c1, c0, ttl) in zip(axs, (("검색O 04-27", "검색X 04-27", "Forecast date 2025-04-27 only"), ("검색O 2시점", "검색X 2시점", "Average of 2 dates without the anomaly"))):
         x = np.arange(len(LD)); w = .38
@@ -157,4 +160,39 @@ try:
 except FileNotFoundError:
     print("S7 생략: t10 없음")
 
+print("저장:", sorted(p.name for p in OUT.glob("*.png")))
+
+# ---- S8 사례 4곳 (2025-04-27): 대표 모델 최고·최악, 검색 추가로 가장 좋아진·나빠진 동 ----
+try:
+    cs = pd.read_csv(TB / "case4.csv", dtype={"unit": str}); jd = pd.read_csv(TB / "case4_judge.csv", dtype={"unit": str})
+    S = pd.read_parquet(C.RESULTS / "case4_series.parquet")
+    EN = {"11410640": "Hongje 3-dong (Seodaemun)", "11440630": "Sinsu-dong (Mapo)", "11320512": "Chang 2-dong (Dobong)", "11500604": "Gayang 2-dong (Gangseo)"}
+    TT = {"rep_best": "Our model · best", "rep_worst": "Our model · worst", "search_best": "+ Search · helped most", "search_worst": "+ Search · hurt most"}
+    O8 = pd.Timestamp("2025-04-27")
+    f, axs = plt.subplots(2, 2, figsize=(17, 10.4))
+    import matplotlib.dates as mdates
+    for ax, (_, r) in zip(axs.flat, cs.iterrows()):
+        u = r.unit; g = T[T.unit == u].set_index("week_end").y
+        win = g[(g.index > O8 - pd.Timedelta(weeks=26)) & (g.index <= O8 + pd.Timedelta(weeks=13))]
+        s = S[S.unit == u].set_index("week_end")
+        ax.axvspan(O8, O8 + pd.Timedelta(weeks=13), color="#E3E9F3", lw=0)
+        ax.plot(win.index, win.values, color=INK, lw=2.2, label="Observed")
+        ax.plot(s.index, s.sn, color=GREY, lw=1.6, ls=":", label="Same week last year")
+        ax.plot(s.index, s.rep, color=RED, lw=2.6, label="Our model")
+        srch = r.role.startswith("search")
+        if srch: ax.plot(s.index, s.rep_s, color=NAVY, lw=2.6, ls="--", label="Our model + search")
+        ax.axvline(O8, color=INK, lw=1, ls=":")
+        ax.set_title(f"{TT[r.role]}:  {EN[u]}", loc="left", color=NAVY, fontweight="bold", fontsize=21)
+        txt = (f"error {r.wape_rep:.1f}% → {r.wape_rep_search:.1f}% with search" if srch else f"error {r.wape_rep:.1f}%  (last year {r.wape_lastyear:.1f}%)")
+        ax.text(0.015, 0.04, txt, transform=ax.transAxes, fontsize=18, color=NAVY if srch else RED, fontweight="bold")
+        lo, hi = min(win.min(), s[["sn", "rep", "rep_s"]].min().min()), max(win.max(), s[["sn", "rep", "rep_s"]].max().max())
+        ax.set_ylim(lo - (hi - lo) * .28, hi + (hi - lo) * .12)
+        ax.xaxis.set_major_locator(mdates.MonthLocator(bymonth=[11, 1, 3, 5, 7])); ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %y"))
+        ax.tick_params(labelsize=16); ax.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, p: f"{v:,.0f}"))
+    h1, l1 = axs[1, 0].get_legend_handles_labels()
+    f.legend(h1, l1, loc="upper center", ncol=4, frameon=False, fontsize=18, bbox_to_anchor=(0.5, 1.035))
+    f.text(0.005, 0.5, "Daily arrivals, age 20–39", rotation=90, va="center", fontsize=19)
+    f.tight_layout(rect=(0.015, 0, 1, 0.98)); save(f, "S8_cases.png")
+except FileNotFoundError as e:
+    print("S8 생략:", e)
 print("저장:", sorted(p.name for p in OUT.glob("*.png")))

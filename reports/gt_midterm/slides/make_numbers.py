@@ -59,6 +59,19 @@ if (TB / "t10_placebo.csv").exists():
     W10 = pd.read_csv(TB / "t10_placebo.csv", index_col=[0, 1])
     N["pl"] = {k: {c: f"{W10.loc[('s13', k), c]:.1f}" for c in ("2025-04-27", "4시점")} for k in ("none", "search_index", "placebo", "subway_exit_4w", "fnb_net3")}
     N["pl_msg"] = "Own search wins at one date only (not significant); over 4 dates it adds error"
+# 대표 모델 + 검색 (03e), 사례 4곳 (12_cases)
+t9 = pd.read_csv(TB / "t9_clean_inputs.csv", index_col=[0, 1, 2]); rs = t9.loc[(1, "ARIMA+푸리에 (보정)", "검색")]
+N["srch4"] = f"{rs['4시점']:.1f}"; N["srch2"] = f"{rs['2시점(이상 제외)']:.1f}"
+t9t = pd.read_csv(TB / "t9_clean_inputs_tests.csv")
+r = t9t[(t9t["결합"] == 1) & (t9t["모델"] == "ARIMA+푸리에") & (t9t["입력"] == "검색")].iloc[0]
+N["srch_imp"] = round(r["좋아진 동·시점"] * 100); N["srch_p"] = f"{r['wilcoxon_p']:.4f}"
+cs = pd.read_csv(TB / "case4.csv", dtype={"unit": str}).set_index("role"); jd = pd.read_csv(TB / "case4_judge.csv", dtype={"unit": str})
+N["case"] = {k: {"wape": f"{cs.loc[k, 'wape_rep']:.1f}", "wape_s": f"{cs.loc[k, 'wape_rep_search']:.1f}", "ly": f"{cs.loc[k, 'wape_lastyear']:.1f}",
+                 "rank": int(cs.loc[k, "rank_rep"]), "n": int(cs.loc[k, "n_units"]),
+                 **{f"{b}_{c}": (None if pd.isna(v) else (int(v) if c != "growth_pct" else round(float(v), 1)))
+                    for b in ("rep", "rep_s", "actual") for c in ("hot_rank", "emerging_rank", "growth_pct")
+                    for v in [jd[(jd.unit == cs.loc[k, "unit"]) & (jd.by == b)][c].iloc[0]]}} for k in cs.index}
+N["n_em"] = int(jd.n_em.iloc[0]); N["em_top"] = int(round(N["n_em"] * C.HOT_TOP))
 N["ratio"] = {p.name: (lambda im: im.size[0] / im.size[1])(Image.open(p)) for p in (HERE / "fig").glob("*.png")}
 json.dump(N, open(HERE / "deck_numbers.json", "w"), ensure_ascii=False, indent=1)
 print({k: v for k, v in N.items() if k not in ("table", "ratio")})
