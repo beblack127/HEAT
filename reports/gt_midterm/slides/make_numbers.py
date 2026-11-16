@@ -72,6 +72,12 @@ N["case"] = {k: {"wape": f"{cs.loc[k, 'wape_rep']:.1f}", "wape_s": f"{cs.loc[k, 
                     for b in ("rep", "rep_s", "actual") for c in ("hot_rank", "emerging_rank", "growth_pct")
                     for v in [jd[(jd.unit == cs.loc[k, "unit"]) & (jd.by == b)][c].iloc[0]]}} for k in cs.index}
 N["n_em"] = int(jd.n_em.iloc[0]); N["em_top"] = int(round(N["n_em"] * C.HOT_TOP))
+W9 = pd.read_csv(TB / "t11_search_by_dong.csv", index_col=0)
+N["s9_better"] = int((W9.d < 0).sum())
+_q = pd.qcut(W9.search_index.rank(method="first"), 3, labels=["L", "M", "H"]); _m = W9.groupby(_q, observed=True).d.median()
+N["s9_med_low"], N["s9_med_high"] = f"{_m['L']:.2f}", f"{_m['H']:.2f}"
+from scipy import stats as _st
+N["s9_rho"] = f"{_st.spearmanr(W9.search_index, W9.d).statistic:.2f}"
 N["ratio"] = {p.name: (lambda im: im.size[0] / im.size[1])(Image.open(p)) for p in (HERE / "fig").glob("*.png")}
 json.dump(N, open(HERE / "deck_numbers.json", "w"), ensure_ascii=False, indent=1)
 print({k: v for k, v in N.items() if k not in ("table", "ratio")})

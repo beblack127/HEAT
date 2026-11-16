@@ -196,3 +196,26 @@ try:
 except FileNotFoundError as e:
     print("S8 생략:", e)
 print("저장:", sorted(p.name for p in OUT.glob("*.png")))
+
+# ---- S9 대표 모델 + 검색: 동별 오차 변화 ----
+try:
+    W9 = pd.read_csv(TB / "t11_search_by_dong.csv", index_col=0)
+    d = W9.d.sort_values().values
+    f, (ax, ax2) = plt.subplots(1, 2, figsize=(17, 6.8), gridspec_kw={"width_ratios": [2.3, 1]})
+    ax.bar(np.arange(len(d)), d, width=1.0, color=[NAVY if v < 0 else RED for v in d])
+    ax.axhline(0, color=INK, lw=1)
+    nb = int((d < 0).sum())
+    ax.text(nb * .5, d.min() * .55, f"better\n{nb} dongs ({nb / len(d) * 100:.0f}%)", ha="center", fontsize=19, color=NAVY, fontweight="bold")
+    ax.text(nb + (len(d) - nb) * .45, d.max() * .6, f"worse\n{len(d) - nb} dongs ({(len(d) - nb) / len(d) * 100:.0f}%)", ha="center", fontsize=19, color=RED, fontweight="bold")
+    ax.set_xticks([]); ax.set_xlabel("416 dongs, sorted by change"); ax.set_ylabel("Change in 13-week WAPE (%p)\nwith search − without")
+    ax.set_title("Change in error when search is added", loc="left", color=NAVY, fontweight="bold")
+    q = pd.qcut(W9.search_index.rank(method="first"), 3, labels=["Low", "Mid", "High"])
+    sh = W9.groupby(q, observed=True).d.median()
+    ax2.bar(range(3), sh.values, color=[RED, RED, "#C98A78"], width=.6)
+    for i, v in enumerate(sh.values): ax2.text(i, v + .008, f"+{v:.2f}", ha="center", fontsize=19, fontweight="bold")
+    ax2.set_xticks(range(3), ["Low", "Mid", "High"]); ax2.set_xlabel("Search volume of the dong"); ax2.set_ylim(0, .4)
+    ax2.set_ylabel("Median change in error (%p)"); ax2.set_title("Less harm where people search more", loc="left", color=NAVY, fontweight="bold", fontsize=21)
+    f.tight_layout(); save(f, "S9_search_split.png")
+except FileNotFoundError as e:
+    print("S9 생략:", e)
+print("저장:", sorted(p.name for p in OUT.glob("*.png")))

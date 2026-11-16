@@ -150,16 +150,6 @@ const notes = (s, t) => s.addNotes(t);
     + "4 dates: 2024-10-27, 2025-01-26, 2025-04-27, 2025-07-27. '2 clean dates' = the two not touched by the 2024 anomaly.");
 }
 
-// 6. 하나씩 고치기 -------------------------------------------------------------------
-{
-  const s = base("ONE FIX AT A TIME");
-  head(s, "Start from our first draft, change one thing at a time (13-week WAPE, %)", 40, 165, 1840);
-  fitImg(s, "S6_ladder.png", 30, 240, 1860, 670);
-  bottom(s, "Seasonality, cleaning and combination cut error; search helped only the weak first draft");
-  notes(s, `First draft = 13-week seasonal AR, fixed orders, raw search index, raw data. At 2025-04-27 search lowers error ${N.lad["검색X 04-27"][0]}% → ${N.lad["검색O 04-27"][0]}%, `
-    + `but over 4 dates it rises ${N.lad["검색X 4시점"][0]}% → ${N.lad["검색O 4시점"][0]}%. After each fix the model without search is better.`);
-}
-
 // 7. 최고 모델 ---------------------------------------------------------------------
 {
   const s = base("BEST MODEL SO FAR");
@@ -168,10 +158,20 @@ const notes = (s, t) => s.addNotes(t);
   body(s, [
     { label: "Error", text: [{ t: `${N.best4}%`, b: true, u: true }, { t: ` vs. ${N.sn4}% for last year (4 dates); ${N.best2}% vs. ${N.sn2}% (2 clean dates)` }] },
     { label: "Per dong", text: `better than last year in ${N.best_imp}% of dong-dates (p < 0.001)` },
-    { label: "+ Search", text: `${N.srch4}% / ${N.srch2}%; better in ${N.srch_imp}% of dong-dates → no average gain` },
+    { label: "+ Search", text: `same model with search: ${N.srch4}% / ${N.srch2}% → no average gain (next slide)` },
     { label: "Hotspots", text: `emerging top-10% hit ${N.topk_model}% vs. persistence ${N.topk_pers}%, random 10%` }], 1300, 300, 590, 620, 31, 26);
   bottom(s, "Error almost halved vs. last year's values; search adds no average gain");
   notes(s, "4 dates = all forecast dates; 2 clean dates = 2025-01-26 and 2025-04-27, not touched by the 2024 anomaly.");
+}
+
+// 7-2. 같은 모델 + 검색 ---------------------------------------------------------------
+{
+  const s = base("SAME MODEL + SEARCH");
+  head(s, "Best model with search added: change in error for each dong (4 dates)", 40, 165, 1840);
+  fitImg(s, "S9_search_split.png", 30, 240, 1860, 680);
+  bottom(s, "Search helps 1 in 3 dongs and hurts less where people search more → find where it works");
+  notes(s, `Same best model, same orders, only the search input added (Seoul share, value from 4 months earlier). Average error ${N.best4}% → ${N.srch4}% (4 dates). `
+    + `Per dong over 4 dates: ${N.s9_better} of 416 dongs better. Median change +${N.s9_med_low} (low search), +${N.s9_med_high} (high search); rank correlation between search volume and change ${N.s9_rho} (p < 0.001).`);
 }
 
 // 8. 사례 4곳 ----------------------------------------------------------------------
