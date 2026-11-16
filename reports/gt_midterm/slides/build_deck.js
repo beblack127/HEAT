@@ -84,144 +84,149 @@ const notes = (s, t) => s.addNotes(t);
   bottom(s, "Four members, one pipeline: data → ground truth → forecasting → HEAT system");
 }
 
-// 3. 피드백 반영 (1/2) ---------------------------------------------------------
+// 3. 피드백 반영 ---------------------------------------------------------------
 {
-  const s = base("REFLECTION ON FEEDBACK (1/2)");
+  const s = base("REFLECTION ON FEEDBACK");
   head(s, "What we heard", 40, 165, 760);
-  head(s, "What we changed", 960, 165, 900, C.red);
-  vdash(s, 930, 175, 905);
-  const fb = [
-    ["Finalize the Hotness Score: weights, thresholds, persistence", 248],
-    ["Test whether reasonable changes alter the results", 470],
-    ["Define a successful forecast", 590],
-    ["Definition before data; one neighborhood example", 745]];
-  fb.forEach(([t, y]) => body(s, [t], 40, y, 860, 140, 31));
-  body(s, [
-    { label: "No composite score", text: [{ t: "We dropped hand-weighted scores. " }, { t: "Ground truth = observed weekly arrivals", b: true, u: true }, { t: " (age 20–39, shopping·leisure·other) per dong" }] },
-    { label: "Thresholds", text: [{ t: "Hotspot = top 10% of 13-week mean. Emerging = top 10% growth of Seoul share vs. same 13 weeks last year, size floor fixed at 2023 (≥ 2,050/day). 13-week window = persistence." }] },
-    { label: "Robustness", text: [{ t: `Floor rule re-computed each time: ${N.sens_floor}% same list · all ages: ${N.sens_age}% · no floor: ${N.sens_nofloor}%` }] },
-    { label: "Success", text: [{ t: "Beat ", }, { t: "same-week-last-year", b: true }, { t: " and " }, { t: "last-week", b: true }, { t: " baselines (WAPE, DM test) and beat random & persistence on top-10% hit rate" }] },
-    { label: "Structure", text: [{ t: "This deck: definition → validity → Garak 1-dong example" }] }],
-    960, 248, 920, 660, 29, 12);
+  head(s, "What we changed", 900, 165, 960, C.red);
+  vdash(s, 870, 175, 905);
+  const rowsFb = [
+    ["Finalize the Hotness Score: weights, thresholds, persistence", 245, 300, [
+      { label: "Ground truth", text: [{ t: "Hand-weighted score dropped. " }, { t: "Observed weekly arrivals per dong", b: true, u: true },
+        { t: ", age 20–39 on shopping·leisure·other trips: people who visit, not residents or commuters" }] },
+      { label: "Rules", text: "Hot = top 10% of the 13-week mean. Emerging = top 10% growth in Seoul share vs. the same 13 weeks last year; tiny dongs (< 2,050/day, fixed at 2023) excluded" }]],
+    ["Test whether reasonable changes alter the results", 570, 100, [
+      { label: "Robustness", text: [{ t: "Size floor recomputed at each date: " }, { t: `${N.sens_floor}% same emerging list`, b: true }] }]],
+    ["Define a successful forecast", 690, 100, [
+      { label: "Success", text: [{ t: "Beat " }, { t: "same week last year", b: true }, { t: " and " }, { t: "last week", b: true }, { t: " (13-week WAPE, DM test); beat persistence and random on top-10% hits" }] }]],
+    ["Definition before data; one neighborhood example", 810, 90, [
+      { label: "Example", text: "Definition first, then one dong end to end: Hongje 3-dong" }]]];
+  rowsFb.forEach(([h, y, hh, items], i) => {
+    body(s, [h], 40, y, 800, hh, 31);
+    body(s, items, 900, y, 980, hh, 29, 12);
+    if (i < rowsFb.length - 1) s.addShape(pres.shapes.LINE, { x: px(40), y: px(y + hh + 8), w: px(1840), h: 0, line: { color: "C9CED6", width: 0.75, dashType: "dash" } });
+  });
   bottom(s, "From a hand-made score to an observable target with fixed, tested rules");
-  notes(s, "Feedback 1 and 3. We replaced the Hotness Score with an observable target, fixed every threshold in advance, and tested alternative rules.");
+  notes(s, `Why mobility: it is measured, not weighted by us; weekly data gives ${N.n_weeks} weeks instead of 46 months; it is not one of our inputs. `
+    + `If asked about age: with all ages only ${N.sens_age}% of the emerging list is the same, so the age band matters; we chose 20–39 leisure trips by purpose. Other age bands are future work.`);
 }
 
-// 4. 피드백 반영 (2/2): 타당성 -----------------------------------------------------
+// 4. 데이터 클리닝 ------------------------------------------------------------------
 {
-  const s = base("REFLECTION ON FEEDBACK (2/2)");
-  head(s, "Is mobility a valid measure of 'hot'?", 40, 165, 1100);
-  fitImg(s, "S2_validity.png", 20, 235, 1170, 670);
+  const s = base("DATA CLEANING");
+  head(s, "Anomaly: detected and rescaled", 40, 165, 1150);
+  fitImg(s, "S1_anomaly.png", 20, 240, 1170, 660);
   body(s, [
-    { label: "Beyond inputs", text: [{ t: `Card sales (not a model input) rank-correlate ` }, { t: `${N.sales_level}`, b: true, u: true }, { t: ` with mobility; ${N.sales_top}% of top-10% dongs match` }] },
-    { label: "Overlap", text: [{ t: "Living population (same telecom source) removed from inputs; every input lagged ≥ 13 weeks" }] },
-    { label: "Short history", text: [{ t: `Monthly → weekly target: ${N.n_weeks} weeks instead of 46 months` }] },
-    { label: "Added value", text: [{ t: "Maps & search show where it is busy " }, { t: "now", b: true }, { t: "; HEAT forecasts " }, { t: "13 weeks ahead", b: true }, { t: " and flags rising dongs, validated by card sales" }] }],
-    1215, 230, 670, 690, 27, 14);
-  bottom(s, "Mobility agrees strongly on where it is hot, weakly on where it is rising");
-  notes(s, "Feedback 2. Level: strong agreement with card sales, F&B stores and subway exits. Change: weak but positive. This is also why emerging-place forecasting is hard.");
+    { label: "Anomaly", text: [{ t: "Aug–Oct 2024: mobility ×1.52 while card sales stayed flat → likely a data issue. " }, { t: "Divided by one factor from past data only", b: true }, { t: "; errors still scored on raw values" }] },
+    { label: "Region mapping", text: "427 dongs on 2025 boundaries; mobility codes matched; Sinseol·Yongdu (split later) merged → 416 dongs with full history" },
+    { label: "Time alignment", text: [{ t: `Daily → weekly mean (Mon–Sun, ≥ 4 valid days): ${N.n_weeks} weeks. ` }, { t: "Monthly search & F&B → value from 4 months earlier", b: true }, { t: "; last year = 364 days back (same weekday)" }] }],
+    1215, 175, 670, 740, 29, 26);
+  bottom(s, `Clean weekly panel: 416 dongs × ${N.n_weeks} weeks, no future information`);
 }
 
-// 5. 동네 예시 -------------------------------------------------------------------
+// 5. 실험 -----------------------------------------------------------------------
 {
-  const s = base("ONE NEIGHBORHOOD: GARAK 1-DONG");
-  fitImg(s, "S5_example.png", 20, 165, 1250, 750);
-  head(s, "Definition", 1290, 175, 600);
-  body(s, [`Emerging on 2025-04-27: Seoul share +${N.ex_growth}% vs. last year (rank ${N.ex_rank} of ${N.ex_n})`, `Card F&B sales share +${N.ex_sales}% → commercial, not residential`], 1290, 245, 600, 230, 26, 8);
-  head(s, "3-month forecast", 1290, 470, 600);
-  body(s, [`Our forecast error ${N.ex_wape}% vs. ${N.ex_sn}% for last year's values`, "Stayed emerging in the next 13 weeks"], 1290, 540, 600, 200, 26, 8);
-  head(s, "Decision", 1290, 720, 600, C.red);
-  body(s, ["Shortlist for store opening or district support 3 months early"], 1290, 790, 600, 120, 26, 8);
-  bottom(s, "Definition → 13-week forecast → decision, in one neighborhood");
-  notes(s, "Chosen by rule: emerging at the decision date and in the next 13 weeks, card F&B sales share up >5%, smallest forecast error.");
+  const s = base("WHAT WE TRIED");
+  const H = (t) => ({ text: t, options: { bold: true, color: "FFFFFF", fill: { color: C.navy } } });
+  const L = (t) => ({ text: t, options: { bold: true, color: C.navy, fill: { color: C.yel } } });
+  const T = (t, o = {}) => ({ text: t, options: { color: C.ink, ...o } });
+  const R = (t) => T(t, { bold: true, color: C.red });
+  const rows = [
+    [H("Axis"), H("What we varied"), H("Finding (13-week WAPE, 4 dates)")],
+    [L("Baselines"), T("last week · same week last year"), T(`last year ${N.sn4}% — the bar to beat`)],
+    [L("Data"), T("raw · cleaned (Aug–Oct 2024 rescaled)"), R(`cleaning alone: ${N.sn4}% → ${N.snc4}%`)],
+    [L("Seasonality"), T("none · 13-week AR · 52-week differencing · Fourier · last-year values"), T("52 weeks fits; no 13-week cycle in the data")],
+    [L("Models"), T("ARIMA (fixed / AIC orders) · SARIMA · STL+ETS · Theta · 1:1 combination"), R(`combination best: ${N.best4}%`)],
+    [L("Features"), T("search (index / Seoul share) · subway exits · F&B net openings · mobility 13 weeks ago · placebo"), T("no input lowered error")]];
+  s.addTable(rows, { x: px(40), y: px(185), w: px(1840), colW: [px(300), px(860), px(680)], fontFace: F, fontSize: PT(29),
+    border: { type: "solid", color: "C9CED6", pt: 0.75 }, rowH: px(112), valign: "middle", fill: { color: "FFFFFF" } });
+  bottom(s, "Every setting: 4 forecast dates × 416 dongs, compared with both baselines");
+  notes(s, "Metrics: WAPE = sum of absolute errors / sum of actuals over 13 weeks and all dongs; DM test for model vs. baseline; top-10% hit rate for hot and emerging lists. "
+    + "4 dates: 2024-10-27, 2025-01-26, 2025-04-27, 2025-07-27. '2 clean dates' = the two not touched by the 2024 anomaly.");
 }
 
-// 6. 진행 상황 -------------------------------------------------------------------
+// 6. 하나씩 고치기 -------------------------------------------------------------------
 {
-  const s = base("PROGRESS SO FAR");
-  const cols = [["Data cleaning", 40], ["Feature engineering", 670], ["Initial modeling", 1300]];
-  cols.forEach(([t, x]) => head(s, t, x, 165, 600));
-  vdash(s, 645); vdash(s, 1275);
-  body(s, [
-    { label: "Unit", text: "427 dongs (name-tag map), split dongs merged" },
-    { label: "Target", text: "daily arrivals → week mean (≥ 4 valid days)" },
-    { label: "Level shift", text: [{ t: "Aug–Oct 2024 ×1.52 in mobility only → rescaled", b: true }] },
-    { label: "Leakage", text: "every input checked to end before the forecast date" }], 40, 245, 580, 640, 31, 22);
-  body(s, [
-    { label: "Search", text: "Seoul share, month −4" },
-    { label: "Subway", text: "exits, 4-week mean, week −13" },
-    { label: "F&B", text: "net opening rate (3 months), month −4" },
-    { label: "Calendar", text: "holidays; same week last year" },
-    { label: "Scaling", text: "standardized on training data only" }], 670, 245, 580, 640, 31, 22);
-  body(s, [
-    { label: "Baselines", text: "last week; same week last year" },
-    { label: "Classical", text: "ARIMA / SARIMA(X), per-dong AIC orders" },
-    { label: "Seasonal", text: "ARIMA + Fourier, STL + ETS, Theta" },
-    { label: "Combination", text: "last year + model, fixed 1:1" },
-    { label: "Design", text: "4 forecast dates × 13 weeks × 416 dongs" }], 1300, 245, 580, 640, 31, 22);
-  bottom(s, "Weekly, leakage-checked pipeline from raw files to 13-week forecasts");
-}
-
-// 7. 결과 1 ----------------------------------------------------------------------
-{
-  const s = base("RESULTS: BASELINES AND METRICS");
-  fitImg(s, "S3_results.png", 30, 160, 1240, 760);
-  head(s, "Key numbers", 1300, 175, 580);
-  body(s, [
-    { label: "Best", text: [{ t: `Combination ${N.best4}%`, b: true, u: true }, { t: ` vs. last year ${N.sn4}% (4 dates)` }] },
-    { label: "Clean dates", text: `${N.best2}% vs. ${N.sn2}% (2 dates without the anomaly)` },
-    { label: "Per dong", text: `better than last year in ${N.best_imp}% of dong-dates (p < 0.001)` },
-    { label: "Cleaning", text: `same-week-last-year ${N.sn4}% → ${N.snc4}%` }], 1300, 250, 590, 650, 27, 16);
-  bottom(s, "First model to beat the same-week-last-year baseline");
-  notes(s, "WAPE = sum of absolute errors / sum of actuals over 13 weeks, all dongs. Evaluated against the raw (uncleaned) actuals.");
-}
-
-// 8. 결과 2: 부정적 결과 --------------------------------------------------------------
-{
-  const s = base("RESULTS: NEGATIVE FINDINGS");
-  head(s, "External inputs did not reduce error", 40, 165, 1250);
-  fitImg(s, "S4_inputs.png", 30, 240, 1240, 640);
-  head(s, "Why we think so", 1300, 175, 580, C.red);
-  body(s, [
-    { label: "Timing", text: "inputs move with mobility, not ahead; a 13-week-old value adds little to mobility's own past" },
-    { label: "Data per dong", text: "~100 training weeks → noisy coefficients" },
-    { label: "Error source", text: "seasons and data shifts, not what inputs measure" },
-    { label: "Ranking", text: `emerging top-10%: ${N.topk_model}% hit vs. random 10%, persistence ${N.topk_pers}%` }], 1300, 250, 590, 650, 26, 14);
-  bottom(s, "Inputs may still help ranking, not error: next we test them in a pooled model");
-  notes(s, "All input sets were added to the same per-dong ARIMA orders. Hot top-10% hit ~95% but persistence is also ~95%.");
-}
-
-// 8-2. 결과 3: 검색이 왜 좋아 보였나 (전체 조합 실험) ------------------------------------
-{
-  const s = base("RESULTS: WHY SEARCH SEEMED TO HELP");
-  head(s, "Teammate's setup first, then one fix at a time (13-week WAPE, %)", 40, 165, 1840);
+  const s = base("ONE FIX AT A TIME");
+  head(s, "Start from our first draft, change one thing at a time (13-week WAPE, %)", 40, 165, 1840);
   fitImg(s, "S6_ladder.png", 30, 240, 1860, 670);
-  bottom(s, "Search lowered error only on top of a weak model; with better models it adds error");
-  notes(s, `Teammate setup = 13-week seasonal AR, fixed orders, raw search index, raw data. At 2025-04-27 search lowers error ${N.lad["검색X 04-27"][0]}% → ${N.lad["검색O 04-27"][0]}%, `
-    + `but averaged over 4 dates it rises ${N.lad["검색X 4시점"][0]}% → ${N.lad["검색O 4시점"][0]}%. After every fix the model without search is better. `
-    + (N.pl ? `Placebo: another dong's search index gives ${N.pl.placebo["2025-04-27"]}% vs. own search ${N.pl.search_index["2025-04-27"]}% and none ${N.pl.none["2025-04-27"]}% at 2025-04-27.` : ""));
+  bottom(s, "Seasonality, cleaning and combination cut error; search helped only the weak first draft");
+  notes(s, `First draft = 13-week seasonal AR, fixed orders, raw search index, raw data. At 2025-04-27 search lowers error ${N.lad["검색X 04-27"][0]}% → ${N.lad["검색O 04-27"][0]}%, `
+    + `but over 4 dates it rises ${N.lad["검색X 4시점"][0]}% → ${N.lad["검색O 4시점"][0]}%. After each fix the model without search is better.`);
 }
 
-// 9. 다음 단계 -------------------------------------------------------------------
+// 7. 최고 모델 ---------------------------------------------------------------------
+{
+  const s = base("BEST MODEL SO FAR");
+  fitImg(s, "S3_results.png", 20, 165, 1260, 760);
+  head(s, "Same week last year + ARIMA·Fourier, averaged 1:1", 1300, 175, 590, C.red, 34);
+  body(s, [
+    { label: "Error", text: [{ t: `${N.best4}%`, b: true, u: true }, { t: ` vs. ${N.sn4}% for last year (4 dates); ${N.best2}% vs. ${N.sn2}% (2 clean dates)` }] },
+    { label: "Per dong", text: `better than last year in ${N.best_imp}% of dong-dates (p < 0.001)` },
+    { label: "+ Search", text: `${N.srch4}% / ${N.srch2}%; better in ${N.srch_imp}% of dong-dates → no average gain` },
+    { label: "Hotspots", text: `emerging top-10% hit ${N.topk_model}% vs. persistence ${N.topk_pers}%, random 10%` }], 1300, 300, 590, 620, 31, 26);
+  bottom(s, "Error almost halved vs. last year's values; search adds no average gain");
+  notes(s, "4 dates = all forecast dates; 2 clean dates = 2025-01-26 and 2025-04-27, not touched by the 2024 anomaly.");
+}
+
+// 8. 사례 4곳 ----------------------------------------------------------------------
+{
+  const cs = N.case;
+  const s = base("FOUR NEIGHBORHOODS (2025-04-27)");
+  fitImg(s, "S8_cases.png", 15, 160, 1270, 775);
+  body(s, [
+    { label: "Best", text: [{ t: `Hongje 3-dong: forecast growth +${cs.rep_best.rep_growth_pct}%, actual +${cs.rep_best.actual_growth_pct}% → ` }, { t: "neither hot nor emerging, correct call", b: true }] },
+    { label: "Worst", text: `Sinsu-dong: −60% overnight in June 2025, not seen last year → no model could see it; flagged for a data check` },
+    { label: "Search helped", text: [{ t: `Chang 2-dong: error ${cs.search_best.wape}% → ${cs.search_best.wape_s}%; emerging rank ${cs.search_best.rep_emerging_rank} → ${cs.search_best.rep_s_emerging_rank} (actual ${cs.search_best.actual_emerging_rank}): ` }, { t: "caught a rising dong", b: true }] },
+    { label: "Search hurt", text: [{ t: `Gayang 2-dong: error ${cs.search_worst.wape}% → ${cs.search_worst.wape_s}%; rank ${cs.search_worst.rep_emerging_rank} → ${cs.search_worst.rep_s_emerging_rank} (actual ${cs.search_worst.actual_emerging_rank}): ` }, { t: "false alarm", b: true }] }],
+    1300, 170, 590, 760, 25, 14);
+  bottom(s, "Search can flag a rising dong but also raises false alarms → a candidate to re-test");
+  notes(s, `Chosen by rule among ${cs.rep_best.n} dongs above the size floor: lowest and highest error of our model; largest error drop and rise when search is added. `
+    + `Emerging = top ${N.em_top} of ${N.n_em} dongs. Hongje 3-dong error ${cs.rep_best.wape}% vs. ${cs.rep_best.ly}% for last year's values.`);
+}
+
+// 9. 원인 분석 ---------------------------------------------------------------------
+{
+  const s = base("WHY? (OUR BEST GUESS)");
+  head(s, "Why the best model works", 40, 165, 880);
+  head(s, "Why extra data did not help", 980, 165, 900, C.red);
+  vdash(s, 950, 175, 905);
+  body(s, [
+    { label: "Cleaning", text: "removes the 2024 jump that both last-year values and ARIMA would copy" },
+    { label: "Season", text: "last year's same week carries the yearly pattern: holidays, semesters, weather" },
+    { label: "Recent level", text: "ARIMA + Fourier follows this year's level with a smooth yearly curve" },
+    { label: "Averaging", text: "the two make different errors; a fixed 1:1 average cancels part of them, nothing to overfit" }],
+    40, 250, 880, 660, 35, 34);
+  body(s, [
+    { label: "Timing", text: "inputs move with mobility, not ahead; we may only use values 13 weeks or 4 months old" },
+    { label: "Where vs. rising", text: "inputs match where it is busy, but barely where it is rising" },
+    { label: "Short history", text: "~100 weeks per dong → noisy input effects" },
+    { label: "Placebo", text: "over 4 dates, own search and another dong's search add the same error" }],
+    980, 250, 900, 660, 35, 34);
+  bottom(s, "So far, gains came from cleaning and seasonality, not from extra data");
+  notes(s, `Placebo (first-draft setup): none ${N.pl.none["4시점"]}%, own search ${N.pl.search_index["4시점"]}%, another dong's search ${N.pl.placebo["4시점"]}% over 4 dates.`);
+}
+
+// 10. 다음 단계 -------------------------------------------------------------------
 {
   const s = base("NEXT STEPS");
-  const cols = [["Evaluation plan", 40, C.navy], ["Remaining steps", 670, C.navy], ["Expected outcome", 1300, C.red]];
+  const cols = [["Plan", 40, C.navy], ["Rules fixed in advance", 670, C.navy], ["Expected outcome", 1300, C.red]];
   cols.forEach(([t, x, c]) => head(s, t, x, 165, 600, c));
   vdash(s, 645); vdash(s, 1275);
   body(s, [
-    { label: "More dates", text: "monthly forecast dates, 2024-07 ~ 2025-07" },
-    { label: "Longer range", text: "26–34 weeks ahead, to reach 2027 H1" },
-    { label: "One-shot test", text: [{ t: "freeze & commit, then test once on 2026", b: true }] }], 40, 245, 580, 640, 32, 26);
+    { label: "Pooled model", text: [{ t: "LightGBM + Ridge on all dongs together", b: true }, { t: " so input effects can be estimated" }] },
+    { label: "Inputs", text: "as changes (search growth, opening rate); fresher values for near weeks" },
+    { label: "Target", text: "also rank emerging dongs directly" },
+    { label: "Events", text: "concert & festival calendar for spikes" }], 40, 245, 580, 660, 32, 26);
   body(s, [
-    { label: "Pooled model", text: "LightGBM + Ridge across dongs, inputs as changes" },
-    { label: "Events", text: "concert & festival calendars to separate spikes" },
-    { label: "Data check", text: "spring-2025 level shift; source inquiry" },
-    { label: "Inputs", text: "change how inputs enter; keep only what helps" }], 670, 245, 580, 640, 32, 26);
+    { label: "Keep an input only if", text: "it lowers error on 4 dates and 2 clean dates, passes the DM test, and beats a placebo input" },
+    { label: "Compare", text: "with today's best and with Ridge on the same features" },
+    { label: "Then", text: [{ t: "freeze & commit, test once on 2026", b: true }] }], 670, 245, 580, 660, 32, 26);
   body(s, [
-    { label: "Forecast", text: [{ t: "2027 H1 hotspots and emerging dongs", b: true, u: true }] },
-    { label: "System", text: "HEAT map with weekly forecasts" },
-    { label: "Success", text: "beat last year & persistence on the 2026 test" }], 1300, 245, 580, 640, 32, 26);
-  bottom(s, "Refit through Dec 2026 and forecast Seoul's 2027 H1 hotspots");
+    { label: "Error", text: "about the same; most signal is already in mobility itself" },
+    { label: "Ranking", text: "possible gain for emerging dongs, where search showed a signal (Chang 2-dong)" },
+    { label: "Final", text: [{ t: "refit through Dec 2026 → 2027 H1 hotspots on the HEAT map", b: true, u: true }] }], 1300, 245, 580, 660, 32, 26);
+  bottom(s, "Re-test extra data in a pooled model under fixed rules, then forecast 2027 H1");
 }
 
 // 10. 감사 -----------------------------------------------------------------------
@@ -240,11 +245,6 @@ const notes = (s, t) => s.addNotes(t);
 
 // 부록 ---------------------------------------------------------------------------
 {
-  const s = base("APPENDIX: DATA ANOMALY");
-  fitImg(s, "S1_anomaly.png", 60, 170, 1800, 720);
-  bottom(s, "Aug–Oct 2024: mobility ×1.52 while card sales stayed flat → rescaled");
-}
-{
   const s = base("APPENDIX: RESULTS BY FORECAST DATE");
   const rows = [["Model (13-week WAPE, %)", ...N.origins, "4 dates", "2 clean"]].concat(N.table);
   s.addTable(rows.map((r, i) => r.map((c, j) => ({ text: String(c), options: { bold: i === 0 || (i === rows.length - 1), color: i === rows.length - 1 ? C.red : C.ink,
@@ -252,9 +252,14 @@ const notes = (s, t) => s.addNotes(t);
     { x: px(60), y: px(190), w: px(1800), colW: [px(620), px(200), px(200), px(200), px(200), px(190), px(190)], fontFace: F, fontSize: PT(30), border: { type: "solid", color: "C9CED6", pt: 0.75 }, rowH: px(62) });
   bottom(s, "'cleaned' = trained on rescaled Aug–Oct 2024; all errors vs. raw actuals");
 }
+if (N.ratio["S4_inputs.png"]) {
+  const s = base("APPENDIX: INPUT COMBINATIONS (RAW DATA)");
+  fitImg(s, "S4_inputs.png", 60, 170, 1800, 740);
+  bottom(s, "Seven input sets added to the same ARIMA: none lowered error");
+}
 if (N.pl && N.ratio["S7_placebo.png"]) {
   const s = base("APPENDIX: PLACEBO INPUT TEST");
-  head(s, "Teammate's setup: does any input lower error? (13-week WAPE)", 40, 165, 1840);
+  head(s, "First-draft setup: does any input lower error? (13-week WAPE)", 40, 165, 1840);
   fitImg(s, "S7_placebo.png", 30, 240, 1860, 670);
   bottom(s, N.pl_msg || "");
 }
