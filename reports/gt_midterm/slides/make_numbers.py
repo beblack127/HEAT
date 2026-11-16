@@ -58,6 +58,7 @@ N["lad"] = {c: [f"{v:.1f}" for v in LD[c]] for c in LD.columns if c != "단계"}
 if (TB / "t10_placebo.csv").exists():
     W10 = pd.read_csv(TB / "t10_placebo.csv", index_col=[0, 1])
     N["pl"] = {k: {c: f"{W10.loc[('s13', k), c]:.1f}" for c in ("2025-04-27", "4시점")} for k in ("none", "search_index", "placebo", "subway_exit_4w", "fnb_net3")}
+    N["pl_msg"] = "Own search wins at one date only (not significant); over 4 dates it adds error"
 N["ratio"] = {p.name: (lambda im: im.size[0] / im.size[1])(Image.open(p)) for p in (HERE / "fig").glob("*.png")}
 json.dump(N, open(HERE / "deck_numbers.json", "w"), ensure_ascii=False, indent=1)
 print({k: v for k, v in N.items() if k not in ("table", "ratio")})
