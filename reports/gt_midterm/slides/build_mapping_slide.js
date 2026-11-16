@@ -69,12 +69,12 @@ const notes = (s, t) => s.addNotes(t);
       { x: px(x + 18), y: px(180), w: px(390), h: px(150), fontFace: F, valign: "top", margin: 0, isTextBox: true });
     if (i < 3) s.addText("→", { x: px(x + 422), y: px(220), w: px(46), h: px(60), fontFace: F, fontSize: PT(40), bold: true, color: C.navy, align: "center", margin: 0, isTextBox: true });
   });
-  s.addText("Example: Seogyo-dong (Hongdae)", { x: px(40), y: px(352), w: px(900), h: px(50), fontFace: F, fontSize: PT(30), bold: true, color: C.red, margin: 0, isTextBox: true });
-  s.addImage({ path: FIG("S10_mapping.png"), x: px(40), y: px(405), w: px(1840), h: px(1840 / 3.992) });
+  s.addText("Example: Sageun-dong (Seongdong-gu)", { x: px(40), y: px(352), w: px(900), h: px(50), fontFace: F, fontSize: PT(30), bold: true, color: C.red, margin: 0, isTextBox: true });
+  s.addImage({ path: FIG("S10_mapping.png"), x: px(40), y: px(405), w: px(1840), h: px(1840 / 4.510) });
   [["Neighborhood: legal dongs ≥ 10% of land", 40], ["Station: ≥ 5% of land within 1,000 m", 653], ["Commercial area: ≥ 10% of it in the dong", 1266]].forEach(([t, x]) =>
-    s.addText(t, { x: px(x), y: px(870), w: px(614), h: px(45), fontFace: F, fontSize: PT(26), bold: true, color: C.navy, align: "center", margin: 0, isTextBox: true }));
+    s.addText(t, { x: px(x), y: px(835), w: px(614), h: px(45), fontFace: F, fontSize: PT(26), bold: true, color: C.navy, align: "center", margin: 0, isTextBox: true }));
   bottom(s, "Boundaries and area only: simple, fixed over time, no overlap with F&B data");
-  notes(s, "Left map shows area shares (Seogyo 70%, Donggyo 24%; Nogosan 4% dropped); after dropping slivers the weights are 74% / 26%. Station and commercial labels show final weights. "
+  notes(s, "Left map shows area shares (Sageun 56%, Haengdang 39%; Seongsu, Yongdap, Majang about 2% each dropped); after dropping slivers the weights are 59% / 41%. Station labels show final weights (9 stations linked, top 4 labeled). No commercial area falls in Sageun-dong, so that slot stays empty. "
     + "Totals: 347 neighborhood, 315 station, 57 commercial-area names; 566 keyword groups. Visit words: restaurants, cafe, bar, date, places to go, hotplace. "
     + "Station radius 500 m and 1,500 m kept as sensitivity checks.");
 }
