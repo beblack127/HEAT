@@ -44,6 +44,7 @@ for comb, U in ((0, U0), (1, U1)):
     uw = (U.ae / U.y).unstack(["search"])
     for k, g in uw.groupby(level=["data", "fam", "order", "lag13"]):
         for s in ("idx", "share"):
+            if s not in g.columns or "none" not in g.columns: continue
             d = g[[s, "none"]].dropna()
             if len(d) < 20: continue
             w = A.loc[(k[0], k[1], k[2], s, k[3], comb), "4시점"] - A.loc[(k[0], k[1], k[2], "none", k[3], comb), "4시점"]
