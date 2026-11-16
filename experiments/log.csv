@@ -53,3 +53,4 @@ time,step,git,spec_version,plan,seed,note,extra
 2026-11-16 05:57:06,gt/06_report,4386815,,gt_midterm,42,rep=comb_arima|none,
 2026-11-16 11:34:09,gt/02e_clean_inputs,01b8a6d,,gt_midterm,42,units=2; rows=728; sec=16,
 2026-11-16 11:34:48,gt/02e_clean_inputs,01b8a6d,,gt_midterm,42,units=2; rows=2184; sec=23,
+2026-11-16 11:54:40,gt/02f_full_grid,5ba5e96,,gt_midterm,42,units=1; rows=3848; sec=59,
