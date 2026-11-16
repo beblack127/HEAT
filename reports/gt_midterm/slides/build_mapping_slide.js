@@ -54,26 +54,28 @@ function fitImg(s, f, x, y, w, h) {     // 원본 비율 유지, 상자 안 가�
 const notes = (s, t) => s.addNotes(t);
 
 
-// 데이터 매핑: 행정동 이름표 기준 (따로 붙여 넣을 한 장)
+// 데이터 매핑: 행정동 이름표 만드는 과정 (따로 붙여 넣을 한 장)
 {
   const s = base("DATA MAPPING");
-  head(s, "Each dong gets search names in three slots, linked only by official boundaries and area", 40, 165, 1840, C.navy, 38);
-  const H = (t) => ({ text: t, options: { bold: true, color: "FFFFFF", fill: { color: C.navy } } });
-  const L = (t) => ({ text: t, options: { bold: true, color: C.navy, fill: { color: C.yel } } });
-  const T = (t, o = {}) => ({ text: t, options: { color: C.ink, ...o } });
-  const B = (t) => T(t, { bold: true });
-  const rows = [
-    [H("Slot"), H("Names from"), H("Linked to a dong when"), H("Why")],
-    [L("Neighborhood"), T("Legal-dong names (+ admin-dong name if different)"), B("≥ 10% of the dong's land area"), T("names people actually search; tiny slivers dropped")],
-    [L("Station"), T("Seoul station list"), B("≥ 5% of the dong's land within 1,000 m, same side of the Han River"), T("about 15 minutes on foot; the river blocks access")],
-    [L("Commercial area"), T("Tourist zones, nicknames (Hongdae), '~gil' streets"), B("≥ 10% of the area lies in the dong"), T("hotspot names that are not dong names (Garosu-gil)")]];
-  s.addTable(rows, { x: px(40), y: px(250), w: px(1840), colW: [px(300), px(500), px(560), px(480)], fontFace: F, fontSize: PT(30),
-    border: { type: "solid", color: "C9CED6", pt: 0.75 }, rowH: [px(80), px(150), px(150), px(150)], valign: "middle", fill: { color: "FFFFFF" } });
-  body(s, [{ label: "Weight", text: "share of the dong's land area each name covers; land = dong area minus the Han River; weights sum to 1 in each slot" }],
-    40, 835, 1840, 80, 30, 0);
+  const steps = [
+    ["Boundaries", "427 dongs (2025); land = dong area minus the Han River"],
+    ["Overlay names", "legal dongs · 1,000 m station circles (same river side) · commercial areas"],
+    ["Link if large enough", "share of the dong's land: ≥ 10% · ≥ 5% · ≥ 10%"],
+    ["Weight → keywords", "area share, sums to 1 per slot; each name + 6 visit words → Naver"]];
+  steps.forEach(([h, t], i) => {
+    const x = 40 + i * 470;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: px(x), y: px(172), w: px(420), h: px(165), fill: { color: "FFFFFF" }, line: { color: C.navy, width: 1.25 }, rectRadius: 0.08 });
+    s.addText([{ text: `${i + 1}  ${h}`, options: { bold: true, color: C.navy, fontSize: PT(31), breakLine: true } }, { text: t, options: { color: C.body, fontSize: PT(24) } }],
+      { x: px(x + 18), y: px(180), w: px(390), h: px(150), fontFace: F, valign: "top", margin: 0, isTextBox: true });
+    if (i < 3) s.addText("→", { x: px(x + 422), y: px(220), w: px(46), h: px(60), fontFace: F, fontSize: PT(40), bold: true, color: C.navy, align: "center", margin: 0, isTextBox: true });
+  });
+  s.addText("Example: Seogyo-dong (Hongdae)", { x: px(40), y: px(352), w: px(900), h: px(50), fontFace: F, fontSize: PT(30), bold: true, color: C.red, margin: 0, isTextBox: true });
+  s.addImage({ path: FIG("S10_mapping.png"), x: px(40), y: px(405), w: px(1840), h: px(1840 / 3.992) });
+  [["Neighborhood: legal dongs ≥ 10% of land", 40], ["Station: ≥ 5% of land within 1,000 m", 653], ["Commercial area: ≥ 10% of it in the dong", 1266]].forEach(([t, x]) =>
+    s.addText(t, { x: px(x), y: px(870), w: px(614), h: px(45), fontFace: F, fontSize: PT(26), bold: true, color: C.navy, align: "center", margin: 0, isTextBox: true }));
   bottom(s, "Boundaries and area only: simple, fixed over time, no overlap with F&B data");
-  notes(s, "427 dongs (2025-12-31 boundaries). Names: 347 neighborhood, 315 station, 57 commercial-area names; 566 keyword groups. "
-    + "Each name + six visit words (restaurants, cafe, bar, date, places to go, hotplace) so the search reflects interest in going there. "
-    + "Station radius 500 m and 1,500 m kept as sensitivity checks. Example: Seogyo-dong = Seogyo 74% / Donggyo 26%; Hongdae station area; Hongdae commercial area.");
+  notes(s, "Left map shows area shares (Seogyo 70%, Donggyo 24%; Nogosan 4% dropped); after dropping slivers the weights are 74% / 26%. Station and commercial labels show final weights. "
+    + "Totals: 347 neighborhood, 315 station, 57 commercial-area names; 566 keyword groups. Visit words: restaurants, cafe, bar, date, places to go, hotplace. "
+    + "Station radius 500 m and 1,500 m kept as sensitivity checks.");
 }
 pres.writeFile({ fileName: path.join(__dirname, "HEAT_mapping_slide.pptx") }).then(f => console.log("saved", f));
