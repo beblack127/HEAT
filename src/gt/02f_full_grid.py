@@ -8,6 +8,9 @@
   search : none / idx(원래 지수 log1p) / share(서울 대비 비중 log)  — 4개월 전 달 값 (기존 규칙)
   lag13  : 0 / 1 (13주 전 생활이동 log1p를 입력으로, 팀원 입력)
   결합(작년 같은 주와 1:1)은 평가(03f)에서 계산
+줄인 조건 (의미가 적은 것 제외, 2026-11-16 결정)
+  - s13(13주 주기)은 고정 차수만: 팀원 재현용. 13주 반복 패턴이 실제로 없어 AIC로 골라도 의미가 적다
+  - 보정 후 자료: 원래 지수, s13, 고정 차수 제외 (재현이 아니라 우리 설정 확인용). ar·s52 x AIC x 검색(없음·비중) x 13주 전 입력(0·1)
 모든 모델 log1p(y)에 적합. 입력은 학습 구간으로 표준화. s52의 입력은 52주 차분.
 출력: results/gt/grid/pred_<origin>.parquet  (column: data, fam, order, search, lag13, y_hat ...)
 """
@@ -68,9 +71,11 @@ def run_unit(u, g):
                     zidx = ztr.index
                 else:
                     ztr, zidx = tr, tr.index
-                orders = {"fixed": FIXED[fam], "aic": aic_order(ztr.values, fam)}
+                if data == "clean" and fam == "s13": continue
+                orders = {} if data == "clean" else {"fixed": FIXED[fam]}
+                if fam != "s13": orders["aic"] = aic_order(ztr.values, fam)
                 for oname, od in orders.items():
-                    for srch in ("none", "idx", "share"):
+                    for srch in (("none", "share") if data == "clean" else ("none", "idx", "share")):
                         for l13 in (0, 1):
                             cols = ([] if srch == "none" else [S["search_index" if srch == "idx" else "search_share"]]) + ([L13] if l13 else [])
                             ex_tr = ex_fu = None
