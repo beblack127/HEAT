@@ -119,4 +119,42 @@ ax.set_ylabel("Daily arrivals, age 20–39"); ax.legend(frameon=False, loc="lowe
 import matplotlib.dates as mdates
 ax.xaxis.set_major_locator(mdates.MonthLocator()); ax.xaxis.set_major_formatter(mdates.DateFormatter("%b\n%Y"))
 save(f, "S5_example.png")
+# ---- S6 사다리: 팀원 설정에서 한 가지씩 고치기 ----
+try:
+    LD = pd.read_csv(TB / "t8_ladder.csv")
+    labs = ["Teammate\nsetup", "52-week\nseason", "Orders\nby AIC", "Search as\nSeoul share", "Cleaned\ndata", "+ same week\nlast year"]
+    f, axs = plt.subplots(1, 2, figsize=(17, 6.6), sharey=True)
+    for ax, (c1, c0, ttl) in zip(axs, (("검색O 04-27", "검색X 04-27", "Forecast date 2025-04-27 only"), ("검색O 2시점", "검색X 2시점", "Average of 2 dates without the anomaly"))):
+        x = np.arange(len(LD)); w = .38
+        ax.bar(x - w / 2, LD[c0], w, color=NAVY, label="Without search")
+        ax.bar(x + w / 2, LD[c1], w, color=LIGHT, label="With search")
+        for xi, a, b in zip(x, LD[c0], LD[c1]):
+            ax.text(xi - w / 2, a + .5, f"{a:.1f}", ha="center", fontsize=12.5, fontweight="bold", color=NAVY)
+            ax.text(xi + w / 2, b + .5, f"{b:.1f}", ha="center", fontsize=12.5, color=INK)
+        ax.set_xticks(x, labs, fontsize=13.5); ax.set_title(ttl, loc="left", color=NAVY, fontweight="bold")
+    axs[0].set_ylabel("13-week WAPE (%)"); axs[0].set_ylim(0, 41)
+    axs[0].annotate("search helps only here", xy=(0.19, LD["검색O 04-27"][0] + 1.5), xytext=(-0.4, 25.5), fontsize=16, color=RED, fontweight="bold",
+                    arrowprops=dict(arrowstyle="->", color=RED, lw=1.4))
+    axs[1].legend(frameon=False, loc="upper right")
+    f.tight_layout(); save(f, "S6_ladder.png")
+except FileNotFoundError:
+    print("S6 생략: t8 없음")
+
+# ---- S7 가짜 입력: 팀원 설정(13주 주기) ----
+try:
+    W10 = pd.read_csv(TB / "t10_placebo.csv", index_col=[0, 1])
+    sets = [("none", "None"), ("search_index", "Search\n(own dong)"), ("placebo", "Search of a\nrandom dong"), ("subway_exit_4w", "Subway"), ("fnb_net3", "F&B net\nopenings")]
+    f, axs = plt.subplots(1, 2, figsize=(16, 6.2))
+    for ax, col, ttl in zip(axs, ("2025-04-27", "4시점"), ("Forecast date 2025-04-27 only", "Average of 4 forecast dates")):
+        v = [W10.loc[("s13", s), col] for s, _ in sets]
+        cl = [NAVY] + [LIGHT] * (len(sets) - 1); cl[2] = RED
+        ax.bar(np.arange(len(sets)), v, color=cl, width=.62)
+        for i, vv in enumerate(v): ax.text(i, vv + .1, f"{vv:.1f}%", ha="center", fontsize=17, fontweight="bold")
+        lo = min(v); ax.set_ylim(lo - 3, max(v) + 1.2)
+        ax.set_xticks(np.arange(len(sets)), [l for _, l in sets], fontsize=15); ax.set_title(ttl, loc="left", color=NAVY, fontweight="bold")
+    axs[0].set_ylabel("13-week WAPE (%)\n(axis does not start at 0)")
+    f.tight_layout(); save(f, "S7_placebo.png")
+except FileNotFoundError:
+    print("S7 생략: t10 없음")
+
 print("저장:", sorted(p.name for p in OUT.glob("*.png")))

@@ -56,3 +56,5 @@ time,step,git,spec_version,plan,seed,note,extra
 2026-11-16 11:54:40,gt/02f_full_grid,5ba5e96,,gt_midterm,42,units=1; rows=3848; sec=59,
 2026-11-16 13:10:39,gt/02e_clean_inputs,7816c35,,gt_midterm,42,units=426; rows=458952; sec=5744,
 2026-11-16 13:11:04,gt/03e_clean_inputs_eval,7816c35,,gt_midterm,42,"best=(np.int64(1), 'ARIMA (보정)', '입력 없음') 11.67",
+2026-11-16 14:07:30,gt/02f_full_grid,d9b59dc,,gt_midterm,42,units=426; rows=886080; sec=3393,
+2026-11-16 14:07:53,gt/03f_full_grid_eval,d9b59dc,,gt_midterm,42,"best4=('clean', 'ar', 'aic', 'none', np.int64(0), np.int64(1)) 11.68",

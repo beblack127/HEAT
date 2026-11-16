@@ -191,6 +191,17 @@ const notes = (s, t) => s.addNotes(t);
   notes(s, "All input sets were added to the same per-dong ARIMA orders. Hot top-10% hit ~95% but persistence is also ~95%.");
 }
 
+// 8-2. 결과 3: 검색이 왜 좋아 보였나 (전체 조합 실험) ------------------------------------
+{
+  const s = base("RESULTS: WHY SEARCH SEEMED TO HELP");
+  head(s, "Teammate's setup first, then one fix at a time (13-week WAPE, %)", 40, 165, 1840);
+  fitImg(s, "S6_ladder.png", 30, 240, 1860, 670);
+  bottom(s, "Search lowered error only on top of a weak model; with better models it adds error");
+  notes(s, `Teammate setup = 13-week seasonal AR, fixed orders, raw search index, raw data. At 2025-04-27 search lowers error ${N.lad["검색X 04-27"][0]}% → ${N.lad["검색O 04-27"][0]}%, `
+    + `but averaged over 4 dates it rises ${N.lad["검색X 4시점"][0]}% → ${N.lad["검색O 4시점"][0]}%. After every fix the model without search is better. `
+    + (N.pl ? `Placebo: another dong's search index gives ${N.pl.placebo["2025-04-27"]}% vs. own search ${N.pl.search_index["2025-04-27"]}% and none ${N.pl.none["2025-04-27"]}% at 2025-04-27.` : ""));
+}
+
 // 9. 다음 단계 -------------------------------------------------------------------
 {
   const s = base("NEXT STEPS");
@@ -240,6 +251,12 @@ const notes = (s, t) => s.addNotes(t);
       fill: { color: i === 0 ? "E3E9F3" : "FFFFFF" }, align: j === 0 ? "left" : "center" } }))),
     { x: px(60), y: px(190), w: px(1800), colW: [px(620), px(200), px(200), px(200), px(200), px(190), px(190)], fontFace: F, fontSize: PT(30), border: { type: "solid", color: "C9CED6", pt: 0.75 }, rowH: px(62) });
   bottom(s, "'cleaned' = trained on rescaled Aug–Oct 2024; all errors vs. raw actuals");
+}
+if (N.pl && N.ratio["S7_placebo.png"]) {
+  const s = base("APPENDIX: PLACEBO INPUT TEST");
+  head(s, "Teammate's setup: does any input lower error? (13-week WAPE)", 40, 165, 1840);
+  fitImg(s, "S7_placebo.png", 30, 240, 1860, 670);
+  bottom(s, N.pl_msg || "");
 }
 if (N.ratio["heat_system.png"]) {
   const s = base("APPENDIX: HEAT SYSTEM");

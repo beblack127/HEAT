@@ -51,6 +51,13 @@ rows = [("Last week (naive)", "Naive"), ("Same week last year", "작년 같은 �
 cols = [c for c in t7.columns if c[:2] == "20"]
 N["origins"] = [c[2:7].replace("-", ".") for c in cols]
 N["table"] = [[lab] + [f"{t7.loc[k, c]:.1f}" for c in cols] + [f"{t7.loc[k, c4]:.1f}", f"{t7.loc[k, c2]:.1f}"] for lab, k in rows]
+# 사다리 (전체 조합 실험)
+LD = pd.read_csv(TB / "t8_ladder.csv")
+N["lad"] = {c: [f"{v:.1f}" for v in LD[c]] for c in LD.columns if c != "단계"}
+# 가짜 입력 (팀원 설정, 13주 주기)
+if (TB / "t10_placebo.csv").exists():
+    W10 = pd.read_csv(TB / "t10_placebo.csv", index_col=[0, 1])
+    N["pl"] = {k: {c: f"{W10.loc[('s13', k), c]:.1f}" for c in ("2025-04-27", "4시점")} for k in ("none", "search_index", "placebo", "subway_exit_4w", "fnb_net3")}
 N["ratio"] = {p.name: (lambda im: im.size[0] / im.size[1])(Image.open(p)) for p in (HERE / "fig").glob("*.png")}
 json.dump(N, open(HERE / "deck_numbers.json", "w"), ensure_ascii=False, indent=1)
 print({k: v for k, v in N.items() if k not in ("table", "ratio")})
