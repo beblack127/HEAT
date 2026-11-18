@@ -72,3 +72,11 @@ p1(f.add_subplot(gs[0, :])); p2(f.add_subplot(gs[1, 0])); p3(f.add_subplot(gs[1,
 f.tight_layout(h_pad=2.5, w_pad=2.5)
 f.savefig(OUT / "S14_whynot_grid.png", bbox_inches="tight", pad_inches=0.15); plt.close(f)
 print("ok")
+
+# 두 칸 (입력 추가 → 붐빔≠상승), 왼쪽 4칸 그림과 같은 크기
+f = plt.figure(figsize=(16, 11))
+gs = f.add_gridspec(2, 1, height_ratios=[1, 1.1])
+p2(f.add_subplot(gs[0])); p1(f.add_subplot(gs[1]))
+f.tight_layout(h_pad=3)
+f.savefig(OUT / "S14_whynot_2panel.png", bbox_inches="tight", pad_inches=0.15); plt.close(f)
+print("ok 2panel")
