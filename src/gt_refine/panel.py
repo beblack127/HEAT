@@ -118,3 +118,34 @@ def size_floor(weeks, W):
 
 def anomaly_rows(weeks, start=date(2024, 8, 5), end=date(2024, 10, 27)):
     return np.array([start <= w <= end for w in weeks])
+
+
+# Common anomaly windows (week = Monday key). The 2025 windows come from 준혁's explorer (2026-11-28):
+#   2024-08-01..10-31 all dongs ~1.5x; 2025-01-02..01-24 large business/commercial dongs ~1.4x;
+#   2025-03-01..04-30 most dongs ~1.2x.
+ANOMALIES = {"2024-08~10": (date(2024, 7, 29), date(2024, 10, 28)),
+             "2025-01": (date(2024, 12, 30), date(2025, 1, 20)),
+             "2025-03~04": (date(2025, 2, 24), date(2025, 4, 28))}
+
+
+def anomaly_mask(weeks, names=None):
+    names = names or list(ANOMALIES)
+    return np.array([any(ANOMALIES[k][0] <= w <= ANOMALIES[k][1] for k in names) for w in weeks])
+
+
+def load_weekly_extended(root):
+    """Weekly mean of daily arrivals (20-39, purposes 4+5+7), 2023-01-02 .. 2025-12-22.
+    Up to 2025-08-25: built here from the daily files. 2025-09-01 onward: 준혁's explorer
+    (data/interim/jh_explorer/dongs.json, field `a` = weekly sum, divided by 7). On the 129 overlapping
+    weeks the two sources agree exactly (ratio 7.000 for all 58,936 dong-weeks)."""
+    import json
+    dates, dongs, Y, _ = load_daily(root)
+    weeks, W = weekly(dates, Y)
+    jh = json.load(open(os.path.join(HEAT, "data", "interim", "jh_explorer", "dongs.json"), encoding="utf-8"))
+    jw = [date.fromisoformat(w) for w in jh["weeks"]]
+    rec = {r["c"]: r["a"] for r in jh["dongs"]}
+    extra = [i for i, w in enumerate(jw) if w > weeks[-1]]
+    keep = [j for j, c in enumerate(dongs) if c in rec and all(rec[c][i] is not None for i in extra)]
+    dongs = [dongs[j] for j in keep]
+    add = np.array([[rec[c][i] / 7.0 for c in dongs] for i in extra])
+    return weeks + [jw[i] for i in extra], dongs, np.vstack([W[:, keep], add])

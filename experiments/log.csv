@@ -67,3 +67,4 @@ time,step,git,spec_version,plan,seed,note,extra
 2026-11-27 15:25:43,peaks/run_peaks,,,peaks,,daily spike detection (median+MAD same weekday +-4w),local_spikes=1577; repeat_52w=0.47 vs 0.27; WAPE effect<0.005
 2026-11-27 15:28:27,features_screen/run_feature_screen,,,features_screen,,21 candidate features vs future share change; 13 origins,best_beyond_momentum=share_slope_13w 0.27; external<=0.05
 2026-11-27 15:29:53,gt_refine/run_gt_sensitivity,,,gt_refine,,5 target variants (age; weekend; weekday; spikes removed),hot top10 recall_121 0.49-0.51; emerging overlap 0.78-0.96; V4 momentum P10 0.52
+2026-11-28 00:18:13,anomaly/run_anomaly_correction,,,anomaly,,5 correction rules; 11 clean-future origins 2025-04..09; data to 2025-12 (jh explorer after 2025-08),snaive WAPE raw 0.323 / x1.52 0.147 / dong 0.120; 2024 dong factor median 1.28 size corr 0.76
