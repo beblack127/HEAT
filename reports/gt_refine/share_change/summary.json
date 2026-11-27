@@ -1,0 +1,74 @@
+{
+  "panel": {
+    "dongs": 424,
+    "weeks": 139,
+    "first": "2023-01-02",
+    "last": "2025-08-25",
+    "dongs_above_floor": 318
+  },
+  "A_B_rolling": {
+    "origins": 13,
+    "range": [
+      "2024-06-24",
+      "2025-05-26"
+    ],
+    "spearman_momentum_median": 0.717097747017969,
+    "p_at_10_momentum_mean": 0.4831730769230769,
+    "sd_g_median": 0.1299097026442847,
+    "top10_min_g_median": 0.11128129430948519,
+    "top10_share_z_ge_2_mean": 0.9639423076923077,
+    "clean_origins": [
+      "2025-02-03",
+      "2025-03-03",
+      "2025-03-31",
+      "2025-04-28"
+    ],
+    "clean_spearman_momentum_median": 0.6405485268360835,
+    "clean_p_at_10_momentum_mean": 0.5234375
+  },
+  "C_top10_overlap": {
+    "4w": {
+      "pairs": 12,
+      "mean_overlap": 0.8020833333333334
+    },
+    "8w": {
+      "pairs": 11,
+      "mean_overlap": 0.6818181818181818
+    },
+    "12w": {
+      "pairs": 10,
+      "mean_overlap": 0.565625
+    }
+  },
+  "D_anomaly": {
+    "seoul_total_ratio_mid_vs_pre_2024": 1.5188206623666551,
+    "seoul_total_ratio_mid_vs_pre_2023": 0.9971060082007193,
+    "sd_log_share_shift_mid_vs_pre_2024": 0.15173464674502785,
+    "sd_log_share_shift_mid_vs_pre_2023": 0.0810581106486376,
+    "spearman_shift_2024_vs_2023": 0.12913080446211686,
+    "sd_log_share_shift_post_vs_pre_2024": 0.11374265713929135
+  },
+  "E_age": {
+    "spearman_median": 0.9333246136453665,
+    "top10_overlap_mean": 0.78125
+  },
+  "F_other_signals": {
+    "card_all_n": 301.0,
+    "card_all_spearman": 0.0306,
+    "card_all_top10_overlap": 0.1444,
+    "card_20_39_n": 301.0,
+    "card_20_39_spearman": 0.114,
+    "card_20_39_top10_overlap": 0.1278,
+    "search_n": 318.0,
+    "search_spearman": 0.1658,
+    "search_top10_overlap": 0.1302,
+    "quarters": [
+      "20241",
+      "20242",
+      "20243",
+      "20244",
+      "20251",
+      "20252"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900'>
+<rect width='1600' height='900' fill='#F7F7F7'/>
+<text x='80' y='70' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='38' font-weight='bold' fill='#222'>'기타(7)' 목적에 들어갈 만한 이동</text>
+<text x='80' y='112' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='24' fill='#555'>출근·등교·귀가·쇼핑·관광·병원에 속하지 않는 이동이 모두 '기타'로 분류된다</text>
+<rect x='80' y='156' width='700' height='56' fill='#1F4E9A'/>
+<rect x='820' y='156' width='700' height='56' fill='#9AA3AF'/>
+<text x='104' y='194' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='27' font-weight='bold' fill='#FFF'>핫플 방문과 관련 있음</text>
+<text x='844' y='194' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='27' font-weight='bold' fill='#FFF'>핫플 방문과 거리 멂</text>
+<rect x='80' y='220' width='700' height='86' fill='#E6EDF7'/>
+<rect x='820' y='220' width='700' height='86' fill='#ECEEF1'/>
+<text x='104' y='273.0' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='27' fill='#1A2E55'>외식 (식당·카페)</text>
+<text x='844' y='273.0' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='27' fill='#555'>학원</text>
+<text x='104' y='359.0' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='27' fill='#1A2E55'>친구 만나기, 술자리, 밤 문화</text>
+<text x='844' y='359.0' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='27' fill='#555'>외근, 출장, 업무 미팅</text>
+<rect x='80' y='392' width='700' height='86' fill='#E6EDF7'/>
+<rect x='820' y='392' width='700' height='86' fill='#ECEEF1'/>
+<text x='104' y='445.0' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='27' fill='#1A2E55'>영화·공연·전시</text>
+<text x='844' y='445.0' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='27' fill='#555'>친척·지인 집 방문</text>
+<text x='104' y='531.0' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='27' fill='#1A2E55'>운동, 취미 활동 (헬스, 클라이밍, 공방)</text>
+<text x='844' y='531.0' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='27' fill='#555'>종교 활동</text>
+<rect x='80' y='564' width='700' height='86' fill='#E6EDF7'/>
+<rect x='820' y='564' width='700' height='86' fill='#ECEEF1'/>
+<text x='104' y='617.0' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='27' fill='#1A2E55'>팝업 스토어, 행사</text>
+<text x='844' y='617.0' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='27' fill='#555'>은행, 관공서, 미용실 같은 개인 용무</text>
+<text x='104' y='703.0' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='27' fill='#1A2E55'>산책, 공원, 한강</text>
+<text x='844' y='703.0' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='27' fill='#555'>배달·운송처럼 일하면서 다니는 이동</text>
+<text x='80' y='852' font-family='"Malgun Gothic", "Apple SD Gothic Neo", sans-serif' font-size='19' fill='#666'>예시이며 공식 분류 기준이 아님. 2025년 기준 4+5+7 이동 중 '기타'가 98.7%.</text>
+</svg>

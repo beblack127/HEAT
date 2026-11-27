@@ -1,0 +1,67 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900'>
+<rect width='1600' height='900' fill='#F7F7F7'/>
+<text x='140' y='62' font-family='Georgia, "Times New Roman", serif' font-size='38' font-weight='bold' fill='#222'>Only mobility jumped in Aug–Oct 2024</text>
+<text x='140' y='104' font-family='Georgia, "Times New Roman", serif' font-size='24' fill='#555'>Seoul total, monthly, ratio to the same month one year earlier (1.0 = no change)</text>
+<rect x='537.2' y='140' width='183.3' height='620' fill='#F6D3CB' opacity='0.8'/>
+<line x1='140' x2='1240' y1='708.3' y2='708.3' stroke='#DDD' stroke-width='1'/>
+<text x='124' y='716.3' font-family='Georgia, "Times New Roman", serif' font-size='24' text-anchor='end' fill='#333'>0.8</text>
+<line x1='140' x2='1240' y1='605.0' y2='605.0' stroke='#888' stroke-width='2'/>
+<text x='124' y='613.0' font-family='Georgia, "Times New Roman", serif' font-size='24' text-anchor='end' fill='#333'>1.0</text>
+<line x1='140' x2='1240' y1='501.7' y2='501.7' stroke='#DDD' stroke-width='1'/>
+<text x='124' y='509.7' font-family='Georgia, "Times New Roman", serif' font-size='24' text-anchor='end' fill='#333'>1.2</text>
+<line x1='140' x2='1240' y1='398.3' y2='398.3' stroke='#DDD' stroke-width='1'/>
+<text x='124' y='406.3' font-family='Georgia, "Times New Roman", serif' font-size='24' text-anchor='end' fill='#333'>1.4</text>
+<line x1='140' x2='1240' y1='295.0' y2='295.0' stroke='#DDD' stroke-width='1'/>
+<text x='124' y='303.0' font-family='Georgia, "Times New Roman", serif' font-size='24' text-anchor='end' fill='#333'>1.6</text>
+<line x1='140' x2='1240' y1='191.7' y2='191.7' stroke='#DDD' stroke-width='1'/>
+<text x='124' y='199.7' font-family='Georgia, "Times New Roman", serif' font-size='24' text-anchor='end' fill='#333'>1.8</text>
+<text x='140.0' y='800' font-family='Georgia, "Times New Roman", serif' font-size='24' text-anchor='middle' fill='#333'>Jan 2024</text>
+<line x1='140.0' x2='140.0' y1='760' y2='768' stroke='#555'/>
+<text x='323.3' y='800' font-family='Georgia, "Times New Roman", serif' font-size='24' text-anchor='middle' fill='#333'>Apr 2024</text>
+<line x1='323.3' x2='323.3' y1='760' y2='768' stroke='#555'/>
+<text x='506.7' y='800' font-family='Georgia, "Times New Roman", serif' font-size='24' text-anchor='middle' fill='#333'>Jul 2024</text>
+<line x1='506.7' x2='506.7' y1='760' y2='768' stroke='#555'/>
+<text x='690.0' y='800' font-family='Georgia, "Times New Roman", serif' font-size='24' text-anchor='middle' fill='#333'>Oct 2024</text>
+<line x1='690.0' x2='690.0' y1='760' y2='768' stroke='#555'/>
+<text x='873.3' y='800' font-family='Georgia, "Times New Roman", serif' font-size='24' text-anchor='middle' fill='#333'>Jan 2025</text>
+<line x1='873.3' x2='873.3' y1='760' y2='768' stroke='#555'/>
+<text x='1056.7' y='800' font-family='Georgia, "Times New Roman", serif' font-size='24' text-anchor='middle' fill='#333'>Apr 2025</text>
+<line x1='1056.7' x2='1056.7' y1='760' y2='768' stroke='#555'/>
+<text x='1240.0' y='800' font-family='Georgia, "Times New Roman", serif' font-size='24' text-anchor='middle' fill='#333'>Jul 2025</text>
+<line x1='1240.0' x2='1240.0' y1='760' y2='768' stroke='#555'/>
+<line x1='140' x2='1240' y1='760' y2='760' stroke='#555' stroke-width='1.5'/>
+<text transform='translate(52,450.0) rotate(-90)' font-family='Georgia, "Times New Roman", serif' font-size='26' text-anchor='middle' fill='#333'>Ratio to same month last year</text>
+<polyline points='140.0,547.9 201.1,621.9 262.2,602.4 323.3,577.4 384.4,582.0 445.6,604.1 506.7,578.3 567.8,596.9 628.9,614.2 690.0,583.7 751.1,588.8 812.2,586.5 873.3,646.5 934.4,574.5 995.6,600.3 1056.7,594.1 1117.8,608.1 1178.9,601.5 1240.0,597.9' fill='none' stroke='#E08A1E' stroke-width='3.5' stroke-dasharray='' stroke-linejoin='round'/>
+<polyline points='140.0,596.0 201.1,629.0 262.2,611.4 323.3,605.1 384.4,606.3 445.6,612.7 506.7,605.9 567.8,610.5 628.9,624.6 690.0,605.1 751.1,616.0 812.2,616.4 873.3,631.0 934.4,596.7 995.6,613.0 1056.7,608.7 1117.8,613.2 1178.9,610.6 1240.0,608.4' fill='none' stroke='#2E8B57' stroke-width='3.5' stroke-dasharray='' stroke-linejoin='round'/>
+<polyline points='140.0,577.5 201.1,621.2 262.2,606.2 323.3,593.6 384.4,606.7 445.6,606.9 506.7,597.6 567.8,314.8 628.9,564.2 690.0,552.5 751.1,591.8 812.2,596.3 873.3,612.8 934.4,579.9 995.6,551.9 1056.7,555.4 1117.8,596.0 1178.9,596.3 1240.0,589.0' fill='none' stroke='#9DBCE8' stroke-width='3' stroke-dasharray='4 5' stroke-linejoin='round'/>
+<polyline points='140.0,551.5 201.1,636.6 262.2,649.0 323.3,584.4 384.4,607.7 445.6,646.7 506.7,564.3 567.8,508.2 628.9,523.7 690.0,467.6 751.1,614.7 812.2,581.0 873.3,596.0 934.4,552.9 995.6,531.9 1056.7,515.6 1117.8,614.0 1178.9,583.0 1240.0,588.6' fill='none' stroke='#5B8FD9' stroke-width='3' stroke-dasharray='10 6' stroke-linejoin='round'/>
+<polyline points='140.0,603.1 201.1,635.8 262.2,598.2 323.3,600.8 384.4,607.5 445.6,599.5 506.7,618.8 567.8,250.5 628.9,388.6 690.0,367.6 751.1,577.4 812.2,602.7 873.3,521.3 934.4,587.7 995.6,499.3 1056.7,516.9 1117.8,587.3 1178.9,606.9 1240.0,586.5' fill='none' stroke='#1F4E9A' stroke-width='5' stroke-dasharray='' stroke-linejoin='round'/>
+<polyline points='201.1,611.9 384.4,604.5 567.8,618.6 751.1,612.7 934.4,637.5 1117.8,627.2' fill='none' stroke='#B5432A' stroke-width='3.5'/>
+<circle cx='201.1' cy='611.9' r='8' fill='#B5432A'/>
+<circle cx='384.4' cy='604.5' r='8' fill='#B5432A'/>
+<circle cx='567.8' cy='618.6' r='8' fill='#B5432A'/>
+<circle cx='751.1' cy='612.7' r='8' fill='#B5432A'/>
+<circle cx='934.4' cy='637.5' r='8' fill='#B5432A'/>
+<circle cx='1117.8' cy='627.2' r='8' fill='#B5432A'/>
+<text x='628.9' y='174' font-family='Georgia, "Times New Roman", serif' font-size='24' font-weight='bold' text-anchor='middle' fill='#B5432A'>Aug–Oct 2024</text>
+<line x1='1270' x2='1314' y1='150' y2='150' stroke='#1F4E9A' stroke-width='5' stroke-dasharray=''/>
+<text x='1326' y='158' font-family='Georgia, "Times New Roman", serif' font-size='21' fill='#222'>Mobility – our target</text>
+<text x='1326' y='184' font-family='Georgia, "Times New Roman", serif' font-size='21' fill='#222'>(20–39,</text>
+<text x='1326' y='210' font-family='Georgia, "Times New Roman", serif' font-size='21' fill='#222'>shop/tour/other)</text>
+<line x1='1270' x2='1314' y1='258' y2='258' stroke='#5B8FD9' stroke-width='3' stroke-dasharray='10 6'/>
+<text x='1326' y='266' font-family='Georgia, "Times New Roman", serif' font-size='21' fill='#222'>Mobility – commute</text>
+<text x='1326' y='292' font-family='Georgia, "Times New Roman", serif' font-size='21' fill='#222'>only (all ages)</text>
+<line x1='1270' x2='1314' y1='340' y2='340' stroke='#9DBCE8' stroke-width='3' stroke-dasharray='4 5'/>
+<text x='1326' y='348' font-family='Georgia, "Times New Roman", serif' font-size='21' fill='#222'>Mobility – return home</text>
+<text x='1326' y='374' font-family='Georgia, "Times New Roman", serif' font-size='21' fill='#222'>only (all ages)</text>
+<line x1='1270' x2='1314' y1='422' y2='422' stroke='#2E8B57' stroke-width='3.5' stroke-dasharray=''/>
+<text x='1326' y='430' font-family='Georgia, "Times New Roman", serif' font-size='21' fill='#222'>Living population</text>
+<line x1='1270' x2='1314' y1='478' y2='478' stroke='#E08A1E' stroke-width='3.5' stroke-dasharray=''/>
+<text x='1326' y='486' font-family='Georgia, "Times New Roman", serif' font-size='21' fill='#222'>Subway exits</text>
+<line x1='1270' x2='1314' y1='534' y2='534' stroke='#B5432A' stroke-width='3.5' stroke-dasharray=''/>
+<circle cx='1292' cy='534' r='7' fill='#B5432A'/>
+<text x='1326' y='542' font-family='Georgia, "Times New Roman", serif' font-size='21' fill='#222'>Card sales, F&amp;B</text>
+<text x='1326' y='568' font-family='Georgia, "Times New Roman", serif' font-size='21' fill='#222'>(quarterly)</text>
+<text x='140' y='848' font-family='Georgia, "Times New Roman", serif' font-size='18' fill='#666'>Sources: Seoul living mobility (all 427 dongs), Seoul living population, subway station ridership, card sales (HEAT v3 table).</text>
+<text x='140' y='874' font-family='Georgia, "Times New Roman", serif' font-size='18' fill='#666'>2025 months are compared with 2024; the chart stops at Jul 2025 because later base months fall in the anomaly.</text>
+</svg>
