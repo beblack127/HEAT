@@ -1,0 +1,1145 @@
+{
+  "correction": {
+    "summer2024": {
+      "growth": 0.991403188360712,
+      "monthly": {
+        "2024-08": 1.6798021933426648,
+        "2024-09": 1.4328324356895434,
+        "2024-10": 1.4645233661459922
+      },
+      "before_days": 56,
+      "after_days": 56,
+      "inside_days": 85,
+      "district_median": 0.8378600929407649,
+      "district_p05": 0.7113602842674775,
+      "district_p95": 1.1400266138463873
+    },
+    "jan2025": {
+      "growth": 1.0309980877839857,
+      "monthly": {
+        "2025-01": 1.1513211359930307
+      },
+      "before_days": 56,
+      "after_days": 56,
+      "inside_days": 26,
+      "district_median": 0.8955144572124756,
+      "district_p05": 0.8078860502556935,
+      "district_p95": 1.1817502028803104
+    },
+    "spring2025": {
+      "growth": 1.0309980877839857,
+      "monthly": {
+        "2025-03": 1.1808234772800728,
+        "2025-04": 1.1358789332554227
+      },
+      "before_days": 56,
+      "after_days": 56,
+      "inside_days": 61,
+      "district_median": 0.979922040899823,
+      "district_p05": 0.8797599632328086,
+      "district_p95": 1.0701368968434437
+    }
+  },
+  "models": {
+    "ridge|base_lag0": {
+      "params": {
+        "alpha": 10
+      },
+      "iterations": null,
+      "grid": [
+        {
+          "params": {
+            "alpha": 0.1
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.93393683541231,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.21010915441334,
+              null
+            ]
+          ],
+          "mean_wape": 11.072022994912825,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 1
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.906866618000965,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.185469269766312,
+              null
+            ]
+          ],
+          "mean_wape": 11.046167943883638,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 10
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.829373340490354,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.192878607683147,
+              null
+            ]
+          ],
+          "mean_wape": 11.01112597408675,
+          "selected": true
+        },
+        {
+          "params": {
+            "alpha": 100
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.935629824135114,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.966455080174054,
+              null
+            ]
+          ],
+          "mean_wape": 11.451042452154585,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 1000
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.817735384109053,
+              null
+            ],
+            [
+              "2025-04-27",
+              9.314603105264112,
+              null
+            ]
+          ],
+          "mean_wape": 11.566169244686582,
+          "selected": false
+        }
+      ],
+      "training_rows": 703326
+    },
+    "lightgbm|base_lag0": {
+      "params": {
+        "num_leaves": 31,
+        "min_data_in_leaf": 200,
+        "learning_rate": 0.03
+      },
+      "iterations": 380,
+      "grid": [
+        {
+          "params": {
+            "num_leaves": 7,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.404011667972846,
+              942
+            ],
+            [
+              "2025-04-27",
+              8.5405405056983,
+              275
+            ]
+          ],
+          "mean_wape": 10.972276086835572,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.636644853477065,
+              453
+            ],
+            [
+              "2025-04-27",
+              7.963794540099874,
+              210
+            ]
+          ],
+          "mean_wape": 10.80021969678847,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.481012194592209,
+              456
+            ],
+            [
+              "2025-04-27",
+              7.5629277203029295,
+              305
+            ]
+          ],
+          "mean_wape": 10.521969957447569,
+          "selected": true
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 50,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.52787059700494,
+              468
+            ],
+            [
+              "2025-04-27",
+              7.562455239599749,
+              213
+            ]
+          ],
+          "mean_wape": 10.545162918302344,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.07
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.557520115209657,
+              171
+            ],
+            [
+              "2025-04-27",
+              7.538849810233054,
+              247
+            ]
+          ],
+          "mean_wape": 10.548184962721356,
+          "selected": false
+        }
+      ],
+      "training_rows": 703326
+    },
+    "ridge|base_lag0_aligned": {
+      "params": {
+        "alpha": 10
+      },
+      "iterations": null,
+      "grid": [
+        {
+          "params": {
+            "alpha": 0.1
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              14.266688347373181,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.208248259343655,
+              null
+            ]
+          ],
+          "mean_wape": 11.237468303358419,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 1
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              14.247953981741594,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.184824829838913,
+              null
+            ]
+          ],
+          "mean_wape": 11.216389405790252,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 10
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              14.224187975664977,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.199949077475377,
+              null
+            ]
+          ],
+          "mean_wape": 11.212068526570178,
+          "selected": true
+        },
+        {
+          "params": {
+            "alpha": 100
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              14.39571044873883,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.975028234598541,
+              null
+            ]
+          ],
+          "mean_wape": 11.685369341668686,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 1000
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              14.32120719957248,
+              null
+            ],
+            [
+              "2025-04-27",
+              9.3195035309079,
+              null
+            ]
+          ],
+          "mean_wape": 11.82035536524019,
+          "selected": false
+        }
+      ],
+      "training_rows": 703326
+    },
+    "lightgbm|base_lag0_aligned": {
+      "params": {
+        "num_leaves": 31,
+        "min_data_in_leaf": 200,
+        "learning_rate": 0.07
+      },
+      "iterations": 401,
+      "grid": [
+        {
+          "params": {
+            "num_leaves": 7,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.484654248090733,
+              897
+            ],
+            [
+              "2025-04-27",
+              8.503794551087966,
+              288
+            ]
+          ],
+          "mean_wape": 10.99422439958935,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.29941778525821,
+              863
+            ],
+            [
+              "2025-04-27",
+              7.876760813728753,
+              219
+            ]
+          ],
+          "mean_wape": 10.588089299493483,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.394334109164015,
+              764
+            ],
+            [
+              "2025-04-27",
+              7.553368284555572,
+              215
+            ]
+          ],
+          "mean_wape": 10.473851196859794,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 50,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.395418170856171,
+              606
+            ],
+            [
+              "2025-04-27",
+              7.556103008707156,
+              202
+            ]
+          ],
+          "mean_wape": 10.475760589781665,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.07
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.403765753991317,
+              226
+            ],
+            [
+              "2025-04-27",
+              7.400573715013514,
+              576
+            ]
+          ],
+          "mean_wape": 10.402169734502415,
+          "selected": true
+        }
+      ],
+      "training_rows": 703326
+    },
+    "ridge|base_lag0+holiday": {
+      "params": {
+        "alpha": 10
+      },
+      "iterations": null,
+      "grid": [
+        {
+          "params": {
+            "alpha": 0.1
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.808802362485542,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.17510499498835,
+              null
+            ]
+          ],
+          "mean_wape": 10.991953678736946,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 1
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.784532730557515,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.14929926685003,
+              null
+            ]
+          ],
+          "mean_wape": 10.966915998703772,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 10
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.732728149851058,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.162883241960579,
+              null
+            ]
+          ],
+          "mean_wape": 10.947805695905817,
+          "selected": true
+        },
+        {
+          "params": {
+            "alpha": 100
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.856834355217513,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.938945294466212,
+              null
+            ]
+          ],
+          "mean_wape": 11.397889824841862,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 1000
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.773275000500647,
+              null
+            ],
+            [
+              "2025-04-27",
+              9.280303387895477,
+              null
+            ]
+          ],
+          "mean_wape": 11.526789194198063,
+          "selected": false
+        }
+      ],
+      "training_rows": 703326
+    },
+    "lightgbm|base_lag0+holiday": {
+      "params": {
+        "num_leaves": 31,
+        "min_data_in_leaf": 200,
+        "learning_rate": 0.07
+      },
+      "iterations": 353,
+      "grid": [
+        {
+          "params": {
+            "num_leaves": 7,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.82209603659322,
+              2000
+            ],
+            [
+              "2025-04-27",
+              7.7635644073491905,
+              1976
+            ]
+          ],
+          "mean_wape": 10.292830221971204,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.92945556593258,
+              1471
+            ],
+            [
+              "2025-04-27",
+              7.935149048679502,
+              211
+            ]
+          ],
+          "mean_wape": 10.432302307306042,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.892347755614153,
+              733
+            ],
+            [
+              "2025-04-27",
+              7.293610469063361,
+              929
+            ]
+          ],
+          "mean_wape": 10.092979112338757,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 50,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.853207209833695,
+              873
+            ],
+            [
+              "2025-04-27",
+              7.416370179906903,
+              204
+            ]
+          ],
+          "mean_wape": 10.134788694870299,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.07
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.72916992677691,
+              593
+            ],
+            [
+              "2025-04-27",
+              7.397634851391092,
+              113
+            ]
+          ],
+          "mean_wape": 10.063402389084,
+          "selected": true
+        }
+      ],
+      "training_rows": 703326
+    },
+    "ridge|base_lag0_aligned+holiday": {
+      "params": {
+        "alpha": 1
+      },
+      "iterations": null,
+      "grid": [
+        {
+          "params": {
+            "alpha": 0.1
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              14.224140846599951,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.182149405881958,
+              null
+            ]
+          ],
+          "mean_wape": 11.203145126240955,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 1
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              14.205778861300827,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.157871709981316,
+              null
+            ]
+          ],
+          "mean_wape": 11.181825285641072,
+          "selected": true
+        },
+        {
+          "params": {
+            "alpha": 10
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              14.187075488999765,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.18102701159958,
+              null
+            ]
+          ],
+          "mean_wape": 11.184051250299673,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 100
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              14.361403278275773,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.960023121622033,
+              null
+            ]
+          ],
+          "mean_wape": 11.660713199948903,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 1000
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              14.317002184757406,
+              null
+            ],
+            [
+              "2025-04-27",
+              9.299490127524976,
+              null
+            ]
+          ],
+          "mean_wape": 11.808246156141191,
+          "selected": false
+        }
+      ],
+      "training_rows": 703326
+    },
+    "lightgbm|base_lag0_aligned+holiday": {
+      "params": {
+        "num_leaves": 31,
+        "min_data_in_leaf": 200,
+        "learning_rate": 0.07
+      },
+      "iterations": 437,
+      "grid": [
+        {
+          "params": {
+            "num_leaves": 7,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.822784800435675,
+              1999
+            ],
+            [
+              "2025-04-27",
+              8.429259707511147,
+              385
+            ]
+          ],
+          "mean_wape": 10.62602225397341,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.648929394094148,
+              1976
+            ],
+            [
+              "2025-04-27",
+              7.81597619914023,
+              216
+            ]
+          ],
+          "mean_wape": 10.232452796617189,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.82479543341808,
+              1121
+            ],
+            [
+              "2025-04-27",
+              7.438021735867991,
+              225
+            ]
+          ],
+          "mean_wape": 10.131408584643037,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 50,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.898132120895115,
+              1069
+            ],
+            [
+              "2025-04-27",
+              7.495079510287863,
+              211
+            ]
+          ],
+          "mean_wape": 10.19660581559149,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.07
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.874473209240863,
+              406
+            ],
+            [
+              "2025-04-27",
+              7.313071722736554,
+              469
+            ]
+          ],
+          "mean_wape": 10.093772465988708,
+          "selected": true
+        }
+      ],
+      "training_rows": 703326
+    },
+    "ridge|base_lag0_aligned+holiday+festival_sens": {
+      "params": {
+        "alpha": 1
+      },
+      "iterations": null,
+      "grid": [
+        {
+          "params": {
+            "alpha": 0.1
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.639674582608569,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.283073658488243,
+              null
+            ]
+          ],
+          "mean_wape": 10.961374120548406,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 1
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.622166797708836,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.263442066904362,
+              null
+            ]
+          ],
+          "mean_wape": 10.942804432306598,
+          "selected": true
+        },
+        {
+          "params": {
+            "alpha": 10
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.598050404725821,
+              null
+            ],
+            [
+              "2025-04-27",
+              8.313511751038584,
+              null
+            ]
+          ],
+          "mean_wape": 10.955781077882204,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 100
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.797391868293229,
+              null
+            ],
+            [
+              "2025-04-27",
+              9.109091733512578,
+              null
+            ]
+          ],
+          "mean_wape": 11.453241800902903,
+          "selected": false
+        },
+        {
+          "params": {
+            "alpha": 1000
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              13.728382525979951,
+              null
+            ],
+            [
+              "2025-04-27",
+              9.468994762546355,
+              null
+            ]
+          ],
+          "mean_wape": 11.598688644263152,
+          "selected": false
+        }
+      ],
+      "training_rows": 703326
+    },
+    "lightgbm|base_lag0_aligned+holiday+festival_sens": {
+      "params": {
+        "num_leaves": 31,
+        "min_data_in_leaf": 200,
+        "learning_rate": 0.07
+      },
+      "iterations": 293,
+      "grid": [
+        {
+          "params": {
+            "num_leaves": 7,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.713089407648443,
+              1997
+            ],
+            [
+              "2025-04-27",
+              7.799694317647692,
+              1968
+            ]
+          ],
+          "mean_wape": 10.256391862648067,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.788455609558872,
+              763
+            ],
+            [
+              "2025-04-27",
+              7.952476055349979,
+              199
+            ]
+          ],
+          "mean_wape": 10.370465832454425,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.72384055218066,
+              963
+            ],
+            [
+              "2025-04-27",
+              7.478154166175019,
+              232
+            ]
+          ],
+          "mean_wape": 10.100997359177839,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 50,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.763377665132007,
+              721
+            ],
+            [
+              "2025-04-27",
+              7.539347164391786,
+              231
+            ]
+          ],
+          "mean_wape": 10.151362414761897,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.07
+          },
+          "folds": [
+            [
+              "2025-01-26",
+              12.719091843476509,
+              491
+            ],
+            [
+              "2025-04-27",
+              7.4723556599493195,
+              96
+            ]
+          ],
+          "mean_wape": 10.095723751712914,
+          "selected": true
+        }
+      ],
+      "training_rows": 703326
+    }
+  }
+}

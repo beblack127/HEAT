@@ -1,0 +1,58 @@
+{
+  "availability": "retrospective_month_end_assumption",
+  "monthly_lag": 4,
+  "base_conditions": {
+    "ridge": "only_fourier",
+    "lightgbm": "only_prior_year"
+  },
+  "input_coverage": [
+    {
+      "origin": "2024-10-27",
+      "feature": "search",
+      "rows": 5538,
+      "observed": 5473
+    },
+    {
+      "origin": "2024-10-27",
+      "feature": "fnb",
+      "rows": 5538,
+      "observed": 5538
+    },
+    {
+      "origin": "2025-01-26",
+      "feature": "search",
+      "rows": 5538,
+      "observed": 5473
+    },
+    {
+      "origin": "2025-01-26",
+      "feature": "fnb",
+      "rows": 5538,
+      "observed": 5538
+    },
+    {
+      "origin": "2025-04-27",
+      "feature": "search",
+      "rows": 5538,
+      "observed": 5473
+    },
+    {
+      "origin": "2025-04-27",
+      "feature": "fnb",
+      "rows": 5538,
+      "observed": 5538
+    },
+    {
+      "origin": "2025-07-27",
+      "feature": "search",
+      "rows": 5538,
+      "observed": 5473
+    },
+    {
+      "origin": "2025-07-27",
+      "feature": "fnb",
+      "rows": 5538,
+      "observed": 5538
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "correction": "mask",
+  "models": {
+    "lightgbm|base_lag0": {
+      "params": {
+        "num_leaves": 31,
+        "min_data_in_leaf": 50,
+        "learning_rate": 0.07
+      },
+      "iterations": 377,
+      "grid": [
+        {
+          "params": {
+            "num_leaves": 7,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              36.33221435911575,
+              405
+            ],
+            [
+              "2024-10-27",
+              69.04561360636889,
+              3
+            ]
+          ],
+          "mean_wape": 52.68891398274232,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              34.87324704393162,
+              1224
+            ],
+            [
+              "2024-10-27",
+              69.05959088197245,
+              5
+            ]
+          ],
+          "mean_wape": 51.966418962952034,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              34.54098240834294,
+              1929
+            ],
+            [
+              "2024-10-27",
+              68.9597690626729,
+              3
+            ]
+          ],
+          "mean_wape": 51.75037573550792,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 50,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              34.50319321526339,
+              1835
+            ],
+            [
+              "2024-10-27",
+              68.9597690626729,
+              3
+            ]
+          ],
+          "mean_wape": 51.73148113896815,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 50,
+            "learning_rate": 0.07
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              34.33865234709476,
+              753
+            ],
+            [
+              "2024-10-27",
+              68.96828834291416,
+              1
+            ]
+          ],
+          "mean_wape": 51.653470345004465,
+          "selected": true
+        }
+      ],
+      "training_rows": 481806
+    }
+  }
+}

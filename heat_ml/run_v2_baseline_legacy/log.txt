@@ -1,0 +1,32 @@
+Backtest 2024-10-27
+  ridge base_lag0
+  lightgbm base_lag0
+  lightgbm only_means
+  ridge only_fourier
+Backtest 2025-01-26
+  ridge base_lag0
+  lightgbm base_lag0
+  lightgbm only_means
+  ridge only_fourier
+Backtest 2025-04-27
+  ridge base_lag0
+  lightgbm base_lag0
+  lightgbm only_means
+  ridge only_fourier
+Backtest 2025-07-27
+  ridge base_lag0
+  lightgbm base_lag0
+  lightgbm only_means
+  ridge only_fourier
+                     candidate  mean4  mean2  mean4_clean  mean2_clean
+     lightgbm|only_means|blend  11.60  10.69        10.54         9.10
+                   arima_blend  11.67  10.68        10.64         9.13
+           arima_fourier_blend  11.74   9.93        11.11         9.16
+         ridge|base_lag0|blend  11.84  10.36        11.33         9.91
+      ridge|only_fourier|blend  12.06  11.21        11.03         9.68
+ ridge|only_fourier|standalone  12.09  11.73        11.27        10.65
+      lightgbm|base_lag0|blend  12.16  10.35        11.56         9.57
+    ridge|base_lag0|standalone  12.83  12.08        12.96        12.95
+lightgbm|only_means|standalone  12.99  13.33        12.39        12.58
+ lightgbm|base_lag0|standalone  13.33  12.37        13.36        12.72
+                      seasonal  13.90  11.99        13.04        10.72

@@ -1,0 +1,77 @@
+Backtest 2024-10-27
+  ridge base_lag0
+  lightgbm base_lag0
+  ridge base_lag0_aligned
+  lightgbm base_lag0_aligned
+  ridge base_lag0+holiday
+  lightgbm base_lag0+holiday
+  ridge base_lag0_aligned+holiday
+  lightgbm base_lag0_aligned+holiday
+  ridge base_lag0_aligned+holiday+festival_sens
+  lightgbm base_lag0_aligned+holiday+festival_sens
+Backtest 2025-01-26
+  ridge base_lag0
+  lightgbm base_lag0
+  ridge base_lag0_aligned
+  lightgbm base_lag0_aligned
+  ridge base_lag0+holiday
+  lightgbm base_lag0+holiday
+  ridge base_lag0_aligned+holiday
+  lightgbm base_lag0_aligned+holiday
+  ridge base_lag0_aligned+holiday+festival_sens
+  lightgbm base_lag0_aligned+holiday+festival_sens
+Backtest 2025-04-27
+  ridge base_lag0
+  lightgbm base_lag0
+  ridge base_lag0_aligned
+  lightgbm base_lag0_aligned
+  ridge base_lag0+holiday
+  lightgbm base_lag0+holiday
+  ridge base_lag0_aligned+holiday
+  lightgbm base_lag0_aligned+holiday
+  ridge base_lag0_aligned+holiday+festival_sens
+  lightgbm base_lag0_aligned+holiday+festival_sens
+Backtest 2025-07-27
+  ridge base_lag0
+  lightgbm base_lag0
+  ridge base_lag0_aligned
+  lightgbm base_lag0_aligned
+  ridge base_lag0+holiday
+  lightgbm base_lag0+holiday
+  ridge base_lag0_aligned+holiday
+  lightgbm base_lag0_aligned+holiday
+  ridge base_lag0_aligned+holiday+festival_sens
+  lightgbm base_lag0_aligned+holiday+festival_sens
+                                                     candidate  mean4  mean2  mean4_clean  mean2_clean
+   lightgbm|base_lag0_aligned+holiday+festival_sens|standalone  10.07  10.11         8.28         6.95
+                         lightgbm|base_lag0+holiday|standalone  10.13  10.13         8.48         7.27
+                 lightgbm|base_lag0_aligned+holiday|standalone  10.23  10.18         8.52         7.20
+                      lightgbm|base_lag0+holiday|blend_aligned  10.31  10.19         8.62         7.29
+lightgbm|base_lag0_aligned+holiday+festival_sens|blend_aligned  10.37  10.27         8.64         7.25
+              lightgbm|base_lag0_aligned+holiday|blend_aligned  10.41  10.24         8.72         7.31
+                              lightgbm|base_lag0|blend_aligned  10.49  10.39         8.99         7.85
+                      lightgbm|base_lag0_aligned|blend_aligned  10.57  10.43         8.97         7.70
+                                 lightgbm|base_lag0|standalone  10.59  10.59         9.64         9.14
+        lightgbm|base_lag0_aligned+holiday+festival_sens|blend  10.64  10.47         9.18         8.00
+                              lightgbm|base_lag0+holiday|blend  10.67  10.43         9.32         8.18
+                         lightgbm|base_lag0_aligned|standalone  10.68  10.60         9.45         8.59
+                         ridge|base_lag0+holiday|blend_aligned  10.71  10.58         9.18         8.03
+                      lightgbm|base_lag0_aligned+holiday|blend  10.73  10.46         9.35         8.14
+                                 ridge|base_lag0|blend_aligned  10.74  10.62         9.21         8.06
+   ridge|base_lag0_aligned+holiday+festival_sens|blend_aligned  10.76  10.60         9.12         7.80
+                         ridge|base_lag0_aligned|blend_aligned  10.83  10.70         9.26         8.05
+                 ridge|base_lag0_aligned+holiday|blend_aligned  10.85  10.69         9.28         8.03
+           ridge|base_lag0_aligned+holiday+festival_sens|blend  10.95  10.73         9.49         8.29
+                                      lightgbm|base_lag0|blend  10.98  10.78        10.03         9.35
+                              lightgbm|base_lag0_aligned|blend  11.02  10.79         9.93         9.07
+                                 ridge|base_lag0+holiday|blend  11.02  10.80         9.79         8.84
+                                         ridge|base_lag0|blend  11.06  10.84         9.84         8.91
+                                 ridge|base_lag0_aligned|blend  11.11  10.91         9.84         8.87
+                         ridge|base_lag0_aligned+holiday|blend  11.12  10.90         9.84         8.82
+      ridge|base_lag0_aligned+holiday+festival_sens|standalone  11.22  10.98         9.55         8.07
+                            ridge|base_lag0+holiday|standalone  11.22  10.97         9.87         8.78
+                                    ridge|base_lag0|standalone  11.28  11.05         9.95         8.90
+                    ridge|base_lag0_aligned+holiday|standalone  11.42  11.19         9.99         8.79
+                            ridge|base_lag0_aligned|standalone  11.43  11.22        10.02         8.86
+                                              seasonal_aligned  11.75  11.53        10.23         8.94
+                                                      seasonal  12.39  11.99        11.53        10.72

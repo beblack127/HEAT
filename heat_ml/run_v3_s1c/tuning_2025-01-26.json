@@ -1,0 +1,613 @@
+{
+  "correction": {
+    "summer2024": {
+      "growth": 0.991403188360712,
+      "monthly": {
+        "2024-08": 1.6798021933426648,
+        "2024-09": 1.4328324356895434,
+        "2024-10": 1.4645233661459922
+      },
+      "before_days": 56,
+      "after_days": 56,
+      "inside_days": 85,
+      "district_median": 0.8378600929407649,
+      "district_p05": 0.7113602842674775,
+      "district_p95": 1.1400266138463873
+    },
+    "jan2025": {
+      "growth": 1.0309980877839857,
+      "monthly": {
+        "2025-01": 1.158058289241942
+      },
+      "before_days": 56,
+      "after_days": 0,
+      "inside_days": 26,
+      "district_median": 0.9003179569396584,
+      "district_p05": 0.8325932714735785,
+      "district_p95": 1.1705494390424183
+    },
+    "spring2025": null
+  },
+  "models": {
+    "lightgbm|minimal+lag0+long_lags": {
+      "params": {
+        "num_leaves": 31,
+        "min_data_in_leaf": 200,
+        "learning_rate": 0.03
+      },
+      "iterations": 1081,
+      "grid": [
+        {
+          "params": {
+            "num_leaves": 7,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              33.78395734098412,
+              1986
+            ],
+            [
+              "2024-10-27",
+              11.76633639210375,
+              1731
+            ]
+          ],
+          "mean_wape": 22.775146866543935,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              33.53703540865742,
+              1455
+            ],
+            [
+              "2024-10-27",
+              11.742439268287386,
+              868
+            ]
+          ],
+          "mean_wape": 22.6397373384724,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              33.578128963433414,
+              1156
+            ],
+            [
+              "2024-10-27",
+              11.668658826968333,
+              1007
+            ]
+          ],
+          "mean_wape": 22.623393895200874,
+          "selected": true
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 50,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              33.61453147573865,
+              1412
+            ],
+            [
+              "2024-10-27",
+              11.694373738897635,
+              1101
+            ]
+          ],
+          "mean_wape": 22.65445260731814,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.07
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              33.58732253509833,
+              582
+            ],
+            [
+              "2024-10-27",
+              11.69677586377113,
+              278
+            ]
+          ],
+          "mean_wape": 22.64204919943473,
+          "selected": false
+        }
+      ],
+      "training_rows": 559338
+    },
+    "lightgbm|minimal+lag0+long_lags+prior_year": {
+      "params": {
+        "num_leaves": 15,
+        "min_data_in_leaf": 200,
+        "learning_rate": 0.03
+      },
+      "iterations": 1249,
+      "grid": [
+        {
+          "params": {
+            "num_leaves": 7,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              33.96564862047222,
+              2000
+            ],
+            [
+              "2024-10-27",
+              11.32528354019518,
+              1986
+            ]
+          ],
+          "mean_wape": 22.6454660803337,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              33.78097733585582,
+              1107
+            ],
+            [
+              "2024-10-27",
+              11.182632783395034,
+              1392
+            ]
+          ],
+          "mean_wape": 22.48180505962543,
+          "selected": true
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              33.842714801468134,
+              581
+            ],
+            [
+              "2024-10-27",
+              11.269857483269655,
+              639
+            ]
+          ],
+          "mean_wape": 22.556286142368894,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 50,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              33.83654602961154,
+              793
+            ],
+            [
+              "2024-10-27",
+              11.234814931012977,
+              1032
+            ]
+          ],
+          "mean_wape": 22.53568048031226,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.07
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              33.75383672938747,
+              447
+            ],
+            [
+              "2024-10-27",
+              11.21572282177895,
+              545
+            ]
+          ],
+          "mean_wape": 22.484779775583213,
+          "selected": false
+        }
+      ],
+      "training_rows": 559338
+    },
+    "lightgbm|minimal+lag0+long_lags+prior_year+fourier": {
+      "params": {
+        "num_leaves": 31,
+        "min_data_in_leaf": 200,
+        "learning_rate": 0.07
+      },
+      "iterations": 338,
+      "grid": [
+        {
+          "params": {
+            "num_leaves": 7,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              35.934127409433884,
+              429
+            ],
+            [
+              "2024-10-27",
+              12.717971140814901,
+              545
+            ]
+          ],
+          "mean_wape": 24.326049275124394,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              34.96624446439255,
+              373
+            ],
+            [
+              "2024-10-27",
+              11.963500162587996,
+              1595
+            ]
+          ],
+          "mean_wape": 23.464872313490275,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              34.72888705925066,
+              324
+            ],
+            [
+              "2024-10-27",
+              11.822288871874525,
+              886
+            ]
+          ],
+          "mean_wape": 23.275587965562593,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 50,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              34.68881569850283,
+              550
+            ],
+            [
+              "2024-10-27",
+              11.901057966955904,
+              748
+            ]
+          ],
+          "mean_wape": 23.294936832729366,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.07
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              34.56727507519377,
+              357
+            ],
+            [
+              "2024-10-27",
+              11.841327132330681,
+              319
+            ]
+          ],
+          "mean_wape": 23.204301103762226,
+          "selected": true
+        }
+      ],
+      "training_rows": 559338
+    },
+    "lightgbm|minimal+lag0+long_lags+prior_year+holiday": {
+      "params": {
+        "num_leaves": 15,
+        "min_data_in_leaf": 50,
+        "learning_rate": 0.03
+      },
+      "iterations": 1433,
+      "grid": [
+        {
+          "params": {
+            "num_leaves": 7,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              34.19344369081459,
+              1998
+            ],
+            [
+              "2024-10-27",
+              11.194155998878331,
+              1999
+            ]
+          ],
+          "mean_wape": 22.69379984484646,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              33.89544876699654,
+              1011
+            ],
+            [
+              "2024-10-27",
+              11.015594956721811,
+              1411
+            ]
+          ],
+          "mean_wape": 22.455521861859175,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              33.92906195063588,
+              529
+            ],
+            [
+              "2024-10-27",
+              11.124529100625331,
+              769
+            ]
+          ],
+          "mean_wape": 22.526795525630604,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 50,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              33.829061431140644,
+              1503
+            ],
+            [
+              "2024-10-27",
+              11.063790965171846,
+              1363
+            ]
+          ],
+          "mean_wape": 22.446426198156246,
+          "selected": true
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 50,
+            "learning_rate": 0.07
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              33.843207889630456,
+              602
+            ],
+            [
+              "2024-10-27",
+              11.057863318538386,
+              698
+            ]
+          ],
+          "mean_wape": 22.450535604084422,
+          "selected": false
+        }
+      ],
+      "training_rows": 559338
+    },
+    "lightgbm|minimal+lag0+long_lags+prior_year+holiday+semester": {
+      "params": {
+        "num_leaves": 31,
+        "min_data_in_leaf": 50,
+        "learning_rate": 0.03
+      },
+      "iterations": 941,
+      "grid": [
+        {
+          "params": {
+            "num_leaves": 7,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              34.43857265497117,
+              2000
+            ],
+            [
+              "2024-10-27",
+              11.239955424258905,
+              1967
+            ]
+          ],
+          "mean_wape": 22.83926403961504,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 15,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              34.303942911734104,
+              770
+            ],
+            [
+              "2024-10-27",
+              10.96698973369114,
+              1659
+            ]
+          ],
+          "mean_wape": 22.635466322712624,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 200,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              34.07008388384589,
+              601
+            ],
+            [
+              "2024-10-27",
+              10.922476316442923,
+              1021
+            ]
+          ],
+          "mean_wape": 22.496280100144407,
+          "selected": false
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 50,
+            "learning_rate": 0.03
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              34.015851897198225,
+              757
+            ],
+            [
+              "2024-10-27",
+              10.934710752086353,
+              1125
+            ]
+          ],
+          "mean_wape": 22.47528132464229,
+          "selected": true
+        },
+        {
+          "params": {
+            "num_leaves": 31,
+            "min_data_in_leaf": 50,
+            "learning_rate": 0.07
+          },
+          "folds": [
+            [
+              "2024-07-28",
+              34.06664406107313,
+              301
+            ],
+            [
+              "2024-10-27",
+              10.975651950316408,
+              469
+            ]
+          ],
+          "mean_wape": 22.52114800569477,
+          "selected": false
+        }
+      ],
+      "training_rows": 559338
+    }
+  }
+}

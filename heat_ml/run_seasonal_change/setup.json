@@ -1,0 +1,16 @@
+{
+  "features": [
+    "unit",
+    "h",
+    "mean4",
+    "mean13",
+    "target_lag52",
+    "recent_yoy"
+  ],
+  "targets": [
+    "direct_raw",
+    "seasonal_change",
+    "direct_log"
+  ],
+  "requires_prior_year_for_training_and_tuning": true
+}

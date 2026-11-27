@@ -1,0 +1,37 @@
+{
+  "city_growth_december": 1.019459806036348,
+  "factors": [
+    {
+      "cutoff": "2025-04-27",
+      "city_monthly": {
+        "3": 1.1888604739669726,
+        "4": 1.134453341354238
+      },
+      "before_days": 47,
+      "after_days": 0,
+      "district_relative_median": 1.0108068275942717
+    },
+    {
+      "cutoff": "2025-07-27",
+      "city_monthly": {
+        "3": 1.1888604739669726,
+        "4": 1.144990573521178
+      },
+      "before_days": 47,
+      "after_days": 61,
+      "district_relative_median": 0.990462186768656
+    },
+    {
+      "cutoff": "2025-12-28",
+      "city_monthly": {
+        "3": 1.1888604739669726,
+        "4": 1.144990573521178
+      },
+      "before_days": 47,
+      "after_days": 61,
+      "district_relative_median": 0.990462186768656
+    }
+  ],
+  "baseline": "phase3 Ridge with Fourier and search",
+  "evaluation": "raw observations; spring interval diagnosed retrospectively"
+}

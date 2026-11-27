@@ -1,0 +1,66 @@
+Backtest 2024-10-27
+  ridge base_lag0_robust
+  lightgbm base_lag0_robust
+  ridge base_lag0+medians
+  lightgbm base_lag0+medians
+  ridge base_lag0+seoul+share
+  lightgbm base_lag0+seoul+share
+  ridge base_lag0+anomaly_flags
+  lightgbm base_lag0+anomaly_flags
+  ridge base_lag0@share
+  lightgbm base_lag0@share
+Backtest 2025-01-26
+  ridge base_lag0_robust
+  lightgbm base_lag0_robust
+  ridge base_lag0+medians
+  lightgbm base_lag0+medians
+  ridge base_lag0+seoul+share
+  lightgbm base_lag0+seoul+share
+  ridge base_lag0+anomaly_flags
+  lightgbm base_lag0+anomaly_flags
+  ridge base_lag0@share
+  lightgbm base_lag0@share
+Backtest 2025-04-27
+  ridge base_lag0_robust
+  lightgbm base_lag0_robust
+  ridge base_lag0+medians
+  lightgbm base_lag0+medians
+  ridge base_lag0+seoul+share
+  lightgbm base_lag0+seoul+share
+  ridge base_lag0+anomaly_flags
+  lightgbm base_lag0+anomaly_flags
+  ridge base_lag0@share
+  lightgbm base_lag0@share
+Backtest 2025-07-27
+  ridge base_lag0_robust
+  lightgbm base_lag0_robust
+  ridge base_lag0+medians
+  lightgbm base_lag0+medians
+  ridge base_lag0+seoul+share
+  lightgbm base_lag0+seoul+share
+  ridge base_lag0+anomaly_flags
+  lightgbm base_lag0+anomaly_flags
+  ridge base_lag0@share
+  lightgbm base_lag0@share
+                                  candidate  mean4  mean2  mean4_clean  mean2_clean
+      lightgbm|base_lag0+medians|standalone  10.60  10.52         9.54         8.87
+       lightgbm|base_lag0_robust|standalone  10.68  10.78         9.70         9.26
+             lightgbm|base_lag0@share|blend  10.80   9.70        10.46         9.41
+                ridge|base_lag0@share|blend  10.88   9.87        10.43         9.39
+lightgbm|base_lag0+anomaly_flags|standalone  10.90  10.73         9.86         9.10
+            lightgbm|base_lag0_robust|blend  10.97  10.82        10.00         9.33
+           lightgbm|base_lag0+medians|blend  10.99  10.75         9.99         9.21
+     lightgbm|base_lag0+anomaly_flags|blend  11.03  10.66        10.03         9.13
+              ridge|base_lag0+medians|blend  11.05  10.79         9.84         8.88
+        lightgbm|base_lag0@share|standalone  11.05   9.58        11.14        10.02
+          ridge|base_lag0+seoul+share|blend  11.05  10.76         9.83         8.80
+               ridge|base_lag0_robust|blend  11.06  10.83         9.84         8.90
+  lightgbm|base_lag0+seoul+share|standalone  11.06  11.13         9.84         9.17
+       lightgbm|base_lag0+seoul+share|blend  11.08  11.00         9.99         9.31
+           ridge|base_lag0@share|standalone  11.26   9.89        11.16        10.04
+         ridge|base_lag0+medians|standalone  11.26  10.93         9.97         8.87
+     ridge|base_lag0+seoul+share|standalone  11.28  10.74         9.90         8.46
+          ridge|base_lag0_robust|standalone  11.28  11.04         9.95         8.89
+        ridge|base_lag0+anomaly_flags|blend  11.47  10.82        10.31         9.03
+   ridge|base_lag0+anomaly_flags|standalone  12.15  10.92        10.97         9.09
+                                   seasonal  12.39  11.99        11.53        10.72

@@ -1,0 +1,15 @@
+﻿candidate,mean4,mean2,mean4_clean,mean2_clean
+ridge|base_lag0_aligned+holiday+festival_sens+semester+semester_amp+level+level_target_aligned+shift|blend_aligned_level,9.91658919289762,9.532522726949766,8.367093702917915,6.918950488950863
+lightgbm|base_lag0_aligned+holiday+festival_sens+semester+semester_amp+level+level_target_aligned+shift|blend_aligned_level,10.142554006150224,9.776951610789217,8.39035464672737,6.739414275406206
+ridge|base_lag0_aligned+holiday+festival_sens+semester+semester_amp+level+level_target_aligned+shift|blend_level,10.14757959033705,9.638704619830632,8.750747961620341,7.324845612837544
+ridge|base_lag0_aligned+holiday+festival_sens+semester+semester_amp+level+level_target_aligned+shift|blend_aligned,10.186186930660202,10.057318449334602,8.489773229189412,7.154066261393802
+ridge|base_lag0_aligned+holiday+festival_sens+semester+semester_amp+level+level_target_aligned+shift|standalone,10.30502011959294,10.049247902632246,8.594602294252333,7.097087003389538
+lightgbm|base_lag0_aligned+holiday+festival_sens+semester+semester_amp+level+level_target_aligned+shift|standalone,10.377866481152779,10.278490245362741,8.404394190916506,6.783795167115484
+ridge|base_lag0_aligned+holiday+festival_sens+semester+semester_amp+level+level_target_aligned+shift|blend,10.394264442743392,10.179245320868898,8.87269480369375,7.620148766459474
+lightgbm|base_lag0_aligned+holiday+festival_sens+semester+semester_amp+level+level_target_aligned+shift|blend_level,10.422573684560076,9.962824709701332,8.935581887225897,7.449940170765615
+lightgbm|base_lag0_aligned+holiday+festival_sens+semester+semester_amp+level+level_target_aligned+shift|blend_aligned,10.436551016651531,10.306578490038984,8.591596961571355,7.0845315035274945
+lightgbm|base_lag0_aligned+holiday+festival_sens+semester+semester_amp+level+level_target_aligned+shift|blend,10.697072236598778,10.505908293698367,9.136279762577534,7.846497533285593
+seasonal_aligned_level,10.902612500249496,10.157574179717624,9.58903900392204,7.981855397000967
+seasonal_level,11.59026220317465,10.5912301728995,10.894144840002857,9.63956603203598
+seasonal_aligned,11.754162812446683,11.525977672382034,10.231625792214635,8.938712661303102
+seasonal,12.38987703805116,11.992001655299493,11.530440505424634,10.720154460355197

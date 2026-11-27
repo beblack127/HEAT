@@ -1,0 +1,45 @@
+Backtest 2024-10-27
+  ridge base_lag0
+  lightgbm base_lag0
+  ridge base_lag0+level+level_target+shift
+  lightgbm base_lag0+level+level_target+shift
+Backtest 2025-01-26
+  ridge base_lag0
+  lightgbm base_lag0
+  ridge base_lag0+level+level_target+shift
+  lightgbm base_lag0+level+level_target+shift
+Backtest 2025-04-27
+  ridge base_lag0
+  lightgbm base_lag0
+  ridge base_lag0+level+level_target+shift
+  lightgbm base_lag0+level+level_target+shift
+Backtest 2025-07-27
+  ridge base_lag0
+  lightgbm base_lag0
+  ridge base_lag0+level+level_target+shift
+  lightgbm base_lag0+level+level_target+shift
+                                                      candidate  mean4  mean2  mean4_clean  mean2_clean
+   ridge|base_lag0+level+level_target+shift|blend_aligned_level  10.01   9.60         8.79         7.66
+                            ridge|base_lag0|blend_aligned_level  10.08   9.75         8.60         7.31
+                         lightgbm|base_lag0|blend_aligned_level  10.23   9.79         8.71         7.21
+           ridge|base_lag0+level+level_target+shift|blend_level  10.34   9.78         9.37         8.36
+         ridge|base_lag0+level+level_target+shift|blend_aligned  10.35  10.18         8.98         7.96
+lightgbm|base_lag0+level+level_target+shift|blend_aligned_level  10.39   9.98         8.75         7.20
+                                    ridge|base_lag0|blend_level  10.42   9.96         9.24         8.12
+                 ridge|base_lag0+level+level_target+shift|blend  10.65  10.37         9.55         8.69
+                               lightgbm|base_lag0|blend_aligned  10.66  10.49         9.08         7.80
+      lightgbm|base_lag0+level+level_target+shift|blend_aligned  10.69  10.56         8.98         7.64
+                                  ridge|base_lag0|blend_aligned  10.69  10.61         9.15         8.04
+                                  lightgbm|base_lag0|standalone  10.71  10.53         9.55         8.67
+                                 lightgbm|base_lag0|blend_level  10.75  10.16         9.75         8.62
+            ridge|base_lag0+level+level_target+shift|standalone  10.78  10.45         9.82         9.06
+        lightgbm|base_lag0+level+level_target+shift|blend_level  10.88  10.30         9.69         8.41
+                                         seasonal_aligned_level  10.90  10.16         9.59         7.98
+                                          ridge|base_lag0|blend  11.00  10.82         9.76         8.84
+         lightgbm|base_lag0+level+level_target+shift|standalone  11.03  10.90         9.52         8.36
+                                       lightgbm|base_lag0|blend  11.16  10.86        10.10         9.21
+              lightgbm|base_lag0+level+level_target+shift|blend  11.16  10.88         9.91         8.87
+                                     ridge|base_lag0|standalone  11.19  11.00         9.84         8.82
+                                                 seasonal_level  11.59  10.59        10.89         9.64
+                                               seasonal_aligned  11.75  11.53        10.23         8.94
+                                                       seasonal  12.39  11.99        11.53        10.72

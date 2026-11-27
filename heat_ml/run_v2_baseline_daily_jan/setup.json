@@ -1,0 +1,57 @@
+{
+  "correction": "daily_jan",
+  "windows": [
+    "summer2024",
+    "jan2025",
+    "spring2025"
+  ],
+  "window_dates": {
+    "summer2024": [
+      "2024-08-01",
+      "2024-10-31"
+    ],
+    "jan2025": [
+      "2025-01-01",
+      "2025-01-31"
+    ],
+    "spring2025": [
+      "2025-03-01",
+      "2025-04-30"
+    ]
+  },
+  "clean_scope_excludes_weeks_with_days_in": [
+    "summer2024",
+    "spring2025"
+  ],
+  "units": 426,
+  "membership": "all 426 dongs (no historical 416 list)",
+  "candidates": [
+    "ridge|base_lag0",
+    "lightgbm|base_lag0",
+    "lightgbm|only_means",
+    "ridge|only_fourier"
+  ],
+  "arima": true,
+  "festival_features": false,
+  "semester_features": false,
+  "level_features": false,
+  "drop_pre_shift": false,
+  "complete_window_means": true,
+  "lightgbm_tuning": "staged",
+  "truth": "raw weekly daily-mean mobility (uncorrected)",
+  "mean2_origins": [
+    "2025-01-26",
+    "2025-04-27"
+  ],
+  "dong_type_rules": {
+    "step": 0.3,
+    "university": 1.2,
+    "festival_residential": 1.2
+  },
+  "dong_type_counts": {
+    "stable": 283,
+    "festival_residential": 63,
+    "step": 45,
+    "university": 35
+  }
+}

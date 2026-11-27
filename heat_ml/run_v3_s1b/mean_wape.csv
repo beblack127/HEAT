@@ -1,0 +1,5 @@
+﻿candidate,mean4,mean2,mean4_clean,mean2_clean
+lightgbm|minimal+lag0+recent_lags+means+long_lags+prior_year+fourier+holiday,10.12861930461726,10.128882278917976,8.477572866105653,7.267877684956828
+lightgbm|minimal+lag0+recent_lags+means+long_lags+prior_year+fourier+holiday+semester,10.213442644563095,10.09564928260551,8.58975867035272,7.289141336528367
+lightgbm|minimal+lag0+recent_lags+means+long_lags+prior_year+fourier,10.59448862220674,10.59412658563009,9.641552886102918,9.142220580389193
+lightgbm|minimal+lag0+recent_lags+means+long_lags+prior_year,10.701672725427144,11.083744697288491,9.030588838676264,8.281322423317071

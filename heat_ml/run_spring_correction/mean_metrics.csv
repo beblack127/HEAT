@@ -1,0 +1,5 @@
+﻿scope,treatment,wape,rmse
+all_weeks,baseline,12.088055505951083,1861.657555855242
+all_weeks,spring_corrected,12.149884459359754,1874.1718854478522
+exclude_spring_overlap,baseline,11.550519030877867,1783.3556431480183
+exclude_spring_overlap,spring_corrected,11.59494363611067,1794.55758036557
