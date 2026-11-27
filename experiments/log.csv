@@ -63,3 +63,4 @@ time,step,git,spec_version,plan,seed,note,extra
 2026-11-16 14:36:16,gt/03g_placebo_eval,3160623,,gt_midterm,42,s13 placebo d0427=0.29,
 2026-11-19 19:58:00,gt_refine/run_gt_share_change,896604c,,gt_refine,,share-change GT check (moved from JAEMINII/Time-series-Project),momentum_spearman=0.72; momentum_p10=0.48; card_change_spearman=0.03
 2026-11-19 21:40:00,gt_refine/run_card_hotplace,5c64f72,,gt_refine,,card-sales hot place ranking vs Seoul 121 places (moved from JAEMINII/Time-series-Project),p10_young_hot=0.56; p10_mobility=0.49
+2026-11-27 15:24:11,eval_metrics/run_metric_comparison,,,eval_metrics,,6 baselines x 8 metrics; 13 origins,best_WAPE=avg(last_year+mean13w) 0.179; best_change=last_week spearman 0.67
