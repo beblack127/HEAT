@@ -66,3 +66,4 @@ time,step,git,spec_version,plan,seed,note,extra
 2026-11-27 15:24:11,eval_metrics/run_metric_comparison,,,eval_metrics,,6 baselines x 8 metrics; 13 origins,best_WAPE=avg(last_year+mean13w) 0.179; best_change=last_week spearman 0.67
 2026-11-27 15:25:43,peaks/run_peaks,,,peaks,,daily spike detection (median+MAD same weekday +-4w),local_spikes=1577; repeat_52w=0.47 vs 0.27; WAPE effect<0.005
 2026-11-27 15:28:27,features_screen/run_feature_screen,,,features_screen,,21 candidate features vs future share change; 13 origins,best_beyond_momentum=share_slope_13w 0.27; external<=0.05
+2026-11-27 15:29:53,gt_refine/run_gt_sensitivity,,,gt_refine,,5 target variants (age; weekend; weekday; spikes removed),hot top10 recall_121 0.49-0.51; emerging overlap 0.78-0.96; V4 momentum P10 0.52
