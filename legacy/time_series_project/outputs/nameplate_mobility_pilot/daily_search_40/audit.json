@@ -1,0 +1,10 @@
+{
+  "dates": 974,
+  "dongs": 40,
+  "groups": 138,
+  "units": 443,
+  "batches": 111,
+  "min_anchor_shape_correlation": 0.99999999999625,
+  "search_index_definition": "relative to anchor mean in 2023; not actual query count or Seoul share",
+  "age_filter": "none; matches existing monthly all-age search"
+}

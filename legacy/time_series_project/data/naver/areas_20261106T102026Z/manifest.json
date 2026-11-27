@@ -1,0 +1,89 @@
+{
+  "collected_at_utc": "20261106T102026Z",
+  "period": [
+    "2023-01-01",
+    "2025-12-31"
+  ],
+  "note": "Named commercial areas; administrative-dong mapping not yet verified.",
+  "anchor": "홍대",
+  "batches": [
+    {
+      "index": 1,
+      "areas": [
+        "성수",
+        "연남",
+        "합정",
+        "망원"
+      ],
+      "status": "ok"
+    },
+    {
+      "index": 2,
+      "areas": [
+        "상수",
+        "을지로",
+        "익선동",
+        "서촌"
+      ],
+      "status": "ok"
+    },
+    {
+      "index": 3,
+      "areas": [
+        "북촌",
+        "삼청동",
+        "신사",
+        "압구정"
+      ],
+      "status": "ok"
+    },
+    {
+      "index": 4,
+      "areas": [
+        "청담",
+        "한남",
+        "이태원",
+        "해방촌"
+      ],
+      "status": "ok"
+    },
+    {
+      "index": 5,
+      "areas": [
+        "문래",
+        "여의도",
+        "강남",
+        "잠실"
+      ],
+      "status": "ok"
+    },
+    {
+      "index": 6,
+      "areas": [
+        "건대",
+        "혜화",
+        "샤로수길",
+        "노원"
+      ],
+      "status": "ok"
+    },
+    {
+      "index": 7,
+      "areas": [
+        "신촌",
+        "왕십리",
+        "가로수길",
+        "경리단길"
+      ],
+      "status": "ok"
+    },
+    {
+      "index": 8,
+      "areas": [
+        "방이",
+        "불광"
+      ],
+      "status": "ok"
+    }
+  ]
+}

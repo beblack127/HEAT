@@ -1,0 +1,9 @@
+﻿admin_dong_code,area,pair,no_search_model,search_model,wape_no_search_pct,wape_search_pct,search_gain_pp
+11500540,강서구 화곡1동,ARIMA family,ARIMA,ARIMAX_search,9.596,5.171,4.425
+11500540,강서구 화곡1동,Seasonal ARIMA family,SARIMA,SARIMAX_search,6.97,3.447,3.523
+11500540,강서구 화곡1동,ARIMAX + lagged mobility,ARIMAX,ARIMAX_search+mobility,6.547,2.927,3.62
+11500540,강서구 화곡1동,SARIMAX + lagged mobility,SARIMAX,SARIMAX_search+mobility,5.857,2.488,3.369
+11470640,양천구 신정3동,ARIMA family,ARIMA,ARIMAX_search,2.998,3.653,-0.655
+11470640,양천구 신정3동,Seasonal ARIMA family,SARIMA,SARIMAX_search,2.828,3.014,-0.186
+11470640,양천구 신정3동,ARIMAX + lagged mobility,ARIMAX,ARIMAX_search+mobility,2.857,3.26,-0.403
+11470640,양천구 신정3동,SARIMAX + lagged mobility,SARIMAX,SARIMAX_search+mobility,2.816,3.022,-0.205

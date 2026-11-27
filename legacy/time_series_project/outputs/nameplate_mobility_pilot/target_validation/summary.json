@@ -1,0 +1,178 @@
+{
+  "coverage": {
+    "mobility_dongs": 40,
+    "bridge_dongs": 40,
+    "bridge_areas": 237,
+    "panel_rows": 320,
+    "footfall_rows": 320,
+    "sales_rows": 320,
+    "areas_per_dong_median_for_sales": 7.0,
+    "clean_quarters": [
+      "20231",
+      "20232",
+      "20233",
+      "20234",
+      "20241",
+      "20242",
+      "20251",
+      "20252"
+    ],
+    "excluded_quarters": [
+      "20243",
+      "20244",
+      "20253",
+      "20254"
+    ]
+  },
+  "level_spearman_secondary": {
+    "footfall": {
+      "mobility_457_daily": {
+        "median_quarter_spearman": 0.467,
+        "by_quarter": {
+          "20231": 0.512,
+          "20232": 0.491,
+          "20233": 0.49,
+          "20234": 0.448,
+          "20241": 0.476,
+          "20242": 0.452,
+          "20251": 0.457,
+          "20252": 0.431
+        }
+      },
+      "mobility_all_daily": {
+        "median_quarter_spearman": 0.546,
+        "by_quarter": {
+          "20231": 0.556,
+          "20232": 0.551,
+          "20233": 0.554,
+          "20234": 0.528,
+          "20241": 0.549,
+          "20242": 0.543,
+          "20251": 0.539,
+          "20252": 0.519
+        }
+      },
+      "mobility_45_daily": {
+        "median_quarter_spearman": -0.02,
+        "by_quarter": {
+          "20231": -0.002,
+          "20232": 0.008,
+          "20233": -0.011,
+          "20234": -0.017,
+          "20241": -0.023,
+          "20242": -0.08,
+          "20251": -0.065,
+          "20252": -0.075
+        }
+      }
+    },
+    "food_transactions": {
+      "mobility_457_daily": {
+        "median_quarter_spearman": 0.784,
+        "by_quarter": {
+          "20231": 0.791,
+          "20232": 0.782,
+          "20233": 0.789,
+          "20234": 0.799,
+          "20241": 0.777,
+          "20242": 0.773,
+          "20251": 0.785,
+          "20252": 0.776
+        }
+      },
+      "mobility_all_daily": {
+        "median_quarter_spearman": 0.745,
+        "by_quarter": {
+          "20231": 0.746,
+          "20232": 0.736,
+          "20233": 0.748,
+          "20234": 0.749,
+          "20241": 0.745,
+          "20242": 0.728,
+          "20251": 0.746,
+          "20252": 0.723
+        }
+      },
+      "mobility_45_daily": {
+        "median_quarter_spearman": 0.355,
+        "by_quarter": {
+          "20231": 0.313,
+          "20232": 0.277,
+          "20233": 0.311,
+          "20234": 0.352,
+          "20241": 0.357,
+          "20242": 0.385,
+          "20251": 0.418,
+          "20252": 0.402
+        }
+      }
+    }
+  },
+  "yoy_change_spearman_primary": {
+    "footfall": {
+      "mobility_457_daily": {
+        "n_dong_quarters": 160,
+        "pooled_spearman": 0.346,
+        "by_quarter": {
+          "20241": 0.403,
+          "20242": 0.542,
+          "20251": 0.115,
+          "20252": 0.307
+        }
+      },
+      "mobility_all_daily": {
+        "n_dong_quarters": 160,
+        "pooled_spearman": 0.343,
+        "by_quarter": {
+          "20241": 0.434,
+          "20242": 0.578,
+          "20251": 0.108,
+          "20252": 0.26
+        }
+      },
+      "mobility_45_daily": {
+        "n_dong_quarters": 160,
+        "pooled_spearman": 0.029,
+        "by_quarter": {
+          "20241": -0.053,
+          "20242": -0.005,
+          "20251": 0.105,
+          "20252": 0.099
+        }
+      }
+    },
+    "food_transactions": {
+      "mobility_457_daily": {
+        "n_dong_quarters": 160,
+        "pooled_spearman": 0.228,
+        "by_quarter": {
+          "20241": 0.264,
+          "20242": 0.119,
+          "20251": 0.18,
+          "20252": 0.332
+        }
+      },
+      "mobility_all_daily": {
+        "n_dong_quarters": 160,
+        "pooled_spearman": 0.203,
+        "by_quarter": {
+          "20241": 0.246,
+          "20242": 0.139,
+          "20251": 0.177,
+          "20252": 0.25
+        }
+      },
+      "mobility_45_daily": {
+        "n_dong_quarters": 160,
+        "pooled_spearman": 0.018,
+        "by_quarter": {
+          "20241": -0.068,
+          "20242": 0.127,
+          "20251": 0.393,
+          "20252": 0.167
+        }
+      }
+    }
+  },
+  "method_note": "Footfall is official dong-level quarterly data joined by code. Food transactions are commercial-area estimates allocated by polygon overlap. Same-dong year-over-year change is primary; no causal interpretation."
+}

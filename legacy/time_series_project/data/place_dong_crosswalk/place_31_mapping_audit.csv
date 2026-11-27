@@ -1,0 +1,32 @@
+﻿search_area,official_place_code,official_place_name,name_match_type,intersected_dongs,selected_dongs,largest_place_share,whole_dong_area_to_place_area,training_status,review_note
+홍대,POI007,홍대 관광특구,broad_place_alias,5,1,0.9385,1.31,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+성수,POI068,성수카페거리,narrower_cafe_street_proxy,4,2,0.7273,4.08,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+연남,POI073,연남동,name_alias,3,2,0.9439,3.88,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+합정,POI053,합정역,station_area_proxy,3,1,0.9962,3.55,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+망원,,,no_defensible_official_match,0,0,,,do_not_join,Define a custom boundary or find another official place polygon.
+상수,,,no_defensible_official_match,0,0,,,do_not_join,Define a custom boundary or find another official place polygon.
+을지로,,,no_defensible_official_match,0,0,,,do_not_join,Define a custom boundary or find another official place polygon.
+익선동,POI116,익선동,exact_name,1,1,1.0,13.05,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+서촌,POI067,서촌,exact_name,2,2,0.7251,6.08,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+북촌,POI066,북촌한옥마을,hanok_village_proxy,5,2,0.5234,1.8,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+삼청동,,,no_defensible_official_match,0,0,,,do_not_join,Define a custom boundary or find another official place polygon.
+신사,,,no_defensible_official_match,0,0,,,do_not_join,Define a custom boundary or find another official place polygon.
+압구정,POI071,압구정로데오거리,narrower_rodeo_proxy,3,2,0.6377,7.35,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+청담,POI080,청담동 명품거리,narrower_luxury_street_proxy,2,2,0.8363,25.11,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+한남,,,no_defensible_official_match,0,0,,,do_not_join,Define a custom boundary or find another official place polygon.
+이태원,POI004,이태원 관광특구,broad_tourism_zone_proxy,3,2,0.7262,9.18,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+해방촌,POI082,해방촌·경리단길,shared_with_gyeongridan,3,2,0.6404,12.82,exclude_shared_polygon,The same official polygon is mapped to another search area; cannot train as independent observations.
+문래,,,no_defensible_official_match,0,0,,,do_not_join,Define a custom boundary or find another official place polygon.
+여의도,POI072,여의도,exact_name,1,1,1.0,2.04,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+강남,POI014,강남역,gangnam_station_proxy,3,3,0.6654,7.06,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+잠실,POI005,잠실 관광특구,broad_tourism_zone_proxy,10,4,0.621,2.94,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+건대,POI015,건대입구역,geondae_station_proxy,4,3,0.5584,9.08,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+혜화,POI054,혜화역,hyehwa_station_proxy,2,2,0.5299,8.99,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+샤로수길,POI031,서울대입구역,seoul_national_univ_station_proxy,4,4,0.3335,22.19,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+노원,,,no_defensible_official_match,0,0,,,do_not_join,Define a custom boundary or find another official place polygon.
+신촌,POI040,신촌·이대역,combined_sinchon_ewha_proxy,4,3,0.7766,10.77,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+왕십리,POI045,왕십리역,wangsimni_station_proxy,3,3,0.4832,7.81,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+가로수길,POI059,가로수길,exact_name,5,1,0.9884,3.15,needs_name_and_scale_review,Official 2026 place polygon; historical boundary stability unverified. Whole-dong counts overcover the polygon.
+경리단길,POI082,해방촌·경리단길,shared_with_haebangchon,3,2,0.6404,12.82,exclude_shared_polygon,The same official polygon is mapped to another search area; cannot train as independent observations.
+방이,,,no_defensible_official_match,0,0,,,do_not_join,Define a custom boundary or find another official place polygon.
+불광,,,no_defensible_official_match,0,0,,,do_not_join,Define a custom boundary or find another official place polygon.

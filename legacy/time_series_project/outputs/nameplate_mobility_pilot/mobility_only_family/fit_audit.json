@@ -1,0 +1,30 @@
+[
+  {
+    "model": "ARIMA",
+    "order": "(0, 1, 1)",
+    "seasonal_order": "(0, 0, 0, 0)",
+    "train_weeks": 80,
+    "fit_warnings": 0
+  },
+  {
+    "model": "SARIMA",
+    "order": "(1, 1, 0)",
+    "seasonal_order": "(1, 0, 0, 13)",
+    "train_weeks": 80,
+    "fit_warnings": 0
+  },
+  {
+    "model": "ARIMAX",
+    "order": "(0, 1, 1)",
+    "seasonal_order": "(0, 0, 0, 0)",
+    "train_weeks": 80,
+    "fit_warnings": 0
+  },
+  {
+    "model": "SARIMAX",
+    "order": "(1, 1, 0)",
+    "seasonal_order": "(1, 0, 0, 13)",
+    "train_weeks": 80,
+    "fit_warnings": 0
+  }
+]

@@ -1,0 +1,7 @@
+﻿scope,period,dongs,n,lag52_wape,arima_pred_wape,growth_corrected_wape,selected_blend_wape,quality_guard_sensitivity_wape
+all424,full,424,14416,18.619,18.64,18.283,16.294,12.409
+all424,jan_jul,424,12720,13.773,19.617,13.156,12.609,12.609
+pilot40,full,40,1360,20.213,20.702,20.254,17.811,12.339
+pilot40,jan_jul,40,1200,13.438,22.05,13.209,12.663,12.663
+other384,full,384,13056,18.008,17.848,17.527,15.712,12.436
+other384,jan_jul,384,11520,13.902,18.681,13.135,12.588,12.588

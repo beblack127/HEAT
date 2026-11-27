@@ -1,0 +1,165 @@
+{
+  "method": "4 year-over-year quarters × 40 dongs; quarter-demeaned log changes; dong cluster bootstrap; exploratory",
+  "bootstrap": {
+    "footfall": {
+      "mobility_457_daily": {
+        "rho": 0.346,
+        "dong_bootstrap_95pct": [
+          0.142,
+          0.516
+        ]
+      },
+      "mobility_all_daily": {
+        "rho": 0.343,
+        "dong_bootstrap_95pct": [
+          0.139,
+          0.517
+        ]
+      },
+      "mobility_45_daily": {
+        "rho": 0.029,
+        "dong_bootstrap_95pct": [
+          -0.141,
+          0.196
+        ]
+      }
+    },
+    "food_transactions": {
+      "mobility_457_daily": {
+        "rho": 0.228,
+        "dong_bootstrap_95pct": [
+          0.033,
+          0.424
+        ]
+      },
+      "mobility_all_daily": {
+        "rho": 0.203,
+        "dong_bootstrap_95pct": [
+          0.004,
+          0.406
+        ]
+      },
+      "mobility_45_daily": {
+        "rho": 0.018,
+        "dong_bootstrap_95pct": [
+          -0.18,
+          0.225
+        ]
+      }
+    }
+  },
+  "top10_growth_overlap": {
+    "footfall": {
+      "mobility_457_daily": {
+        "hits_out_of_40": 19,
+        "by_quarter": {
+          "20241": 6,
+          "20242": 6,
+          "20251": 2,
+          "20252": 5
+        }
+      },
+      "mobility_all_daily": {
+        "hits_out_of_40": 17,
+        "by_quarter": {
+          "20241": 5,
+          "20242": 5,
+          "20251": 2,
+          "20252": 5
+        }
+      },
+      "mobility_45_daily": {
+        "hits_out_of_40": 10,
+        "by_quarter": {
+          "20241": 1,
+          "20242": 3,
+          "20251": 3,
+          "20252": 3
+        }
+      }
+    },
+    "food_transactions": {
+      "mobility_457_daily": {
+        "hits_out_of_40": 11,
+        "by_quarter": {
+          "20241": 3,
+          "20242": 2,
+          "20251": 3,
+          "20252": 3
+        }
+      },
+      "mobility_all_daily": {
+        "hits_out_of_40": 11,
+        "by_quarter": {
+          "20241": 3,
+          "20242": 3,
+          "20251": 3,
+          "20252": 2
+        }
+      },
+      "mobility_45_daily": {
+        "hits_out_of_40": 16,
+        "by_quarter": {
+          "20241": 3,
+          "20242": 3,
+          "20251": 5,
+          "20252": 5
+        }
+      }
+    }
+  },
+  "same_method_2025_yoy_only": {
+    "footfall": {
+      "mobility_457_daily": {
+        "rho": 0.217,
+        "n_dong_quarters": 80,
+        "dong_bootstrap_95pct": [
+          -0.065,
+          0.486
+        ]
+      },
+      "mobility_all_daily": {
+        "rho": 0.192,
+        "n_dong_quarters": 80,
+        "dong_bootstrap_95pct": [
+          -0.1,
+          0.445
+        ]
+      },
+      "mobility_45_daily": {
+        "rho": 0.143,
+        "n_dong_quarters": 80,
+        "dong_bootstrap_95pct": [
+          -0.098,
+          0.389
+        ]
+      }
+    },
+    "food_transactions": {
+      "mobility_457_daily": {
+        "rho": 0.239,
+        "n_dong_quarters": 80,
+        "dong_bootstrap_95pct": [
+          -0.006,
+          0.457
+        ]
+      },
+      "mobility_all_daily": {
+        "rho": 0.203,
+        "n_dong_quarters": 80,
+        "dong_bootstrap_95pct": [
+          -0.044,
+          0.433
+        ]
+      },
+      "mobility_45_daily": {
+        "rho": 0.207,
+        "n_dong_quarters": 80,
+        "dong_bootstrap_95pct": [
+          -0.043,
+          0.435
+        ]
+      }
+    }
+  }
+}

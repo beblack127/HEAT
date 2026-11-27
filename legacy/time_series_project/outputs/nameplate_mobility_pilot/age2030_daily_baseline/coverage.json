@@ -1,0 +1,10 @@
+{
+  "months": 32,
+  "dates": 974,
+  "dong_codes": 429,
+  "daily_rows": 414955,
+  "max_monthly_reaggregation_difference": 3.4924596548080444e-10,
+  "missing_after_calendar_reindex": 2891,
+  "test": "2025-01-01 to 2025-08-31",
+  "baseline_note": "91-day origin approximates 3 calendar months; not an exact month offset"
+}

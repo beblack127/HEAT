@@ -1,0 +1,142 @@
+{
+  "method": "Two-step rolling 2025 forecasts from observations through m-2; coefficients fitted once on 2023-03..2024-11, then newly available target appended without refit.",
+  "target": "Daily-average destination movements, purposes 4+5+7",
+  "exog": "log1p(daytime living population), 2-month lag; only ARIMAX and SARIMAX",
+  "transform": "log1p target and exog; expm1 point forecast",
+  "orders": {
+    "ARIMA": {
+      "order": [
+        1,
+        1,
+        0
+      ],
+      "seasonal_order": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "SARIMA": {
+      "order": [
+        1,
+        1,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ]
+    },
+    "ARIMAX": {
+      "order": [
+        1,
+        1,
+        0
+      ],
+      "seasonal_order": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "SARIMAX": {
+      "order": [
+        1,
+        1,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ]
+    }
+  },
+  "models": {
+    "all_2025": {
+      "ARIMA": {
+        "n": 480,
+        "mae": 4209.46,
+        "wape": 0.0961,
+        "median_dong_mae": 3248.78
+      },
+      "ARIMAX": {
+        "n": 480,
+        "mae": 4673.62,
+        "wape": 0.1067,
+        "median_dong_mae": 3288.62
+      },
+      "SARIMA": {
+        "n": 480,
+        "mae": 4245.33,
+        "wape": 0.0969,
+        "median_dong_mae": 3316.06
+      },
+      "SARIMAX": {
+        "n": 480,
+        "mae": 4748.38,
+        "wape": 0.1084,
+        "median_dong_mae": 3302.65
+      }
+    },
+    "jan_aug": {
+      "ARIMA": {
+        "n": 320,
+        "mae": 4815.05,
+        "wape": 0.1091,
+        "median_dong_mae": 3601.84
+      },
+      "ARIMAX": {
+        "n": 320,
+        "mae": 5094.8,
+        "wape": 0.1154,
+        "median_dong_mae": 3439.97
+      },
+      "SARIMA": {
+        "n": 320,
+        "mae": 4810.12,
+        "wape": 0.1089,
+        "median_dong_mae": 3731.53
+      },
+      "SARIMAX": {
+        "n": 320,
+        "mae": 5189.96,
+        "wape": 0.1175,
+        "median_dong_mae": 3761.77
+      }
+    },
+    "sep_dec": {
+      "ARIMA": {
+        "n": 160,
+        "mae": 2998.28,
+        "wape": 0.0696,
+        "median_dong_mae": 2253.02
+      },
+      "ARIMAX": {
+        "n": 160,
+        "mae": 3831.26,
+        "wape": 0.0889,
+        "median_dong_mae": 2512.03
+      },
+      "SARIMA": {
+        "n": 160,
+        "mae": 3115.77,
+        "wape": 0.0723,
+        "median_dong_mae": 2266.04
+      },
+      "SARIMAX": {
+        "n": 160,
+        "mae": 3865.23,
+        "wape": 0.0897,
+        "median_dong_mae": 2448.03
+      }
+    }
+  },
+  "converged_fits": 160,
+  "warnings": 44
+}

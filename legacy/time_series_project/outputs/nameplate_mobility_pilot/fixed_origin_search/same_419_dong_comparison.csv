@@ -1,0 +1,19 @@
+model,scope,dong_weeks,wape_pct
+ARIMA,all 13 weeks,5447,19.17
+ARIMA,week 13 only,419,23.51
+ARIMAX,all 13 weeks,5447,19.34
+ARIMAX,week 13 only,419,22.54
+ARIMAX_search,all 13 weeks,5447,16.78
+ARIMAX_search,week 13 only,419,20.94
+ARIMAX_search+mobility,all 13 weeks,5447,16.62
+ARIMAX_search+mobility,week 13 only,419,19.73
+Prior-year same week,all 13 weeks,5447,8.52
+Prior-year same week,week 13 only,419,8.29
+SARIMA,all 13 weeks,5447,19.45
+SARIMA,week 13 only,419,23.01
+SARIMAX,all 13 weeks,5447,18.93
+SARIMAX,week 13 only,419,21.87
+SARIMAX_search,all 13 weeks,5447,16.93
+SARIMAX_search,week 13 only,419,20.35
+SARIMAX_search+mobility,all 13 weeks,5447,16.28
+SARIMAX_search+mobility,week 13 only,419,19.0

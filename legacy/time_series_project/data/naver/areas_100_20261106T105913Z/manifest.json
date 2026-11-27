@@ -1,0 +1,221 @@
+{
+  "started_at_utc": "20261106T105913Z",
+  "source_31": "C:\\Users\\USER\\OneDrive\\문서\\재민공부\\시계열 프로젝트\\data\\naver\\areas_20261106T102026Z\\monthly_search_interest_31areas.csv",
+  "batches": [
+    {
+      "index": 1,
+      "areas": [
+        "가양동",
+        "개봉동",
+        "고덕동",
+        "공덕동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 0,
+      "status": "ok"
+    },
+    {
+      "index": 2,
+      "areas": [
+        "공릉동",
+        "구로동",
+        "구의동",
+        "군자동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 0,
+      "status": "ok"
+    },
+    {
+      "index": 3,
+      "areas": [
+        "금호동",
+        "길동",
+        "길음동",
+        "녹번동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 0,
+      "status": "ok"
+    },
+    {
+      "index": 4,
+      "areas": [
+        "대림동",
+        "대방동",
+        "도곡동",
+        "도봉동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 0,
+      "status": "ok"
+    },
+    {
+      "index": 5,
+      "areas": [
+        "독산동",
+        "동작동",
+        "둔촌동",
+        "등촌동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 4,
+      "status": "ok"
+    },
+    {
+      "index": 6,
+      "areas": [
+        "마장동",
+        "마천동",
+        "면목동",
+        "목동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 4,
+      "status": "ok"
+    },
+    {
+      "index": 7,
+      "areas": [
+        "미아동",
+        "반포동",
+        "방배동",
+        "방학동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 4,
+      "status": "ok"
+    },
+    {
+      "index": 8,
+      "areas": [
+        "봉천동",
+        "불광동",
+        "사당동",
+        "상계동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 4,
+      "status": "ok"
+    },
+    {
+      "index": 9,
+      "areas": [
+        "상도동",
+        "상봉동",
+        "석관동",
+        "성내동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 4,
+      "status": "ok"
+    },
+    {
+      "index": 10,
+      "areas": [
+        "성북동",
+        "세곡동",
+        "송파동",
+        "수서동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 4,
+      "status": "ok"
+    },
+    {
+      "index": 11,
+      "areas": [
+        "수유동",
+        "시흥동",
+        "신내동",
+        "신림동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 4,
+      "status": "ok"
+    },
+    {
+      "index": 12,
+      "areas": [
+        "신정동",
+        "쌍문동",
+        "암사동",
+        "양재동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 4,
+      "status": "ok"
+    },
+    {
+      "index": 13,
+      "areas": [
+        "염창동",
+        "오류동",
+        "오금동",
+        "우이동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 4,
+      "status": "ok"
+    },
+    {
+      "index": 14,
+      "areas": [
+        "월계동",
+        "응암동",
+        "이문동",
+        "자양동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 4,
+      "status": "ok"
+    },
+    {
+      "index": 15,
+      "areas": [
+        "잠원동",
+        "장안동",
+        "장위동",
+        "정릉동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 4,
+      "status": "ok"
+    },
+    {
+      "index": 16,
+      "areas": [
+        "중계동",
+        "중곡동",
+        "창동",
+        "천호동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 4,
+      "status": "ok"
+    },
+    {
+      "index": 17,
+      "areas": [
+        "청량리",
+        "하계동",
+        "홍은동",
+        "화곡동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 4,
+      "status": "ok"
+    },
+    {
+      "index": 18,
+      "areas": [
+        "휘경동"
+      ],
+      "anchor_max_gap": 0.0,
+      "missing_search_months": 4,
+      "status": "ok"
+    }
+  ],
+  "completed_at_utc": "2026-11-06T11:05:40.708332+00:00",
+  "rows": 3600
+}

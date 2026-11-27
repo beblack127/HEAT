@@ -1,0 +1,258 @@
+[
+  {
+    "month": "202301",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2498662.21,
+    "total_457_daily": 6981756.12,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202302",
+    "days": 28,
+    "dongs": 426,
+    "total_age20_39_daily": 2841042.99,
+    "total_457_daily": 8037533.17,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202303",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2773335.96,
+    "total_457_daily": 7871106.66,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202304",
+    "days": 30,
+    "dongs": 426,
+    "total_age20_39_daily": 2871627.13,
+    "total_457_daily": 8124827.18,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202305",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2838663.21,
+    "total_457_daily": 8128042.53,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202306",
+    "days": 30,
+    "dongs": 426,
+    "total_age20_39_daily": 2862633.06,
+    "total_457_daily": 8147555.09,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202307",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2718129.8,
+    "total_457_daily": 7788073.42,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202308",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2642832.52,
+    "total_457_daily": 7560281.86,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202309",
+    "days": 30,
+    "dongs": 426,
+    "total_age20_39_daily": 2838533.11,
+    "total_457_daily": 8080210.93,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202310",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2794698.16,
+    "total_457_daily": 8036672.25,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202311",
+    "days": 30,
+    "dongs": 426,
+    "total_age20_39_daily": 2719527.25,
+    "total_457_daily": 7814444.62,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202312",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2756005.3,
+    "total_457_daily": 7870374.17,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202401",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2507979.15,
+    "total_457_daily": 7243118.87,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202402",
+    "days": 29,
+    "dongs": 426,
+    "total_age20_39_daily": 2671789.48,
+    "total_457_daily": 7688751.22,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202403",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2810091.75,
+    "total_457_daily": 8067121.54,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202404",
+    "days": 30,
+    "dongs": 426,
+    "total_age20_39_daily": 2895223.17,
+    "total_457_daily": 8321393.51,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202405",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2824871.83,
+    "total_457_daily": 8156574.59,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202406",
+    "days": 30,
+    "dongs": 426,
+    "total_age20_39_daily": 2892955.74,
+    "total_457_daily": 8313942.34,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202407",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2645706.6,
+    "total_457_daily": 7745889.27,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202408",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 4455957.5,
+    "total_457_daily": 12251312.51,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202409",
+    "days": 30,
+    "dongs": 426,
+    "total_age20_39_daily": 4027279.32,
+    "total_457_daily": 11149511.36,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202410",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 4078982.13,
+    "total_457_daily": 11516877.48,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202411",
+    "days": 30,
+    "dongs": 426,
+    "total_age20_39_daily": 2864893.12,
+    "total_457_daily": 8324841.29,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202412",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2768515.07,
+    "total_457_daily": 8033854.92,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202501",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2914313.39,
+    "total_457_daily": 8352172.61,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202502",
+    "days": 28,
+    "dongs": 426,
+    "total_age20_39_daily": 2761411.29,
+    "total_457_daily": 8096535.51,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202503",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 3384838.48,
+    "total_457_daily": 9072751.48,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202504",
+    "days": 30,
+    "dongs": 426,
+    "total_age20_39_daily": 3388995.63,
+    "total_457_daily": 9125629.68,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202505",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2921376.38,
+    "total_457_daily": 8563784.88,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202506",
+    "days": 30,
+    "dongs": 426,
+    "total_age20_39_daily": 2882087.62,
+    "total_457_daily": 8475686.73,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202507",
+    "days": 31,
+    "dongs": 426,
+    "total_age20_39_daily": 2740650.64,
+    "total_457_daily": 8155929.12,
+    "legacy_40_max_abs_difference": 0.0
+  },
+  {
+    "month": "202508",
+    "days": 31,
+    "dongs": 427,
+    "total_age20_39_daily": 2825172.92,
+    "total_457_daily": 8264118.07,
+    "legacy_40_max_abs_difference": 0.0
+  }
+]

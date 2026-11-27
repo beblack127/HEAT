@@ -1,0 +1,11 @@
+{
+  "candidate_definition": "actual top20 four-week relative Seoul-share growth; above fixed 2023 volume floor; candidate in >=half evaluated weeks of month",
+  "search_role": "retrospective external validity only; target-month search not used in forecasting",
+  "subway_role": "retrospective nearby-station proxy; station may serve multiple dongs",
+  "monthly_rows": 1807,
+  "months": 10,
+  "test_search_median_candidate": 0.02300478707679532,
+  "test_search_median_control": -0.034708633188310745,
+  "test_subway_median_candidate": 0.011348185412757283,
+  "test_subway_median_control": 0.010507363885189025
+}

@@ -1,0 +1,161 @@
+﻿admin_dong_code,model,train_n,converged,optimizer,warning_count,warnings
+11110515,ARIMA,21,True,lbfgs,0,
+11110515,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11110515,ARIMAX,21,True,lbfgs,0,
+11110515,SARIMAX,21,True,lbfgs,0,
+11110530,ARIMA,21,True,lbfgs,0,
+11110530,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11110530,ARIMAX,21,True,lbfgs,0,
+11110530,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11110540,ARIMA,21,True,lbfgs,0,
+11110540,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11110540,ARIMAX,21,True,lbfgs,0,
+11110540,SARIMAX,21,True,lbfgs,0,
+11110600,ARIMA,21,True,lbfgs,0,
+11110600,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11110600,ARIMAX,21,True,lbfgs,0,
+11110600,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11110615,ARIMA,21,True,lbfgs,0,
+11110615,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11110615,ARIMAX,21,True,lbfgs,0,
+11110615,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11110640,ARIMA,21,True,lbfgs,0,
+11110640,SARIMA,21,True,lbfgs,0,
+11110640,ARIMAX,21,True,lbfgs,0,
+11110640,SARIMAX,21,True,lbfgs,0,
+11110650,ARIMA,21,True,lbfgs,0,
+11110650,SARIMA,21,True,lbfgs,0,
+11110650,ARIMAX,21,True,lbfgs,0,
+11110650,SARIMAX,21,True,lbfgs,0,
+11170520,ARIMA,21,True,lbfgs,0,
+11170520,SARIMA,21,True,lbfgs,0,
+11170520,ARIMAX,21,True,lbfgs,0,
+11170520,SARIMAX,21,True,lbfgs,0,
+11170650,ARIMA,21,True,lbfgs,0,
+11170650,SARIMA,21,True,lbfgs,0,
+11170650,ARIMAX,21,True,lbfgs,0,
+11170650,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11170660,ARIMA,21,True,lbfgs,0,
+11170660,SARIMA,21,True,lbfgs,0,
+11170660,ARIMAX,21,True,lbfgs,0,
+11170660,SARIMAX,21,True,lbfgs,0,
+11170685,ARIMA,21,True,lbfgs,0,
+11170685,SARIMA,21,True,lbfgs,0,
+11170685,ARIMAX,21,True,lbfgs,0,
+11170685,SARIMAX,21,True,lbfgs,0,
+11200540,ARIMA,21,True,lbfgs,0,
+11200540,SARIMA,21,True,lbfgs,0,
+11200540,ARIMAX,21,True,lbfgs,0,
+11200540,SARIMAX,21,True,lbfgs,0,
+11200550,ARIMA,21,True,lbfgs,0,
+11200550,SARIMA,21,True,lbfgs,0,
+11200550,ARIMAX,21,True,lbfgs,0,
+11200550,SARIMAX,21,True,lbfgs,0,
+11200560,ARIMA,21,True,lbfgs,0,
+11200560,SARIMA,21,True,lbfgs,0,
+11200560,ARIMAX,21,True,lbfgs,0,
+11200560,SARIMAX,21,True,lbfgs,0,
+11200670,ARIMA,21,True,lbfgs,0,
+11200670,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11200670,ARIMAX,21,True,lbfgs,0,
+11200670,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11200690,ARIMA,21,True,lbfgs,0,
+11200690,SARIMA,21,True,lbfgs,0,
+11200690,ARIMAX,21,True,lbfgs,0,
+11200690,SARIMAX,21,True,lbfgs,0,
+11215710,ARIMA,21,True,lbfgs,0,
+11215710,SARIMA,21,True,lbfgs,0,
+11215710,ARIMAX,21,True,lbfgs,0,
+11215710,SARIMAX,21,True,lbfgs,0,
+11215840,ARIMA,21,True,powell,1,Maximum Likelihood optimization failed to converge. Check mle_retvals
+11215840,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11215840,ARIMAX,21,True,lbfgs,0,
+11215840,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11215847,ARIMA,21,True,lbfgs,0,
+11215847,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11215847,ARIMAX,21,True,lbfgs,0,
+11215847,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11410585,ARIMA,21,True,lbfgs,0,
+11410585,SARIMA,21,True,lbfgs,0,
+11410585,ARIMAX,21,True,lbfgs,0,
+11410585,SARIMAX,21,True,lbfgs,0,
+11440600,ARIMA,21,True,lbfgs,0,
+11440600,SARIMA,21,True,lbfgs,0,
+11440600,ARIMAX,21,True,lbfgs,0,
+11440600,SARIMAX,21,True,lbfgs,0,
+11440660,ARIMA,21,True,lbfgs,0,
+11440660,SARIMA,21,True,lbfgs,0,
+11440660,ARIMAX,21,True,lbfgs,0,
+11440660,SARIMAX,21,True,lbfgs,0,
+11440680,ARIMA,21,True,lbfgs,0,
+11440680,SARIMA,21,True,lbfgs,0,
+11440680,ARIMAX,21,True,lbfgs,0,
+11440680,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11440710,ARIMA,21,True,lbfgs,0,
+11440710,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11440710,ARIMAX,21,True,lbfgs,0,
+11440710,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11440720,ARIMA,21,True,lbfgs,0,
+11440720,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11440720,ARIMAX,21,True,lbfgs,0,
+11440720,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11560540,ARIMA,21,True,lbfgs,0,
+11560540,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11560540,ARIMAX,21,True,lbfgs,0,
+11560540,SARIMAX,21,True,lbfgs,0,
+11620575,ARIMA,21,True,lbfgs,0,
+11620575,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11620575,ARIMAX,21,True,lbfgs,0,
+11620575,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11620585,ARIMA,21,True,lbfgs,0,
+11620585,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11620585,ARIMAX,21,True,lbfgs,0,
+11620585,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11620595,ARIMA,21,True,lbfgs,0,
+11620595,SARIMA,21,True,lbfgs,0,
+11620595,ARIMAX,21,True,lbfgs,0,
+11620595,SARIMAX,21,True,lbfgs,0,
+11620615,ARIMA,21,True,lbfgs,0,
+11620615,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11620615,ARIMAX,21,True,lbfgs,0,
+11620615,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11650520,ARIMA,21,True,lbfgs,0,
+11650520,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11650520,ARIMAX,21,True,lbfgs,0,
+11650520,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11650531,ARIMA,21,True,lbfgs,0,
+11650531,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11650531,ARIMAX,21,True,lbfgs,0,
+11650531,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11680510,ARIMA,21,True,lbfgs,0,
+11680510,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11680510,ARIMAX,21,True,lbfgs,0,
+11680510,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11680545,ARIMA,21,True,lbfgs,0,
+11680545,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11680545,ARIMAX,21,True,lbfgs,0,
+11680545,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11680565,ARIMA,21,True,lbfgs,0,
+11680565,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11680565,ARIMAX,21,True,lbfgs,0,
+11680565,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11680640,ARIMA,21,True,lbfgs,0,
+11680640,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11680640,ARIMAX,21,True,lbfgs,0,
+11680640,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11710562,ARIMA,21,True,lbfgs,0,
+11710562,SARIMA,21,True,lbfgs,0,
+11710562,ARIMAX,21,True,lbfgs,0,
+11710562,SARIMAX,21,True,lbfgs,0,
+11710566,ARIMA,21,True,lbfgs,0,
+11710566,SARIMA,21,True,lbfgs,0,
+11710566,ARIMAX,21,True,lbfgs,0,
+11710566,SARIMAX,21,True,lbfgs,0,
+11710680,ARIMA,21,True,lbfgs,0,
+11710680,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11710680,ARIMAX,21,True,lbfgs,0,
+11710680,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11710710,ARIMA,21,True,lbfgs,0,
+11710710,SARIMA,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.
+11710710,ARIMAX,21,True,lbfgs,0,
+11710710,SARIMAX,21,True,lbfgs,1,Non-stationary starting seasonal autoregressive Using zeros as starting parameters.

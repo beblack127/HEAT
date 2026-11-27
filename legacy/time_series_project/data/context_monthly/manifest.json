@@ -1,0 +1,517 @@
+{
+  "sources": {
+    "living": "https://data.seoul.go.kr/dataList/OA-14991/F/1/datasetView.do",
+    "mobility": "https://data.seoul.go.kr/dataList/OA-22298/F/1/datasetView.do"
+  },
+  "purpose_codes": {
+    "4": "shopping",
+    "5": "tourism",
+    "7": "other"
+  },
+  "files": [
+    {
+      "kind": "living",
+      "month": "202301",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202301.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202302",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202302.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202303",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202303.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202304",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202304.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202305",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202305.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202306",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202306.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202307",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202307.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202308",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202308.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202309",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202309.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202310",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202310.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202311",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202311.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202312",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202312.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202401",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202401.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202402",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202402.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202403",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202403.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202404",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202404.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202405",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202405.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202406",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202406.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202407",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202407.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202408",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202408.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202409",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202409.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202410",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202410.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202411",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202411.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202412",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202412.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202501",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202501.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202502",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202502.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202503",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202503.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202504",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202504.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202505",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202505.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202506",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202506.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202507",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202507.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202508",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202508.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202509",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202509.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202510",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202510.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202511",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202511.csv",
+      "cached": true
+    },
+    {
+      "kind": "living",
+      "month": "202512",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\living_202512.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202301",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202301.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202302",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202302.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202303",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202303.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202304",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202304.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202305",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202305.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202306",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202306.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202307",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202307.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202308",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202308.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202309",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202309.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202310",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202310.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202311",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202311.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202312",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202312.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202401",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202401.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202402",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202402.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202403",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202403.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202404",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202404.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202405",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202405.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202406",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202406.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202407",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202407.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202408",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202408.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202409",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202409.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202410",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202410.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202411",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202411.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202412",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202412.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202501",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202501.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202502",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202502.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202503",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202503.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202504",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202504.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202505",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202505.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202506",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202506.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202507",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202507.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202508",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202508.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202509",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202509.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202510",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202510.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202511",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202511.csv",
+      "cached": true
+    },
+    {
+      "kind": "mobility",
+      "month": "202512",
+      "dongs": 40,
+      "summary_file": "data\\context_monthly\\mobility_202512.csv",
+      "cached": true
+    }
+  ]
+}

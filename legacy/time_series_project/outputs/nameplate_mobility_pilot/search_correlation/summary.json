@@ -1,0 +1,86 @@
+{
+  "period": "2023-01 to 2025-08",
+  "dongs": 40,
+  "method": "within-dong Spearman; search share is Seoul-relative, not count",
+  "yoy_exclusions": "2024-08 to 2024-10 anomalous mobility months and their 2025 matching months; 2025-09 onward excluded for source quality",
+  "same_month_share": {
+    "median_rho": 0.045,
+    "mean_rho": 0.077,
+    "positive_dongs": 22,
+    "negative_dongs": 18,
+    "at_least_0_3": 8,
+    "at_most_minus_0_3": 4,
+    "n_min": 32,
+    "n_max": 32
+  },
+  "same_month_share_clean": {
+    "median_rho": 0.126,
+    "mean_rho": 0.126,
+    "positive_dongs": 28,
+    "negative_dongs": 12,
+    "at_least_0_3": 12,
+    "at_most_minus_0_3": 3,
+    "n_min": 29,
+    "n_max": 29
+  },
+  "search_1m_ahead": {
+    "median_rho": 0.017,
+    "mean_rho": 0.039,
+    "positive_dongs": 21,
+    "negative_dongs": 19,
+    "at_least_0_3": 3,
+    "at_most_minus_0_3": 2,
+    "n_min": 32,
+    "n_max": 32
+  },
+  "search_2m_ahead": {
+    "median_rho": -0.005,
+    "mean_rho": -0.021,
+    "positive_dongs": 20,
+    "negative_dongs": 20,
+    "at_least_0_3": 3,
+    "at_most_minus_0_3": 5,
+    "n_min": 32,
+    "n_max": 32
+  },
+  "search_2m_ahead_clean": {
+    "median_rho": -0.014,
+    "mean_rho": 0.001,
+    "positive_dongs": 17,
+    "negative_dongs": 23,
+    "at_least_0_3": 6,
+    "at_most_minus_0_3": 5,
+    "n_min": 29,
+    "n_max": 29
+  },
+  "same_month_index": {
+    "median_rho": -0.005,
+    "mean_rho": -0.038,
+    "positive_dongs": 19,
+    "negative_dongs": 21,
+    "at_least_0_3": 3,
+    "at_most_minus_0_3": 8,
+    "n_min": 32,
+    "n_max": 32
+  },
+  "yoy_same_month": {
+    "median_rho": 0.062,
+    "mean_rho": 0.092,
+    "positive_dongs": 23,
+    "negative_dongs": 17,
+    "at_least_0_3": 13,
+    "at_most_minus_0_3": 4,
+    "n_min": 16,
+    "n_max": 16
+  },
+  "yoy_search_2m_ahead": {
+    "median_rho": -0.076,
+    "mean_rho": -0.083,
+    "positive_dongs": 17,
+    "negative_dongs": 23,
+    "at_least_0_3": 4,
+    "at_most_minus_0_3": 12,
+    "n_min": 16,
+    "n_max": 16
+  }
+}

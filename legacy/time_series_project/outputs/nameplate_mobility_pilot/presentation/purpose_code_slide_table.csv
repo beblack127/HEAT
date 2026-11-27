@@ -1,0 +1,8 @@
+﻿purpose_code,Seoul_purpose_label,target_4_5_7,presentation_reason
+1,Commute,Excluded,Routine work travel
+2,School,Excluded,Routine school travel
+3,Return home,Excluded,Return-home travel
+4,Shopping,Included,Shopping-related destination activity
+5,Tourism,Included,Tourism-related destination activity
+6,Hospital,Excluded,Hospital-related travel
+7,Other,Included,Broader destination activity; may include non-leisure trips

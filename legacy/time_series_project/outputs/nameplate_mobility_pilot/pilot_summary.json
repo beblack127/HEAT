@@ -1,0 +1,96 @@
+{
+  "nameplate_zip": "이름표_행정동.zip",
+  "source_months": [
+    "2023-01",
+    "2023-02",
+    "2023-03",
+    "2023-04",
+    "2023-05",
+    "2023-06",
+    "2023-07",
+    "2023-08",
+    "2023-09",
+    "2023-10",
+    "2023-11",
+    "2023-12",
+    "2024-01",
+    "2024-02",
+    "2024-03",
+    "2024-04",
+    "2024-05",
+    "2024-06",
+    "2024-07",
+    "2024-08",
+    "2024-09",
+    "2024-10",
+    "2024-11",
+    "2024-12",
+    "2025-01",
+    "2025-02",
+    "2025-03",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12"
+  ],
+  "mobility_dongs": 40,
+  "nameplate_dongs": 427,
+  "matched_dongs": 40,
+  "source_rows": 1440,
+  "shop_tour_nonzero_rows": 483,
+  "shop_tour_nonzero_rows_2025": 156,
+  "shop_tour_share_2025": 0.0225,
+  "coverage": {
+    "동네": 40,
+    "역": 40,
+    "권역": 20
+  },
+  "evaluation_2025": {
+    "lag2_daily": {
+      "n": 480,
+      "mae": 4557.39,
+      "wape": 0.1041
+    },
+    "lag12_daily": {
+      "n": 480,
+      "mae": 9965.31,
+      "wape": 0.2275
+    }
+  },
+  "evaluation_2025_jan_aug": {
+    "lag2_daily": {
+      "n": 320,
+      "mae": 5280.58,
+      "wape": 0.1196
+    },
+    "lag12_daily": {
+      "n": 320,
+      "mae": 7596.18,
+      "wape": 0.172
+    }
+  },
+  "evaluation_2025_sep_dec": {
+    "lag2_daily": {
+      "n": 160,
+      "mae": 3111.0,
+      "wape": 0.0722
+    },
+    "lag12_daily": {
+      "n": 160,
+      "mae": 14703.58,
+      "wape": 0.3413
+    }
+  },
+  "other_share_median_2025": 1.0,
+  "notes": [
+    "Existing mobility summaries cover 40 selected dongs, not all 427.",
+    "Lag-2 and lag-12 are simple, no-training forecasting baselines.",
+    "No Naver values for these 566 keyword groups were supplied or fabricated.",
+    "2025 Sep-Dec is reported separately because source quality is under review."
+  ]
+}
