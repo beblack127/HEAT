@@ -1,0 +1,652 @@
+{
+  "dongs": 318,
+  "neighbors_k": 6,
+  "dongs_without_coords": [],
+  "by_h": {
+    "4": {
+      "test_origins": 14,
+      "momentum": {
+        "emerging_P@10": 0.667,
+        "spearman": 0.705
+      },
+      "change_4w": {
+        "emerging_P@10": 0.73,
+        "spearman": 0.802
+      },
+      "linear own (4)": {
+        "emerging_P@10": 0.741,
+        "spearman": 0.795
+      },
+      "linear own + neighbor": {
+        "emerging_P@10": 0.739,
+        "spearman": 0.795
+      },
+      "trees own (6)": {
+        "emerging_P@10": 0.73,
+        "spearman": 0.777
+      },
+      "trees own + neighbor": {
+        "emerging_P@10": 0.734,
+        "spearman": 0.777
+      },
+      "linear own + neighbor coef": {
+        "momentum_13w": 0.215,
+        "change_4w": 0.646,
+        "slope_13w": 0.04,
+        "slope_26w": 0.003,
+        "nb_change_4w": -0.058,
+        "nb_momentum_13w": 0.03,
+        "gu_change_4w": 0.0
+      }
+    },
+    "8": {
+      "test_origins": 10,
+      "momentum": {
+        "emerging_P@10": 0.688,
+        "spearman": 0.686
+      },
+      "change_4w": {
+        "emerging_P@10": 0.762,
+        "spearman": 0.811
+      },
+      "linear own (4)": {
+        "emerging_P@10": 0.766,
+        "spearman": 0.797
+      },
+      "linear own + neighbor": {
+        "emerging_P@10": 0.769,
+        "spearman": 0.798
+      },
+      "trees own (6)": {
+        "emerging_P@10": 0.762,
+        "spearman": 0.765
+      },
+      "trees own + neighbor": {
+        "emerging_P@10": 0.753,
+        "spearman": 0.765
+      },
+      "linear own + neighbor coef": {
+        "momentum_13w": 0.276,
+        "change_4w": 0.576,
+        "slope_13w": 0.031,
+        "slope_26w": 0.008,
+        "nb_change_4w": -0.05,
+        "nb_momentum_13w": 0.017,
+        "gu_change_4w": 0.006
+      }
+    },
+    "13": {
+      "test_origins": 5,
+      "momentum": {
+        "emerging_P@10": 0.594,
+        "spearman": 0.607
+      },
+      "change_4w": {
+        "emerging_P@10": 0.713,
+        "spearman": 0.766
+      },
+      "linear own (4)": {
+        "emerging_P@10": 0.706,
+        "spearman": 0.75
+      },
+      "linear own + neighbor": {
+        "emerging_P@10": 0.694,
+        "spearman": 0.751
+      },
+      "trees own (6)": {
+        "emerging_P@10": 0.7,
+        "spearman": 0.676
+      },
+      "trees own + neighbor": {
+        "emerging_P@10": 0.65,
+        "spearman": 0.682
+      },
+      "linear own + neighbor coef": {
+        "momentum_13w": 0.253,
+        "change_4w": 0.575,
+        "slope_13w": 0.019,
+        "slope_26w": 0.03,
+        "nb_change_4w": -0.073,
+        "nb_momentum_13w": 0.033,
+        "gu_change_4w": 0.016
+      }
+    }
+  },
+  "beyond_own": {
+    "4": {
+      "nb_change_4w": {
+        "mean": -0.082,
+        "min_max": [
+          -0.161,
+          -0.017
+        ]
+      },
+      "nb_momentum_13w": {
+        "mean": -0.078,
+        "min_max": [
+          -0.135,
+          -0.009
+        ]
+      },
+      "gu_change_4w": {
+        "mean": -0.032,
+        "min_max": [
+          -0.19,
+          0.163
+        ]
+      },
+      "slope_13w": {
+        "mean": -0.033,
+        "min_max": [
+          -0.194,
+          0.139
+        ]
+      },
+      "log_size": {
+        "mean": -0.104,
+        "min_max": [
+          -0.445,
+          0.085
+        ]
+      }
+    },
+    "8": {
+      "nb_change_4w": {
+        "mean": -0.107,
+        "min_max": [
+          -0.177,
+          -0.059
+        ]
+      },
+      "nb_momentum_13w": {
+        "mean": -0.102,
+        "min_max": [
+          -0.179,
+          -0.066
+        ]
+      },
+      "gu_change_4w": {
+        "mean": -0.075,
+        "min_max": [
+          -0.228,
+          0.047
+        ]
+      },
+      "slope_13w": {
+        "mean": -0.016,
+        "min_max": [
+          -0.155,
+          0.081
+        ]
+      },
+      "log_size": {
+        "mean": -0.082,
+        "min_max": [
+          -0.241,
+          0.051
+        ]
+      }
+    },
+    "13": {
+      "nb_change_4w": {
+        "mean": -0.12,
+        "min_max": [
+          -0.184,
+          -0.082
+        ]
+      },
+      "nb_momentum_13w": {
+        "mean": -0.097,
+        "min_max": [
+          -0.151,
+          -0.058
+        ]
+      },
+      "gu_change_4w": {
+        "mean": -0.049,
+        "min_max": [
+          -0.153,
+          0.049
+        ]
+      },
+      "slope_13w": {
+        "mean": 0.061,
+        "min_max": [
+          -0.001,
+          0.154
+        ]
+      },
+      "log_size": {
+        "mean": -0.158,
+        "min_max": [
+          -0.173,
+          -0.136
+        ]
+      }
+    }
+  },
+  "failure_by_type": [
+    {
+      "h": 4,
+      "model": "change_4w",
+      "type": "size: bottom quarter (of kept)",
+      "dongs": 80,
+      "true_emerging_dong_weeks": 145,
+      "recall": 0.71,
+      "false_alarms": 16,
+      "mean_rank_error": 0.132
+    },
+    {
+      "h": 4,
+      "model": "change_4w",
+      "type": "size: 2nd",
+      "dongs": 79,
+      "true_emerging_dong_weeks": 136,
+      "recall": 0.75,
+      "false_alarms": 33,
+      "mean_rank_error": 0.121
+    },
+    {
+      "h": 4,
+      "model": "change_4w",
+      "type": "size: 3rd",
+      "dongs": 79,
+      "true_emerging_dong_weeks": 81,
+      "recall": 0.654,
+      "false_alarms": 53,
+      "mean_rank_error": 0.139
+    },
+    {
+      "h": 4,
+      "model": "change_4w",
+      "type": "size: top quarter",
+      "dongs": 80,
+      "true_emerging_dong_weeks": 86,
+      "recall": 0.802,
+      "false_alarms": 19,
+      "mean_rank_error": 0.12
+    },
+    {
+      "h": 4,
+      "model": "change_4w",
+      "type": "weekday-heavy (office-like, low weekend/weekday third)",
+      "dongs": 106,
+      "true_emerging_dong_weeks": 88,
+      "recall": 0.739,
+      "false_alarms": 27,
+      "mean_rank_error": 0.131
+    },
+    {
+      "h": 4,
+      "model": "change_4w",
+      "type": "middle third",
+      "dongs": 106,
+      "true_emerging_dong_weeks": 150,
+      "recall": 0.753,
+      "false_alarms": 31,
+      "mean_rank_error": 0.126
+    },
+    {
+      "h": 4,
+      "model": "change_4w",
+      "type": "weekend-heavy (leisure-like, top third)",
+      "dongs": 106,
+      "true_emerging_dong_weeks": 210,
+      "recall": 0.71,
+      "false_alarms": 63,
+      "mean_rank_error": 0.127
+    },
+    {
+      "h": 4,
+      "model": "change_4w",
+      "type": "Seoul 121 places (developed commercial / tourist)",
+      "dongs": 41,
+      "true_emerging_dong_weeks": 71,
+      "recall": 0.634,
+      "false_alarms": 44,
+      "mean_rank_error": 0.155
+    },
+    {
+      "h": 4,
+      "model": "change_4w",
+      "type": "Careet Gen-Z list + Seongsu",
+      "dongs": 16,
+      "true_emerging_dong_weeks": 36,
+      "recall": 0.444,
+      "false_alarms": 28,
+      "mean_rank_error": 0.147
+    },
+    {
+      "h": 4,
+      "model": "trees own + neighbor",
+      "type": "size: bottom quarter (of kept)",
+      "dongs": 80,
+      "true_emerging_dong_weeks": 145,
+      "recall": 0.69,
+      "false_alarms": 12,
+      "mean_rank_error": 0.143
+    },
+    {
+      "h": 4,
+      "model": "trees own + neighbor",
+      "type": "size: 2nd",
+      "dongs": 79,
+      "true_emerging_dong_weeks": 136,
+      "recall": 0.801,
+      "false_alarms": 35,
+      "mean_rank_error": 0.126
+    },
+    {
+      "h": 4,
+      "model": "trees own + neighbor",
+      "type": "size: 3rd",
+      "dongs": 79,
+      "true_emerging_dong_weeks": 81,
+      "recall": 0.605,
+      "false_alarms": 52,
+      "mean_rank_error": 0.149
+    },
+    {
+      "h": 4,
+      "model": "trees own + neighbor",
+      "type": "size: top quarter",
+      "dongs": 80,
+      "true_emerging_dong_weeks": 86,
+      "recall": 0.826,
+      "false_alarms": 20,
+      "mean_rank_error": 0.135
+    },
+    {
+      "h": 4,
+      "model": "trees own + neighbor",
+      "type": "weekday-heavy (office-like, low weekend/weekday third)",
+      "dongs": 106,
+      "true_emerging_dong_weeks": 88,
+      "recall": 0.693,
+      "false_alarms": 23,
+      "mean_rank_error": 0.14
+    },
+    {
+      "h": 4,
+      "model": "trees own + neighbor",
+      "type": "middle third",
+      "dongs": 106,
+      "true_emerging_dong_weeks": 150,
+      "recall": 0.76,
+      "false_alarms": 32,
+      "mean_rank_error": 0.136
+    },
+    {
+      "h": 4,
+      "model": "trees own + neighbor",
+      "type": "weekend-heavy (leisure-like, top third)",
+      "dongs": 106,
+      "true_emerging_dong_weeks": 210,
+      "recall": 0.733,
+      "false_alarms": 64,
+      "mean_rank_error": 0.138
+    },
+    {
+      "h": 4,
+      "model": "trees own + neighbor",
+      "type": "Seoul 121 places (developed commercial / tourist)",
+      "dongs": 41,
+      "true_emerging_dong_weeks": 71,
+      "recall": 0.592,
+      "false_alarms": 41,
+      "mean_rank_error": 0.167
+    },
+    {
+      "h": 4,
+      "model": "trees own + neighbor",
+      "type": "Careet Gen-Z list + Seongsu",
+      "dongs": 16,
+      "true_emerging_dong_weeks": 36,
+      "recall": 0.444,
+      "false_alarms": 25,
+      "mean_rank_error": 0.155
+    },
+    {
+      "h": 13,
+      "model": "change_4w",
+      "type": "size: bottom quarter (of kept)",
+      "dongs": 80,
+      "true_emerging_dong_weeks": 49,
+      "recall": 0.776,
+      "false_alarms": 1,
+      "mean_rank_error": 0.148
+    },
+    {
+      "h": 13,
+      "model": "change_4w",
+      "type": "size: 2nd",
+      "dongs": 79,
+      "true_emerging_dong_weeks": 51,
+      "recall": 0.706,
+      "false_alarms": 10,
+      "mean_rank_error": 0.143
+    },
+    {
+      "h": 13,
+      "model": "change_4w",
+      "type": "size: 3rd",
+      "dongs": 79,
+      "true_emerging_dong_weeks": 25,
+      "recall": 0.72,
+      "false_alarms": 28,
+      "mean_rank_error": 0.137
+    },
+    {
+      "h": 13,
+      "model": "change_4w",
+      "type": "size: top quarter",
+      "dongs": 80,
+      "true_emerging_dong_weeks": 35,
+      "recall": 0.629,
+      "false_alarms": 7,
+      "mean_rank_error": 0.144
+    },
+    {
+      "h": 13,
+      "model": "change_4w",
+      "type": "weekday-heavy (office-like, low weekend/weekday third)",
+      "dongs": 106,
+      "true_emerging_dong_weeks": 27,
+      "recall": 0.778,
+      "false_alarms": 17,
+      "mean_rank_error": 0.142
+    },
+    {
+      "h": 13,
+      "model": "change_4w",
+      "type": "middle third",
+      "dongs": 106,
+      "true_emerging_dong_weeks": 55,
+      "recall": 0.691,
+      "false_alarms": 7,
+      "mean_rank_error": 0.147
+    },
+    {
+      "h": 13,
+      "model": "change_4w",
+      "type": "weekend-heavy (leisure-like, top third)",
+      "dongs": 106,
+      "true_emerging_dong_weeks": 78,
+      "recall": 0.705,
+      "false_alarms": 22,
+      "mean_rank_error": 0.14
+    },
+    {
+      "h": 13,
+      "model": "change_4w",
+      "type": "Seoul 121 places (developed commercial / tourist)",
+      "dongs": 41,
+      "true_emerging_dong_weeks": 27,
+      "recall": 0.593,
+      "false_alarms": 16,
+      "mean_rank_error": 0.154
+    },
+    {
+      "h": 13,
+      "model": "change_4w",
+      "type": "Careet Gen-Z list + Seongsu",
+      "dongs": 16,
+      "true_emerging_dong_weeks": 15,
+      "recall": 0.267,
+      "false_alarms": 8,
+      "mean_rank_error": 0.13
+    },
+    {
+      "h": 13,
+      "model": "trees own + neighbor",
+      "type": "size: bottom quarter (of kept)",
+      "dongs": 80,
+      "true_emerging_dong_weeks": 49,
+      "recall": 0.633,
+      "false_alarms": 0,
+      "mean_rank_error": 0.18
+    },
+    {
+      "h": 13,
+      "model": "trees own + neighbor",
+      "type": "size: 2nd",
+      "dongs": 79,
+      "true_emerging_dong_weeks": 51,
+      "recall": 0.725,
+      "false_alarms": 11,
+      "mean_rank_error": 0.152
+    },
+    {
+      "h": 13,
+      "model": "trees own + neighbor",
+      "type": "size: 3rd",
+      "dongs": 79,
+      "true_emerging_dong_weeks": 25,
+      "recall": 0.4,
+      "false_alarms": 32,
+      "mean_rank_error": 0.155
+    },
+    {
+      "h": 13,
+      "model": "trees own + neighbor",
+      "type": "size: top quarter",
+      "dongs": 80,
+      "true_emerging_dong_weeks": 35,
+      "recall": 0.743,
+      "false_alarms": 13,
+      "mean_rank_error": 0.195
+    },
+    {
+      "h": 13,
+      "model": "trees own + neighbor",
+      "type": "weekday-heavy (office-like, low weekend/weekday third)",
+      "dongs": 106,
+      "true_emerging_dong_weeks": 27,
+      "recall": 0.519,
+      "false_alarms": 19,
+      "mean_rank_error": 0.162
+    },
+    {
+      "h": 13,
+      "model": "trees own + neighbor",
+      "type": "middle third",
+      "dongs": 106,
+      "true_emerging_dong_weeks": 55,
+      "recall": 0.673,
+      "false_alarms": 13,
+      "mean_rank_error": 0.183
+    },
+    {
+      "h": 13,
+      "model": "trees own + neighbor",
+      "type": "weekend-heavy (leisure-like, top third)",
+      "dongs": 106,
+      "true_emerging_dong_weeks": 78,
+      "recall": 0.679,
+      "false_alarms": 24,
+      "mean_rank_error": 0.167
+    },
+    {
+      "h": 13,
+      "model": "trees own + neighbor",
+      "type": "Seoul 121 places (developed commercial / tourist)",
+      "dongs": 41,
+      "true_emerging_dong_weeks": 27,
+      "recall": 0.407,
+      "false_alarms": 13,
+      "mean_rank_error": 0.208
+    },
+    {
+      "h": 13,
+      "model": "trees own + neighbor",
+      "type": "Careet Gen-Z list + Seongsu",
+      "dongs": 16,
+      "true_emerging_dong_weeks": 15,
+      "recall": 0.067,
+      "false_alarms": 4,
+      "mean_rank_error": 0.174
+    }
+  ],
+  "most_missed_h13_change_4w": [
+    [
+      "종로구 사직동",
+      5
+    ],
+    [
+      "성동구 성수2가3동",
+      5
+    ],
+    [
+      "노원구 중계2·3동",
+      5
+    ],
+    [
+      "동작구 신대방2동",
+      3
+    ],
+    [
+      "도봉구 창2동",
+      3
+    ],
+    [
+      "강서구 등촌3동",
+      3
+    ],
+    [
+      "강동구 천호3동",
+      3
+    ],
+    [
+      "노원구 월계2동",
+      3
+    ],
+    [
+      "성북구 성북동",
+      3
+    ],
+    [
+      "광진구 자양2동",
+      3
+    ],
+    [
+      "마포구 염리동",
+      2
+    ],
+    [
+      "용산구 서빙고동",
+      2
+    ],
+    [
+      "구로구 고척1동",
+      1
+    ],
+    [
+      "성동구 옥수동",
+      1
+    ],
+    [
+      "서초구 반포2동",
+      1
+    ]
+  ]
+}

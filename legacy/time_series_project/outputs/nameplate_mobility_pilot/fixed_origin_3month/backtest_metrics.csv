@@ -1,0 +1,11 @@
+model,scope,dong_weeks,wape_pct
+ARIMA,all 13 weeks,5512,19.14
+ARIMA,week 13 only,424,23.47
+ARIMAX,all 13 weeks,5512,19.31
+ARIMAX,week 13 only,424,22.5
+Prior-year same week,all 13 weeks,5512,8.51
+Prior-year same week,week 13 only,424,8.29
+SARIMA,all 13 weeks,5512,19.43
+SARIMA,week 13 only,424,22.98
+SARIMAX,all 13 weeks,5512,18.91
+SARIMAX,week 13 only,424,21.84

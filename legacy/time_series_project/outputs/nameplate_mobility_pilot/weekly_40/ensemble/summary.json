@@ -1,0 +1,11 @@
+{
+  "selected_on": "2024-05-06 to 2024-07-29 validation only",
+  "selected_growth_power": 0.25,
+  "selected_arima_weight": 0.25,
+  "validation_wape": 9.181,
+  "test_wape": 17.811,
+  "test_lag52_wape": 20.213,
+  "test_arima_wape": 20.702,
+  "test_jan_jul_wape": 12.663,
+  "test_jan_jul_lag52_wape": 13.438
+}

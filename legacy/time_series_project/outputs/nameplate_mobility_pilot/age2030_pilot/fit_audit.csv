@@ -1,0 +1,361 @@
+﻿admin_dong_code,model,optimizer,warnings,scales
+11110515,ARIMA,lbfgs,0,{}
+11110515,SARIMA,lbfgs,1,{}
+11110515,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.963923297943741, 'train_std': 0.13673392296498696}}"
+11110515,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.963923297943741, 'train_std': 0.13673392296498696}}"
+11110515,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 9.819561655141197, 'train_std': 0.08060515583226428}}"
+11110515,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 7.963923297943741, 'train_std': 0.13673392296498696}, 'living_x': {'train_mean': 9.819561655141197, 'train_std': 0.08060515583226428}}"
+11110515,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.0999783906235, 'train_std': 0.11162242977431443}}"
+11110515,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.0999783906235, 'train_std': 0.11162242977431443}}"
+11110515,ARIMAX_search_forecast,lbfgs,0,
+11110530,ARIMA,lbfgs,0,{}
+11110530,SARIMA,lbfgs,1,{}
+11110530,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.182508615803048, 'train_std': 0.07206921237461433}}"
+11110530,SARIMAX_search,lbfgs,1,"{'search_x': {'train_mean': 8.182508615803048, 'train_std': 0.07206921237461433}}"
+11110530,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.410319284629907, 'train_std': 0.036189809953972266}}"
+11110530,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.182508615803048, 'train_std': 0.07206921237461433}, 'living_x': {'train_mean': 10.410319284629907, 'train_std': 0.036189809953972266}}"
+11110530,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.0999783906235, 'train_std': 0.11162242977431443}}"
+11110530,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 10.0999783906235, 'train_std': 0.11162242977431443}}"
+11110530,ARIMAX_search_forecast,lbfgs,0,
+11110540,ARIMA,powell,1,{}
+11110540,SARIMA,lbfgs,1,{}
+11110540,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.516415453235018, 'train_std': 0.1127420923034267}}"
+11110540,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.516415453235018, 'train_std': 0.1127420923034267}}"
+11110540,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 8.928527294756373, 'train_std': 0.08074855696932791}}"
+11110540,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.516415453235018, 'train_std': 0.1127420923034267}, 'living_x': {'train_mean': 8.928527294756373, 'train_std': 0.08074855696932791}}"
+11110540,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.164949141852412, 'train_std': 0.07706290020805986}}"
+11110540,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.164949141852412, 'train_std': 0.07706290020805986}}"
+11110540,ARIMAX_search_forecast,lbfgs,0,
+11110600,ARIMA,lbfgs,0,{}
+11110600,SARIMA,lbfgs,1,{}
+11110600,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.25644609866616, 'train_std': 0.07384356517662381}}"
+11110600,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.25644609866616, 'train_std': 0.07384356517662381}}"
+11110600,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 8.979636730357939, 'train_std': 0.06789323951674403}}"
+11110600,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.25644609866616, 'train_std': 0.07384356517662381}, 'living_x': {'train_mean': 8.979636730357939, 'train_std': 0.06789323951674403}}"
+11110600,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.164949141852412, 'train_std': 0.07706290020805986}}"
+11110600,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.164949141852412, 'train_std': 0.07706290020805986}}"
+11110600,ARIMAX_search_forecast,lbfgs,0,
+11110615,ARIMA,lbfgs,0,{}
+11110615,SARIMA,lbfgs,1,{}
+11110615,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.537554492703086, 'train_std': 0.04788957349922723}}"
+11110615,SARIMAX_search,lbfgs,1,"{'search_x': {'train_mean': 8.537554492703086, 'train_std': 0.04788957349922723}}"
+11110615,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 11.419288188073011, 'train_std': 0.03503702423597964}}"
+11110615,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.537554492703086, 'train_std': 0.04788957349922723}, 'living_x': {'train_mean': 11.419288188073011, 'train_std': 0.03503702423597964}}"
+11110615,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.36648739932308, 'train_std': 0.050966890720970784}}"
+11110615,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 10.36648739932308, 'train_std': 0.050966890720970784}}"
+11110615,ARIMAX_search_forecast,lbfgs,0,
+11110640,ARIMA,powell,1,{}
+11110640,SARIMA,lbfgs,1,{}
+11110640,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.969951957523123, 'train_std': 0.05318954365433176}}"
+11110640,SARIMAX_search,lbfgs,1,"{'search_x': {'train_mean': 7.969951957523123, 'train_std': 0.05318954365433176}}"
+11110640,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.362665047109731, 'train_std': 0.06261792187419221}}"
+11110640,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 7.969951957523123, 'train_std': 0.05318954365433176}, 'living_x': {'train_mean': 10.362665047109731, 'train_std': 0.06261792187419221}}"
+11110640,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.47898423849422, 'train_std': 0.05329260607052426}}"
+11110640,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 10.47898423849422, 'train_std': 0.05329260607052426}}"
+11110640,ARIMAX_search_forecast,lbfgs,0,
+11110650,ARIMA,lbfgs,0,{}
+11110650,SARIMA,lbfgs,0,{}
+11110650,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.536881371096328, 'train_std': 0.06181359131095852}}"
+11110650,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.536881371096328, 'train_std': 0.06181359131095852}}"
+11110650,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.453961196172482, 'train_std': 0.09352962838586878}}"
+11110650,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.536881371096328, 'train_std': 0.06181359131095852}, 'living_x': {'train_mean': 10.453961196172482, 'train_std': 0.09352962838586878}}"
+11110650,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.47898423849422, 'train_std': 0.05329260607052426}}"
+11110650,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 10.47898423849422, 'train_std': 0.05329260607052426}}"
+11110650,ARIMAX_search_forecast,lbfgs,0,
+11170520,ARIMA,lbfgs,0,{}
+11170520,SARIMA,lbfgs,0,{}
+11170520,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 9.125572172233046, 'train_std': 0.07720225831733145}}"
+11170520,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 9.125572172233046, 'train_std': 0.07720225831733145}}"
+11170520,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 9.42259234983437, 'train_std': 0.04420699554697473}}"
+11170520,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 9.125572172233046, 'train_std': 0.07720225831733145}, 'living_x': {'train_mean': 9.42259234983437, 'train_std': 0.04420699554697473}}"
+11170520,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 8.539595699620039, 'train_std': 0.07266840436317532}}"
+11170520,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 8.539595699620039, 'train_std': 0.07266840436317532}}"
+11170520,ARIMAX_search_forecast,lbfgs,0,
+11170650,ARIMA,lbfgs,0,{}
+11170650,SARIMA,lbfgs,0,{}
+11170650,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.686337576028397, 'train_std': 0.13295298652691342}}"
+11170650,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.686337576028397, 'train_std': 0.13295298652691342}}"
+11170650,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 9.428743403749674, 'train_std': 0.024966934359584036}}"
+11170650,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.686337576028397, 'train_std': 0.13295298652691342}, 'living_x': {'train_mean': 9.428743403749674, 'train_std': 0.024966934359584036}}"
+11170650,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.428030004412872, 'train_std': 0.09029668665718375}}"
+11170650,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.428030004412872, 'train_std': 0.09029668665718375}}"
+11170650,ARIMAX_search_forecast,lbfgs,0,
+11170660,ARIMA,lbfgs,0,{}
+11170660,SARIMA,lbfgs,0,{}
+11170660,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.685533982981125, 'train_std': 0.128561875279178}}"
+11170660,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.685533982981125, 'train_std': 0.128561875279178}}"
+11170660,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 9.261645141911183, 'train_std': 0.027429377563302628}}"
+11170660,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.685533982981125, 'train_std': 0.128561875279178}, 'living_x': {'train_mean': 9.261645141911183, 'train_std': 0.027429377563302628}}"
+11170660,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 8.539595699620039, 'train_std': 0.07266840436317532}}"
+11170660,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 8.539595699620039, 'train_std': 0.07266840436317532}}"
+11170660,ARIMAX_search_forecast,lbfgs,0,
+11170685,ARIMA,lbfgs,0,{}
+11170685,SARIMA,lbfgs,0,{}
+11170685,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.698824387438261, 'train_std': 0.07770449655673013}}"
+11170685,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.698824387438261, 'train_std': 0.07770449655673013}}"
+11170685,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.45469137961663, 'train_std': 0.04879364963956107}}"
+11170685,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.698824387438261, 'train_std': 0.07770449655673013}, 'living_x': {'train_mean': 10.45469137961663, 'train_std': 0.04879364963956107}}"
+11170685,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.325796278957332, 'train_std': 0.07243202430418676}}"
+11170685,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.325796278957332, 'train_std': 0.07243202430418676}}"
+11170685,ARIMAX_search_forecast,lbfgs,0,
+11200540,ARIMA,lbfgs,0,{}
+11200540,SARIMA,lbfgs,0,{}
+11200540,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.073949276566138, 'train_std': 0.041091699000572274}}"
+11200540,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.073949276566138, 'train_std': 0.041091699000572274}}"
+11200540,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 9.885768078230793, 'train_std': 0.037003878168316406}}"
+11200540,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 7.073949276566138, 'train_std': 0.041091699000572274}, 'living_x': {'train_mean': 9.885768078230793, 'train_std': 0.037003878168316406}}"
+11200540,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 8.563882012373389, 'train_std': 0.04895569716832707}}"
+11200540,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 8.563882012373389, 'train_std': 0.04895569716832707}}"
+11200540,ARIMAX_search_forecast,lbfgs,0,
+11200550,ARIMA,lbfgs,0,{}
+11200550,SARIMA,lbfgs,0,{}
+11200550,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 6.959584845495633, 'train_std': 0.04512007229322849}}"
+11200550,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 6.959584845495633, 'train_std': 0.04512007229322849}}"
+11200550,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.195089967095276, 'train_std': 0.12789007547884493}}"
+11200550,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 6.959584845495633, 'train_std': 0.04512007229322849}, 'living_x': {'train_mean': 10.195089967095276, 'train_std': 0.12789007547884493}}"
+11200550,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.28147751482356, 'train_std': 0.2858568928711211}}"
+11200550,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.28147751482356, 'train_std': 0.2858568928711211}}"
+11200550,ARIMAX_search_forecast,lbfgs,0,
+11200560,ARIMA,lbfgs,0,{}
+11200560,SARIMA,lbfgs,0,{}
+11200560,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.075457402049532, 'train_std': 0.039567929197560595}}"
+11200560,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.075457402049532, 'train_std': 0.039567929197560595}}"
+11200560,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.243058951063555, 'train_std': 0.07069775801655932}}"
+11200560,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 7.075457402049532, 'train_std': 0.039567929197560595}, 'living_x': {'train_mean': 10.243058951063555, 'train_std': 0.07069775801655932}}"
+11200560,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.465547205053843, 'train_std': 0.041072236673703306}}"
+11200560,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.465547205053843, 'train_std': 0.041072236673703306}}"
+11200560,ARIMAX_search_forecast,lbfgs,0,
+11200670,ARIMA,lbfgs,0,{}
+11200670,SARIMA,lbfgs,1,{}
+11200670,ARIMAX_search,powell,1,"{'search_x': {'train_mean': 9.755512347764327, 'train_std': 0.0622577347967207}}"
+11200670,SARIMAX_search,lbfgs,1,"{'search_x': {'train_mean': 9.755512347764327, 'train_std': 0.0622577347967207}}"
+11200670,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 9.922633010894089, 'train_std': 0.027682527455144282}}"
+11200670,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 9.755512347764327, 'train_std': 0.0622577347967207}, 'living_x': {'train_mean': 9.922633010894089, 'train_std': 0.027682527455144282}}"
+11200670,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.650543109606255, 'train_std': 0.062372224738380555}}"
+11200670,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 10.650543109606255, 'train_std': 0.062372224738380555}}"
+11200670,ARIMAX_search_forecast,lbfgs,0,
+11200690,ARIMA,lbfgs,0,{}
+11200690,SARIMA,lbfgs,0,{}
+11200690,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 9.738494777478435, 'train_std': 0.062130504288913105}}"
+11200690,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 9.738494777478435, 'train_std': 0.062130504288913105}}"
+11200690,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.679386992203382, 'train_std': 0.027759071042559338}}"
+11200690,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 9.738494777478435, 'train_std': 0.062130504288913105}, 'living_x': {'train_mean': 10.679386992203382, 'train_std': 0.027759071042559338}}"
+11200690,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.650543109606255, 'train_std': 0.062372224738380555}}"
+11200690,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.650543109606255, 'train_std': 0.062372224738380555}}"
+11200690,ARIMAX_search_forecast,lbfgs,0,
+11215710,ARIMA,lbfgs,0,{}
+11215710,SARIMA,lbfgs,0,{}
+11215710,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.536598498628944, 'train_std': 0.03454235792470518}}"
+11215710,SARIMAX_search,lbfgs,1,"{'search_x': {'train_mean': 8.536598498628944, 'train_std': 0.03454235792470518}}"
+11215710,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.674474337269604, 'train_std': 0.05651818783625332}}"
+11215710,ARIMAX_both,powell,1,"{'search_x': {'train_mean': 8.536598498628944, 'train_std': 0.03454235792470518}, 'living_x': {'train_mean': 10.674474337269604, 'train_std': 0.05651818783625332}}"
+11215710,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.850001085156908, 'train_std': 0.04557864670876451}}"
+11215710,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.850001085156908, 'train_std': 0.04557864670876451}}"
+11215710,ARIMAX_search_forecast,lbfgs,0,
+11215840,ARIMA,lbfgs,0,{}
+11215840,SARIMA,lbfgs,1,{}
+11215840,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.441222317942609, 'train_std': 0.04376185755372861}}"
+11215840,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.441222317942609, 'train_std': 0.04376185755372861}}"
+11215840,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.112236803441764, 'train_std': 0.050984916544377853}}"
+11215840,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.441222317942609, 'train_std': 0.04376185755372861}, 'living_x': {'train_mean': 10.112236803441764, 'train_std': 0.050984916544377853}}"
+11215840,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.850001085156908, 'train_std': 0.04557864670876451}}"
+11215840,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 10.850001085156908, 'train_std': 0.04557864670876451}}"
+11215840,ARIMAX_search_forecast,lbfgs,0,
+11215847,ARIMA,lbfgs,0,{}
+11215847,SARIMA,lbfgs,1,{}
+11215847,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.615482140636848, 'train_std': 0.03723556511538897}}"
+11215847,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.615482140636848, 'train_std': 0.03723556511538897}}"
+11215847,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.267645295312018, 'train_std': 0.04014165135737306}}"
+11215847,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.615482140636848, 'train_std': 0.03723556511538897}, 'living_x': {'train_mean': 10.267645295312018, 'train_std': 0.04014165135737306}}"
+11215847,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.850001085156908, 'train_std': 0.04557864670876451}}"
+11215847,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.850001085156908, 'train_std': 0.04557864670876451}}"
+11215847,ARIMAX_search_forecast,lbfgs,0,
+11410585,ARIMA,lbfgs,0,{}
+11410585,SARIMA,lbfgs,0,{}
+11410585,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.115854559750089, 'train_std': 0.050538840564574805}}"
+11410585,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.115854559750089, 'train_std': 0.050538840564574805}}"
+11410585,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 11.138370057186473, 'train_std': 0.08737194848546963}}"
+11410585,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.115854559750089, 'train_std': 0.050538840564574805}, 'living_x': {'train_mean': 11.138370057186473, 'train_std': 0.08737194848546963}}"
+11410585,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.562832167941664, 'train_std': 0.05893425759570473}}"
+11410585,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.562832167941664, 'train_std': 0.05893425759570473}}"
+11410585,ARIMAX_search_forecast,lbfgs,0,
+11440600,ARIMA,lbfgs,0,{}
+11440600,SARIMA,lbfgs,0,{}
+11440600,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.01614638849153, 'train_std': 0.044710232845102726}}"
+11440600,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.01614638849153, 'train_std': 0.044710232845102726}}"
+11440600,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.152544428952906, 'train_std': 0.07114973992623691}}"
+11440600,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.01614638849153, 'train_std': 0.044710232845102726}, 'living_x': {'train_mean': 10.152544428952906, 'train_std': 0.07114973992623691}}"
+11440600,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.101116602149721, 'train_std': 0.09004605762764688}}"
+11440600,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.101116602149721, 'train_std': 0.09004605762764688}}"
+11440600,ARIMAX_search_forecast,lbfgs,0,
+11440660,ARIMA,lbfgs,0,{}
+11440660,SARIMA,lbfgs,1,{}
+11440660,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 9.119976939320859, 'train_std': 0.09595625181438003}}"
+11440660,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 9.119976939320859, 'train_std': 0.09595625181438003}}"
+11440660,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 11.477084935569357, 'train_std': 0.02973220116765843}}"
+11440660,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 9.119976939320859, 'train_std': 0.09595625181438003}, 'living_x': {'train_mean': 11.477084935569357, 'train_std': 0.02973220116765843}}"
+11440660,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.660023067974901, 'train_std': 0.04917589283224143}}"
+11440660,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.660023067974901, 'train_std': 0.04917589283224143}}"
+11440660,ARIMAX_search_forecast,lbfgs,0,
+11440680,ARIMA,lbfgs,0,{}
+11440680,SARIMA,lbfgs,0,{}
+11440680,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 9.336649027347999, 'train_std': 0.0287432644669834}}"
+11440680,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 9.336649027347999, 'train_std': 0.0287432644669834}}"
+11440680,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.065514283523806, 'train_std': 0.05305578805554281}}"
+11440680,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 9.336649027347999, 'train_std': 0.0287432644669834}, 'living_x': {'train_mean': 10.065514283523806, 'train_std': 0.05305578805554281}}"
+11440680,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.77359402584968, 'train_std': 0.03801468140154455}}"
+11440680,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.77359402584968, 'train_std': 0.03801468140154455}}"
+11440680,ARIMAX_search_forecast,lbfgs,0,
+11440710,ARIMA,lbfgs,0,{}
+11440710,SARIMA,lbfgs,1,{}
+11440710,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 9.375937677177703, 'train_std': 0.08812498105743809}}"
+11440710,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 9.375937677177703, 'train_std': 0.08812498105743809}}"
+11440710,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 9.789271391704778, 'train_std': 0.026305876206695618}}"
+11440710,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 9.375937677177703, 'train_std': 0.08812498105743809}, 'living_x': {'train_mean': 9.789271391704778, 'train_std': 0.026305876206695618}}"
+11440710,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 8.592985161017133, 'train_std': 0.05657295939611931}}"
+11440710,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 8.592985161017133, 'train_std': 0.05657295939611931}}"
+11440710,ARIMAX_search_forecast,lbfgs,0,
+11440720,ARIMA,lbfgs,0,{}
+11440720,SARIMA,lbfgs,0,{}
+11440720,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.001621462600779, 'train_std': 0.056835900842454094}}"
+11440720,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.001621462600779, 'train_std': 0.056835900842454094}}"
+11440720,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 9.86735987147566, 'train_std': 0.037933190961160594}}"
+11440720,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.001621462600779, 'train_std': 0.056835900842454094}, 'living_x': {'train_mean': 9.86735987147566, 'train_std': 0.037933190961160594}}"
+11440720,ARIMAX_subway,powell,1,"{'subway_x': {'train_mean': 9.412710148961525, 'train_std': 0.04148415484695031}}"
+11440720,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.412710148961525, 'train_std': 0.04148415484695031}}"
+11440720,ARIMAX_search_forecast,lbfgs,0,
+11560540,ARIMA,lbfgs,0,{}
+11560540,SARIMA,lbfgs,1,{}
+11560540,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 9.032855769112997, 'train_std': 0.09362570508683818}}"
+11560540,SARIMAX_search,lbfgs,1,"{'search_x': {'train_mean': 9.032855769112997, 'train_std': 0.09362570508683818}}"
+11560540,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 11.758372063548032, 'train_std': 0.036289814404656555}}"
+11560540,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 9.032855769112997, 'train_std': 0.09362570508683818}, 'living_x': {'train_mean': 11.758372063548032, 'train_std': 0.036289814404656555}}"
+11560540,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.638310547647345, 'train_std': 0.058171311029774624}}"
+11560540,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 9.638310547647345, 'train_std': 0.058171311029774624}}"
+11560540,ARIMAX_search_forecast,lbfgs,0,
+11620575,ARIMA,lbfgs,0,{}
+11620575,SARIMA,lbfgs,1,{}
+11620575,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.5084029001632855, 'train_std': 0.02880131305203379}}"
+11620575,SARIMAX_search,lbfgs,1,"{'search_x': {'train_mean': 7.5084029001632855, 'train_std': 0.02880131305203379}}"
+11620575,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 9.936153436816614, 'train_std': 0.028202573650189047}}"
+11620575,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 7.5084029001632855, 'train_std': 0.02880131305203379}, 'living_x': {'train_mean': 9.936153436816614, 'train_std': 0.028202573650189047}}"
+11620575,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.67003587203869, 'train_std': 0.039109499234767586}}"
+11620575,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 10.67003587203869, 'train_std': 0.039109499234767586}}"
+11620575,ARIMAX_search_forecast,lbfgs,0,
+11620585,ARIMA,lbfgs,0,{}
+11620585,SARIMA,lbfgs,0,{}
+11620585,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.695914085728096, 'train_std': 0.06957746751962188}}"
+11620585,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.695914085728096, 'train_std': 0.06957746751962188}}"
+11620585,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.073920728133714, 'train_std': 0.03582948227984433}}"
+11620585,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 7.695914085728096, 'train_std': 0.06957746751962188}, 'living_x': {'train_mean': 10.073920728133714, 'train_std': 0.03582948227984433}}"
+11620585,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.67003587203869, 'train_std': 0.039109499234767586}}"
+11620585,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.67003587203869, 'train_std': 0.039109499234767586}}"
+11620585,ARIMAX_search_forecast,lbfgs,0,
+11620595,ARIMA,lbfgs,0,{}
+11620595,SARIMA,lbfgs,0,{}
+11620595,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.314152987161361, 'train_std': 0.03250734410380292}}"
+11620595,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.314152987161361, 'train_std': 0.03250734410380292}}"
+11620595,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.501431997502547, 'train_std': 0.018152461002232508}}"
+11620595,ARIMAX_both,powell,1,"{'search_x': {'train_mean': 7.314152987161361, 'train_std': 0.03250734410380292}, 'living_x': {'train_mean': 10.501431997502547, 'train_std': 0.018152461002232508}}"
+11620595,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.964482110702885, 'train_std': 0.03522079736076381}}"
+11620595,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.964482110702885, 'train_std': 0.03522079736076381}}"
+11620595,ARIMAX_search_forecast,lbfgs,0,
+11620615,ARIMA,lbfgs,0,{}
+11620615,SARIMA,lbfgs,1,{}
+11620615,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.754594856603383, 'train_std': 0.023835984660715927}}"
+11620615,SARIMAX_search,lbfgs,1,"{'search_x': {'train_mean': 7.754594856603383, 'train_std': 0.023835984660715927}}"
+11620615,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 9.536460595925902, 'train_std': 0.031373415191764537}}"
+11620615,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 7.754594856603383, 'train_std': 0.023835984660715927}, 'living_x': {'train_mean': 9.536460595925902, 'train_std': 0.031373415191764537}}"
+11620615,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.67003587203869, 'train_std': 0.039109499234767586}}"
+11620615,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 10.67003587203869, 'train_std': 0.039109499234767586}}"
+11620615,ARIMAX_search_forecast,lbfgs,0,
+11650520,ARIMA,lbfgs,0,{}
+11650520,SARIMA,lbfgs,1,{}
+11650520,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 9.107631062726659, 'train_std': 0.06525434215573522}}"
+11650520,SARIMAX_search,lbfgs,1,"{'search_x': {'train_mean': 9.107631062726659, 'train_std': 0.06525434215573522}}"
+11650520,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.906721386828478, 'train_std': 0.028780942262080843}}"
+11650520,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 9.107631062726659, 'train_std': 0.06525434215573522}, 'living_x': {'train_mean': 10.906721386828478, 'train_std': 0.028780942262080843}}"
+11650520,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 11.195207656178, 'train_std': 0.039166533387442075}}"
+11650520,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 11.195207656178, 'train_std': 0.039166533387442075}}"
+11650520,ARIMAX_search_forecast,lbfgs,0,
+11650531,ARIMA,lbfgs,0,{}
+11650531,SARIMA,lbfgs,1,{}
+11650531,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 9.01937746590266, 'train_std': 0.06885224690458173}}"
+11650531,SARIMAX_search,lbfgs,1,"{'search_x': {'train_mean': 9.01937746590266, 'train_std': 0.06885224690458173}}"
+11650531,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.753843523809, 'train_std': 0.03305401376685702}}"
+11650531,ARIMAX_both,powell,1,"{'search_x': {'train_mean': 9.01937746590266, 'train_std': 0.06885224690458173}, 'living_x': {'train_mean': 10.753843523809, 'train_std': 0.03305401376685702}}"
+11650531,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.290256505255236, 'train_std': 0.03384043909677345}}"
+11650531,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 10.290256505255236, 'train_std': 0.03384043909677345}}"
+11650531,ARIMAX_search_forecast,lbfgs,0,
+11680510,ARIMA,lbfgs,0,{}
+11680510,SARIMA,lbfgs,0,{}
+11680510,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.853526547411626, 'train_std': 0.10218953237893375}}"
+11680510,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.853526547411626, 'train_std': 0.10218953237893375}}"
+11680510,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.725124021035139, 'train_std': 0.033905318135289145}}"
+11680510,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.853526547411626, 'train_std': 0.10218953237893375}, 'living_x': {'train_mean': 10.725124021035139, 'train_std': 0.033905318135289145}}"
+11680510,ARIMAX_subway,powell,1,"{'subway_x': {'train_mean': 10.23054510972257, 'train_std': 0.04185265295414284}}"
+11680510,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.23054510972257, 'train_std': 0.04185265295414284}}"
+11680510,ARIMAX_search_forecast,lbfgs,0,
+11680545,ARIMA,lbfgs,0,{}
+11680545,SARIMA,lbfgs,0,{}
+11680545,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.929917317234635, 'train_std': 0.08304845788153288}}"
+11680545,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.929917317234635, 'train_std': 0.08304845788153288}}"
+11680545,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.830897649735792, 'train_std': 0.03442930822325276}}"
+11680545,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.929917317234635, 'train_std': 0.08304845788153288}, 'living_x': {'train_mean': 10.830897649735792, 'train_std': 0.03442930822325276}}"
+11680545,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.94932457913804, 'train_std': 0.04629253077323396}}"
+11680545,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 9.94932457913804, 'train_std': 0.04629253077323396}}"
+11680545,ARIMAX_search_forecast,lbfgs,0,
+11680565,ARIMA,lbfgs,0,{}
+11680565,SARIMA,lbfgs,0,{}
+11680565,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.136508190735647, 'train_std': 0.09484715486866863}}"
+11680565,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.136508190735647, 'train_std': 0.09484715486866863}}"
+11680565,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.7724075473746, 'train_std': 0.04123760870847382}}"
+11680565,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.136508190735647, 'train_std': 0.09484715486866863}, 'living_x': {'train_mean': 10.7724075473746, 'train_std': 0.04123760870847382}}"
+11680565,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.182211865436132, 'train_std': 0.042750861937708294}}"
+11680565,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.182211865436132, 'train_std': 0.042750861937708294}}"
+11680565,ARIMAX_search_forecast,lbfgs,0,
+11680640,ARIMA,lbfgs,0,{}
+11680640,SARIMA,lbfgs,1,{}
+11680640,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.869550980527631, 'train_std': 0.053988898053193804}}"
+11680640,SARIMAX_search,lbfgs,1,"{'search_x': {'train_mean': 8.869550980527631, 'train_std': 0.053988898053193804}}"
+11680640,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 11.796947419725127, 'train_std': 0.04154448994001342}}"
+11680640,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.869550980527631, 'train_std': 0.053988898053193804}, 'living_x': {'train_mean': 11.796947419725127, 'train_std': 0.04154448994001342}}"
+11680640,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 11.195207656178, 'train_std': 0.039166533387442075}}"
+11680640,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 11.195207656178, 'train_std': 0.039166533387442075}}"
+11680640,ARIMAX_search_forecast,lbfgs,0,
+11710562,ARIMA,lbfgs,0,{}
+11710562,SARIMA,lbfgs,0,{}
+11710562,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.946175196349504, 'train_std': 0.04972907181909326}}"
+11710562,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.946175196349504, 'train_std': 0.04972907181909326}}"
+11710562,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.5395170768478, 'train_std': 0.033359170192605}}"
+11710562,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 7.946175196349504, 'train_std': 0.04972907181909326}, 'living_x': {'train_mean': 10.5395170768478, 'train_std': 0.033359170192605}}"
+11710562,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 8.787369900749239, 'train_std': 0.05714411948628711}}"
+11710562,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 8.787369900749239, 'train_std': 0.05714411948628711}}"
+11710562,ARIMAX_search_forecast,lbfgs,0,
+11710566,ARIMA,lbfgs,0,{}
+11710566,SARIMA,lbfgs,0,{}
+11710566,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.677708071429908, 'train_std': 0.08144663520292245}}"
+11710566,SARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 7.677708071429908, 'train_std': 0.08144663520292245}}"
+11710566,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.019365255724072, 'train_std': 0.07252505631359249}}"
+11710566,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 7.677708071429908, 'train_std': 0.08144663520292245}, 'living_x': {'train_mean': 10.019365255724072, 'train_std': 0.07252505631359249}}"
+11710566,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 6.978959969339242, 'train_std': 0.11080184445033028}}"
+11710566,SARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 6.978959969339242, 'train_std': 0.11080184445033028}}"
+11710566,ARIMAX_search_forecast,lbfgs,0,
+11710680,ARIMA,lbfgs,0,{}
+11710680,SARIMA,lbfgs,1,{}
+11710680,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 9.38313625227394, 'train_std': 0.07758084337198819}}"
+11710680,SARIMAX_search,lbfgs,1,"{'search_x': {'train_mean': 9.38313625227394, 'train_std': 0.07758084337198819}}"
+11710680,ARIMAX_living,powell,1,"{'living_x': {'train_mean': 10.910804011373253, 'train_std': 0.0632318053187539}}"
+11710680,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 9.38313625227394, 'train_std': 0.07758084337198819}, 'living_x': {'train_mean': 10.910804011373253, 'train_std': 0.0632318053187539}}"
+11710680,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 10.011356418554238, 'train_std': 0.04552526199822216}}"
+11710680,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 10.011356418554238, 'train_std': 0.04552526199822216}}"
+11710680,ARIMAX_search_forecast,lbfgs,0,
+11710710,ARIMA,lbfgs,0,{}
+11710710,SARIMA,lbfgs,1,{}
+11710710,ARIMAX_search,lbfgs,0,"{'search_x': {'train_mean': 8.92936187461759, 'train_std': 0.07876870002534712}}"
+11710710,SARIMAX_search,lbfgs,1,"{'search_x': {'train_mean': 8.92936187461759, 'train_std': 0.07876870002534712}}"
+11710710,ARIMAX_living,lbfgs,0,"{'living_x': {'train_mean': 10.913110440077544, 'train_std': 0.035269785594113784}}"
+11710710,ARIMAX_both,lbfgs,0,"{'search_x': {'train_mean': 8.92936187461759, 'train_std': 0.07876870002534712}, 'living_x': {'train_mean': 10.913110440077544, 'train_std': 0.035269785594113784}}"
+11710710,ARIMAX_subway,lbfgs,0,"{'subway_x': {'train_mean': 11.45011514495477, 'train_std': 0.05027818331574339}}"
+11710710,SARIMAX_subway,lbfgs,1,"{'subway_x': {'train_mean': 11.45011514495477, 'train_std': 0.05027818331574339}}"
+11710710,ARIMAX_search_forecast,lbfgs,0,

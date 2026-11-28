@@ -1,0 +1,9 @@
+numpy
+pandas
+scikit-learn
+statsmodels
+pyshp
+shapely
+pyproj
+matplotlib
+Pillow

@@ -1,0 +1,59 @@
+{
+  "anomaly_external_check": {
+    "pre": {
+      "y": 0.991,
+      "subway_exits": 1.025,
+      "search_all": 0.89,
+      "search_age19_39": 0.861
+    },
+    "spike": {
+      "y": 1.55,
+      "subway_exits": 1.017,
+      "search_all": 0.894,
+      "search_age19_39": 0.866
+    },
+    "post": {
+      "y": 1.019,
+      "subway_exits": 1.031,
+      "search_all": 0.86,
+      "search_age19_39": 0.834
+    }
+  },
+  "citywide_baselines": {
+    "n": 14479,
+    "dongs": 426,
+    "full": {
+      "lag13": 18.8,
+      "lag52": 18.59,
+      "growth_corrected": 18.25,
+      "quality_guard": 12.93
+    },
+    "jan_jul": {
+      "lag13": 19.74,
+      "lag52": 13.76,
+      "growth_corrected": 13.14
+    },
+    "quality_guard_note": "2024-08-05 to 2024-10-28 reference weeks switch to lag13; exploratory sensitivity"
+  },
+  "pilot_40": {
+    "selected_wape": 17.81,
+    "lag52_wape": 20.21,
+    "quality_guard_wape": 12.34,
+    "dongs_improved": 26,
+    "dong_cluster_bootstrap_gain_pp_95pct": [
+      1.05,
+      3.45
+    ],
+    "growth_top10_4week": {
+      "arima_pred": {
+        "hits": 145,
+        "out_of": 310
+      },
+      "selected_pred": {
+        "hits": 150,
+        "out_of": 310
+      }
+    },
+    "rank_note": "post-hoc exploratory ranking on selected 40 dongs; rolling 4-week YoY growth"
+  }
+}

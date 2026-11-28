@@ -1,0 +1,212 @@
+{
+  "dongs": 424,
+  "dongs_above_floor": 318,
+  "ref_121_dongs": 41,
+  "ref_careet_dongs": 16,
+  "origins": 13,
+  "clean_origins": 4,
+  "current_hotspots_2025": {
+    "V0 20-39 all days": {
+      "top5": {
+        "recall_121": 0.317,
+        "precision_121": 0.619,
+        "recall_careet": 0.438
+      },
+      "top10": {
+        "recall_121": 0.488,
+        "precision_121": 0.476,
+        "recall_careet": 0.625
+      },
+      "top20": {
+        "recall_121": 0.61,
+        "precision_121": 0.294,
+        "recall_careet": 0.688
+      },
+      "overlap_top10_with_V0": 1.0,
+      "rank_corr_with_V0": 1.0,
+      "top10_not_in_V0": []
+    },
+    "V1 all ages": {
+      "top5": {
+        "recall_121": 0.341,
+        "precision_121": 0.667,
+        "recall_careet": 0.438
+      },
+      "top10": {
+        "recall_121": 0.488,
+        "precision_121": 0.476,
+        "recall_careet": 0.625
+      },
+      "top20": {
+        "recall_121": 0.61,
+        "precision_121": 0.294,
+        "recall_careet": 0.688
+      },
+      "overlap_top10_with_V0": 0.833,
+      "rank_corr_with_V0": 0.965,
+      "top10_not_in_V0": [
+        "은평구 진관동",
+        "강동구 길동",
+        "강남구 대치2동",
+        "강남구 역삼2동",
+        "서초구 양재1동",
+        "강서구 발산1동",
+        "강서구 등촌3동"
+      ]
+    },
+    "V2 20-39 weekends": {
+      "top5": {
+        "recall_121": 0.341,
+        "precision_121": 0.667,
+        "recall_careet": 0.438
+      },
+      "top10": {
+        "recall_121": 0.512,
+        "precision_121": 0.5,
+        "recall_careet": 0.625
+      },
+      "top20": {
+        "recall_121": 0.659,
+        "precision_121": 0.318,
+        "recall_careet": 0.688
+      },
+      "overlap_top10_with_V0": 0.833,
+      "rank_corr_with_V0": 0.99,
+      "top10_not_in_V0": [
+        "마포구 연남동",
+        "구로구 구로5동",
+        "송파구 송파1동",
+        "송파구 잠실본동",
+        "강서구 방화2동",
+        "강동구 길동",
+        "은평구 진관동"
+      ]
+    },
+    "V3 20-39 weekdays": {
+      "top5": {
+        "recall_121": 0.317,
+        "precision_121": 0.619,
+        "recall_careet": 0.375
+      },
+      "top10": {
+        "recall_121": 0.488,
+        "precision_121": 0.476,
+        "recall_careet": 0.625
+      },
+      "top20": {
+        "recall_121": 0.61,
+        "precision_121": 0.294,
+        "recall_careet": 0.688
+      },
+      "overlap_top10_with_V0": 0.929,
+      "rank_corr_with_V0": 0.997,
+      "top10_not_in_V0": [
+        "성북구 안암동",
+        "강남구 역삼2동",
+        "강남구 대치2동"
+      ]
+    },
+    "V4 20-39 spikes removed": {
+      "top5": {
+        "recall_121": 0.317,
+        "precision_121": 0.619,
+        "recall_careet": 0.438
+      },
+      "top10": {
+        "recall_121": 0.488,
+        "precision_121": 0.476,
+        "recall_careet": 0.625
+      },
+      "top20": {
+        "recall_121": 0.61,
+        "precision_121": 0.294,
+        "recall_careet": 0.688
+      },
+      "overlap_top10_with_V0": 1.0,
+      "rank_corr_with_V0": 1.0,
+      "top10_not_in_V0": []
+    }
+  },
+  "emerging": {
+    "V0 20-39 all days": {
+      "g_rank_corr_with_V0": 1.0,
+      "top10_overlap_with_V0": 1.0,
+      "momentum_rank_corr": 0.664,
+      "momentum_P@10": 0.483,
+      "known_rising_percentile_clean_origins": {
+        "신당동": 0.1,
+        "한강로동(용리단길)": 0.67,
+        "연희동": 0.55,
+        "성수2가1동": 0.09,
+        "성수2가3동": 0.85,
+        "한남동": 0.58,
+        "용산2가동(해방촌)": 0.67,
+        "이태원2동(경리단길)": 0.2
+      }
+    },
+    "V1 all ages": {
+      "g_rank_corr_with_V0": 0.942,
+      "top10_overlap_with_V0": 0.781,
+      "momentum_rank_corr": 0.645,
+      "momentum_P@10": 0.476,
+      "known_rising_percentile_clean_origins": {
+        "신당동": 0.25,
+        "한강로동(용리단길)": 0.65,
+        "연희동": 0.34,
+        "성수2가1동": 0.17,
+        "성수2가3동": 0.93,
+        "한남동": 0.71,
+        "용산2가동(해방촌)": 0.7,
+        "이태원2동(경리단길)": 0.14
+      }
+    },
+    "V2 20-39 weekends": {
+      "g_rank_corr_with_V0": 0.941,
+      "top10_overlap_with_V0": 0.798,
+      "momentum_rank_corr": 0.611,
+      "momentum_P@10": 0.49,
+      "known_rising_percentile_clean_origins": {
+        "신당동": 0.15,
+        "한강로동(용리단길)": 0.78,
+        "연희동": 0.52,
+        "성수2가1동": 0.06,
+        "성수2가3동": 0.87,
+        "한남동": 0.61,
+        "용산2가동(해방촌)": 0.67,
+        "이태원2동(경리단길)": 0.29
+      }
+    },
+    "V3 20-39 weekdays": {
+      "g_rank_corr_with_V0": 0.979,
+      "top10_overlap_with_V0": 0.868,
+      "momentum_rank_corr": 0.666,
+      "momentum_P@10": 0.478,
+      "known_rising_percentile_clean_origins": {
+        "신당동": 0.1,
+        "한강로동(용리단길)": 0.56,
+        "연희동": 0.57,
+        "성수2가1동": 0.12,
+        "성수2가3동": 0.84,
+        "한남동": 0.58,
+        "용산2가동(해방촌)": 0.66,
+        "이태원2동(경리단길)": 0.16
+      }
+    },
+    "V4 20-39 spikes removed": {
+      "g_rank_corr_with_V0": 0.997,
+      "top10_overlap_with_V0": 0.962,
+      "momentum_rank_corr": 0.671,
+      "momentum_P@10": 0.517,
+      "known_rising_percentile_clean_origins": {
+        "신당동": 0.11,
+        "한강로동(용리단길)": 0.67,
+        "연희동": 0.55,
+        "성수2가1동": 0.09,
+        "성수2가3동": 0.86,
+        "한남동": 0.58,
+        "용산2가동(해방촌)": 0.67,
+        "이태원2동(경리단길)": 0.22
+      }
+    }
+  }
+}

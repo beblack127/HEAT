@@ -1,0 +1,12 @@
+{
+  "mobility_dongs": 40,
+  "mobility_months": 36,
+  "joined_rows": 1200,
+  "search_share_nonmissing": 1200,
+  "search_lag2_nonmissing": 1200,
+  "search_lag2_zero": 0,
+  "living_lag2_nonmissing": 1200,
+  "search_dongs_with_full_required_period": 40,
+  "search_source": "C:\\Users\\user\\Documents\\Codex\\2026-11-10\\https-chatgpt-com-s-cx-6af267b528f08191b4d8ee090fc0291a\\work\\HEAT\\data\\processed\\search\\행정동_검색지수_월별.csv",
+  "search_measure": "index"
+}

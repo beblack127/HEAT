@@ -1,0 +1,163 @@
+{
+  "data": {
+    "rows": 1440,
+    "dongs": 40,
+    "months": 36,
+    "missing_dong_month_pairs": 0,
+    "duplicate_pairs": 0,
+    "missing_living": 0,
+    "unmatched_nameplate": 0,
+    "nameplate_dongs": 427,
+    "sample_dongs_with_region_slot": 20,
+    "days_values": [
+      28,
+      29,
+      30,
+      31
+    ],
+    "invalid_target_rows": 0
+  },
+  "target": {
+    "daily_distribution": {
+      "min": 5610.21,
+      "q25": 17422.76,
+      "median": 30710.76,
+      "q75": 49083.77,
+      "q90": 121562.51,
+      "q95": 141675.4,
+      "max": 306412.53
+    },
+    "weighted_share_of_all": 0.5815,
+    "shop_tour_share_of_target": 0.0228,
+    "shop_tour_zero_rows": 957,
+    "shop_tour_zero_pct": 0.6646,
+    "dongs_shop_tour_all_zero": 26,
+    "other_negative_rows": 0
+  },
+  "yearly_mean_total_daily": {
+    "2023": 1621513.85,
+    "2024": 1923539.14,
+    "2025": 1751857.32
+  },
+  "yearly_change_pct": {
+    "2024_vs_2023": 0.1863,
+    "2025_vs_2024": -0.0893
+  },
+  "monthly_yoy": {
+    "median_2025": 0.0213,
+    "q10_2025": -0.3564,
+    "q90_2025": 0.1978,
+    "rows_abs_gt_50pct_2025": 7
+  },
+  "monthly_extremes": {
+    "highest_total": [
+      {
+        "month": "2024-10",
+        "total_target_daily": 2842245.4270967743
+      },
+      {
+        "month": "2024-08",
+        "total_target_daily": 2828277.2012903225
+      },
+      {
+        "month": "2024-09",
+        "total_target_daily": 2649558.1443333337
+      }
+    ],
+    "lowest_total": [
+      {
+        "month": "2023-01",
+        "total_target_daily": 1431884.9858064516
+      },
+      {
+        "month": "2024-01",
+        "total_target_daily": 1494253.6522580644
+      },
+      {
+        "month": "2023-08",
+        "total_target_daily": 1547085.3109677425
+      }
+    ],
+    "highest_yoy": [
+      {
+        "month": "2024-08",
+        "total_yoy": 0.828132670667761
+      },
+      {
+        "month": "2024-10",
+        "total_yoy": 0.7058480243437621
+      },
+      {
+        "month": "2024-09",
+        "total_yoy": 0.6236099962928563
+      }
+    ],
+    "lowest_yoy": [
+      {
+        "month": "2025-10",
+        "total_yoy": -0.4132402670639773
+      },
+      {
+        "month": "2025-08",
+        "total_yoy": -0.4117426448263306
+      },
+      {
+        "month": "2025-09",
+        "total_yoy": -0.36016897611436016
+      }
+    ]
+  },
+  "top_dongs": [
+    {
+      "gu": "영등포구",
+      "dong_name": "여의동",
+      "mean_target_daily": 157503.52891253514
+    },
+    {
+      "gu": "종로구",
+      "dong_name": "종로1·2·3·4가동",
+      "mean_target_daily": 157271.5275988084
+    },
+    {
+      "gu": "강남구",
+      "dong_name": "역삼1동",
+      "mean_target_daily": 154462.93067890027
+    },
+    {
+      "gu": "마포구",
+      "dong_name": "서교동",
+      "mean_target_daily": 138575.59741950198
+    },
+    {
+      "gu": "송파구",
+      "dong_name": "잠실6동",
+      "mean_target_daily": 87409.25702409568
+    }
+  ],
+  "top5_share_target": 0.3938,
+  "autocorrelation_median": {
+    "lag1": 0.5042,
+    "lag12": -0.1001
+  },
+  "anomaly_2024_aug_oct": {
+    "august_dongs_yoy_gt_50pct": 33,
+    "aug_oct_total_vs_2023": 0.7172,
+    "aug_oct_2025_vs_2023": 0.0375,
+    "non_aug_oct_2024_vs_2023": 0.0102,
+    "non_aug_oct_2025_vs_2024": 0.0835,
+    "living_2024_yoy": {
+      "08": -0.0094,
+      "09": -0.0375,
+      "10": 0.0031
+    },
+    "lag12_autocorr_median_excluding_affected_pairs": 0.5379
+  },
+  "living_correlation": {
+    "pooled_levels": 0.9131,
+    "pooled_within_dong_log_changes": 0.3758
+  },
+  "nameplate": {
+    "usable_links": 2600,
+    "usable_name_dongs": 427
+  }
+}

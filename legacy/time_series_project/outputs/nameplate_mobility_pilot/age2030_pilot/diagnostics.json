@@ -1,0 +1,389 @@
+{
+  "subway_vs_sarima": {
+    "dongs_with_lower_error": 30,
+    "dongs_with_higher_error": 10,
+    "wape_reduction_pct_points": 1.83,
+    "dong_bootstrap_95pct_points": [
+      0.56,
+      3.189
+    ],
+    "largest_single_dong_fraction_of_gain": 0.217
+  },
+  "top10_growth_40d_2025jan_jul": {
+    "ARIMA": {
+      "hits": 35,
+      "out_of": 70,
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 2
+        },
+        {
+          "month": "2025-02",
+          "hits": 6
+        },
+        {
+          "month": "2025-03",
+          "hits": 3
+        },
+        {
+          "month": "2025-04",
+          "hits": 3
+        },
+        {
+          "month": "2025-05",
+          "hits": 5
+        },
+        {
+          "month": "2025-06",
+          "hits": 7
+        },
+        {
+          "month": "2025-07",
+          "hits": 9
+        }
+      ]
+    },
+    "ARIMAX_both": {
+      "hits": 25,
+      "out_of": 70,
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 1
+        },
+        {
+          "month": "2025-02",
+          "hits": 3
+        },
+        {
+          "month": "2025-03",
+          "hits": 3
+        },
+        {
+          "month": "2025-04",
+          "hits": 3
+        },
+        {
+          "month": "2025-05",
+          "hits": 4
+        },
+        {
+          "month": "2025-06",
+          "hits": 6
+        },
+        {
+          "month": "2025-07",
+          "hits": 5
+        }
+      ]
+    },
+    "ARIMAX_living": {
+      "hits": 26,
+      "out_of": 70,
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 1
+        },
+        {
+          "month": "2025-02",
+          "hits": 4
+        },
+        {
+          "month": "2025-03",
+          "hits": 3
+        },
+        {
+          "month": "2025-04",
+          "hits": 4
+        },
+        {
+          "month": "2025-05",
+          "hits": 2
+        },
+        {
+          "month": "2025-06",
+          "hits": 4
+        },
+        {
+          "month": "2025-07",
+          "hits": 8
+        }
+      ]
+    },
+    "ARIMAX_search": {
+      "hits": 26,
+      "out_of": 70,
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 1
+        },
+        {
+          "month": "2025-02",
+          "hits": 4
+        },
+        {
+          "month": "2025-03",
+          "hits": 3
+        },
+        {
+          "month": "2025-04",
+          "hits": 3
+        },
+        {
+          "month": "2025-05",
+          "hits": 5
+        },
+        {
+          "month": "2025-06",
+          "hits": 6
+        },
+        {
+          "month": "2025-07",
+          "hits": 4
+        }
+      ]
+    },
+    "ARIMAX_search_forecast": {
+      "hits": 33,
+      "out_of": 70,
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 2
+        },
+        {
+          "month": "2025-02",
+          "hits": 6
+        },
+        {
+          "month": "2025-03",
+          "hits": 3
+        },
+        {
+          "month": "2025-04",
+          "hits": 3
+        },
+        {
+          "month": "2025-05",
+          "hits": 4
+        },
+        {
+          "month": "2025-06",
+          "hits": 6
+        },
+        {
+          "month": "2025-07",
+          "hits": 9
+        }
+      ]
+    },
+    "ARIMAX_subway": {
+      "hits": 34,
+      "out_of": 70,
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 3
+        },
+        {
+          "month": "2025-02",
+          "hits": 6
+        },
+        {
+          "month": "2025-03",
+          "hits": 3
+        },
+        {
+          "month": "2025-04",
+          "hits": 5
+        },
+        {
+          "month": "2025-05",
+          "hits": 3
+        },
+        {
+          "month": "2025-06",
+          "hits": 5
+        },
+        {
+          "month": "2025-07",
+          "hits": 9
+        }
+      ]
+    },
+    "SARIMA": {
+      "hits": 34,
+      "out_of": 70,
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 2
+        },
+        {
+          "month": "2025-02",
+          "hits": 6
+        },
+        {
+          "month": "2025-03",
+          "hits": 3
+        },
+        {
+          "month": "2025-04",
+          "hits": 4
+        },
+        {
+          "month": "2025-05",
+          "hits": 5
+        },
+        {
+          "month": "2025-06",
+          "hits": 5
+        },
+        {
+          "month": "2025-07",
+          "hits": 9
+        }
+      ]
+    },
+    "SARIMAX_search": {
+      "hits": 27,
+      "out_of": 70,
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 3
+        },
+        {
+          "month": "2025-02",
+          "hits": 4
+        },
+        {
+          "month": "2025-03",
+          "hits": 3
+        },
+        {
+          "month": "2025-04",
+          "hits": 3
+        },
+        {
+          "month": "2025-05",
+          "hits": 5
+        },
+        {
+          "month": "2025-06",
+          "hits": 5
+        },
+        {
+          "month": "2025-07",
+          "hits": 4
+        }
+      ]
+    },
+    "SARIMAX_subway": {
+      "hits": 35,
+      "out_of": 70,
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 4
+        },
+        {
+          "month": "2025-02",
+          "hits": 6
+        },
+        {
+          "month": "2025-03",
+          "hits": 3
+        },
+        {
+          "month": "2025-04",
+          "hits": 5
+        },
+        {
+          "month": "2025-05",
+          "hits": 3
+        },
+        {
+          "month": "2025-06",
+          "hits": 6
+        },
+        {
+          "month": "2025-07",
+          "hits": 8
+        }
+      ]
+    },
+    "lag12": {
+      "hits": 19,
+      "out_of": 70,
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 1
+        },
+        {
+          "month": "2025-02",
+          "hits": 0
+        },
+        {
+          "month": "2025-03",
+          "hits": 1
+        },
+        {
+          "month": "2025-04",
+          "hits": 4
+        },
+        {
+          "month": "2025-05",
+          "hits": 5
+        },
+        {
+          "month": "2025-06",
+          "hits": 4
+        },
+        {
+          "month": "2025-07",
+          "hits": 4
+        }
+      ]
+    },
+    "lag2": {
+      "hits": 34,
+      "out_of": 70,
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 2
+        },
+        {
+          "month": "2025-02",
+          "hits": 6
+        },
+        {
+          "month": "2025-03",
+          "hits": 3
+        },
+        {
+          "month": "2025-04",
+          "hits": 3
+        },
+        {
+          "month": "2025-05",
+          "hits": 5
+        },
+        {
+          "month": "2025-06",
+          "hits": 6
+        },
+        {
+          "month": "2025-07",
+          "hits": 9
+        }
+      ]
+    }
+  },
+  "notes": "Top-10 is exploratory and computed after seeing WAPE. Dong bootstrap treats dong as cluster but does not resolve shared city shocks or selected pilot bias."
+}

@@ -1,0 +1,63 @@
+{
+  "origins": [
+    "2025-04-28",
+    "2025-05-12",
+    "2025-05-26"
+  ],
+  "dongs_above_floor": 318,
+  "features": {
+    "mob_g_13w (momentum)": {
+      "spearman_with_future_change": 0.6,
+      "spearman_beyond_momentum": null,
+      "beyond_min_max": null
+    },
+    "mob_g_4w": {
+      "spearman_with_future_change": 0.766,
+      "spearman_beyond_momentum": 0.31,
+      "beyond_min_max": [
+        0.246,
+        0.355
+      ]
+    },
+    "mob_g_26w": {
+      "spearman_with_future_change": 0.529,
+      "spearman_beyond_momentum": -0.064,
+      "beyond_min_max": [
+        -0.093,
+        -0.021
+      ]
+    },
+    "mob_share_slope_13w": {
+      "spearman_with_future_change": 0.372,
+      "spearman_beyond_momentum": 0.484,
+      "beyond_min_max": [
+        0.334,
+        0.583
+      ]
+    },
+    "mob_share_slope_26w": {
+      "spearman_with_future_change": 0.364,
+      "spearman_beyond_momentum": 0.32,
+      "beyond_min_max": [
+        0.155,
+        0.449
+      ]
+    },
+    "mob_volatility_26w": {
+      "spearman_with_future_change": 0.13,
+      "spearman_beyond_momentum": 0.138,
+      "beyond_min_max": [
+        0.125,
+        0.163
+      ]
+    },
+    "mob_log_size_13w": {
+      "spearman_with_future_change": -0.043,
+      "spearman_beyond_momentum": -0.301,
+      "beyond_min_max": [
+        -0.33,
+        -0.281
+      ]
+    }
+  }
+}

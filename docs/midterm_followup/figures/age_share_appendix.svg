@@ -1,0 +1,43 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900'>
+<rect width='1600' height='900' fill='#F7F7F7'/>
+<text x='80' y='70' font-family='Georgia, "Times New Roman", serif' font-size='38' font-weight='bold' fill='#222'>Hot places draw a younger crowd</text>
+<text x='80' y='112' font-family='Georgia, "Times New Roman", serif' font-size='24' fill='#555'>Share of visitors aged 20–39 (shopping, tourism and other trips), 2025</text>
+<line x1='560.0' x2='560.0' y1='160' y2='714' stroke='#DDD'/>
+<text x='560.0' y='752' font-family='Georgia, "Times New Roman", serif' font-size='22' text-anchor='middle' fill='#333'>0%</text>
+<line x1='688.6' x2='688.6' y1='160' y2='714' stroke='#DDD'/>
+<text x='688.6' y='752' font-family='Georgia, "Times New Roman", serif' font-size='22' text-anchor='middle' fill='#333'>10%</text>
+<line x1='817.1' x2='817.1' y1='160' y2='714' stroke='#DDD'/>
+<text x='817.1' y='752' font-family='Georgia, "Times New Roman", serif' font-size='22' text-anchor='middle' fill='#333'>20%</text>
+<line x1='945.7' x2='945.7' y1='160' y2='714' stroke='#DDD'/>
+<text x='945.7' y='752' font-family='Georgia, "Times New Roman", serif' font-size='22' text-anchor='middle' fill='#333'>30%</text>
+<line x1='1074.3' x2='1074.3' y1='160' y2='714' stroke='#DDD'/>
+<text x='1074.3' y='752' font-family='Georgia, "Times New Roman", serif' font-size='22' text-anchor='middle' fill='#333'>40%</text>
+<line x1='1202.9' x2='1202.9' y1='160' y2='714' stroke='#DDD'/>
+<text x='1202.9' y='752' font-family='Georgia, "Times New Roman", serif' font-size='22' text-anchor='middle' fill='#333'>50%</text>
+<line x1='1331.4' x2='1331.4' y1='160' y2='714' stroke='#DDD'/>
+<text x='1331.4' y='752' font-family='Georgia, "Times New Roman", serif' font-size='22' text-anchor='middle' fill='#333'>60%</text>
+<line x1='1460.0' x2='1460.0' y1='160' y2='714' stroke='#DDD'/>
+<text x='1460.0' y='752' font-family='Georgia, "Times New Roman", serif' font-size='22' text-anchor='middle' fill='#333'>70%</text>
+<rect x='560' y='170' width='787.7' height='64' fill='#1F4E9A'/>
+<text x='540' y='211.0' font-family='Georgia, "Times New Roman", serif' font-size='25' text-anchor='end' fill='#222'>Seogyo-dong (Hongdae)</text>
+<text x='1359.7' y='212.0' font-family='Georgia, "Times New Roman", serif' font-size='27' font-weight='bold' fill='#222'>61%</text>
+<rect x='560' y='264' width='664.5' height='64' fill='#1F4E9A'/>
+<text x='540' y='305.0' font-family='Georgia, "Times New Roman", serif' font-size='25' text-anchor='end' fill='#222'>Yeoksam 1-dong (Gangnam)</text>
+<text x='1236.5' y='306.0' font-family='Georgia, "Times New Roman", serif' font-size='27' font-weight='bold' fill='#222'>52%</text>
+<rect x='560' y='358' width='554.8' height='64' fill='#1F4E9A'/>
+<text x='540' y='399.0' font-family='Georgia, "Times New Roman", serif' font-size='25' text-anchor='end' fill='#222'>Yeoui-dong</text>
+<text x='1126.8' y='400.0' font-family='Georgia, "Times New Roman", serif' font-size='27' font-weight='bold' fill='#222'>43%</text>
+<rect x='560' y='452' width='512.3' height='64' fill='#1F4E9A'/>
+<text x='540' y='493.0' font-family='Georgia, "Times New Roman", serif' font-size='25' text-anchor='end' fill='#222'>Jongno 1-4ga-dong</text>
+<text x='1084.3' y='494.0' font-family='Georgia, "Times New Roman", serif' font-size='27' font-weight='bold' fill='#222'>40%</text>
+<rect x='560' y='546' width='485.7' height='64' fill='#1F4E9A'/>
+<text x='540' y='587.0' font-family='Georgia, "Times New Roman", serif' font-size='25' text-anchor='end' fill='#222'>Myeong-dong</text>
+<text x='1057.7' y='588.0' font-family='Georgia, "Times New Roman", serif' font-size='27' font-weight='bold' fill='#222'>38%</text>
+<rect x='560' y='656' width='508.4' height='64' fill='#5B8FD9'/>
+<text x='540' y='697.0' font-family='Georgia, "Times New Roman", serif' font-size='25' text-anchor='end' fill='#222'>Top 10% busiest dongs (median, n=42)</text>
+<text x='1080.4' y='698.0' font-family='Georgia, "Times New Roman", serif' font-size='27' font-weight='bold' fill='#222'>40%</text>
+<line x1='926.3' x2='926.3' y1='140' y2='730' stroke='#B5432A' stroke-width='3' stroke-dasharray='10 6'/>
+<text x='936.3' y='134' font-family='Georgia, "Times New Roman", serif' font-size='22' fill='#B5432A'>Seoul median 28.5%</text>
+<text x='80' y='848' font-family='Georgia, "Times New Roman", serif' font-size='18' fill='#666'>Source: Seoul living mobility, purposes 4+5+7, arrivals by dong. All 428 dongs in the data.</text>
+<text x='80' y='874' font-family='Georgia, "Times New Roman", serif' font-size='18' fill='#666'>'Busiest' = top 10% by visits of all ages, so the group is not selected on age.</text>
+</svg>

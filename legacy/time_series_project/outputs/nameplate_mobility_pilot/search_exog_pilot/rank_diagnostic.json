@@ -1,0 +1,742 @@
+{
+  "5": {
+    "ARIMA": {
+      "mean_precision": 0.4,
+      "hits_out_of": "16/40",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2025-02",
+          "hits": 3,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-03",
+          "hits": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2025-04",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-05",
+          "hits": 3,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-06",
+          "hits": 3,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-07",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-08",
+          "hits": 3,
+          "precision": 0.6
+        }
+      ]
+    },
+    "ARIMAX_both": {
+      "mean_precision": 0.275,
+      "hits_out_of": "11/40",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-02",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-03",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-04",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-05",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-06",
+          "hits": 3,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-07",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-08",
+          "hits": 1,
+          "precision": 0.2
+        }
+      ]
+    },
+    "ARIMAX_living": {
+      "mean_precision": 0.375,
+      "hits_out_of": "15/40",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-02",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-03",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-04",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-05",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-06",
+          "hits": 3,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-07",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-08",
+          "hits": 3,
+          "precision": 0.6
+        }
+      ]
+    },
+    "ARIMAX_search": {
+      "mean_precision": 0.25,
+      "hits_out_of": "10/40",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-02",
+          "hits": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2025-03",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-04",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-05",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-06",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-07",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-08",
+          "hits": 1,
+          "precision": 0.2
+        }
+      ]
+    },
+    "SARIMA": {
+      "mean_precision": 0.425,
+      "hits_out_of": "17/40",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-02",
+          "hits": 3,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-03",
+          "hits": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2025-04",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-05",
+          "hits": 3,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-06",
+          "hits": 3,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-07",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-08",
+          "hits": 3,
+          "precision": 0.6
+        }
+      ]
+    },
+    "SARIMAX_both": {
+      "mean_precision": 0.275,
+      "hits_out_of": "11/40",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-02",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-03",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-04",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-05",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-06",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-07",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-08",
+          "hits": 2,
+          "precision": 0.4
+        }
+      ]
+    },
+    "SARIMAX_living": {
+      "mean_precision": 0.35,
+      "hits_out_of": "14/40",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-02",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-03",
+          "hits": 0,
+          "precision": 0.0
+        },
+        {
+          "month": "2025-04",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-05",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-06",
+          "hits": 3,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-07",
+          "hits": 3,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-08",
+          "hits": 3,
+          "precision": 0.6
+        }
+      ]
+    },
+    "SARIMAX_search": {
+      "mean_precision": 0.3,
+      "hits_out_of": "12/40",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-02",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-03",
+          "hits": 1,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-04",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-05",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-06",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-07",
+          "hits": 2,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-08",
+          "hits": 1,
+          "precision": 0.2
+        }
+      ]
+    }
+  },
+  "10": {
+    "ARIMA": {
+      "mean_precision": 0.575,
+      "hits_out_of": "46/80",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 2,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-02",
+          "hits": 6,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-03",
+          "hits": 4,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-04",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-05",
+          "hits": 6,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-06",
+          "hits": 8,
+          "precision": 0.8
+        },
+        {
+          "month": "2025-07",
+          "hits": 7,
+          "precision": 0.7
+        },
+        {
+          "month": "2025-08",
+          "hits": 8,
+          "precision": 0.8
+        }
+      ]
+    },
+    "ARIMAX_both": {
+      "mean_precision": 0.45,
+      "hits_out_of": "36/80",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 2,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-02",
+          "hits": 6,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-03",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-04",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-05",
+          "hits": 3,
+          "precision": 0.3
+        },
+        {
+          "month": "2025-06",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-07",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-08",
+          "hits": 5,
+          "precision": 0.5
+        }
+      ]
+    },
+    "ARIMAX_living": {
+      "mean_precision": 0.5,
+      "hits_out_of": "40/80",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 1,
+          "precision": 0.1
+        },
+        {
+          "month": "2025-02",
+          "hits": 4,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-03",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-04",
+          "hits": 6,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-05",
+          "hits": 4,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-06",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-07",
+          "hits": 7,
+          "precision": 0.7
+        },
+        {
+          "month": "2025-08",
+          "hits": 8,
+          "precision": 0.8
+        }
+      ]
+    },
+    "ARIMAX_search": {
+      "mean_precision": 0.475,
+      "hits_out_of": "38/80",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 3,
+          "precision": 0.3
+        },
+        {
+          "month": "2025-02",
+          "hits": 6,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-03",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-04",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-05",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-06",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-07",
+          "hits": 3,
+          "precision": 0.3
+        },
+        {
+          "month": "2025-08",
+          "hits": 6,
+          "precision": 0.6
+        }
+      ]
+    },
+    "SARIMA": {
+      "mean_precision": 0.575,
+      "hits_out_of": "46/80",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 3,
+          "precision": 0.3
+        },
+        {
+          "month": "2025-02",
+          "hits": 6,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-03",
+          "hits": 4,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-04",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-05",
+          "hits": 6,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-06",
+          "hits": 7,
+          "precision": 0.7
+        },
+        {
+          "month": "2025-07",
+          "hits": 7,
+          "precision": 0.7
+        },
+        {
+          "month": "2025-08",
+          "hits": 8,
+          "precision": 0.8
+        }
+      ]
+    },
+    "SARIMAX_both": {
+      "mean_precision": 0.463,
+      "hits_out_of": "37/80",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 3,
+          "precision": 0.3
+        },
+        {
+          "month": "2025-02",
+          "hits": 6,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-03",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-04",
+          "hits": 4,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-05",
+          "hits": 3,
+          "precision": 0.3
+        },
+        {
+          "month": "2025-06",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-07",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-08",
+          "hits": 6,
+          "precision": 0.6
+        }
+      ]
+    },
+    "SARIMAX_living": {
+      "mean_precision": 0.512,
+      "hits_out_of": "41/80",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 2,
+          "precision": 0.2
+        },
+        {
+          "month": "2025-02",
+          "hits": 4,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-03",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-04",
+          "hits": 6,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-05",
+          "hits": 4,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-06",
+          "hits": 6,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-07",
+          "hits": 7,
+          "precision": 0.7
+        },
+        {
+          "month": "2025-08",
+          "hits": 7,
+          "precision": 0.7
+        }
+      ]
+    },
+    "SARIMAX_search": {
+      "mean_precision": 0.463,
+      "hits_out_of": "37/80",
+      "by_month": [
+        {
+          "month": "2025-01",
+          "hits": 3,
+          "precision": 0.3
+        },
+        {
+          "month": "2025-02",
+          "hits": 6,
+          "precision": 0.6
+        },
+        {
+          "month": "2025-03",
+          "hits": 4,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-04",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-05",
+          "hits": 5,
+          "precision": 0.5
+        },
+        {
+          "month": "2025-06",
+          "hits": 4,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-07",
+          "hits": 4,
+          "precision": 0.4
+        },
+        {
+          "month": "2025-08",
+          "hits": 6,
+          "precision": 0.6
+        }
+      ]
+    }
+  }
+}

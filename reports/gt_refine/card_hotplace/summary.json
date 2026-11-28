@@ -1,0 +1,29 @@
+{
+  "rows": 261157,
+  "unmapped_rows": 0,
+  "dongs_with_sales": 397,
+  "universe": 389,
+  "hot_types": {
+    "food_drink": [
+      "커피-음료",
+      "제과점",
+      "양식음식점",
+      "일식음식점",
+      "호프-간이주점"
+    ],
+    "fashion_beauty": [
+      "일반의류",
+      "신발",
+      "가방",
+      "화장품",
+      "시계및귀금속"
+    ],
+    "leisure": [
+      "노래방"
+    ]
+  },
+  "trend_places": 35,
+  "trend_dongs_in_universe": 39,
+  "base_rate_trend": 0.1,
+  "young_hot_share_of_all_sales_2025": 0.08
+}

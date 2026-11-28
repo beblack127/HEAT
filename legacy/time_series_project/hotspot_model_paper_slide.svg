@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="959.976pt" height="540pt" viewBox="0 0 959.976 540" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-19T00:20:32.542171</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 540 
+L 959.976 540 
+L 959.976 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 347.04 179.28 
+Q 368.64 179.28 389.121966 179.28 
+" clip-path="url(#p5cc1ca6bd5)" style="fill: none; stroke: #111111; stroke-linecap: round"/>
+    <path d="M 384.721966 177.08 
+L 389.121966 179.28 
+L 384.721966 181.48 
+z
+" clip-path="url(#p5cc1ca6bd5)" style="fill: #111111; stroke: #111111; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 390.96 209.52 
+L 568.08 209.52 
+L 568.08 149.04 
+L 390.96 149.04 
+L 390.96 209.52 
+z
+" clip-path="url(#p5cc1ca6bd5)" style="fill: none; stroke: #111111; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 568.8 179.28 
+Q 594.72 179.28 619.521966 179.28 
+" clip-path="url(#p5cc1ca6bd5)" style="fill: none; stroke: #111111; stroke-linecap: round"/>
+    <path d="M 615.121966 177.08 
+L 619.521966 179.28 
+L 615.121966 181.48 
+z
+" clip-path="url(#p5cc1ca6bd5)" style="fill: #111111; stroke: #111111; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 260.64 385.2 
+Q 285.12 385.2 308.481966 385.2 
+" clip-path="url(#p5cc1ca6bd5)" style="fill: none; stroke: #111111; stroke-linecap: round"/>
+    <path d="M 304.081966 383 
+L 308.481966 385.2 
+L 304.081966 387.4 
+z
+" clip-path="url(#p5cc1ca6bd5)" style="fill: #111111; stroke: #111111; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 310.32 419.76 
+L 621.36 419.76 
+L 621.36 350.64 
+L 310.32 350.64 
+L 310.32 419.76 
+z
+" clip-path="url(#p5cc1ca6bd5)" style="fill: none; stroke: #111111; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 622.08 385.2 
+Q 646.56 385.2 669.921966 385.2 
+" clip-path="url(#p5cc1ca6bd5)" style="fill: none; stroke: #111111; stroke-linecap: round"/>
+    <path d="M 665.521966 383 
+L 669.921966 385.2 
+L 665.521966 387.4 
+z
+" clip-path="url(#p5cc1ca6bd5)" style="fill: #111111; stroke: #111111; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 51.84 74.16 
+L 908.64 74.16 
+" clip-path="url(#p5cc1ca6bd5)" style="fill: none; stroke: #999999; stroke-width: 0.65; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 320.4 133.2 
+L 347.04 133.2 
+" clip-path="url(#p5cc1ca6bd5)" style="fill: none; stroke: #111111; stroke-width: 0.9; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 320.4 179.28 
+L 347.04 179.28 
+" clip-path="url(#p5cc1ca6bd5)" style="fill: none; stroke: #111111; stroke-width: 0.9; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 320.4 225.36 
+L 347.04 225.36 
+" clip-path="url(#p5cc1ca6bd5)" style="fill: none; stroke: #111111; stroke-width: 0.9; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 347.04 225.36 
+L 347.04 133.2 
+" clip-path="url(#p5cc1ca6bd5)" style="fill: none; stroke: #111111; stroke-width: 0.9; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 51.84 275.76 
+L 908.64 275.76 
+" clip-path="url(#p5cc1ca6bd5)" style="fill: none; stroke: #999999; stroke-width: 0.65; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 18px; font-family: 'DejaVu Serif'; text-anchor: start; fill: #111111" x="51.84" y="60.836484" transform="rotate(-0 51.84 60.836484)">(a) Forecasting</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 15px; font-family: 'DejaVu Serif'; text-anchor: start; fill: #111111" x="74.88" y="137.09707" transform="rotate(-0 74.88 137.09707)">Mobility history</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 15px; font-family: 'DejaVu Serif'; text-anchor: start; fill: #111111" x="74.88" y="183.17707" transform="rotate(-0 74.88 183.17707)">Business licensing history</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 15px; font-family: 'DejaVu Serif'; text-anchor: start; fill: #111111" x="74.88" y="229.25707" transform="rotate(-0 74.88 229.25707)">Other observed covariates</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 15px; font-family: 'DejaVu Serif'; text-anchor: middle; fill: #111111" x="479.52" y="183.176484" transform="rotate(-0 479.52 183.176484)">ARIMAX / SARIMAX</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 15px; font-family: 'DejaVu Serif'; text-anchor: start; fill: #111111" x="640.8" y="165.89707" transform="rotate(-0 640.8 165.89707)">Mobility forecast</text>
+   </g>
+   <g id="text_7">
+    <!-- $\hat{y}_{d,t+1:t+3}$ -->
+    <g style="fill: #111111" transform="translate(640.8 207.74)">
+     <text>
+      <tspan x="11.934082" y="-1" style="font-size: 20px; font-family: 'DejaVu Serif'; fill: #111111">̂</tspan>
+      <tspan x="0" y="-0.453125" style="font-style: italic; font-size: 20px; font-family: 'DejaVu Serif'; fill: #111111">y</tspan>
+      <tspan x="11.480493" y="4.684375" style="font-style: italic; font-size: 14px; font-family: 'DejaVu Serif'; fill: #111111">d</tspan>
+      <tspan x="27.547681" y="4.684375" style="font-style: italic; font-size: 14px; font-family: 'DejaVu Serif'; fill: #111111">t</tspan>
+      <tspan x="69.148462" y="4.684375" style="font-style: italic; font-size: 14px; font-family: 'DejaVu Serif'; fill: #111111">t</tspan>
+      <tspan x="20.442407" y="4.684375" style="font-size: 14px; font-family: 'DejaVu Serif'; fill: #111111">,</tspan>
+      <tspan x="35.828735" y="4.684375" style="font-size: 14px; font-family: 'DejaVu Serif'; fill: #111111">+</tspan>
+      <tspan x="50.214282" y="4.684375" style="font-size: 14px; font-family: 'DejaVu Serif'; fill: #111111">1</tspan>
+      <tspan x="61.776587" y="4.684375" style="font-size: 14px; font-family: 'DejaVu Serif'; fill: #111111">:</tspan>
+      <tspan x="77.429517" y="4.684375" style="font-size: 14px; font-family: 'DejaVu Serif'; fill: #111111">+</tspan>
+      <tspan x="91.815063" y="4.684375" style="font-size: 14px; font-family: 'DejaVu Serif'; fill: #111111">3</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 18px; font-family: 'DejaVu Serif'; text-anchor: start; fill: #111111" x="51.84" y="304.916484" transform="rotate(-0 51.84 304.916484)">(b) Hotspot assessment</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 15px; font-family: 'DejaVu Serif'; text-anchor: start; fill: #111111" x="74.88" y="389.09707" transform="rotate(-0 74.88 389.09707)">Predicted mobility</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 15px; font-family: 'DejaVu Serif'; text-anchor: middle; fill: #111111" x="465.84" y="374.69707" transform="rotate(-0 465.84 374.69707)">Predefined criteria</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 12.5px; font-family: 'DejaVu Serif'; text-anchor: middle; fill: #4a4a4a" x="465.84" y="405.727559" transform="rotate(-0 465.84 405.727559)">activity level   ·   growth   ·   persistence</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 15px; font-family: 'DejaVu Serif'; text-anchor: start; fill: #111111" x="688.32" y="389.09707" transform="rotate(-0 688.32 389.09707)">Candidate ranking</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 10.4px; font-family: 'DejaVu Serif'; text-anchor: start; fill: #4a4a4a" x="53.28" y="498.061969" transform="rotate(-0 53.28 498.061969)">Only observed information available at the forecast date is used; criteria are set using development data.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p5cc1ca6bd5">
+   <rect x="0" y="0" width="959.976" height="540"/>
+  </clipPath>
+ </defs>
+</svg>

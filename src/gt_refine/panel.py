@@ -1,0 +1,186 @@
+"""Shared weekly panel for 재민's checks (numpy + csv only; pandas is blocked on 재민's PC).
+
+Daily source: <codex_root>/outputs/nameplate_mobility_pilot/age2030_daily_baseline/daily_457_age2030_YYYYMM.csv
+  columns: date, admin_dong_code, age20, age30, age20_39, all_ages_457 (daily arrivals, purposes 4+5+7)
+Weeks run Monday-Sunday and are keyed by the Monday. Only weeks with all 7 days are kept, and only
+dongs present on every day.
+"""
+import csv, glob, os
+from datetime import date, timedelta
+import numpy as np
+
+HEAT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+H = 13      # forecast window (weeks)
+LAG = 52    # one year
+
+# Reference lists of known hot places (dong codes)
+# Careet (대학내일) "Z세대가 자주 찾는 서울 동네" (https://www.careet.net/902), mapped to dongs by 재민's agent.
+# 성수 was left out of the article as "already famous"; it is added separately and marked.
+CAREET = {"11440660": "홍대(서교동)", "11410615": "연희동", "11110515": "서촌(청운효자동)", "11110530": "서촌(사직동)",
+          "11110540": "북촌·안국(삼청동)", "11110600": "북촌·안국(가회동)", "11140550": "명동", "11140540": "회현동",
+          "11140615": "신당동", "11170625": "삼각지(한강로동)", "11170685": "한남동", "11680545": "압구정로데오(압구정동)",
+          "11680510": "압구정로데오(신사동)", "11710710": "잠실(잠실6동)"}
+SEONGSU = {"11200670": "성수2가1동", "11200690": "성수2가3동"}
+
+
+def load_daily(root):
+    files = sorted(glob.glob(os.path.join(root, "outputs", "nameplate_mobility_pilot", "age2030_daily_baseline", "daily_457_age2030_20????.csv")))
+    young, allg = {}, {}
+    for p in files:
+        with open(p, encoding="utf-8-sig", newline="") as f:
+            for r in csv.DictReader(f):
+                k = (r["date"], r["admin_dong_code"])
+                young[k] = float(r["age20_39"]); allg[k] = float(r["all_ages_457"])
+    days = sorted({d for d, _ in young}); dongs = sorted({c for _, c in young})
+    di = {d: i for i, d in enumerate(days)}; ci = {c: j for j, c in enumerate(dongs)}
+    Y = np.full((len(days), len(dongs)), np.nan); A = np.full_like(Y, np.nan)
+    for (d, c), v in young.items():
+        Y[di[d], ci[c]] = v; A[di[d], ci[c]] = allg[(d, c)]
+    full = ~np.isnan(Y).any(axis=0)
+    dates = [date(int(d[:4]), int(d[4:6]), int(d[6:])) for d in days]
+    return dates, [c for c, k in zip(dongs, full) if k], Y[:, full], A[:, full]
+
+
+def weekly(dates, X, days_of_week=range(7)):
+    """Weekly mean over the chosen weekdays (0=Mon .. 6=Sun), complete weeks only."""
+    dows = set(days_of_week)
+    start = dates[0] + timedelta(days=(7 - dates[0].weekday()) % 7)
+    idx = {d: i for i, d in enumerate(dates)}
+    weeks, rows = [], []
+    w = start
+    while w + timedelta(days=6) <= dates[-1]:
+        ii = [idx.get(w + timedelta(days=k)) for k in range(7)]
+        if None not in ii:
+            sel = [ii[k] for k in range(7) if k in dows]
+            weeks.append(w); rows.append(X[sel].mean(axis=0))
+        w += timedelta(days=7)
+    return weeks, np.vstack(rows)
+
+
+def names():
+    out = {}
+    with open(os.path.join(HEAT, "data", "processed", "nametags", "01_행정동_목록.csv"), encoding="utf-8-sig") as f:
+        for r in csv.DictReader(f):
+            out[r["dong_code8"]] = r["gu"] + " " + r["dong_name"]
+    return out
+
+
+def ref_121(categories=("발달상권", "관광특구")):
+    """Dongs holding Seoul's official major places (from reports/gt_refine/card_hotplace/place_to_dong.csv)."""
+    out = set()
+    with open(os.path.join(HEAT, "reports", "gt_refine", "card_hotplace", "place_to_dong.csv"), encoding="utf-8-sig") as f:
+        for r in csv.DictReader(f):
+            if r["category"] in categories:
+                out.add(r["dong"])
+    return out
+
+
+def share(W, i0, i1):
+    """Share of Seoul over rows i0..i1 inclusive (ratio of sums)."""
+    s = W[i0:i1 + 1].sum(axis=0)
+    return s / s.sum()
+
+
+def g_at(W, i_end):
+    """log share of the 13 weeks ending at i_end minus that of the same 13 weeks one year earlier."""
+    return np.log(share(W, i_end - H + 1, i_end)) - np.log(share(W, i_end - H + 1 - LAG, i_end - LAG))
+
+
+def rank(v):
+    o = np.argsort(v, kind="mergesort"); r = np.empty(len(v)); r[o] = np.arange(len(v))
+    # average ties
+    vs = v[o]; i = 0
+    while i < len(v):
+        j = i
+        while j + 1 < len(v) and vs[j + 1] == vs[i]:
+            j += 1
+        if j > i:
+            r[o[i:j + 1]] = (i + j) / 2
+        i = j + 1
+    return r
+
+
+def spearman(a, b):
+    m = np.isfinite(a) & np.isfinite(b)
+    return float(np.corrcoef(rank(a[m]), rank(b[m]))[0, 1])
+
+
+def topk(v, q=0.10):
+    k = int(round(len(v) * q))
+    return set(np.argsort(-v)[:k])
+
+
+def size_floor(weeks, W):
+    """HEAT rule: drop dongs whose 2023 mean is in the bottom 25%."""
+    m = W[[i for i, w in enumerate(weeks) if w.year == 2023]].mean(axis=0)
+    return m >= np.quantile(m, 0.25)
+
+
+def anomaly_rows(weeks, start=date(2024, 8, 5), end=date(2024, 10, 27)):
+    return np.array([start <= w <= end for w in weeks])
+
+
+# Common anomaly windows (week = Monday key). The 2025 windows come from 준혁's explorer (2026-11-28):
+#   2024-08-01..10-31 all dongs ~1.5x; 2025-01-02..01-24 large business/commercial dongs ~1.4x;
+#   2025-03-01..04-30 most dongs ~1.2x.
+ANOMALIES = {"2024-08~10": (date(2024, 7, 29), date(2024, 10, 28)),
+             "2025-01": (date(2024, 12, 30), date(2025, 1, 20)),
+             "2025-03~04": (date(2025, 2, 24), date(2025, 4, 28))}
+
+
+def anomaly_mask(weeks, names=None):
+    names = names or list(ANOMALIES)
+    return np.array([any(ANOMALIES[k][0] <= w <= ANOMALIES[k][1] for k in names) for w in weeks])
+
+
+# Same windows as days (used for the correction; ANOMALIES above marks every week touching them)
+DAY_ANOMALIES = [(date(2024, 8, 1), date(2024, 10, 31)), (date(2025, 1, 2), date(2025, 1, 24)),
+                 (date(2025, 3, 1), date(2025, 4, 30))]
+# Seoul notice (2025-11-24): source-level difference in the mobility data from 2025-09, cause under review.
+# Default analyses stop at the week of 2025-08-25 (to 2025-08-31). Pass end=None to include 2025-09..12.
+DATA_END = date(2025, 8, 25)
+
+
+def correct_s4_daily(dates, Y):
+    """Rule S4 (src/anomaly) on days: divide each anomaly window by the per-dong factor pulled halfway (in
+    logs) toward the Seoul factor. Factor = observed / (same days 364 days earlier x YoY ratio of the up-to-56
+    clean days before the window). Windows are corrected in time order. Days outside windows are unchanged,
+    so weeks only partly inside a window are only partly corrected."""
+    idx = {d: i for i, d in enumerate(dates)}
+    win = np.zeros(len(dates), bool)
+    for a, b in DAY_ANOMALIES:
+        win |= np.array([a <= d <= b for d in dates])
+    lag = lambda ii: [idx[dates[i] - timedelta(days=364)] for i in ii]
+    C = Y.copy()
+    for a, b in DAY_ANOMALIES:
+        rows = np.array([i for i, d in enumerate(dates) if a <= d <= b])
+        pre = [i for i in range(rows[0] - 1, -1, -1) if not win[i] and dates[i] - timedelta(days=364) in idx][:56]
+        r_d = C[pre].sum(0) / C[lag(pre)].sum(0)
+        r_s = C[pre].sum() / C[lag(pre)].sum()
+        f_d = C[rows].sum(0) / (C[lag(rows)] * r_d).sum(0)
+        f_s = C[rows].sum() / (C[lag(rows)].sum() * r_s)
+        C[rows] /= np.exp(0.5 * np.log(f_d) + 0.5 * np.log(f_s))
+    return C
+
+
+def load_weekly_extended(root, end=DATA_END):
+    """Weekly mean of daily arrivals (20-39, purposes 4+5+7) from 2023-01-02, raw (W) and corrected with
+    day-level S4 (C). Weeks up to `end` (None = 2025-12-22).
+    Up to 2025-08-25 the weeks come from the daily files. After that: 준혁's explorer
+    (data/interim/jh_explorer/dongs.json, field `a` = weekly sum, divided by 7; no anomaly window there).
+    On the 129 overlapping weeks the two sources agree exactly (ratio 7.000 for all 58,936 dong-weeks)."""
+    import json
+    dates, dongs, Y, _ = load_daily(root)
+    weeks, W = weekly(dates, Y)
+    _, C = weekly(dates, correct_s4_daily(dates, Y))
+    if end is None or end > weeks[-1]:
+        jh = json.load(open(os.path.join(HEAT, "data", "interim", "jh_explorer", "dongs.json"), encoding="utf-8"))
+        jw = [date.fromisoformat(w) for w in jh["weeks"]]
+        rec = {r["c"]: r["a"] for r in jh["dongs"]}
+        extra = [i for i, w in enumerate(jw) if w > weeks[-1]]
+        keep = [j for j, c in enumerate(dongs) if c in rec and all(rec[c][i] is not None for i in extra)]
+        dongs = [dongs[j] for j in keep]
+        add = np.array([[rec[c][i] / 7.0 for c in dongs] for i in extra])
+        weeks, W, C = weeks + [jw[i] for i in extra], np.vstack([W[:, keep], add]), np.vstack([C[:, keep], add])
+    k = len(weeks) if end is None else sum(w <= end for w in weeks)
+    return weeks[:k], dongs, W[:k], C[:k]

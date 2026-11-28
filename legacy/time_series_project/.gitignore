@@ -1,0 +1,25 @@
+# Local runtime, credentials, and caches
+tmp/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Rebuildable per-dong model caches and API response batches
+outputs/nameplate_mobility_pilot/**/cache/
+outputs/nameplate_mobility_pilot/**/raw/
+outputs/nameplate_mobility_pilot/weekly_40/arima_family/
+outputs/nameplate_mobility_pilot/weekly_citywide_transfer/arima_011_per_dong/
+outputs/nameplate_mobility_pilot/weekly_citywide_transfer/validation_arima_011_per_dong/

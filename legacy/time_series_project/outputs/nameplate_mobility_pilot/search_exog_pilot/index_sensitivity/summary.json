@@ -1,0 +1,65 @@
+{
+  "experiment": "40-dong exploratory mobility forecast with lagged HEAT Naver search",
+  "target": "Daily-average destination mobility, purpose codes 4+5+7",
+  "search": "HEAT tier=전체 common-anchor relative index; two-month lag; log1p transform",
+  "living": "Daytime living population; two-month lag; log1p transform",
+  "method": "Per-dong fixed ARIMA(1,1,0) with or without seasonal AR(1) at 12 months; 2-step rolling forecast from m-2; coefficients fitted once, state updated without refit",
+  "train": "2023-03 to 2024-11",
+  "test": "2025-01 to 2025-08",
+  "coverage": {
+    "mobility_dongs": 40,
+    "mobility_months": 36,
+    "joined_rows": 1200,
+    "search_share_nonmissing": 1200,
+    "search_lag2_nonmissing": 1200,
+    "search_lag2_zero": 0,
+    "living_lag2_nonmissing": 1200,
+    "search_dongs_with_full_required_period": 40,
+    "search_source": "C:\\Users\\user\\Documents\\Codex\\2026-11-10\\https-chatgpt-com-s-cx-6af267b528f08191b4d8ee090fc0291a\\work\\HEAT\\data\\processed\\search\\행정동_검색지수_월별.csv",
+    "search_measure": "index"
+  },
+  "comparable_dongs": 40,
+  "models": {
+    "ARIMA": {
+      "n": 320,
+      "mae": 4815.05,
+      "wape_pct": 10.91
+    },
+    "ARIMAX_both": {
+      "n": 320,
+      "mae": 6755.4,
+      "wape_pct": 15.3
+    },
+    "ARIMAX_living": {
+      "n": 320,
+      "mae": 5094.75,
+      "wape_pct": 11.54
+    },
+    "ARIMAX_search": {
+      "n": 320,
+      "mae": 6225.32,
+      "wape_pct": 14.1
+    },
+    "SARIMA": {
+      "n": 320,
+      "mae": 4810.12,
+      "wape_pct": 10.89
+    },
+    "SARIMAX_both": {
+      "n": 320,
+      "mae": 6863.99,
+      "wape_pct": 15.55
+    },
+    "SARIMAX_living": {
+      "n": 320,
+      "mae": 5189.87,
+      "wape_pct": 11.75
+    },
+    "SARIMAX_search": {
+      "n": 320,
+      "mae": 6294.93,
+      "wape_pct": 14.26
+    }
+  },
+  "caveat": "Exploratory retrospective evaluation; Jan-Aug 2025 and model order were already examined in earlier work."
+}

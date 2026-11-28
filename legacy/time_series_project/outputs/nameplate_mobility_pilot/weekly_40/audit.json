@@ -1,0 +1,10 @@
+{
+  "dongs": 40,
+  "weeks": 139,
+  "first_week": "2023-01-02",
+  "last_week": "2025-08-25",
+  "station_names": 30,
+  "daily_subway_matches_monthly": true,
+  "gt": "weekly average daily 20-39 purpose 4+5+7 destination mobility",
+  "subway": "nearest stable station daily exits, spatial proxy, not dong visitors"
+}

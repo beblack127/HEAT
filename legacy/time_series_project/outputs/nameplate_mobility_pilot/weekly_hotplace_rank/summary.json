@@ -1,0 +1,22 @@
+{
+  "target": "top 20 in four-week relative Seoul-share growth among dongs above a fixed 2023 volume floor",
+  "volume_floor_daily_mobility": 4781.95,
+  "volume_floor_source": "2023 stable-dong 60th percentile of 4-week living mobility, fixed before validation/test",
+  "forecast_horizon": "13 weeks; trailing four target weeks have all been predicted by the decision origin",
+  "validation_weeks": 9,
+  "test_weeks": 27,
+  "validation_hits": {
+    "recent4": 72,
+    "arima_pred": 69,
+    "selected_blend": 65
+  },
+  "test_hits": {
+    "arima_pred": 213,
+    "selected_blend": 200,
+    "recent4": 198
+  },
+  "selected_on_validation": "recent4",
+  "selected_test_precision_at_20": 0.367,
+  "test_note": "Jan-Jul 2025 only; Aug reference affected by 2024 source anomaly",
+  "validity_note": "This is a mobility-defined emerging-place proxy, not independently verified cultural hotplace status"
+}

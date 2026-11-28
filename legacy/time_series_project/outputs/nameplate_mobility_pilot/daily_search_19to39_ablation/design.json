@@ -1,0 +1,8 @@
+{
+  "target": "daily 20s+30s purpose 4+5+7 destination mobility",
+  "search": "NAVER age buckets 19-39 (includes age 19), daily HEAT-mapped relative search index, 40 pilot dongs",
+  "model": "pooled Ridge alpha=10 on log1p target or naive residual; 40 dong fixed effects, calendar, target lags; search ablation adds 3 lagged search features",
+  "horizon_zero": "same-day search nowcast diagnostic, not advance forecast",
+  "time_split": "train 2024-01-01 through day before earliest 2025 forecast origin; test 2025-01-01 to 2025-08-31",
+  "tuning": "fixed alpha; no validation tuning"
+}

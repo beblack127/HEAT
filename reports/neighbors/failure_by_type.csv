@@ -1,0 +1,37 @@
+﻿h,model,type,dongs,true_emerging_dong_weeks,recall,false_alarms,mean_rank_error
+4,change_4w,size: bottom quarter (of kept),80,145,0.71,16,0.132
+4,change_4w,size: 2nd,79,136,0.75,33,0.121
+4,change_4w,size: 3rd,79,81,0.654,53,0.139
+4,change_4w,size: top quarter,80,86,0.802,19,0.12
+4,change_4w,"weekday-heavy (office-like, low weekend/weekday third)",106,88,0.739,27,0.131
+4,change_4w,middle third,106,150,0.753,31,0.126
+4,change_4w,"weekend-heavy (leisure-like, top third)",106,210,0.71,63,0.127
+4,change_4w,Seoul 121 places (developed commercial / tourist),41,71,0.634,44,0.155
+4,change_4w,Careet Gen-Z list + Seongsu,16,36,0.444,28,0.147
+4,trees own + neighbor,size: bottom quarter (of kept),80,145,0.69,12,0.143
+4,trees own + neighbor,size: 2nd,79,136,0.801,35,0.126
+4,trees own + neighbor,size: 3rd,79,81,0.605,52,0.149
+4,trees own + neighbor,size: top quarter,80,86,0.826,20,0.135
+4,trees own + neighbor,"weekday-heavy (office-like, low weekend/weekday third)",106,88,0.693,23,0.14
+4,trees own + neighbor,middle third,106,150,0.76,32,0.136
+4,trees own + neighbor,"weekend-heavy (leisure-like, top third)",106,210,0.733,64,0.138
+4,trees own + neighbor,Seoul 121 places (developed commercial / tourist),41,71,0.592,41,0.167
+4,trees own + neighbor,Careet Gen-Z list + Seongsu,16,36,0.444,25,0.155
+13,change_4w,size: bottom quarter (of kept),80,49,0.776,1,0.148
+13,change_4w,size: 2nd,79,51,0.706,10,0.143
+13,change_4w,size: 3rd,79,25,0.72,28,0.137
+13,change_4w,size: top quarter,80,35,0.629,7,0.144
+13,change_4w,"weekday-heavy (office-like, low weekend/weekday third)",106,27,0.778,17,0.142
+13,change_4w,middle third,106,55,0.691,7,0.147
+13,change_4w,"weekend-heavy (leisure-like, top third)",106,78,0.705,22,0.14
+13,change_4w,Seoul 121 places (developed commercial / tourist),41,27,0.593,16,0.154
+13,change_4w,Careet Gen-Z list + Seongsu,16,15,0.267,8,0.13
+13,trees own + neighbor,size: bottom quarter (of kept),80,49,0.633,0,0.18
+13,trees own + neighbor,size: 2nd,79,51,0.725,11,0.152
+13,trees own + neighbor,size: 3rd,79,25,0.4,32,0.155
+13,trees own + neighbor,size: top quarter,80,35,0.743,13,0.195
+13,trees own + neighbor,"weekday-heavy (office-like, low weekend/weekday third)",106,27,0.519,19,0.162
+13,trees own + neighbor,middle third,106,55,0.673,13,0.183
+13,trees own + neighbor,"weekend-heavy (leisure-like, top third)",106,78,0.679,24,0.167
+13,trees own + neighbor,Seoul 121 places (developed commercial / tourist),41,27,0.407,13,0.208
+13,trees own + neighbor,Careet Gen-Z list + Seongsu,16,15,0.067,4,0.174

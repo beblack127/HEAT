@@ -1,0 +1,9 @@
+﻿admin_dong_code,area,pair,no_search_model,search_model,wape_no_search_pct,wape_search_pct,search_gain_pp
+11350665,노원구 상계3·4동,ARIMA family,ARIMA,ARIMAX_search,25.631,56.493,-30.862
+11350665,노원구 상계3·4동,Seasonal ARIMA family,SARIMA,SARIMAX_search,32.817,76.589,-43.772
+11350665,노원구 상계3·4동,ARIMAX + lagged mobility,ARIMAX,ARIMAX_search+mobility,23.188,52.524,-29.336
+11350665,노원구 상계3·4동,SARIMAX + lagged mobility,SARIMAX,SARIMAX_search+mobility,32.33,72.544,-40.213
+11170640,용산구 이촌2동,ARIMA family,ARIMA,ARIMAX_search,77.631,77.547,0.084
+11170640,용산구 이촌2동,Seasonal ARIMA family,SARIMA,SARIMAX_search,77.526,77.949,-0.423
+11170640,용산구 이촌2동,ARIMAX + lagged mobility,ARIMAX,ARIMAX_search+mobility,71.141,70.868,0.273
+11170640,용산구 이촌2동,SARIMAX + lagged mobility,SARIMAX,SARIMAX_search+mobility,70.057,72.041,-1.984

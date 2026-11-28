@@ -1,0 +1,10 @@
+{
+  "dates": 974,
+  "dongs": 40,
+  "groups": 138,
+  "units": 443,
+  "batches": 111,
+  "min_anchor_shape_correlation": 0.9999999999989142,
+  "search_index_definition": "relative to anchor mean in 2023; not actual query count or Seoul share",
+  "age_filter": "19-39 (NAVER buckets 3-6), includes age 19; target mobility is 20-39"
+}

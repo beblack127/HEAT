@@ -1,0 +1,156 @@
+{
+  "origins": [
+    "2024-06-24",
+    "2024-07-22",
+    "2024-08-19",
+    "2024-09-16",
+    "2024-10-14",
+    "2024-11-11",
+    "2024-12-09",
+    "2025-01-06",
+    "2025-02-03",
+    "2025-03-03",
+    "2025-03-31",
+    "2025-04-28",
+    "2025-05-26"
+  ],
+  "dongs_above_floor": 318,
+  "features": {
+    "mob_share_slope_13w": {
+      "spearman_with_future_change": 0.217,
+      "spearman_beyond_momentum": 0.267,
+      "clean_spearman": 0.178,
+      "clean_beyond_momentum": 0.195,
+      "origins": 13,
+      "dongs_covered_median": 318
+    },
+    "mob_g_4w": {
+      "spearman_with_future_change": 0.712,
+      "spearman_beyond_momentum": 0.127,
+      "clean_spearman": 0.681,
+      "clean_beyond_momentum": 0.071,
+      "origins": 13,
+      "dongs_covered_median": 318
+    },
+    "mob_share_slope_26w": {
+      "spearman_with_future_change": 0.332,
+      "spearman_beyond_momentum": 0.112,
+      "clean_spearman": 0.094,
+      "clean_beyond_momentum": 0.1,
+      "origins": 13,
+      "dongs_covered_median": 318
+    },
+    "mob_young_share_change": {
+      "spearman_with_future_change": 0.318,
+      "spearman_beyond_momentum": 0.086,
+      "clean_spearman": 0.364,
+      "clean_beyond_momentum": 0.152,
+      "origins": 13,
+      "dongs_covered_median": 318
+    },
+    "mob_g_26w": {
+      "spearman_with_future_change": 0.598,
+      "spearman_beyond_momentum": -0.068,
+      "clean_spearman": 0.6,
+      "clean_beyond_momentum": -0.037,
+      "origins": 13,
+      "dongs_covered_median": 318
+    },
+    "search_g_yoy (m-4)": {
+      "spearman_with_future_change": 0.123,
+      "spearman_beyond_momentum": 0.05,
+      "clean_spearman": 0.146,
+      "clean_beyond_momentum": 0.124,
+      "origins": 13,
+      "dongs_covered_median": 318
+    },
+    "subway_g_yoy (m-1)": {
+      "spearman_with_future_change": 0.126,
+      "spearman_beyond_momentum": -0.048,
+      "clean_spearman": 0.107,
+      "clean_beyond_momentum": -0.052,
+      "origins": 13,
+      "dongs_covered_median": 197
+    },
+    "mob_weekend_ratio_change": {
+      "spearman_with_future_change": 0.067,
+      "spearman_beyond_momentum": -0.047,
+      "clean_spearman": 0.08,
+      "clean_beyond_momentum": -0.065,
+      "origins": 13,
+      "dongs_covered_median": 318
+    },
+    "mob_volatility_26w": {
+      "spearman_with_future_change": -0.099,
+      "spearman_beyond_momentum": 0.046,
+      "clean_spearman": 0.037,
+      "clean_beyond_momentum": 0.067,
+      "origins": 13,
+      "dongs_covered_median": 318
+    },
+    "mob_log_size_13w": {
+      "spearman_with_future_change": 0.364,
+      "spearman_beyond_momentum": -0.041,
+      "clean_spearman": 0.163,
+      "clean_beyond_momentum": -0.2,
+      "origins": 13,
+      "dongs_covered_median": 318
+    },
+    "mob_weekend_ratio_13w": {
+      "spearman_with_future_change": 0.06,
+      "spearman_beyond_momentum": -0.027,
+      "clean_spearman": 0.04,
+      "clean_beyond_momentum": 0.029,
+      "origins": 13,
+      "dongs_covered_median": 318
+    },
+    "spikes_same_window_last_year": {
+      "spearman_with_future_change": 0.074,
+      "spearman_beyond_momentum": -0.024,
+      "clean_spearman": 0.034,
+      "clean_beyond_momentum": 0.003,
+      "origins": 13,
+      "dongs_covered_median": 318
+    },
+    "mob_young_share_13w": {
+      "spearman_with_future_change": 0.287,
+      "spearman_beyond_momentum": 0.016,
+      "clean_spearman": 0.155,
+      "clean_beyond_momentum": -0.057,
+      "origins": 13,
+      "dongs_covered_median": 318
+    },
+    "spikes_last_52w": {
+      "spearman_with_future_change": 0.102,
+      "spearman_beyond_momentum": -0.013,
+      "clean_spearman": 0.065,
+      "clean_beyond_momentum": -0.05,
+      "origins": 13,
+      "dongs_covered_median": 318
+    },
+    "card_young_hot_g_yoy (q-1)": {
+      "spearman_with_future_change": 0.084,
+      "spearman_beyond_momentum": 0.013,
+      "clean_spearman": 0.093,
+      "clean_beyond_momentum": 0.021,
+      "origins": 13,
+      "dongs_covered_median": 295
+    },
+    "search_share (m-4)": {
+      "spearman_with_future_change": 0.231,
+      "spearman_beyond_momentum": -0.002,
+      "clean_spearman": 0.101,
+      "clean_beyond_momentum": -0.077,
+      "origins": 13,
+      "dongs_covered_median": 318
+    },
+    "mob_g_13w (momentum)": {
+      "spearman_with_future_change": 0.664,
+      "spearman_beyond_momentum": null,
+      "clean_spearman": 0.648,
+      "clean_beyond_momentum": null,
+      "origins": 13,
+      "dongs_covered_median": 318
+    }
+  }
+}

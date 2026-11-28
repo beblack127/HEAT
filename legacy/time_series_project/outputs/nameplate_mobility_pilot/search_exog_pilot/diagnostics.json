@@ -1,0 +1,50 @@
+{
+  "median_dong_wape_pct": {
+    "ARIMA": 9.22,
+    "ARIMAX_both": 12.82,
+    "ARIMAX_living": 10.75,
+    "ARIMAX_search": 11.9,
+    "SARIMA": 9.37,
+    "SARIMAX_both": 13.59,
+    "SARIMAX_living": 11.27,
+    "SARIMAX_search": 12.91
+  },
+  "rows_better_than_ARIMA_out_of_320": {
+    "ARIMAX_both": 155,
+    "ARIMAX_living": 155,
+    "ARIMAX_search": 155,
+    "SARIMA": 163,
+    "SARIMAX_both": 147,
+    "SARIMAX_living": 155,
+    "SARIMAX_search": 147
+  },
+  "dongs_better_than_ARIMA_out_of_40": {
+    "ARIMAX_both": 16,
+    "ARIMAX_living": 21,
+    "ARIMAX_search": 14,
+    "SARIMA": 19,
+    "SARIMAX_both": 16,
+    "SARIMAX_living": 18,
+    "SARIMAX_search": 11
+  },
+  "largest_search_vs_arima_loss_dongs": {
+    "11680640 강남구 역삼1동": 252748.7,
+    "11110615 종로구 종로1·2·3·4가동": 50053.1,
+    "11680565 강남구 청담동": 46078.1,
+    "11200560 성동구 행당1동": 31368.9,
+    "11680545 강남구 압구정동": 19608.8,
+    "11215710 광진구 화양동": 18927.1,
+    "11215847 광진구 자양4동": 18923.2,
+    "11215840 광진구 자양3동": 18622.9
+  },
+  "wape_pct_excluding_largest_search_loss_dong_posthoc": {
+    "ARIMA": 10.58,
+    "ARIMAX_both": 13.25,
+    "ARIMAX_living": 11.37,
+    "ARIMAX_search": 12.37,
+    "SARIMA": 10.51,
+    "SARIMAX_both": 14.16,
+    "SARIMAX_living": 11.42,
+    "SARIMAX_search": 12.94
+  }
+}

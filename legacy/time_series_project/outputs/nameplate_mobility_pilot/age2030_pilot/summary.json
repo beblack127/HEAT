@@ -1,0 +1,92 @@
+{
+  "target": "20s+30s destination mobility, purposes 4+5+7, daily average",
+  "period": "2023-01 to 2025-08",
+  "train": "2023-03 to 2024-11",
+  "test": "2025-01 to 2025-08",
+  "evaluation": "40 dongs x 8 months, 2-step forecast from m-2",
+  "two_stage": "ARIMAX fit with contemporaneous search; search for m-1 and m predicted at m-2 by last observed value",
+  "subway": "closest HEAT-mapped station with complete 2023-01 to 2025-08 history; all line exits summed by name; two-month lag; spatial proxy only",
+  "coverage": {
+    "mobility_dongs": 40,
+    "mobility_months": 36,
+    "joined_rows": 1200,
+    "search_share_nonmissing": 1200,
+    "search_lag2_nonmissing": 1200,
+    "search_lag2_zero": 0,
+    "living_lag2_nonmissing": 1200,
+    "search_dongs_with_full_required_period": 40,
+    "search_source": "C:\\Users\\user\\Documents\\Codex\\2026-11-10\\https-chatgpt-com-s-cx-6af267b528f08191b4d8ee090fc0291a\\work\\HEAT\\data\\processed\\search\\행정동_검색지수_월별.csv",
+    "search_measure": "share"
+  },
+  "target_mean_age_share_40": 0.4563399499242587,
+  "citywide_baselines": {
+    "lag12": {
+      "n": 3407,
+      "mae": 1204.03,
+      "wape_pct": 17.23
+    },
+    "lag2": {
+      "n": 3407,
+      "mae": 957.88,
+      "wape_pct": 13.71
+    }
+  },
+  "models": {
+    "ARIMA": {
+      "n": 320,
+      "mae": 2823.02,
+      "wape_pct": 13.72
+    },
+    "ARIMAX_both": {
+      "n": 320,
+      "mae": 3435.24,
+      "wape_pct": 16.7
+    },
+    "ARIMAX_living": {
+      "n": 320,
+      "mae": 2921.06,
+      "wape_pct": 14.2
+    },
+    "ARIMAX_search": {
+      "n": 320,
+      "mae": 3312.7,
+      "wape_pct": 16.1
+    },
+    "ARIMAX_search_forecast": {
+      "n": 320,
+      "mae": 2885.42,
+      "wape_pct": 14.03
+    },
+    "ARIMAX_subway": {
+      "n": 320,
+      "mae": 2468.35,
+      "wape_pct": 12.0
+    },
+    "SARIMA": {
+      "n": 320,
+      "mae": 2796.52,
+      "wape_pct": 13.59
+    },
+    "SARIMAX_search": {
+      "n": 320,
+      "mae": 3430.13,
+      "wape_pct": 16.67
+    },
+    "SARIMAX_subway": {
+      "n": 320,
+      "mae": 2419.99,
+      "wape_pct": 11.76
+    },
+    "lag12": {
+      "n": 320,
+      "mae": 3832.9,
+      "wape_pct": 18.63
+    },
+    "lag2": {
+      "n": 320,
+      "mae": 3029.3,
+      "wape_pct": 14.73
+    }
+  },
+  "caveat": "Exploratory pilot; fixed orders; source anomaly 2024-08 to 2024-10 in training; same test used in prior work"
+}
