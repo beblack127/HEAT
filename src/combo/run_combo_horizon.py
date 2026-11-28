@@ -54,7 +54,8 @@ def z(v):
 Xo = {o: feats(o) for o in range(O_MIN, n)}
 MODELS = {"momentum": None, "change_4w": None, "combo (5 features)": FEATS, "combo without size": FEATS[:4]}
 rows, coefs = [], {}
-for h in (4, 8, 13, 26):
+HS = [h for h in (4, 8, 13, 26) if any(not anom[o + 1:o + 1 + h].any() for o in range(widx["2025-04-28"], n - h))]
+for h in HS:
     tests = [o for o in range(widx["2025-04-28"], n - h) if not anom[o + 1:o + 1 + h].any()]
     for o in tests:
         g = gwin(o + h, h)[keep]
@@ -79,9 +80,9 @@ with open(os.path.join(OUT, "scores_by_origin.csv"), "w", newline="", encoding="
     for r in rows:
         w.writerow({k: (f"{v:.4f}" if isinstance(v, float) else v) for k, v in r.items()})
 
-common = set.intersection(*[{r["origin"] for r in rows if r["h"] == h} for h in (4, 8, 13, 26)])
+common = set.intersection(*[{r["origin"] for r in rows if r["h"] == h} for h in HS])
 summary = {"dongs": int(keep.sum()), "common_origins": sorted(common), "by_h": {}}
-for h in (4, 8, 13, 26):
+for h in HS:
     hs = [r for r in rows if r["h"] == h]
     origins = sorted({r["origin"] for r in hs})
     d = {"test_origins": len(origins), "first_last": [origins[0], origins[-1]],

@@ -1,0 +1,260 @@
+{
+  "origins": [
+    "2025-04-28",
+    "2025-05-12",
+    "2025-05-26"
+  ],
+  "rules": {
+    "S0 raw": {
+      "factors": {},
+      "scores": {
+        "same_week_last_year": {
+          "WAPE": 0.1813,
+          "MASE": 1.1007,
+          "share_WAPE": 0.0947,
+          "change_spearman": null,
+          "emerging_P@10": null
+        },
+        "same_week_last_year_x_trend": {
+          "WAPE": 0.2693,
+          "MASE": 1.7353,
+          "share_WAPE": 0.0947,
+          "change_spearman": null,
+          "emerging_P@10": null
+        },
+        "avg(last_year, mean_13w)": {
+          "WAPE": 0.1444,
+          "MASE": 0.9121,
+          "share_WAPE": 0.0738,
+          "change_spearman": 0.7241,
+          "emerging_P@10": 0.5208
+        },
+        "share_momentum": {
+          "WAPE": 0.267,
+          "MASE": 1.5757,
+          "share_WAPE": 0.0932,
+          "change_spearman": 0.4808,
+          "emerging_P@10": 0.625
+        }
+      }
+    },
+    "S1 midterm (2024 only, /1.52)": {
+      "factors": {
+        "2024-08~10": 1.52
+      },
+      "scores": {
+        "same_week_last_year": {
+          "WAPE": 0.0963,
+          "MASE": 0.8319,
+          "share_WAPE": 0.0947,
+          "change_spearman": null,
+          "emerging_P@10": null
+        },
+        "same_week_last_year_x_trend": {
+          "WAPE": 0.1502,
+          "MASE": 1.1681,
+          "share_WAPE": 0.0947,
+          "change_spearman": null,
+          "emerging_P@10": null
+        },
+        "avg(last_year, mean_13w)": {
+          "WAPE": 0.0944,
+          "MASE": 0.718,
+          "share_WAPE": 0.0728,
+          "change_spearman": 0.6958,
+          "emerging_P@10": 0.5417
+        },
+        "share_momentum": {
+          "WAPE": 0.1401,
+          "MASE": 0.9062,
+          "share_WAPE": 0.0885,
+          "change_spearman": 0.5257,
+          "emerging_P@10": 0.6354
+        }
+      }
+    },
+    "S2 Seoul factor": {
+      "factors": {
+        "2024-08~10": {
+          "seoul": 1.498,
+          "dong_median": 1.275,
+          "dong_p10_p90": [
+            1.093,
+            1.603
+          ],
+          "dong_corr_with_size": 0.762
+        },
+        "2025-01": {
+          "seoul": 1.159,
+          "dong_median": 1.048,
+          "dong_p10_p90": [
+            0.99,
+            1.207
+          ],
+          "dong_corr_with_size": 0.387
+        },
+        "2025-03~04": {
+          "seoul": 1.142,
+          "dong_median": 1.137,
+          "dong_p10_p90": [
+            1.05,
+            1.227
+          ],
+          "dong_corr_with_size": 0.144
+        }
+      },
+      "scores": {
+        "same_week_last_year": {
+          "WAPE": 0.0967,
+          "MASE": 0.9134,
+          "share_WAPE": 0.0947,
+          "change_spearman": null,
+          "emerging_P@10": null
+        },
+        "same_week_last_year_x_trend": {
+          "WAPE": 0.099,
+          "MASE": 0.9047,
+          "share_WAPE": 0.0947,
+          "change_spearman": null,
+          "emerging_P@10": null
+        },
+        "avg(last_year, mean_13w)": {
+          "WAPE": 0.0757,
+          "MASE": 0.6926,
+          "share_WAPE": 0.0731,
+          "change_spearman": 0.6996,
+          "emerging_P@10": 0.5312
+        },
+        "share_momentum": {
+          "WAPE": 0.0936,
+          "MASE": 0.8487,
+          "share_WAPE": 0.0883,
+          "change_spearman": 0.5263,
+          "emerging_P@10": 0.6354
+        }
+      }
+    },
+    "S3 dong factor": {
+      "factors": {
+        "2024-08~10": {
+          "seoul": 1.498,
+          "dong_median": 1.275,
+          "dong_p10_p90": [
+            1.093,
+            1.603
+          ],
+          "dong_corr_with_size": 0.762
+        },
+        "2025-01": {
+          "seoul": 1.159,
+          "dong_median": 1.048,
+          "dong_p10_p90": [
+            0.99,
+            1.207
+          ],
+          "dong_corr_with_size": 0.387
+        },
+        "2025-03~04": {
+          "seoul": 1.142,
+          "dong_median": 1.137,
+          "dong_p10_p90": [
+            1.05,
+            1.227
+          ],
+          "dong_corr_with_size": 0.144
+        }
+      },
+      "scores": {
+        "same_week_last_year": {
+          "WAPE": 0.0922,
+          "MASE": 1.0342,
+          "share_WAPE": 0.0891,
+          "change_spearman": null,
+          "emerging_P@10": null
+        },
+        "same_week_last_year_x_trend": {
+          "WAPE": 0.0952,
+          "MASE": 1.0752,
+          "share_WAPE": 0.0891,
+          "change_spearman": null,
+          "emerging_P@10": null
+        },
+        "avg(last_year, mean_13w)": {
+          "WAPE": 0.0782,
+          "MASE": 0.8642,
+          "share_WAPE": 0.0753,
+          "change_spearman": 0.6485,
+          "emerging_P@10": 0.3854
+        },
+        "share_momentum": {
+          "WAPE": 0.0926,
+          "MASE": 0.9745,
+          "share_WAPE": 0.0862,
+          "change_spearman": 0.5701,
+          "emerging_P@10": 0.4792
+        }
+      }
+    },
+    "S4 dong factor, shrunk": {
+      "factors": {
+        "2024-08~10": {
+          "seoul": 1.498,
+          "dong_median": 1.275,
+          "dong_p10_p90": [
+            1.093,
+            1.603
+          ],
+          "dong_corr_with_size": 0.762
+        },
+        "2025-01": {
+          "seoul": 1.159,
+          "dong_median": 1.048,
+          "dong_p10_p90": [
+            0.99,
+            1.207
+          ],
+          "dong_corr_with_size": 0.387
+        },
+        "2025-03~04": {
+          "seoul": 1.142,
+          "dong_median": 1.137,
+          "dong_p10_p90": [
+            1.05,
+            1.227
+          ],
+          "dong_corr_with_size": 0.144
+        }
+      },
+      "scores": {
+        "same_week_last_year": {
+          "WAPE": 0.0898,
+          "MASE": 0.9383,
+          "share_WAPE": 0.0867,
+          "change_spearman": null,
+          "emerging_P@10": null
+        },
+        "same_week_last_year_x_trend": {
+          "WAPE": 0.0921,
+          "MASE": 0.9465,
+          "share_WAPE": 0.0867,
+          "change_spearman": null,
+          "emerging_P@10": null
+        },
+        "avg(last_year, mean_13w)": {
+          "WAPE": 0.0745,
+          "MASE": 0.7662,
+          "share_WAPE": 0.0715,
+          "change_spearman": 0.6804,
+          "emerging_P@10": 0.5
+        },
+        "share_momentum": {
+          "WAPE": 0.0885,
+          "MASE": 0.8893,
+          "share_WAPE": 0.0824,
+          "change_spearman": 0.5887,
+          "emerging_P@10": 0.5729
+        }
+      }
+    }
+  }
+}
