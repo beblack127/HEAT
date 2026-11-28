@@ -2,13 +2,14 @@
 (3) How does predictability change with the forecast window (4 / 8 / 13 / 26 weeks)?
 
 Target for window h at origin o: g_h = log Seoul share of weeks o+1..o+h minus that of the same weeks one
-year earlier (20-39, purposes 4+5+7, history corrected with rule S4, dongs above the size floor).
+year earlier (20-39, purposes 4+5+7, history corrected with day-level S4, dongs above the size floor).
 Features at o (all from the weekly series): momentum (13-week share change vs a year earlier), 4-week
 change, share slope over 13 and 26 weeks, log size (13-week mean).
 Combination: pooled least squares on per-origin z-scores, refit at every test origin on training origins
 whose target window has ended by the test origin (o' + h <= o). Training origins start at 2024-03-25 (the
 first with a full feature history) and include corrected anomaly weeks.
-Test origins: every week from 2025-04-28 whose h future weeks contain no anomaly week and end by 2025-12-22.
+Test origins: every week from 2025-04-28 whose h future weeks contain no anomaly week and end by 2025-08-31
+(P.DATA_END; windows with no such origin are skipped).
 Metrics: rank correlation with g_h, and emerging P@10 (overlap of predicted and true top 10%).
 Usage: python src/combo/run_combo_horizon.py <codex_root> <out_dir>
 """
@@ -21,9 +22,8 @@ import panel as P
 ROOT, OUT = sys.argv[1], sys.argv[2]
 os.makedirs(OUT, exist_ok=True)
 LAG = P.LAG
-weeks, dongs, W = P.load_weekly_extended(ROOT)
+weeks, dongs, W, C = P.load_weekly_extended(ROOT)   # data to 2025-08 (P.DATA_END), C = day-level S4
 n, N = W.shape
-C = P.correct_s4(weeks, W)
 anom = P.anomaly_mask(weeks)
 keep = P.size_floor(weeks, W)
 ls = np.log(C / C.sum(1, keepdims=True))

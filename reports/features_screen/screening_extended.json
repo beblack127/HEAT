@@ -2,69 +2,61 @@
   "origins": [
     "2025-04-28",
     "2025-05-12",
-    "2025-05-26",
-    "2025-06-09",
-    "2025-06-23",
-    "2025-07-07",
-    "2025-07-21",
-    "2025-08-04",
-    "2025-08-18",
-    "2025-09-01",
-    "2025-09-15"
+    "2025-05-26"
   ],
   "dongs_above_floor": 318,
   "features": {
     "mob_g_13w (momentum)": {
-      "spearman_with_future_change": 0.559,
+      "spearman_with_future_change": 0.6,
       "spearman_beyond_momentum": null,
       "beyond_min_max": null
     },
     "mob_g_4w": {
-      "spearman_with_future_change": 0.671,
-      "spearman_beyond_momentum": 0.236,
+      "spearman_with_future_change": 0.766,
+      "spearman_beyond_momentum": 0.31,
       "beyond_min_max": [
-        0.077,
-        0.373
+        0.246,
+        0.355
       ]
     },
     "mob_g_26w": {
-      "spearman_with_future_change": 0.434,
-      "spearman_beyond_momentum": -0.074,
+      "spearman_with_future_change": 0.529,
+      "spearman_beyond_momentum": -0.064,
       "beyond_min_max": [
-        -0.152,
-        0.003
+        -0.093,
+        -0.021
       ]
     },
     "mob_share_slope_13w": {
-      "spearman_with_future_change": 0.29,
-      "spearman_beyond_momentum": 0.328,
+      "spearman_with_future_change": 0.372,
+      "spearman_beyond_momentum": 0.484,
       "beyond_min_max": [
-        0.16,
-        0.585
+        0.334,
+        0.583
       ]
     },
     "mob_share_slope_26w": {
-      "spearman_with_future_change": 0.389,
-      "spearman_beyond_momentum": 0.301,
+      "spearman_with_future_change": 0.364,
+      "spearman_beyond_momentum": 0.32,
       "beyond_min_max": [
-        0.116,
-        0.439
+        0.155,
+        0.449
       ]
     },
     "mob_volatility_26w": {
-      "spearman_with_future_change": 0.019,
-      "spearman_beyond_momentum": -0.043,
+      "spearman_with_future_change": 0.13,
+      "spearman_beyond_momentum": 0.138,
       "beyond_min_max": [
-        -0.173,
-        0.174
+        0.125,
+        0.163
       ]
     },
     "mob_log_size_13w": {
-      "spearman_with_future_change": -0.205,
-      "spearman_beyond_momentum": -0.354,
+      "spearman_with_future_change": -0.043,
+      "spearman_beyond_momentum": -0.301,
       "beyond_min_max": [
-        -0.527,
-        -0.23
+        -0.33,
+        -0.281
       ]
     }
   }

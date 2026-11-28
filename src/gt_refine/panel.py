@@ -133,36 +133,54 @@ def anomaly_mask(weeks, names=None):
     return np.array([any(ANOMALIES[k][0] <= w <= ANOMALIES[k][1] for k in names) for w in weeks])
 
 
-def correct_s4(weeks, W):
-    """Rule S4 from src/anomaly: divide each anomaly window by the per-dong factor pulled halfway (in logs)
-    toward the Seoul factor. Factor = observed / (same weeks a year earlier x YoY ratio of the up-to-8 clean
-    weeks before the window). Windows are corrected in time order."""
-    anom = anomaly_mask(weeks)
-    C = W.copy()
-    for a, b in ANOMALIES.values():
-        rows = np.array([i for i, w in enumerate(weeks) if a <= w <= b])
-        pre = [i for i in range(rows[0] - 1, -1, -1) if not anom[i] and i - LAG >= 0][:8]
-        r_d = C[pre].sum(0) / C[[i - LAG for i in pre]].sum(0)
-        r_s = C[pre].sum() / C[[i - LAG for i in pre]].sum()
-        f_d = C[rows].sum(0) / (C[rows - LAG] * r_d).sum(0)
-        f_s = C[rows].sum() / (C[rows - LAG].sum() * r_s)
+# Same windows as days (used for the correction; ANOMALIES above marks every week touching them)
+DAY_ANOMALIES = [(date(2024, 8, 1), date(2024, 10, 31)), (date(2025, 1, 2), date(2025, 1, 24)),
+                 (date(2025, 3, 1), date(2025, 4, 30))]
+# Seoul notice (2025-11-24): source-level difference in the mobility data from 2025-09, cause under review.
+# Default analyses stop at the week of 2025-08-25 (to 2025-08-31). Pass end=None to include 2025-09..12.
+DATA_END = date(2025, 8, 25)
+
+
+def correct_s4_daily(dates, Y):
+    """Rule S4 (src/anomaly) on days: divide each anomaly window by the per-dong factor pulled halfway (in
+    logs) toward the Seoul factor. Factor = observed / (same days 364 days earlier x YoY ratio of the up-to-56
+    clean days before the window). Windows are corrected in time order. Days outside windows are unchanged,
+    so weeks only partly inside a window are only partly corrected."""
+    idx = {d: i for i, d in enumerate(dates)}
+    win = np.zeros(len(dates), bool)
+    for a, b in DAY_ANOMALIES:
+        win |= np.array([a <= d <= b for d in dates])
+    lag = lambda ii: [idx[dates[i] - timedelta(days=364)] for i in ii]
+    C = Y.copy()
+    for a, b in DAY_ANOMALIES:
+        rows = np.array([i for i, d in enumerate(dates) if a <= d <= b])
+        pre = [i for i in range(rows[0] - 1, -1, -1) if not win[i] and dates[i] - timedelta(days=364) in idx][:56]
+        r_d = C[pre].sum(0) / C[lag(pre)].sum(0)
+        r_s = C[pre].sum() / C[lag(pre)].sum()
+        f_d = C[rows].sum(0) / (C[lag(rows)] * r_d).sum(0)
+        f_s = C[rows].sum() / (C[lag(rows)].sum() * r_s)
         C[rows] /= np.exp(0.5 * np.log(f_d) + 0.5 * np.log(f_s))
     return C
 
 
-def load_weekly_extended(root):
-    """Weekly mean of daily arrivals (20-39, purposes 4+5+7), 2023-01-02 .. 2025-12-22.
-    Up to 2025-08-25: built here from the daily files. 2025-09-01 onward: 준혁's explorer
-    (data/interim/jh_explorer/dongs.json, field `a` = weekly sum, divided by 7). On the 129 overlapping
-    weeks the two sources agree exactly (ratio 7.000 for all 58,936 dong-weeks)."""
+def load_weekly_extended(root, end=DATA_END):
+    """Weekly mean of daily arrivals (20-39, purposes 4+5+7) from 2023-01-02, raw (W) and corrected with
+    day-level S4 (C). Weeks up to `end` (None = 2025-12-22).
+    Up to 2025-08-25 the weeks come from the daily files. After that: 준혁's explorer
+    (data/interim/jh_explorer/dongs.json, field `a` = weekly sum, divided by 7; no anomaly window there).
+    On the 129 overlapping weeks the two sources agree exactly (ratio 7.000 for all 58,936 dong-weeks)."""
     import json
     dates, dongs, Y, _ = load_daily(root)
     weeks, W = weekly(dates, Y)
-    jh = json.load(open(os.path.join(HEAT, "data", "interim", "jh_explorer", "dongs.json"), encoding="utf-8"))
-    jw = [date.fromisoformat(w) for w in jh["weeks"]]
-    rec = {r["c"]: r["a"] for r in jh["dongs"]}
-    extra = [i for i, w in enumerate(jw) if w > weeks[-1]]
-    keep = [j for j, c in enumerate(dongs) if c in rec and all(rec[c][i] is not None for i in extra)]
-    dongs = [dongs[j] for j in keep]
-    add = np.array([[rec[c][i] / 7.0 for c in dongs] for i in extra])
-    return weeks + [jw[i] for i in extra], dongs, np.vstack([W[:, keep], add])
+    _, C = weekly(dates, correct_s4_daily(dates, Y))
+    if end is None or end > weeks[-1]:
+        jh = json.load(open(os.path.join(HEAT, "data", "interim", "jh_explorer", "dongs.json"), encoding="utf-8"))
+        jw = [date.fromisoformat(w) for w in jh["weeks"]]
+        rec = {r["c"]: r["a"] for r in jh["dongs"]}
+        extra = [i for i, w in enumerate(jw) if w > weeks[-1]]
+        keep = [j for j, c in enumerate(dongs) if c in rec and all(rec[c][i] is not None for i in extra)]
+        dongs = [dongs[j] for j in keep]
+        add = np.array([[rec[c][i] / 7.0 for c in dongs] for i in extra])
+        weeks, W, C = weeks + [jw[i] for i in extra], np.vstack([W[:, keep], add]), np.vstack([C[:, keep], add])
+    k = len(weeks) if end is None else sum(w <= end for w in weeks)
+    return weeks[:k], dongs, W[:k], C[:k]

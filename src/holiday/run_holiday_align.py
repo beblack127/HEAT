@@ -8,7 +8,7 @@ Aligned reference ref(t):
   - otherwise t-52
 Holiday days are the official public holidays (incl. substitute and temporary holidays) of 2023-2025.
 
-Data: weekly mean, 20-39, purposes 4+5+7, to 2025-12-22, history corrected with rule S4. Truth weeks are
+Data: weekly mean, 20-39, purposes 4+5+7, to 2025-08-31 (P.DATA_END), history corrected with day-level S4. Truth weeks are
 never in an anomaly window. 2026 is not used.
 Checks
   A. per target week: WAPE and share error (L1 distance of Seoul shares) of C[t-52] vs C[ref(t)]
@@ -36,9 +36,8 @@ HOLIDAYS = {  # name: (main day, all public holiday days of the block)
     "chuseok_2025": (d(2025, 10, 6), [d(2025, 10, 3), d(2025, 10, 5), d(2025, 10, 6), d(2025, 10, 7), d(2025, 10, 8), d(2025, 10, 9)]),
 }
 
-weeks, dongs, W = P.load_weekly_extended(ROOT)
+weeks, dongs, W, C = P.load_weekly_extended(ROOT)   # data to 2025-08 (P.DATA_END), C = day-level S4
 n, N = W.shape
-C = P.correct_s4(weeks, W)
 anom = P.anomaly_mask(weeks)
 keep = P.size_floor(weeks, W)
 widx = {w: i for i, w in enumerate(weeks)}

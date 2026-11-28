@@ -1,7 +1,7 @@
-"""Re-check the mobility-shape features on later origins, with data to 2025-12 and per-dong anomaly
-correction (rule S4 from src/anomaly). Only features computable from the weekly series are used.
+"""Re-check the mobility-shape features on later origins, with data to 2025-08 (P.DATA_END) and day-level
+anomaly correction (rule S4 from src/anomaly). Only features computable from the weekly series are used.
 
-Origins: 13 future weeks contain no anomaly week (2025-04-28 .. 2025-09-15, every 2 weeks).
+Origins: 13 future weeks contain no anomaly week (from 2025-04-28, every 2 weeks).
 Truth: g = log share of the raw future 13 weeks - log share of the same weeks a year earlier (corrected).
 Usage: python src/features_screen/run_feature_screen_extended.py <codex_root> <out_dir>
 """
@@ -15,21 +15,10 @@ import panel as P
 ROOT, OUT = sys.argv[1], sys.argv[2]
 os.makedirs(OUT, exist_ok=True)
 H, LAG = P.H, P.LAG
-weeks, dongs, W = P.load_weekly_extended(ROOT)
+weeks, dongs, W, C = P.load_weekly_extended(ROOT)   # data to 2025-08 (P.DATA_END), C = day-level S4
 n, N = W.shape
 anom = P.anomaly_mask(weeks)
 keep = P.size_floor(weeks, W)
-
-# per-dong correction, shrunk halfway to the Seoul factor (S4)
-C = W.copy()
-for k, (a, b) in P.ANOMALIES.items():
-    rows = np.array([i for i, w in enumerate(weeks) if a <= w <= b])
-    pre = [i for i in range(rows[0] - 1, -1, -1) if not anom[i] and i - LAG >= 0][:8]
-    r_d = C[pre].sum(0) / C[[i - LAG for i in pre]].sum(0)
-    r_s = C[pre].sum() / C[[i - LAG for i in pre]].sum()
-    f_d = C[rows].sum(0) / (C[rows - LAG] * r_d).sum(0)
-    f_s = C[rows].sum() / (C[rows - LAG].sum() * r_s)
-    C[rows] /= np.exp(0.5 * np.log(f_d) + 0.5 * np.log(f_s))
 
 
 def slope(Y):

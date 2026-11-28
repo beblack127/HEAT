@@ -12,8 +12,8 @@ Factor = observed / expected over the window, expected = same weeks one year ear
 of the (up to) 8 clean weeks just before the window. Windows are corrected in time order, so later
 windows use already-corrected history.
 
-Test: origins whose 13 future weeks contain no anomaly week but whose history does (2025-04-28 ..
-2025-09-22, every 2 weeks). The truth is the raw (clean) future. Baselines are built from the corrected
+Test: origins whose 13 future weeks contain no anomaly week but whose history does (from 2025-04-28,
+every 2 weeks, futures ending by 2025-08-31). Rules here work on weeks; the shared panel uses day-level S4. The truth is the raw (clean) future. Baselines are built from the corrected
 history. If a rule is right, last-year-based forecasts of clean weeks should improve.
 Usage: python src/anomaly/run_anomaly_correction.py <codex_root> <out_dir>
 """
@@ -26,7 +26,7 @@ import panel as P
 ROOT, OUT = sys.argv[1], sys.argv[2]
 os.makedirs(OUT, exist_ok=True)
 H, LAG = P.H, P.LAG
-weeks, dongs, W = P.load_weekly_extended(ROOT)
+weeks, dongs, W, _ = P.load_weekly_extended(ROOT)   # data to 2025-08 (P.DATA_END)
 n, N = W.shape
 anom_all = P.anomaly_mask(weeks)
 keep = P.size_floor(weeks, W)

@@ -1,4 +1,5 @@
-"""Re-run an experiment script with (a) data cut at 2025-08 and/or (b) S4 correction done on days.
+"""Written for commit a6ffc84 (before panel.py switched to the 2025-08 cutoff and day-level S4); run it
+from that commit. Re-run an experiment script with (a) data cut at 2025-08 and/or (b) S4 correction done on days.
 usage: python rerun.py <heat_dir> <script> <codex_root> <out_dir> <mode: cut|daily|cut+daily>"""
 import os, sys, runpy
 from datetime import date, timedelta

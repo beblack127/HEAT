@@ -39,66 +39,54 @@
     "2025-02-10": [
       "2024-02-19",
       "shifted"
-    ],
-    "2025-09-15": [
-      "2024-09-09",
-      "shifted"
-    ],
-    "2025-09-29": [
-      "2024-09-09",
-      "holiday"
-    ],
-    "2025-10-06": [
-      "2024-09-16",
-      "holiday"
     ]
   },
   "A_per_week": {
     "same": {
-      "weeks": 66,
-      "WAPE_t-52": 0.0943,
-      "WAPE_aligned": 0.0943,
-      "share_err_t-52": 0.0881,
-      "share_err_aligned": 0.0881
+      "weeks": 52,
+      "WAPE_t-52": 0.0868,
+      "WAPE_aligned": 0.0868,
+      "share_err_t-52": 0.0824,
+      "share_err_aligned": 0.0824
     },
     "shifted": {
-      "weeks": 5,
-      "WAPE_t-52": 0.1345,
-      "WAPE_aligned": 0.1027,
-      "share_err_t-52": 0.1228,
-      "share_err_aligned": 0.085
+      "weeks": 4,
+      "WAPE_t-52": 0.1184,
+      "WAPE_aligned": 0.0936,
+      "share_err_t-52": 0.1107,
+      "share_err_aligned": 0.0738
     },
     "holiday": {
-      "weeks": 5,
-      "WAPE_t-52": 0.1952,
-      "WAPE_aligned": 0.1253,
-      "share_err_t-52": 0.1684,
-      "share_err_aligned": 0.1164
+      "weeks": 3,
+      "WAPE_t-52": 0.1676,
+      "WAPE_aligned": 0.1141,
+      "share_err_t-52": 0.1366,
+      "share_err_aligned": 0.1002
     }
   },
   "B_13w_windows": {
     "all clean origins": {
-      "origins": 40,
-      "WAPE_t-52": 0.1101,
-      "WAPE_aligned": 0.104,
-      "share_WAPE_t-52": 0.1012,
-      "share_WAPE_aligned": 0.0956
+      "origins": 23,
+      "WAPE_t-52": 0.0902,
+      "WAPE_aligned": 0.0891,
+      "share_WAPE_t-52": 0.0843,
+      "share_WAPE_aligned": 0.0825
     },
     "windows with a holiday-related week": {
-      "origins": 22,
-      "WAPE_t-52": 0.1268,
-      "WAPE_aligned": 0.1157,
-      "share_WAPE_t-52": 0.1145,
-      "share_WAPE_aligned": 0.1043
+      "origins": 7,
+      "WAPE_t-52": 0.0958,
+      "WAPE_aligned": 0.0922,
+      "share_WAPE_t-52": 0.0861,
+      "share_WAPE_aligned": 0.0802
     }
   },
   "C_target": {
-    "origins_with_holiday_in_window": 22,
-    "spearman": 0.9718,
-    "top10_overlap": 0.9446,
-    "mean_abs_diff": 0.0145,
-    "mean_abs_g": 0.0865,
-    "top10_overlap_min": 0.875
+    "origins_with_holiday_in_window": 7,
+    "spearman": 0.9936,
+    "top10_overlap": 0.9643,
+    "mean_abs_diff": 0.0061,
+    "mean_abs_g": 0.071,
+    "top10_overlap_min": 0.9062
   },
   "C_by_origin": [
     {
@@ -149,111 +137,6 @@
       "top10_overlap": 0.96875,
       "mean_abs_diff": 0.004370023931295577,
       "mean_abs_g": 0.0719793361602609
-    },
-    {
-      "origin": "2025-06-16",
-      "spearman": 0.9803706265431655,
-      "top10_overlap": 0.96875,
-      "mean_abs_diff": 0.010472754338090435,
-      "mean_abs_g": 0.07983390225891275
-    },
-    {
-      "origin": "2025-06-23",
-      "spearman": 0.9813949721980648,
-      "top10_overlap": 0.9375,
-      "mean_abs_diff": 0.010436062564966004,
-      "mean_abs_g": 0.08194959135407283
-    },
-    {
-      "origin": "2025-06-30",
-      "spearman": 0.9509873927119208,
-      "top10_overlap": 0.9375,
-      "mean_abs_diff": 0.016996568777115813,
-      "mean_abs_g": 0.08492818149502583
-    },
-    {
-      "origin": "2025-07-07",
-      "spearman": 0.9544877068259298,
-      "top10_overlap": 0.875,
-      "mean_abs_diff": 0.019909027949598014,
-      "mean_abs_g": 0.09076575230024117
-    },
-    {
-      "origin": "2025-07-14",
-      "spearman": 0.9571913076527951,
-      "top10_overlap": 0.90625,
-      "mean_abs_diff": 0.01983744462606254,
-      "mean_abs_g": 0.09466919954301607
-    },
-    {
-      "origin": "2025-07-21",
-      "spearman": 0.9610207557805095,
-      "top10_overlap": 0.9375,
-      "mean_abs_diff": 0.019755118721571034,
-      "mean_abs_g": 0.10121848149358063
-    },
-    {
-      "origin": "2025-07-28",
-      "spearman": 0.9624798419410401,
-      "top10_overlap": 0.9375,
-      "mean_abs_diff": 0.01981443399674996,
-      "mean_abs_g": 0.10265216511226669
-    },
-    {
-      "origin": "2025-08-04",
-      "spearman": 0.9634870218764037,
-      "top10_overlap": 0.90625,
-      "mean_abs_diff": 0.019712339053854146,
-      "mean_abs_g": 0.1013614472525037
-    },
-    {
-      "origin": "2025-08-11",
-      "spearman": 0.9609308223368553,
-      "top10_overlap": 0.90625,
-      "mean_abs_diff": 0.01967352053073508,
-      "mean_abs_g": 0.0997807882135046
-    },
-    {
-      "origin": "2025-08-18",
-      "spearman": 0.9611248696011714,
-      "top10_overlap": 0.9375,
-      "mean_abs_diff": 0.01965128407764293,
-      "mean_abs_g": 0.09891853806045853
-    },
-    {
-      "origin": "2025-08-25",
-      "spearman": 0.9599214033945959,
-      "top10_overlap": 0.9375,
-      "mean_abs_diff": 0.01983977117846959,
-      "mean_abs_g": 0.09778334094518713
-    },
-    {
-      "origin": "2025-09-01",
-      "spearman": 0.9580096646732664,
-      "top10_overlap": 0.90625,
-      "mean_abs_diff": 0.019890995159796313,
-      "mean_abs_g": 0.09429797450167571
-    },
-    {
-      "origin": "2025-09-08",
-      "spearman": 0.956014336361155,
-      "top10_overlap": 0.96875,
-      "mean_abs_diff": 0.01977633085586153,
-      "mean_abs_g": 0.09317192637194843
-    },
-    {
-      "origin": "2025-09-15",
-      "spearman": 0.9594086708154221,
-      "top10_overlap": 0.96875,
-      "mean_abs_diff": 0.01996101330010425,
-      "mean_abs_g": 0.09370190001429388
-    },
-    {
-      "origin": "2025-09-22",
-      "spearman": 0.9572674338872575,
-      "top10_overlap": 1.0,
-      "mean_abs_diff": 0.02005568945591694,
-      "mean_abs_g": 0.09176344880667398
     }
   ]
 }
