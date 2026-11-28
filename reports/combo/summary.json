@@ -1,0 +1,220 @@
+{
+  "dongs": 318,
+  "common_origins": [
+    "2025-04-28",
+    "2025-05-05",
+    "2025-05-12",
+    "2025-05-19",
+    "2025-05-26",
+    "2025-06-02",
+    "2025-06-09",
+    "2025-06-16",
+    "2025-06-23"
+  ],
+  "by_h": {
+    "4": {
+      "test_origins": 31,
+      "first_last": [
+        "2025-04-28",
+        "2025-11-24"
+      ],
+      "train_origins_range": [
+        54,
+        84
+      ],
+      "combo_coef_mean": {
+        "momentum_13w": 0.178,
+        "change_4w": 0.671,
+        "slope_13w": 0.038,
+        "slope_26w": 0.007,
+        "log_size": 0.008
+      },
+      "momentum": {
+        "spearman": 0.65,
+        "emerging_P@10": 0.608,
+        "common_spearman": 0.696,
+        "common_P@10": 0.715
+      },
+      "change_4w": {
+        "spearman": 0.745,
+        "emerging_P@10": 0.675,
+        "common_spearman": 0.832,
+        "common_P@10": 0.799
+      },
+      "combo (5 features)": {
+        "spearman": 0.739,
+        "emerging_P@10": 0.678,
+        "common_spearman": 0.815,
+        "common_P@10": 0.802
+      },
+      "combo without size": {
+        "spearman": 0.743,
+        "emerging_P@10": 0.682,
+        "common_spearman": 0.82,
+        "common_P@10": 0.812
+      },
+      "combo_beats_momentum": {
+        "spearman": 28,
+        "P@10_better_equal_worse": [
+          27,
+          4,
+          0
+        ],
+        "of": 31
+      }
+    },
+    "8": {
+      "test_origins": 27,
+      "first_last": [
+        "2025-04-28",
+        "2025-10-27"
+      ],
+      "train_origins_range": [
+        50,
+        76
+      ],
+      "combo_coef_mean": {
+        "momentum_13w": 0.225,
+        "change_4w": 0.608,
+        "slope_13w": 0.031,
+        "slope_26w": 0.01,
+        "log_size": 0.02
+      },
+      "momentum": {
+        "spearman": 0.619,
+        "emerging_P@10": 0.58,
+        "common_spearman": 0.675,
+        "common_P@10": 0.674
+      },
+      "change_4w": {
+        "spearman": 0.698,
+        "emerging_P@10": 0.653,
+        "common_spearman": 0.813,
+        "common_P@10": 0.774
+      },
+      "combo (5 features)": {
+        "spearman": 0.687,
+        "emerging_P@10": 0.656,
+        "common_spearman": 0.784,
+        "common_P@10": 0.771
+      },
+      "combo without size": {
+        "spearman": 0.697,
+        "emerging_P@10": 0.657,
+        "common_spearman": 0.797,
+        "common_P@10": 0.771
+      },
+      "combo_beats_momentum": {
+        "spearman": 24,
+        "P@10_better_equal_worse": [
+          25,
+          2,
+          0
+        ],
+        "of": 27
+      }
+    },
+    "13": {
+      "test_origins": 22,
+      "first_last": [
+        "2025-04-28",
+        "2025-09-22"
+      ],
+      "train_origins_range": [
+        45,
+        66
+      ],
+      "combo_coef_mean": {
+        "momentum_13w": 0.256,
+        "change_4w": 0.552,
+        "slope_13w": 0.017,
+        "slope_26w": 0.024,
+        "log_size": 0.041
+      },
+      "momentum": {
+        "spearman": 0.562,
+        "emerging_P@10": 0.536,
+        "common_spearman": 0.598,
+        "common_P@10": 0.611
+      },
+      "change_4w": {
+        "spearman": 0.673,
+        "emerging_P@10": 0.598,
+        "common_spearman": 0.747,
+        "common_P@10": 0.701
+      },
+      "combo (5 features)": {
+        "spearman": 0.64,
+        "emerging_P@10": 0.592,
+        "common_spearman": 0.698,
+        "common_P@10": 0.688
+      },
+      "combo without size": {
+        "spearman": 0.663,
+        "emerging_P@10": 0.601,
+        "common_spearman": 0.727,
+        "common_P@10": 0.691
+      },
+      "combo_beats_momentum": {
+        "spearman": 21,
+        "P@10_better_equal_worse": [
+          13,
+          7,
+          2
+        ],
+        "of": 22
+      }
+    },
+    "26": {
+      "test_origins": 9,
+      "first_last": [
+        "2025-04-28",
+        "2025-06-23"
+      ],
+      "train_origins_range": [
+        32,
+        40
+      ],
+      "combo_coef_mean": {
+        "momentum_13w": 0.076,
+        "change_4w": 0.595,
+        "slope_13w": -0.008,
+        "slope_26w": 0.095,
+        "log_size": 0.111
+      },
+      "momentum": {
+        "spearman": 0.408,
+        "emerging_P@10": 0.451,
+        "common_spearman": 0.408,
+        "common_P@10": 0.451
+      },
+      "change_4w": {
+        "spearman": 0.553,
+        "emerging_P@10": 0.507,
+        "common_spearman": 0.553,
+        "common_P@10": 0.507
+      },
+      "combo (5 features)": {
+        "spearman": 0.464,
+        "emerging_P@10": 0.458,
+        "common_spearman": 0.464,
+        "common_P@10": 0.458
+      },
+      "combo without size": {
+        "spearman": 0.551,
+        "emerging_P@10": 0.507,
+        "common_spearman": 0.551,
+        "common_P@10": 0.507
+      },
+      "combo_beats_momentum": {
+        "spearman": 9,
+        "P@10_better_equal_worse": [
+          4,
+          2,
+          3
+        ],
+        "of": 9
+      }
+    }
+  }
+}

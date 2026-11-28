@@ -133,6 +133,23 @@ def anomaly_mask(weeks, names=None):
     return np.array([any(ANOMALIES[k][0] <= w <= ANOMALIES[k][1] for k in names) for w in weeks])
 
 
+def correct_s4(weeks, W):
+    """Rule S4 from src/anomaly: divide each anomaly window by the per-dong factor pulled halfway (in logs)
+    toward the Seoul factor. Factor = observed / (same weeks a year earlier x YoY ratio of the up-to-8 clean
+    weeks before the window). Windows are corrected in time order."""
+    anom = anomaly_mask(weeks)
+    C = W.copy()
+    for a, b in ANOMALIES.values():
+        rows = np.array([i for i, w in enumerate(weeks) if a <= w <= b])
+        pre = [i for i in range(rows[0] - 1, -1, -1) if not anom[i] and i - LAG >= 0][:8]
+        r_d = C[pre].sum(0) / C[[i - LAG for i in pre]].sum(0)
+        r_s = C[pre].sum() / C[[i - LAG for i in pre]].sum()
+        f_d = C[rows].sum(0) / (C[rows - LAG] * r_d).sum(0)
+        f_s = C[rows].sum() / (C[rows - LAG].sum() * r_s)
+        C[rows] /= np.exp(0.5 * np.log(f_d) + 0.5 * np.log(f_s))
+    return C
+
+
 def load_weekly_extended(root):
     """Weekly mean of daily arrivals (20-39, purposes 4+5+7), 2023-01-02 .. 2025-12-22.
     Up to 2025-08-25: built here from the daily files. 2025-09-01 onward: 준혁's explorer
